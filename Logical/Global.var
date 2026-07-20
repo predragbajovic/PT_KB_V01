@@ -1,0 +1,9 @@
+VAR
+	Predata_Snaga : REAL;
+	DP_Izmejnivac : REAL;
+	DP_strainer : REAL;
+	PG : PG_type; (* Korenski objekat podstanice - Podstanica grejanja 1, Kursumlijska Banja. Sadrzi sve aktuatore (Act) i senzore (Sens). *)
+	NivoPRihvatniSud : REAL;
+	PID_Pu_01 : MTBasicsPID;
+	startPIDPu1 : BOOL;
+END_VAR

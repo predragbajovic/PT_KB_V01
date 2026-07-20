@@ -1,0 +1,10 @@
+VAR
+	Pu1_1_plus : BOOL;
+	Pu1_01_plus : BOOL;
+	Pu1_1_minus : BOOL;
+	Pu1_01_minus : BOOL;
+	Pu2_1_plus : BOOL;
+	Pu2_01_plus : BOOL;
+	Pu2_1_minus : BOOL;
+	Pu2_01_minus : BOOL;
+END_VAR

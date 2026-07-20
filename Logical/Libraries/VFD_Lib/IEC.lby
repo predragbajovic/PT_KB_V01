@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Library Version="6.03.0" SubType="IEC" xmlns="http://br-automation.co.at/AS/Library">
+  <Files>
+    <File Description="Exported data types">Types.typ</File>
+    <File Description="Exported constants">Constants.var</File>
+    <File Description="Exported functions and function blocks">VFD_Lib.fun</File>
+    <File>fbCheckStateCanOpenENC.st</File>
+    <File>fbControlCanOpenENC.st</File>
+    <File>fbCheckStateCanOpenATV.st</File>
+    <File>fbControlCanOpenATV.st</File>
+    <File>vfdMain.st</File>
+  </Files>
+</Library>
