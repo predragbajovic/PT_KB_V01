@@ -9,6 +9,7 @@
     <File>FB_EH_Flow.st</File>
     <File>FB_HV_2LS.st</File>
     <File>FB_V_ON_OFF_FB.st</File>
+    <File>FB_V_EMV.st</File>
     <File>FBAI01_DI01.st</File>
     <File>FBAI01_DI01_DO2.st</File>
     <File>FB_PvAiAo_Fast.st</File>

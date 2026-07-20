@@ -1,4 +1,4 @@
-(* ============================================================================ *)
+﻿(* ============================================================================ *)
 (* BR_LIB - SVE FB VAR DEKLARACIJE (B&R Automation Studio stil)                *)
 (* Sadrzi samo deklaracije interfejsa i internih varijabli po FUNCTION_BLOCK-u. *)
 (* Bez implementacione logike.                                                  *)
@@ -51,6 +51,7 @@ VAR_INPUT
 	Open : BOOL; (* Komandni zahtev: TRUE otvori, FALSE zatvori *)
 	V_Input : typInVOnOff; (* Deklaracija ulazne strukture bloka FB_V_ON_OFF_FB. *)
 	V_Param : typParVOnOff := (
+		DeEnergizedOpen := FALSE,
 		FbOpenExists := TRUE,
 		FbCloseExists := TRUE,
 		OpenMinTime := T#1s,
@@ -61,8 +62,8 @@ VAR_INPUT
 	);
 END_VAR
 VAR_OUTPUT
-	Opened : BOOL; (* Cista potvrda otvorenog stanja: OpenFb=1 i CloseFb=0 *)
-	Closed : BOOL; (* Cista potvrda zatvorenog stanja: CloseFb=1 i OpenFb=0 *)
+	Opened : BOOL; (* Otvoren polozaj koji FB koristi: fizicki potvrdjen ili vremenski pretpostavljen. *)
+	Closed : BOOL; (* Zatvoren polozaj koji FB koristi: fizicki potvrdjen ili vremenski pretpostavljen. *)
 	V_Output : typOutVOnOff; (* Deklaracija izlazne strukture bloka FB_V_ON_OFF_FB. *)
 END_VAR
 VAR
@@ -71,12 +72,45 @@ VAR
 END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK FB_V_EMV (* Elektromotorni ventil sa odvojenim OPEN/CLOSE komandama. *) (* Deklaracija interfejsa FUNCTION_BLOCK FB_V_EMV. *)
+VAR_INPUT
+	Open : BOOL; (* Automatski zahtev polozaja: TRUE = OPEN, FALSE = CLOSE. *)
+	V_Input : typInVEmv; (* Deklaracija ulazne strukture bloka FB_V_EMV. *)
+	V_Param : typParVEmv := (
+		LampOpenExists := TRUE,
+		LampCloseExists := TRUE,
+		OpenFbExists := TRUE,
+		CloseFbExists := TRUE,
+		OverTorqueExists := FALSE,
+		UnexpectedOpenLimitCheck := FALSE,
+		UnexpectedCloseLimitCheck := FALSE,
+		OpenMaxTime := T#30s,
+		CloseMaxTime := T#30s,
+		DeadTime := T#500ms,
+		EndLimitFilterTime := T#50ms,
+		PositionFbFilterTime := T#100ms,
+		OverTorqueFilterTime := T#20ms,
+		PositionConfirmTime := T#1s,
+		StableFbLossTime := T#0ms
+	); (* Parametri konfiguracije, nadzora i filtracije FB_V_EMV. *)
+END_VAR
+VAR_OUTPUT
+	Opened : BOOL; (* Cista fizicka potvrda otvorenog polozaja. *)
+	Closed : BOOL; (* Cista fizicka potvrda zatvorenog polozaja. *)
+	V_Output : typOutVEmv; (* Deklaracija izlazne strukture bloka FB_V_EMV. *)
+END_VAR
+VAR
+	Internal : typIntVEmv; (* Deklaracija interne strukture bloka FB_V_EMV. *)
+	Cfg : typCfgVEmv; (* Deklaracija konfiguracione strukture bloka FB_V_EMV. *)
+END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK FB_HV_2LS (* Rucni ventil sa dva krajnja prekidaca *) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*) (* Deklaracija interfejsa FUNCTION_BLOCK FB_HV_2LS. *)
 VAR_INPUT
 	HV_Input : typInHV2LS; (* Deklaracija ulazne strukture bloka FB_HV_2LS. *)
 	HV_Param : typParHV2LS := (
-		T_OpenClose_SP := 30.0,
-		T_BothActive_SP := 0.5
+		TransitionMaxTime := T#30s,
+		BothActiveFilterTime := T#500ms
 	); (* Deklaracija parametarske strukture bloka FB_HV_2LS. *)
 END_VAR
 VAR_OUTPUT

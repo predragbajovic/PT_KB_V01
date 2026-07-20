@@ -1,157 +1,173 @@
 FUNCTION_BLOCK FB_HV_2LS (* Rucni ventil sa dva krajnja prekidaca *)
 
-(* ============================================================ *)
-(* 1) Validacija parametara                                      *)
-(* ============================================================ *)
-(* Konverzija REAL sekundi u TIME milisekundi sa bezbednim default-om. *)
-IF HV_Param.T_OpenClose_SP <= 0.0 THEN
+(* -------------------------------------------------------------------------- *)
+(* 1) Sirovi DI uslovi i validnost polozaja                                   *)
+(* -------------------------------------------------------------------------- *)
+Internal.BothActiveRaw := HV_Input.CloseFb AND HV_Input.OpenFb;
+Internal.TransitionRaw := (NOT HV_Input.CloseFb) AND (NOT HV_Input.OpenFb);
+
+HV_Output.Closed := HV_Input.CloseFb AND (NOT HV_Input.OpenFb);
+HV_Output.Opened := HV_Input.OpenFb AND (NOT HV_Input.CloseFb);
+HV_Output.Intermediate := Internal.TransitionRaw;
+HV_Output.FeedbackConflict := Internal.BothActiveRaw;
+HV_Output.PositionValid := HV_Output.Opened XOR HV_Output.Closed;
+
+(* -------------------------------------------------------------------------- *)
+(* 2) Validacija parametara                                                   *)
+(* -------------------------------------------------------------------------- *)
+Internal.ConfigValid := TRUE;
+Internal.ConfigFaultText := 'CONFIG_OK';
+
+Cfg.T_OpenClose_Valid := HV_Param.TransitionMaxTime;
+Cfg.T_BothActive_Valid := HV_Param.BothActiveFilterTime;
+
+IF HV_Param.TransitionMaxTime <= T#0ms THEN
+	Internal.ConfigValid := FALSE;
+	Internal.ConfigFaultText := 'TransitionMaxTime mora biti vece od T#0ms';
 	Cfg.T_OpenClose_Valid := T#10s;
-ELSE
-	Cfg.T_OpenClose_Valid := DINT_TO_TIME(REAL_TO_DINT(HV_Param.T_OpenClose_SP * 1000.0));
 END_IF;
 
-IF HV_Param.T_BothActive_SP <= 0.0 THEN
+IF HV_Param.BothActiveFilterTime < T#0ms THEN
+	Internal.ConfigValid := FALSE;
+	IF Internal.ConfigFaultText = 'CONFIG_OK' THEN
+		Internal.ConfigFaultText := 'BothActiveFilterTime ne sme biti negativan';
+	END_IF;
 	Cfg.T_BothActive_Valid := T#500ms;
-ELSE
-	Cfg.T_BothActive_Valid := DINT_TO_TIME(REAL_TO_DINT(HV_Param.T_BothActive_SP * 1000.0));
 END_IF;
 
-(* ============================================================ *)
-(* 2) Enable logika i resetovanje pri deaktivaciji               *)
-(* ============================================================ *)
-IF NOT HV_Input.Enable THEN
-	Internal.Step := Cfg.ST_DISABLED;
-	Internal.FaultLatched := FALSE;
-	Internal.FaultCondition := FALSE;
-	Internal.FaultCode := Cfg.FLT_NONE;
-END_IF;
-
-(* ============================================================ *)
-(* 3) Evaluacija fault uslova (samo kada je Enable=TRUE)          *)
-(* ============================================================ *)
-IF HV_Input.Enable THEN
-	(* Sirovi fizicki uslovi za proveru tokom latch-a. *)
-	Internal.BothActiveRaw := HV_Input.CloseFb AND HV_Input.OpenFb;
-	Internal.TransitionRaw := NOT HV_Input.CloseFb AND NOT HV_Input.OpenFb;
-
-	Internal.FaultCondition := FALSE;
-
-	(* Tajmerski potvrdjeni uslovi se uvek evaluiraju, bez obzira na latch. *)
-	(* Novi alarm prepisuje prethodni ako prethodni nije aknowledgovan.     *)
-	(* Prioritet: Stanje 5 (oba aktivna) je iznad Stanja 4 (tranzicija timeout). *)
-	IF Internal.TonBothActive.Q THEN
-		Internal.FaultCondition := TRUE;
-		Internal.FaultCode := Cfg.FLT_BOTH_ACTIVE;
-	ELSIF Internal.TonTransition.Q THEN
-		Internal.FaultCondition := TRUE;
-		Internal.FaultCode := Cfg.FLT_TRANSITION_TIMEOUT;
-	END_IF;
-
-	(* Kada je latch aktivan ali tajmeri nisu aktivni, FaultCondition se odrzava *)
-	(* na osnovu fizickog signala i tekuceg FaultCode-a.                         *)
-	(* Ovo sprecava reset dok fizicki uzrok nije otklonjen.                      *)
-	IF Internal.FaultLatched AND NOT Internal.FaultCondition THEN
-		IF (Internal.FaultCode = Cfg.FLT_BOTH_ACTIVE) AND Internal.BothActiveRaw THEN
-			Internal.FaultCondition := TRUE;
-		END_IF;
-		IF (Internal.FaultCode = Cfg.FLT_TRANSITION_TIMEOUT) AND Internal.TransitionRaw THEN
-			Internal.FaultCondition := TRUE;
-		END_IF;
-	END_IF;
-
-	(* Latch: jednom aktivan, ostaje do validnog reset-a. *)
-	IF Internal.FaultCondition AND NOT Internal.FaultLatched THEN
-		Internal.FaultLatched := TRUE;
-	END_IF;
-
-	(* Reset: dozvoljen samo kada trenutno nema aktivnog fault uslova (fizicki uzrok otklonjen). *)
-	IF HV_Input.ResetAlarm AND NOT Internal.FaultCondition THEN
-		Internal.FaultLatched := FALSE;
-		Internal.FaultCode := Cfg.FLT_NONE;
-	END_IF;
-
-	(* ============================================================ *)
-	(* 4) Odredjivanje stanja na osnovu DI signala i fault-a        *)
-	(* Step uvek prati trenutno fizicko stanje DI signala.          *)
-	(* Alarm state (4/5) se prikazuje samo dok je FaultCondition    *)
-	(* aktivna (fizicki uzrok prisutan). Kada uzrok nestane,        *)
-	(* Step se vraca na 1/2/3 - AlarmLatched i FaultText ostaju    *)
-	(* jednoznacni pokazatelj da alarm ceka potvrdu.                *)
-	(* ============================================================ *)
-	IF Internal.FaultCondition THEN
-		(* Aktivni fizicki fault uslov -> alarm state. *)
-		IF Internal.FaultCode = Cfg.FLT_BOTH_ACTIVE THEN
-			Internal.Step := Cfg.ST_FLT_BOTH_ACTIVE;
-		ELSE
-			Internal.Step := Cfg.ST_FLT_TRANSITION_TIMEOUT;
-		END_IF;
-	ELSIF HV_Input.CloseFb AND NOT HV_Input.OpenFb THEN
-		Internal.Step := Cfg.ST_CLOSED;
-	ELSIF NOT HV_Input.CloseFb AND HV_Input.OpenFb THEN
-		Internal.Step := Cfg.ST_OPEN;
-	ELSIF Internal.TransitionRaw THEN
-		Internal.Step := Cfg.ST_TRANSITION;
-	ELSIF Internal.BothActiveRaw THEN
-		(* Oba signala aktivna ali tajmer jos nije istekao - zadrzava se prethodno stanje. *)
-		(* Implicitno: Internal.Step se ne menja, filtriranje suma. *)
-	END_IF;
-END_IF;
-
-(* ============================================================ *)
-(* 5) Tajmeri                                                     *)
-(* ============================================================ *)
-(* Tranzicioni tajmer: aktivan samo kad ni jedan DI nije aktivan i nema latched fault-a. *)
-Internal.TonTransition.IN := HV_Input.Enable AND Internal.TransitionRaw AND NOT Internal.FaultLatched;
+(* -------------------------------------------------------------------------- *)
+(* 3) Tajmeri uslova                                                           *)
+(* -------------------------------------------------------------------------- *)
+Internal.TonTransition.IN := HV_Input.Enable AND Internal.ConfigValid AND Internal.TransitionRaw;
 Internal.TonTransition.PT := Cfg.T_OpenClose_Valid;
 
-(* Debounce tajmer za oba signala: aktivan samo kad su oba DI aktivna i nema latched fault-a. *)
-Internal.TonBothActive.IN := HV_Input.Enable AND Internal.BothActiveRaw AND NOT Internal.FaultLatched;
+Internal.TonBothActive.IN := HV_Input.Enable AND Internal.ConfigValid AND Internal.BothActiveRaw;
 Internal.TonBothActive.PT := Cfg.T_BothActive_Valid;
 
-(* TON instance se pozivaju na kraju sekcije, nakon azuriranja IN/PT polja. *)
 Internal.TonTransition();
 Internal.TonBothActive();
 
-(* ============================================================ *)
-(* 6) Tekstovi stanja i alarma za HMI                            *)
-(* ============================================================ *)
-CASE Internal.Step OF
-	0: (* ST_DISABLED *)
-		HV_Output.State_comment := 'Stanje 0: Blok neaktivan';
-	1: (* ST_CLOSED *)
-		HV_Output.State_comment := 'Stanje 1: Aktivan - zatvoren';
-	2: (* ST_OPEN *)
-		HV_Output.State_comment := 'Stanje 2: Aktivan - otvoren';
-	3: (* ST_TRANSITION *)
-		HV_Output.State_comment := 'Stanje 3: Aktivan - u tranziciji';
-	4: (* ST_FLT_TRANSITION_TIMEOUT *)
-		HV_Output.State_comment := 'Stanje 4: Predugo u medjupolozaju (Alarm)';
-	5: (* ST_FLT_BOTH_ACTIVE *)
-		HV_Output.State_comment := 'Stanje 5: Aktivna oba signala (Alarm)';
+(* -------------------------------------------------------------------------- *)
+(* 4) Trenutni aktivni uslov (real-time)                                      *)
+(* -------------------------------------------------------------------------- *)
+Internal.ActiveConditionCode := Cfg.ACT_NONE;
+Internal.FaultCondition := FALSE;
+
+IF HV_Input.Enable THEN
+	IF NOT Internal.ConfigValid THEN
+		Internal.ActiveConditionCode := Cfg.ACT_CONFIG_INVALID;
+		Internal.FaultCondition := TRUE;
+	ELSIF Internal.TonBothActive.Q THEN
+		Internal.ActiveConditionCode := Cfg.ACT_BOTH_ACTIVE;
+		Internal.FaultCondition := TRUE;
+	ELSIF Internal.TonTransition.Q THEN
+		Internal.ActiveConditionCode := Cfg.ACT_TRANSITION_TIMEOUT;
+		Internal.FaultCondition := TRUE;
+	END_IF;
+END_IF;
+
+(* -------------------------------------------------------------------------- *)
+(* 5) Latch i reset politika                                                   *)
+(* -------------------------------------------------------------------------- *)
+IF HV_Input.Enable AND Internal.FaultCondition THEN
+	IF NOT Internal.FaultLatched THEN
+		CASE Internal.ActiveConditionCode OF
+			1: Internal.FaultCode := Cfg.FLT_TRANSITION_TIMEOUT;
+			2: Internal.FaultCode := Cfg.FLT_BOTH_ACTIVE;
+			3: Internal.FaultCode := Cfg.FLT_CONFIG_INVALID;
+		ELSE
+			Internal.FaultCode := Cfg.FLT_NONE;
+		END_CASE;
+	END_IF;
+	Internal.FaultLatched := TRUE;
+END_IF;
+
+Internal.ResetAllowed := HV_Input.Enable AND Internal.ConfigValid AND
+	Internal.FaultLatched AND (NOT Internal.FaultCondition) AND HV_Output.PositionValid;
+
+IF HV_Input.ResetAlarm AND Internal.ResetAllowed THEN
+	Internal.FaultLatched := FALSE;
+	Internal.FaultCode := Cfg.FLT_NONE;
+END_IF;
+
+(* -------------------------------------------------------------------------- *)
+(* 6) State mapiranje                                                           *)
+(* -------------------------------------------------------------------------- *)
+IF NOT HV_Input.Enable THEN
+	Internal.Step := Cfg.ST_DISABLED;
+ELSIF Internal.BothActiveRaw THEN
+	(* Fizicki konflikt se prikazuje odmah; alarm je debounced preko TonBothActive. *)
+	Internal.Step := Cfg.ST_FLT_BOTH_ACTIVE;
+ELSIF Internal.TransitionRaw THEN
+	IF Internal.TonTransition.Q THEN
+		Internal.Step := Cfg.ST_FLT_TRANSITION_TIMEOUT;
+	ELSE
+		Internal.Step := Cfg.ST_TRANSITION;
+	END_IF;
+ELSIF HV_Output.Closed THEN
+	Internal.Step := Cfg.ST_CLOSED;
+ELSIF HV_Output.Opened THEN
+	Internal.Step := Cfg.ST_OPEN;
 ELSE
-	HV_Output.State_comment := 'Nepoznato stanje';
+	Internal.Step := Cfg.ST_TRANSITION;
+END_IF;
+
+(* -------------------------------------------------------------------------- *)
+(* 7) Tekstovi stanja i dijagnostike                                           *)
+(* -------------------------------------------------------------------------- *)
+CASE Internal.Step OF
+	0: HV_Output.State_comment := 'Stanje 0: Blok neaktivan';
+	1: HV_Output.State_comment := 'Stanje 1: Ventil zatvoren';
+	2: HV_Output.State_comment := 'Stanje 2: Ventil otvoren';
+	3: HV_Output.State_comment := 'Stanje 3: Ventil u medjupolozaju';
+	4: HV_Output.State_comment := 'Stanje 4: Medjupolozaj traje predugo';
+	5: HV_Output.State_comment := 'Stanje 5: Oba krajnja signala aktivna';
+ELSE
+	HV_Output.State_comment := 'Stanje ?: Nepoznato stanje';
 END_CASE;
 
 CASE Internal.FaultCode OF
-	0: (* FLT_NONE *)
-		HV_Output.FaultText := 'FLT_NONE - nema aktivnog alarma';
-	1: (* FLT_TRANSITION_TIMEOUT *)
-		HV_Output.FaultText := 'FLT_TRANSITION_TIMEOUT - ventil predugo u medjupolozaju';
-	2: (* FLT_BOTH_ACTIVE *)
-		HV_Output.FaultText := 'FLT_BOTH_ACTIVE - oba krajnja prekidaca aktivna';
+	0: HV_Output.FaultText := 'FLT_NONE - nema memorisanog alarma';
+	1: HV_Output.FaultText := 'FLT_TRANSITION_TIMEOUT - medjupolozaj predugo traje';
+	2: HV_Output.FaultText := 'FLT_BOTH_ACTIVE - oba krajnja prekidaca su aktivna';
+	3: HV_Output.FaultText := 'FLT_CONFIG_INVALID - nevalidna konfiguracija parametara';
 ELSE
-	HV_Output.FaultText := 'FLT_UNKNOWN - nepoznat uzrok alarma';
+	HV_Output.FaultText := 'FLT_UNKNOWN - nepoznat memorisani kod';
 END_CASE;
 
-(* ============================================================ *)
-(* 7) Mapiranje izlaza                                            *)
-(* ============================================================ *)
-(* Status FALSE samo kada je blok ugasen ili kada je alarm fizicki aktivan. *)
-(* Kada fizicki uzrok nestane ali alarm ceka ACK, Status je TRUE.           *)
-HV_Output.Status := HV_Input.Enable AND NOT Internal.FaultCondition;
+IF NOT HV_Input.Enable THEN
+	HV_Output.Diag := 'DISABLED';
+ELSIF NOT Internal.ConfigValid THEN
+	HV_Output.Diag := 'CONFIG_INVALID';
+ELSIF Internal.ActiveConditionCode = Cfg.ACT_BOTH_ACTIVE THEN
+	HV_Output.Diag := 'BOTH_ACTIVE_ALARM';
+ELSIF Internal.ActiveConditionCode = Cfg.ACT_TRANSITION_TIMEOUT THEN
+	HV_Output.Diag := 'TRANSITION_TIMEOUT_ALARM';
+ELSIF Internal.FaultLatched THEN
+	HV_Output.Diag := 'ALARM_LATCHED_WAIT_RESET';
+ELSIF Internal.BothActiveRaw THEN
+	HV_Output.Diag := 'BOTH_ACTIVE_PENDING';
+ELSIF Internal.TransitionRaw THEN
+	HV_Output.Diag := 'TRANSITION_TIMING';
+ELSIF HV_Output.Closed THEN
+	HV_Output.Diag := 'READY_CLOSED';
+ELSIF HV_Output.Opened THEN
+	HV_Output.Diag := 'READY_OPEN';
+ELSE
+	HV_Output.Diag := 'STATE_UNDEFINED';
+END_IF;
+
+(* -------------------------------------------------------------------------- *)
+(* 8) Izlazi                                                                    *)
+(* -------------------------------------------------------------------------- *)
+HV_Output.Status := HV_Input.Enable AND Internal.ConfigValid;
 HV_Output.State := Internal.Step;
 HV_Output.AlarmActive := Internal.FaultCondition;
 HV_Output.AlarmLatched := Internal.FaultLatched;
 HV_Output.FaultCode := Internal.FaultCode;
+HV_Output.ActiveConditionCode := Internal.ActiveConditionCode;
+HV_Output.ConfigValid := Internal.ConfigValid;
+HV_Output.ConfigFaultText := Internal.ConfigFaultText;
+HV_Output.ResetAllowed := Internal.ResetAllowed;
 
 END_FUNCTION_BLOCK

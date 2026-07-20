@@ -1,4 +1,4 @@
-FUNCTION_BLOCK FB_PvAoNoFb
+﻿FUNCTION_BLOCK FB_PvAoNoFb
 
 (* -------------------------------------------------------------------------- *)
 (* 1) Osnovni statusi i izbor rezima                                           *)

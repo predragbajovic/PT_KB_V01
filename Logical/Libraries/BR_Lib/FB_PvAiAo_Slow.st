@@ -1,4 +1,4 @@
-(* SLOW VARIJANTA: Za elektromotorne ventile sa sporim odzivom (30-180 s). *)
+﻿(* SLOW VARIJANTA: Za elektromotorne ventile sa sporim odzivom (30-180 s). *)
 (* Implementirana logika: trenutna komanda + nadzor fizickog pracenja ventila. *)
 
 (*

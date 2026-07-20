@@ -1,4 +1,4 @@
-FUNCTION_BLOCK FB_PvAiAo_Fast
+﻿FUNCTION_BLOCK FB_PvAiAo_Fast
 
 (* Preporuka za commissioning (nije automatsko prepisivanje parametara):
 	DeviationOnLimit = 8.0

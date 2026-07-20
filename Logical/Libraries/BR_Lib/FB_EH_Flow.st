@@ -1,4 +1,4 @@
-FUNCTION_BLOCK FB_EH_Flow (*TODO: FB za upravljanje elektricnim grejacima*) (*$GROUP=Pedja,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+﻿FUNCTION_BLOCK FB_EH_Flow (*TODO: FB za upravljanje elektricnim grejacima*) (*$GROUP=Pedja,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 
 (* ============================================================ *)
 (* 1) Inicijalizacija parametara pri rising-edge signala Enable *)
@@ -56,8 +56,37 @@ ELSIF EH_Internal.NumHeaters_Valid > EH_Constant.MAX_HEATERS THEN
 	EH_Internal.NumHeaters_Valid := EH_Constant.MAX_HEATERS;
 END_IF;
 
+(* -------------------------------------------------------------------------- *)
+(* 5) Validacija konfiguracije                                                 *)
+(* -------------------------------------------------------------------------- *)
+EH_Internal.ConfigValid := TRUE;
+EH_Internal.ConfigFaultText := 'CONFIG_OK';
+
+IF (EH_Param.OutputType <> 0) AND (EH_Param.OutputType <> 1) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'OutputType mora biti 0 (analog) ili 1 (PWM)';
+ELSIF (EH_Param.OutputType = 0) AND (EH_Param.AnalogMin > EH_Param.AnalogMax) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'AnalogMin ne sme biti veci od AnalogMax';
+ELSIF (EH_Param.OutputType = 1) AND (EH_Internal.NumHeaters_Valid <= 0) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'PWM zahteva najmanje jedan grejac';
+ELSIF (EH_Param.OutputType = 1) AND (EH_Param.PWM_Width <= 0.0) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'PWM_Width mora biti veci od 0.0';
+ELSIF (EH_Param.OutputType = 1) AND (EH_Param.ScanTime <= 0.0) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'ScanTime mora biti veci od 0.0 za PWM';
+ELSIF EH_Param.HeaterPower < 0.0 THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'HeaterPower ne sme biti negativan';
+ELSIF EH_Param.ActiveFlowMeter AND (EH_Param.FlowNominal <= 0.0) THEN
+	EH_Internal.ConfigValid := FALSE;
+	EH_Internal.ConfigFaultText := 'FlowNominal mora biti veci od 0.0 uz protokomer';
+END_IF;
+
 (* =============================================== *)
-(* 5) Glavna logika kada je blok omogucen (Enable) *)
+(* 6) Glavna logika kada je blok omogucen (Enable) *)
 (* =============================================== *)
 IF EH_Input.Enable THEN
 	(* Provera protoka *)
@@ -77,7 +106,8 @@ IF EH_Input.Enable THEN
 		EH_Internal.Fault_Latched := TRUE;
 	END_IF;
 	
-	EH_Output.Alarm := EH_Internal.Timer_No_Flow.Q OR EH_Internal.Timer_Over_Temp.Q;
+	EH_Output.Alarm := (NOT EH_Internal.ConfigValid) OR
+		EH_Internal.Timer_No_Flow.Q OR EH_Internal.Timer_Over_Temp.Q;
 	IF EH_Internal.Fault_Latched THEN
 		EH_Output.Alarm := TRUE;
 	END_IF;
@@ -241,7 +271,9 @@ CASE EH_Output.Status OF
 	0:
 		EH_Output.StatusText := 'RUNNING_NORMAL';
 	1:
-		IF EH_Internal.Fault_Latched THEN
+		IF NOT EH_Internal.ConfigValid THEN
+			EH_Output.StatusText := 'ALARM_CONFIG';
+		ELSIF EH_Internal.Fault_Latched THEN
 			EH_Output.StatusText := 'ALARM_BREAKER_FB';
 		ELSIF EH_Internal.Timer_Over_Temp.Q THEN
 			EH_Output.StatusText := 'ALARM_OVER_TEMP';
@@ -269,6 +301,8 @@ IF EH_Output.Status = EH_Constant.STATUS_DISABLED THEN
 	EH_Output.AlarmCauseText := 'DISABLED_BY_ENABLE';
 ELSIF EH_Output.Status <> EH_Constant.STATUS_ALARM_OR_WAIT THEN
 	EH_Output.AlarmCauseText := 'NONE';
+ELSIF NOT EH_Internal.ConfigValid THEN
+	EH_Output.AlarmCauseText := 'CONFIG_INVALID';
 ELSIF EH_Internal.Fault_Latched THEN
 	EH_Output.AlarmCauseText := 'BREAKER_FB_LOST';
 ELSIF EH_Internal.Timer_Over_Temp.Q THEN
@@ -284,6 +318,9 @@ ELSIF (EH_Param.OutputType <> 0) AND (EH_Param.OutputType <> 1) THEN
 ELSE
 	EH_Output.AlarmCauseText := 'ALARM';
 END_IF;
+
+EH_Output.ConfigValid := EH_Internal.ConfigValid;
+EH_Output.ConfigFaultText := EH_Internal.ConfigFaultText;
 
 (* Standardni izlazi State i State_comment uskladjeni sa Status logikom. *)
 CASE EH_Output.Status OF

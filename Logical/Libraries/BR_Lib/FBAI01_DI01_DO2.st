@@ -1,4 +1,4 @@
-FUNCTION_BLOCK FBAI01_DI01_DO02 (* Skaliranje transmitera sa AI + status DI + 2 DO izbora opsega *) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+﻿FUNCTION_BLOCK FBAI01_DI01_DO02 (* Skaliranje transmitera sa AI + status DI + 2 DO izbora opsega *) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 
 (* -------------------------------------------------------------------------- *)
 (* 1) Podrazumevane vrednosti po scan-u                                        *)
