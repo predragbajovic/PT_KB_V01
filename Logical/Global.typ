@@ -33,8 +33,8 @@ TYPE
 		_4 : FB_PvAiAo_Fast; (* Odzracni ventil na ulazu termalne vode u prihvatni tank, DN025 NC *)
 	END_STRUCT;
 	PG_Act_AV_type : 	STRUCT  (* Automatski leptir ventili End Armaturen DN125, bistabilni i spring-return *)
-		_1 : FB_V_ON_OFF_FB; (* Elektromotorni bistabilni, CmdOpen + CmdClose, OpenMaxTime=30s *)
-		_2 : FB_V_ON_OFF_FB; (* Elektromotorni bistabilni, CmdOpen + CmdClose, OpenMaxTime=30s *)
+		_1 : FB_V_EMV; (* Elektromotorni bistabilni, CmdOpen + CmdClose, OpenMaxTime=30s *)
+		_2 : FB_V_EMV; (* Elektromotorni bistabilni, CmdOpen + CmdClose, OpenMaxTime=30s *)
 		_3 : FB_V_ON_OFF_FB; (* Pneumatski NC spring-return, samo CmdOpen, OpenMaxTime=10s *)
 		_4 : FB_V_ON_OFF_FB; (* Pneumatski NC spring-return, samo CmdOpen, OpenMaxTime=10s *)
 	END_STRUCT;

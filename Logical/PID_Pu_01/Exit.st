@@ -1,6 +1,9 @@
 
 
 PROGRAM _EXIT
-	(* Insert code here *)
+	(* ======================================================================== *)
+	(* PID_Pu_01_EXIT                                                            *)
+	(* Task trenutno nema posebnu izlaznu/gasnu logiku.                          *)
+	(* ======================================================================== *)
 	 
 END_PROGRAM

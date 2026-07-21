@@ -1,4 +1,4 @@
-﻿FUNCTION_BLOCK FB_EH_Flow (*TODO: FB za upravljanje elektricnim grejacima*) (*$GROUP=Pedja,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+FUNCTION_BLOCK FB_EH_Flow (*TODO: FB za upravljanje elektricnim grejacima*) (*$GROUP=Pedja,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 
 (* ============================================================ *)
 (* 1) Inicijalizacija parametara pri rising-edge signala Enable *)

@@ -1,4 +1,4 @@
-﻿(* ============================================================================ *)
+(* ============================================================================ *)
 (* BR_LIB - CENTRALNI PREGLED SVIH DATA TYPE DEKLARACIJA                       *)
 (* Sadrzi TYPE deklaracije iz FB-ova koje smo standardizovali.                  *)
 (* Namena: referenca, copy/paste i priprema za eventualno centralno tipiziranje.*)

@@ -1,4 +1,4 @@
-﻿(* ============================================================================ *)
+(* ============================================================================ *)
 (* BR_LIB - SVE FB VAR DEKLARACIJE (B&R Automation Studio stil)                *)
 (* Sadrzi samo deklaracije interfejsa i internih varijabli po FUNCTION_BLOCK-u. *)
 (* Bez implementacione logike.                                                  *)

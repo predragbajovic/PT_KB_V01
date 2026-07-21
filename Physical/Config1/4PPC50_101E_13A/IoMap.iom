@@ -43,8 +43,8 @@ VAR_CONFIG
 	PG.Act.Pu._1.mapping.DIO.w_reset AT %QX."X20DO9322".DigitalOutput02;
 	PG.Act.Pu._2.mapping.DIO.w_run_fwd AT %QX."X20DO9322".DigitalOutput03;
 	PG.Act.Pu._2.mapping.DIO.w_reset AT %QX."X20DO9322".DigitalOutput04;
-	PG.Act.AV._3.V_Output.CmdOpen AT %QX."X20DO9322".DigitalOutput09;
-	PG.Act.AV._4.V_Output.CmdOpen AT %QX."X20DO9322".DigitalOutput10;
+	PG.Act.AV._3.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput09;
+	PG.Act.AV._4.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput10;
 	PG.Sens.Pt._1.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput01;
 	PG.Sens.Pt._2.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput02;
 	PG.Sens.Pt._3.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput03;
