@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
-  <TaskClass Name="Cyclic#1" />
+  <TaskClass Name="Cyclic#1">
+    <Task Name="IO" Source="IO.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
-    <Task Name="IO" Source="IO.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="PID_Pu_01" Source="PID_Pu_01.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
@@ -42,6 +43,9 @@
     <BinaryObject Name="vccovl" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Visu103" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arial" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vccnum" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vccstr" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vccbtn" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
@@ -65,8 +69,9 @@
     <LibraryObject Name="AsMem" Source="Libraries.AsMem.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="DataObj" Source="Libraries.DataObj.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="astime" Source="Libraries.astime.lby" Memory="UserROM" Language="binary" Debugging="true" />
-    <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="BR_Lib" Source="Libraries.BR_Lib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="VFD_Lib" Source="Libraries.VFD_Lib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
+    <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

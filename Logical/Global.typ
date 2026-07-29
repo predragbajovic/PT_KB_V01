@@ -31,6 +31,7 @@ TYPE
 		_2 : FB_PvAiAo_Fast; (* Ulazni regulacioni ventil 2 - prihvatni tank, DN050 NC *)
 		_3 : FB_PvAiAo_Fast; (* Odzracni ventil na ulazu termalne vode u kotlarnicu, DN025 NC *)
 		_4 : FB_PvAiAo_Fast; (* Odzracni ventil na ulazu termalne vode u prihvatni tank, DN025 NC *)
+		_5 : FB_PvAiAo_Fast; (* Dodatni proporcionalni ventil, Fast varijanta kao ostali PV kanali *)
 	END_STRUCT;
 	PG_Act_AV_type : 	STRUCT  (* Automatski leptir ventili End Armaturen DN125, bistabilni i spring-return *)
 		_1 : FB_V_EMV; (* Elektromotorni bistabilni, CmdOpen + CmdClose, OpenMaxTime=30s *)
@@ -51,13 +52,14 @@ TYPE
 		_26 : FB_HV_2LS; (* Ulaz u vakuum pumpu *)
 		_27 : FB_HV_2LS; (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa van kotlarnice *)
 	END_STRUCT;
-	PG_Sens_Pt_type : 	STRUCT  (* Senzori pritiska termalne vode, 8x FBAI01_DI01, Cerabar PMP23, 4-20mA, opseg -1..9 bar / -100..300 mbar / -1..14 bar *)
+	PG_Sens_Pt_type : 	STRUCT  (* Senzori pritiska termalne vode, 9x FBAI01_DI01, Cerabar PMP23, 4-20mA, opseg -1..9 bar / -100..300 mbar / -1..14 bar *)
 		_0_0 : FBAI01_DI01; (* Pritisak komprimovanog vazduha, opseg -1..14 bar *)
 		_1 : FBAI01_DI01; (* Pritisak termalne vode na ulazu u podstanicu *)
 		_2 : FBAI01_DI01; (* Pritisak termalne vode posle streinera grubih filtera *)
 		_3 : FBAI01_DI01; (* Pritisak termalne vode posle velikog izmenjivaca *)
 		_4 : FBAI01_DI01; (* Pritisak termalne vode na ulazu u prihvatni tank *)
 		_5 : FBAI01_DI01; (* Pritisak na potisu transportnih pumpi *)
+		_6 : FBAI01_DI01; (* Dodatni transmiter pritiska, opseg -1..9 bar *)
 		_NS1 : FBAI01_DI01; (* Pritisak na dnu prihvatnog tanka [mbar] *)
 		_NS2 : FBAI01_DI01; (* Pritisak na vrhu prihvatnog tanka [mbar] *)
 	END_STRUCT;

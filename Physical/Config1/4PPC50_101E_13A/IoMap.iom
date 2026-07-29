@@ -39,6 +39,11 @@ VAR_CONFIG
 	PG.Sens.LS._4.DI_Input.SensorIn AT %IX."X20DI9371c".DigitalInput04;
 	PG.Sens.LS._5.DI_Input.SensorIn AT %IX."X20DI9371c".DigitalInput05;
 	PG.Sens.MP._1.AI_Input.TransmitterStatus AT %IX."X20DI9371c".DigitalInput06;
+	PG.Act.AV._1.V_Input.LampOpen AT %IX."X20DI9371c".DigitalInput07;
+	PG.Act.AV._1.V_Input.LampClose AT %IX."X20DI9371c".DigitalInput08;
+	PG.Act.AV._2.V_Input.LampOpen AT %IX."X20DI9371c".DigitalInput09;
+	PG.Act.AV._2.V_Input.LampClose AT %IX."X20DI9371c".DigitalInput10;
+	PG.Act.AV._1.V_Input.OverTorque AT %IX."X20DI9371c".DigitalInput11;
 	PG.Act.Pu._1.mapping.DIO.w_run_fwd AT %QX."X20DO9322".DigitalOutput01;
 	PG.Act.Pu._1.mapping.DIO.w_reset AT %QX."X20DO9322".DigitalOutput02;
 	PG.Act.Pu._2.mapping.DIO.w_run_fwd AT %QX."X20DO9322".DigitalOutput03;
@@ -55,7 +60,9 @@ VAR_CONFIG
 	PG.Sens.Tt._1.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput01;
 	PG.Sens.Tt._2.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput02;
 	PG.Sens.Tt._3.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput03;
+	PG.Act.PV._5.PV_Input.AI_Raw AT %IW."X20AI4622b".AnalogInput04;
 	PG.Sens.MP._1.AI_Input.RawValue AT %IW."X20AI4622c".AnalogInput01;
+	PG.Sens.Pt._6.AI_Input.RawValue AT %IW."X20AI4622c".AnalogInput02;
 	PG.Act.PV._1.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput01;
 	PG.Act.PV._2.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput02;
 	PG.Act.PV._3.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput03;
@@ -64,6 +71,7 @@ VAR_CONFIG
 	PG.Act.PV._2.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput02;
 	PG.Act.PV._3.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput03;
 	PG.Act.PV._4.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput04;
+	PG.Act.PV._5.PV_Output.AO_Raw AT %QW."X20AO4622b".AnalogOutput01;
 	PG.Act.Pu._1.mapping.DIO.w_freq AT %QW."X20AO4622".AnalogOutput01;
 	PG.Act.Pu._2.mapping.DIO.w_freq AT %QW."X20AO4622".AnalogOutput02;
 	PG.Sens.Pt._0_0.AI_Input.RawValue AT %IW."X20AI4622a".AnalogInput04;

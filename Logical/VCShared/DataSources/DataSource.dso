@@ -450,6 +450,42 @@
               </DataPoint>
             </Folder>
           </Folder>
+          <Folder Name="_5">
+            <Property Name="Description" Value=""/>
+            <Property Name="FolderType" Value="FunctionBlock"/>
+            <Folder Name="PV_Input">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <DataPoint Name="SP_Percent">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="Visu1"/>
+                <Property Name="DPLimit" Value="None"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="REAL"/>
+                <Property Name="PLCUnit" Value="None"/>
+                <Property Name="UnitGroup" Value="None"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="SCALED"/>
+              </DataPoint>
+            </Folder>
+            <Folder Name="PV_Output">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <DataPoint Name="PV_Percent">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="Visu1"/>
+                <Property Name="DPLimit" Value="None"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="REAL"/>
+                <Property Name="PLCUnit" Value="None"/>
+                <Property Name="UnitGroup" Value="None"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="SCALED"/>
+              </DataPoint>
+            </Folder>
+          </Folder>
         </Folder>
         <Folder Name="AV">
           <Property Name="Description" Value=""/>
@@ -952,6 +988,26 @@
                 <Property Name="UpdateTime" Value="Default"/>
                 <Property Name="UserID" Value="None"/>
                 <Property Name="VCType" Value="STRING"/>
+              </DataPoint>
+            </Folder>
+          </Folder>
+          <Folder Name="_6">
+            <Property Name="Description" Value=""/>
+            <Property Name="FolderType" Value="FunctionBlock"/>
+            <Folder Name="AI_Output">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <DataPoint Name="ScaledValue">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="Visu1"/>
+                <Property Name="DPLimit" Value="None"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="REAL"/>
+                <Property Name="PLCUnit" Value="None"/>
+                <Property Name="UnitGroup" Value="None"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="SCALED"/>
               </DataPoint>
             </Folder>
           </Folder>

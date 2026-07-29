@@ -9,7 +9,7 @@ PROGRAM _CYCLIC
 (* ============================================================================ *)
 
 (* -------------------------------------------------------------------------- *)
-(* 1) FBAI01_DI01  Senzori pritiska Pt (_0_0, _1.._5, _NS1, _NS2)            *)
+(* 1) FBAI01_DI01  Senzori pritiska Pt (_0_0, _1.._6, _NS1, _NS2)            *)
 (* Skaliranje raw AI -> bar. Parametri postavljeni u IO_Init.                 *)
 (* -------------------------------------------------------------------------- *)
 PG.Sens.Pt._0_0();  (* Pritisak komprimovanog vazduha, skalirani opseg -1 do 14 [bar] *)
@@ -18,6 +18,7 @@ PG.Sens.Pt._2();    (* Pritisak termalne vode posle streinera grubih filtera [ba
 PG.Sens.Pt._3();    (* Pritisak termalne vode posle velikog izmenjivaca [bar] *)
 PG.Sens.Pt._4();    (* Pritisak termalne vode na ulazu u prihvatni tank [bar] *)
 PG.Sens.Pt._5();    (* Pritisak na potisu transportnih pumpi [bar] *)
+PG.Sens.Pt._6();    (* Dodatni transmiter pritiska [bar] *)
 PG.Sens.Pt._NS1();  (* Pritisak na dnu prihvatnog tanka [bar] *)
 PG.Sens.Pt._NS2();  (* Pritisak na vrhu prihvatnog tanka [bar] *)
 NivoPRihvatniSud := (PG.Sens.Pt._NS1.AI_Output.ScaledValue - PG.Sens.Pt._NS2.AI_Output.ScaledValue) / 0.09804; (* nivo u prihvatnom sudu [m] - dif. pritisak NS1(dno)-NS2(vrh) *)
@@ -80,7 +81,7 @@ PG.Act.RV._26();  (* Ulaz u vakuum pumpu *)
 PG.Act.RV._27();  (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa van kotlarnice *)
 
 (* -------------------------------------------------------------------------- *)
-(* 8) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._4)           *)
+(* 8) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._5)           *)
 (* AI_Raw povratni signal i AO_Raw komanda direktno mapirani u IoMap.         *)
 (* SP_Percent zadaje visi nivo upravljanja.                                   *)
 (* -------------------------------------------------------------------------- *)
@@ -116,6 +117,14 @@ PG.Act.RV._27();  (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa va
 	IF (PG.Act.PV._4.PV_Input.SP_Percent < 0) THEN PG.Act.PV._4.PV_Input.SP_Percent := 0 ; END_IF
 	
 	PG.Act.PV._4();  (* Odzracni ventil na ulazu termalne vode u prihvatni tank, DN025 NC *)
+
+	(* Ogranicavanje manualne i SP vrednosti ventila PV._5 na opseg 0..100%. *)
+	IF (PG.Act.PV._5.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._5.PV_Input.ManualValue_Percent := 100 ; END_IF
+	IF (PG.Act.PV._5.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._5.PV_Input.ManualValue_Percent := 0 ; END_IF
+	IF (PG.Act.PV._5.PV_Input.SP_Percent > 100) THEN PG.Act.PV._5.PV_Input.SP_Percent := 100 ; END_IF
+	IF (PG.Act.PV._5.PV_Input.SP_Percent < 0) THEN PG.Act.PV._5.PV_Input.SP_Percent := 0 ; END_IF
+	
+	PG.Act.PV._5();  (* Dodatni proporcionalni ventil, Fast varijanta *)
 
 (* -------------------------------------------------------------------------- *)
 (* 9) vfdMain  Pumpe Pu (_1, _2)  DIO metod                                  *)
