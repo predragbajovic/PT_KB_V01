@@ -1,3 +1,6 @@
+VAR RETAIN
+	Pu_01_Auto : BOOL;
+END_VAR
 VAR
 	Predata_Snaga : REAL;
 	DP_Izmejnivac : REAL;

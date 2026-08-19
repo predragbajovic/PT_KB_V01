@@ -9,14 +9,14 @@ VAR_CONFIG
 	PG.Act.AV._3.V_Input.OpenFb AT %IX."X20DI9371".DigitalInput08;
 	PG.Act.AV._4.V_Input.CloseFb AT %IX."X20DI9371".DigitalInput09;
 	PG.Act.AV._4.V_Input.OpenFb AT %IX."X20DI9371".DigitalInput10;
-	PG.Act.RV._16.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput01;
-	PG.Act.RV._16.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput02;
-	PG.Act.RV._18.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput03;
-	PG.Act.RV._18.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput04;
+	PG.Act.AV._5.V_Input.CloseFb AT %IX."X20DI9371a".DigitalInput01;
+	PG.Act.AV._5.V_Input.OpenFb AT %IX."X20DI9371a".DigitalInput02;
+	PG.Act.AV._6.V_Input.CloseFb AT %IX."X20DI9371a".DigitalInput03;
+	PG.Act.AV._6.V_Input.OpenFb AT %IX."X20DI9371a".DigitalInput04;
 	PG.Act.RV._19.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput05;
 	PG.Act.RV._19.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput06;
-	PG.Act.RV._20.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput07;
-	PG.Act.RV._20.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput08;
+	PG.Act.AV._7.V_Input.CloseFb AT %IX."X20DI9371a".DigitalInput07;
+	PG.Act.AV._7.V_Input.OpenFb AT %IX."X20DI9371a".DigitalInput08;
 	PG.Act.RV._21.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput09;
 	PG.Act.RV._21.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput10;
 	PG.Act.RV._22.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput11;
@@ -79,4 +79,7 @@ VAR_CONFIG
 	PG.Act.AV._1.V_Output.CmdClose AT %QX."X20DO9322".DigitalOutput06;
 	PG.Act.AV._2.V_Output.CmdOpen AT %QX."X20DO9322".DigitalOutput07;
 	PG.Act.AV._2.V_Output.CmdClose AT %QX."X20DO9322".DigitalOutput08;
+	PG.Act.AV._5.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput11;
+	PG.Act.AV._6.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput12;
+	PG.Act.AV._7.V_Output.Cmd  AT %QX."X20DO9322a".DigitalOutput01;
 END_VAR
