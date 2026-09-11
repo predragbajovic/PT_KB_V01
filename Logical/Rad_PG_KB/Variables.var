@@ -1,0 +1,41 @@
+
+VAR
+	(* Izvrsni kontekst state masine. *)
+	State : E_PGRad_State := PG_00_Stand_By; (* Trenutni korak state masine *)
+	Substep : USINT := 0; (* Podkorak aktivnog stanja: 0 = ulazak, 1..N = izvrsavanje *)
+
+	(* HMI komande. *)
+	KomandaStart : BOOL; (* HMI komanda za pokretanje sistema *)
+	KomandaStop : BOOL; (* HMI komanda za kontrolisano zaustavljanje *)
+	KomandaReset : BOOL; (* HMI komanda za reset uklonjene greske *)
+	ManualMode : BOOL; (* Servisni rucni rezim; dozvoljen samo iz Standby. *)
+	ManualSequence : USINT; (* Izabrana sekvenca servisnog rada. *)
+	ManualStart : BOOL; (* Impuls za pokretanje izabrane sekvence. *)
+	ManualStop : BOOL; (* Impuls za kontrolisani prekid servisne sekvence. *)
+	ManualNextStep : BOOL; (* Impuls za sledeci dozvoljeni podkorak. *)
+	ManualAbort : BOOL; (* Impuls za povratak u Standby. *)
+	CmdSetDefaultParameters : BOOL; (* Jednokratno vracanje svih parametara na projektne default vrednosti *)
+
+	(* Dijagnostika aktivne greske. *)
+	FaultLatched : BOOL; (* Aktivna zakacena greska, zahteva reset nakon otklanjanja uzroka *)
+	FaultCode : USINT; (* Sifra aktivne greske za HMI i AsIMA *)
+	FaultText : STRING[80]; (* Tekst aktivne greske za HMI *)
+
+	(* Nadzor polozaja ventila i protoka izvora. *)
+	T_PG_V01_Close : TON; (* Timeout zatvaranja IEBKB1 dovodnog ventila. *)
+	T_PG_V01_Open : TON; (* Timeout otvaranja IEBKB1 dovodnog ventila. *)
+	T_PG_V02_Open : TON; (* Timeout otvaranja BRB2 dovodnog ventila pri pripremi BRB2. *)
+	T_PG_V02_Close : TON; (* Timeout zatvaranja BRB2 dovodnog ventila pri pripremi IEBKB1. *)
+	T_IEBKB1_StartProtokTimeout : TON; (* Maksimalno cekanje pocetka IEBKB1 dotoka nakon otvaranja PG_V05. *)
+	T_IEBKB1_ProtokNula : TON; (* Debounce potvrda protoka manjeg od 0.1 l/s. *)
+	T_IEBKB1_StopProtokTimeout : TON; (* Maksimalno cekanje prestanka IEBKB1 dotoka pre zatvaranja PG_V05. *)
+	T_PG_V05_Close : TON; (* Timeout zatvaranja PG_V05 nakon potvrdenog prestanka IEBKB1 dotoka. *)
+
+	(* PID regulatori i izvrsne pomocne vrednosti. *)
+	T_PrelazPV05Cuvar : TON; (* Vreme mekane promene PT06 SP-a od preispiranja do cuvara instalacije. *)
+	PID_PV05 : MTBasicsPID; (* PID PG_PV05: PT06 pritisak preispiranja i cuvara instalacije. *)
+	PID_PV_UlazTanka : MTBasicsPID; (* PID aktivnog PG_PV01/PG_PV02: PT04 pritisak pri punjenju tanka. *)
+	SP_PV05 : REAL; (* Trenutni rampirani PT06 SP za PID PG_PV05 [bar]. *)
+	PV05IspiranjeOtvoreno : BOOL; (* PT06 je dostigao SP i PG_PV05 je dozvoljen za ispiranje. *)
+	IzlaznaPumpaUStopu : BOOL; (* Pumpa nastavlja praznjenje tanka do donje granice hysteresis. *)
+END_VAR
