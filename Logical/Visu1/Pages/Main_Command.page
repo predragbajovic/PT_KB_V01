@@ -1263,6 +1263,7 @@
         <Control ClassId="0x00001002" Name="ManualStart"><Property Name="AlignmentHorizontal" Value="Center"/><Property Name="BitmapIndexDatapoint" Value="None"/><Property Name="BitmapSource" Value="None"/><Property Name="ControlID" Value="0"/><Property Name="Description" Value=""/><Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_start]"/><Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/><Property Name="Height" Value="40"/><Property Name="KeyMatrixOffset" Value="None"/><Property Name="Left" Value="450"/><Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/><Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/><Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/><Property Name="TextGroup" Value="Source[embedded].TextGroup"/><Property Name="TextIndex" Value="36"/><Property Name="TextIndexDatapoint" Value="None"/><Property Name="TextSimulationValue" Value="0"/><Property Name="TextSource" Value="SingleText"/><Property Name="Top" Value="670"/><Property Name="VirtualKey" Value="Source[local].VirtualKey[%manual_start]"/><Property Name="Width" Value="150"/></Control>
         <Control ClassId="0x00001002" Name="ManualStop"><Property Name="AlignmentHorizontal" Value="Center"/><Property Name="BitmapIndexDatapoint" Value="None"/><Property Name="BitmapSource" Value="None"/><Property Name="ControlID" Value="0"/><Property Name="Description" Value=""/><Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_stop]"/><Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/><Property Name="Height" Value="40"/><Property Name="KeyMatrixOffset" Value="None"/><Property Name="Left" Value="610"/><Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/><Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/><Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/><Property Name="TextGroup" Value="Source[embedded].TextGroup"/><Property Name="TextIndex" Value="37"/><Property Name="TextIndexDatapoint" Value="None"/><Property Name="TextSimulationValue" Value="0"/><Property Name="TextSource" Value="SingleText"/><Property Name="Top" Value="670"/><Property Name="VirtualKey" Value="Source[local].VirtualKey[%manual_stop]"/><Property Name="Width" Value="150"/></Control>
         <Control ClassId="0x00001002" Name="ManualAbort"><Property Name="AlignmentHorizontal" Value="Center"/><Property Name="BitmapIndexDatapoint" Value="None"/><Property Name="BitmapSource" Value="None"/><Property Name="ControlID" Value="0"/><Property Name="Description" Value=""/><Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_abort]"/><Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/><Property Name="Height" Value="40"/><Property Name="KeyMatrixOffset" Value="None"/><Property Name="Left" Value="770"/><Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/><Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/><Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/><Property Name="TextGroup" Value="Source[embedded].TextGroup"/><Property Name="TextIndex" Value="39"/><Property Name="TextIndexDatapoint" Value="None"/><Property Name="TextSimulationValue" Value="0"/><Property Name="TextSource" Value="SingleText"/><Property Name="Top" Value="670"/><Property Name="VirtualKey" Value="Source[local].VirtualKey[%manual_abort]"/><Property Name="Width" Value="150"/></Control>
+        <Control ClassId="0x00001002" Name="ManualNextStep"><Property Name="AlignmentHorizontal" Value="Center"/><Property Name="BitmapIndexDatapoint" Value="None"/><Property Name="BitmapSource" Value="None"/><Property Name="ControlID" Value="0"/><Property Name="Description" Value=""/><Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_next]"/><Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/><Property Name="Height" Value="40"/><Property Name="KeyMatrixOffset" Value="None"/><Property Name="Left" Value="930"/><Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/><Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/><Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/><Property Name="TextGroup" Value="Source[embedded].TextGroup"/><Property Name="TextIndex" Value="38"/><Property Name="TextIndexDatapoint" Value="None"/><Property Name="TextSimulationValue" Value="0"/><Property Name="TextSource" Value="SingleText"/><Property Name="Top" Value="670"/><Property Name="VirtualKey" Value="Source[local].VirtualKey[%manual_next]"/><Property Name="Width" Value="150"/></Control>
       </Controls>
       <KeyMapping>
         <VirtualKey Name="%nav_settings"><Property Name="Description" Value=""/><Property Name="VirtualKey_LED" Value="False"/><KeyActions><KeyAction ClassId="0x00000160"><Property Name="Description" Value=""/><Property Name="Locking" Value="Never"/><Property Name="Name" Value="Action_0"/><Property Name="Page" Value="Source[local].Page[Para_Settings]"/><Property Name="Target" Value="Page"/></KeyAction></KeyActions></VirtualKey>
@@ -1282,6 +1283,7 @@
         <VirtualKey Name="%manual_start"><KeyActions><KeyAction ClassId="0x0000016B"><Property Name="Locking" Value="Never"/><Property Name="Name" Value="Action_0"/><Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualStart]"/></KeyAction></KeyActions></VirtualKey>
         <VirtualKey Name="%manual_stop"><KeyActions><KeyAction ClassId="0x0000016B"><Property Name="Locking" Value="Never"/><Property Name="Name" Value="Action_0"/><Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualStop]"/></KeyAction></KeyActions></VirtualKey>
         <VirtualKey Name="%manual_abort"><KeyActions><KeyAction ClassId="0x0000016B"><Property Name="Locking" Value="Never"/><Property Name="Name" Value="Action_0"/><Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualAbort]"/></KeyAction></KeyActions></VirtualKey>
+        <VirtualKey Name="%manual_next"><KeyActions><KeyAction ClassId="0x0000016B"><Property Name="Locking" Value="Never"/><Property Name="Name" Value="Action_0"/><Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualNextStep]"/></KeyAction></KeyActions></VirtualKey>
         <VirtualKey Name="%cmd_start">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
@@ -1294,7 +1296,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaStart]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1310,7 +1312,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaStop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1326,7 +1328,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaReset]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
