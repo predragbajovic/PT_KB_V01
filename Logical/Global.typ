@@ -228,6 +228,12 @@ TYPE
 	END_STRUCT;
 	typVezaPGRadBRB2 : 	STRUCT 
 		RadKaPodstanici : BOOL; (* PT izbor rute BRB2 ka podstanici; prihvata se samo u BRB2 standby. *)
+		ManualMode : BOOL; (* Dozvola servisnog rucnog rezima. *)
+		ManualSequence : USINT; (* Izabrana servisna sekvenca. *)
+		ManualStart : BOOL; (* Impuls za pokretanje servisne sekvence. *)
+		ManualStop : BOOL; (* Impuls za bezbedan prekid servisne sekvence. *)
+		ManualNextStep : BOOL; (* Impuls za sledeci dozvoljeni podkorak. *)
+		ManualAbort : BOOL; (* Impuls za povratak u Standby. *)
 		ZahtevStarta : BOOL; (* PT zahtev BRB2 za pripremu i start bunarske pumpe. *)
 		ZahtevZaustavljanja : BOOL; (* PT zahtev BRB2 za kontrolisano zaustavljanje. *)
 		VentiliPodstaniceZatvoreni : BOOL; (* PT potvrda zatvorenosti PG_PV01, PG_PV02 i PG_PV05. *)

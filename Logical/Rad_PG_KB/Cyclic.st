@@ -89,6 +89,12 @@ PROGRAM _CYCLIC
 	PGRad_BRB2.RadKaPodstanici := FALSE;
 	PGRad_BRB2.ZahtevStarta := FALSE;
 	PGRad_BRB2.ZahtevZaustavljanja := FALSE;
+	PGRad_BRB2.ManualMode := ManualMode;
+	PGRad_BRB2.ManualSequence := ManualSequence;
+	PGRad_BRB2.ManualStart := ManualStart;
+	PGRad_BRB2.ManualStop := ManualStop;
+	PGRad_BRB2.ManualNextStep := ManualNextStep;
+	PGRad_BRB2.ManualAbort := ManualAbort;
 	PGRad_BRB2.VentiliPodstaniceZatvoreni := FALSE;
 	PGRad_BRB2.PritisakIEBKB1 := IEB_KB1.Sens.Pt.B_02._01_value;
 	PGRad_BRB2.PodstanicaURezimuRada := FALSE;
@@ -137,6 +143,7 @@ PROGRAM _CYCLIC
 				State := PG_11_Priprema_IEBKB1;
 				Substep := 0;
 			ELSIF KomandaStart
+				AND (NOT ManualMode)
 				AND (NOT FaultLatched)
 				AND (PGRad.Ctrl.RegulacionaVarijanta <> _00_neaktivan)
 				AND (PGRad.Ctrl.SelektovaniIzvor = _01_BRB2) THEN
