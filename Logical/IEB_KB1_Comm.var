@@ -1,0 +1,4 @@
+VAR
+	(* IEBKB1 ogledalo za PT sinoptiku i AsIMA razmenu; ne upravlja lokalnim PT izlazima. *)
+	IEB_KB1 : IEB_KB1_type;
+END_VAR

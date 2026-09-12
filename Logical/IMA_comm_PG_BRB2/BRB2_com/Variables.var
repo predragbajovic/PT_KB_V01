@@ -1,0 +1,15 @@
+VAR
+	(* AsIMA DataObject i identifikator sesije. *)
+	pDatObjName : UDINT;       (* Adresa naziva AsIMA DataObject konfiguracije. *)
+	stationId : UDINT;         (* Identifikator master AsIMA sesije. *)
+
+	(* Povratni statusi AsIMA poziva. *)
+	statusInit : UINT;         (* Rezultat jednokratne AsIMA inicijalizacije. *)
+	statusComm : UINT;         (* Rezultat ciklicnog AsIMA prenosa. *)
+	statusClose : UINT;        (* Rezultat zatvaranja AsIMA sesije. *)
+
+	(* Dijagnostika inicijalizacije i PV prenosa. *)
+	errorInfo : imaInfoStruct; (* Dijagnostika neuspele inicijalizacije. *)
+	connInfoPV : imaInfoStruct; (* Status i dijagnostika PV prenosa ka BRB2. *)
+	connInfoAUX : imaInfoStruct; (* Status pomocnih AsIMA servisa. *)
+END_VAR

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="X_Visak_Opisi">
+  <Property Name="Description" Value=""/>
+  <Property Name="Height" Value="800"/>
+  <Property Name="Index" Value="2"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[default]"/>
+  <Property Name="Width" Value="1280"/>
+  <Layers>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="800"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="1280"/>
+      <Property Name="Z-Order" Value="0"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x0000100B" Name="String_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="128"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_2">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="168"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_3">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="208"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_4">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="248"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_5">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="287"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_6">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_7">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="414"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_8">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="467"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_9">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="512"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_10">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="557"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_11">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="623"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_12">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="93"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_13">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="207"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+  </Layers>
+  <MovementOrder/>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[String_1]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[String_2]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[String_3]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[String_4]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[String_5]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[String_6]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[Default].Control[String_7]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[Default].Control[String_8]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[Default].Control[String_9]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[Default].Control[String_10]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[Default].Control[String_11]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[Default].Control[String_12]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[String_13]"/>
+  </TabSequence>
+</Page>

@@ -21,15 +21,22 @@ PG.Sens.Pt._5();    (* Pritisak na potisu transportnih pumpi [bar] *)
 PG.Sens.Pt._6();    (* Dodatni transmiter pritiska [bar] *)
 PG.Sens.Pt._NS1();  (* Pritisak na dnu prihvatnog tanka [bar] *)
 PG.Sens.Pt._NS2();  (* Pritisak na vrhu prihvatnog tanka [bar] *)
-NivoPRihvatniSud := (PG.Sens.Pt._NS1.AI_Output.ScaledValue - PG.Sens.Pt._NS2.AI_Output.ScaledValue) / 0.09804; (* nivo u prihvatnom sudu [m] - dif. pritisak NS1(dno)-NS2(vrh) *)
 
 (* -------------------------------------------------------------------------- *)
-(* 2) FBAI01_DI01  Temperature Tt (_1.._3)                                    *)
-(* Skaliranje raw AI -> degC. Parametri postavljeni u IO_Init.                *)
+(* 2) FBAI01_DI01  Temperature TT_PG_01..TT_PG_11                         *)
+(* Svi kanali su fizicki mapirani na X20AI4622b, X67AI1323 i X67AI1333b.    *)
 (* -------------------------------------------------------------------------- *)
-PG.Sens.Tt._1();  (* Temperatura na ulazu termalne vode u podstanicu [degC] *)
-PG.Sens.Tt._2();  (* Temperatura termalne vode posle izmenjivaca [degC] *)
-PG.Sens.Tt._3();  (* Temperatura termalne vode u distributivnom tanku [degC] *)
+PG.Sens.Tt._1();  (* TT_PG_01 - ulaz u veliki razmenjivac PGRT01 [degC]. *)
+PG.Sens.Tt._2();  (* TT_PG_02 - ulaz u prihvatni tank [degC]. *)
+PG.Sens.Tt._3();  (* TT_PG_03 - temperatura u prihvatnom tanku [degC]. *)
+PG.Sens.Tt._4();  (* TT_PG_04 - izlaz iz velikog razmenjivaca PGRT01 [degC]. *)
+PG.Sens.Tt._5();  (* TT_PG_05 - ulaz u mali razmenjivac PGRT02 [degC]. *)
+PG.Sens.Tt._6();  (* TT_PG_06 - izlaz iz malog razmenjivaca PGRT02 [degC]. *)
+PG.Sens.Tt._7();  (* TT_PG_07 - drenazni vod za potvrdu zavrsetka preispiranja [degC]. *)
+PG.Sens.Tt._8();  (* TT_PG_08 - ulaz tehnicke vode u direktni izmenjivac [degC]. *)
+PG.Sens.Tt._9();  (* TT_PG_09 - izlaz tehnicke vode iz direktnog izmenjivaca [degC]. *)
+PG.Sens.Tt._10(); (* TT_PG_10 - ulaz sanitarne vode u direktni izmenjivac [degC]. *)
+PG.Sens.Tt._11(); (* TT_PG_11 - izlaz sanitarne vode iz direktnog izmenjivaca [degC]. *)
 
 (* -------------------------------------------------------------------------- *)
 (* 3) FBAI01_DI01  Merac protoka MP (_1)                                      *)
@@ -81,85 +88,29 @@ PG.Act.RV._26();  (* Ulaz u vakuum pumpu *)
 PG.Act.RV._27();  (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa van kotlarnice *)
 
 (* -------------------------------------------------------------------------- *)
-(* 8) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._5)           *)
+(* 9) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._5)           *)
 (* AI_Raw povratni signal i AO_Raw komanda direktno mapirani u IoMap.         *)
-(* SP_Percent zadaje visi nivo upravljanja.                                   *)
 (* -------------------------------------------------------------------------- *)
 
-	(* Ogranicavanje manualne i SP vrednosti ventila PV._1 na opseg 0..100%. *)
-	IF (PG.Act.PV._1.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._1.PV_Input.ManualValue_Percent := 100 ; END_IF
-	IF (PG.Act.PV._1.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._1.PV_Input.ManualValue_Percent := 0 ; END_IF
-	IF (PG.Act.PV._1.PV_Input.SP_Percent > 100) THEN PG.Act.PV._1.PV_Input.SP_Percent := 100 ; END_IF
-	IF (PG.Act.PV._1.PV_Input.SP_Percent < 0) THEN PG.Act.PV._1.PV_Input.SP_Percent := 0 ; END_IF
+	PG.Act.PV._1(); (* Obrada granica, izbora Manual/Auto i AO komande PV._1. *)
 	
-	PG.Act.PV._1();  (* Ulazni regulacioni ventil 1 - prihvatni tank, DN050 NC *)
+	PG.Act.PV._2(); (* Obrada granica, izbora Manual/Auto i AO komande PV._2. *)
 	
-	(* Ogranicavanje manualne i SP vrednosti ventila PV._2 na opseg 0..100%. *)
-	IF (PG.Act.PV._2.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._2.PV_Input.ManualValue_Percent := 100 ; END_IF
-	IF (PG.Act.PV._2.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._2.PV_Input.ManualValue_Percent := 0 ; END_IF
-	IF (PG.Act.PV._2.PV_Input.SP_Percent > 100) THEN PG.Act.PV._2.PV_Input.SP_Percent := 100 ; END_IF
-	IF (PG.Act.PV._2.PV_Input.SP_Percent < 0) THEN PG.Act.PV._2.PV_Input.SP_Percent := 0 ; END_IF
+	PG.Act.PV._3(); (* Obrada granica, izbora Manual/Auto i AO komande PV._3. *)
 	
-	PG.Act.PV._2();  (* Ulazni regulacioni ventil 2 - prihvatni tank, DN050 NC *)
-	
-	(* Ogranicavanje manualne i SP vrednosti ventila PV._3 na opseg 0..100%. *)
-	IF (PG.Act.PV._3.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._3.PV_Input.ManualValue_Percent := 100 ; END_IF
-	IF (PG.Act.PV._3.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._3.PV_Input.ManualValue_Percent := 0 ; END_IF
-	IF (PG.Act.PV._3.PV_Input.SP_Percent > 100) THEN PG.Act.PV._3.PV_Input.SP_Percent := 100 ; END_IF
-	IF (PG.Act.PV._3.PV_Input.SP_Percent < 0) THEN PG.Act.PV._3.PV_Input.SP_Percent := 0 ; END_IF
-	
-	PG.Act.PV._3();  (* Odzracni ventil na ulazu termalne vode u kotlarnicu, DN025 NC *)
-	
-	(* Ogranicavanje manualne i SP vrednosti ventila PV._4 na opseg 0..100%. *)
-	IF (PG.Act.PV._4.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._4.PV_Input.ManualValue_Percent := 100 ; END_IF
-	IF (PG.Act.PV._4.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._4.PV_Input.ManualValue_Percent := 0 ; END_IF
-	IF (PG.Act.PV._4.PV_Input.SP_Percent > 100) THEN PG.Act.PV._4.PV_Input.SP_Percent := 100 ; END_IF
-	IF (PG.Act.PV._4.PV_Input.SP_Percent < 0) THEN PG.Act.PV._4.PV_Input.SP_Percent := 0 ; END_IF
-	
-	PG.Act.PV._4();  (* Odzracni ventil na ulazu termalne vode u prihvatni tank, DN025 NC *)
+	PG.Act.PV._4(); (* Obrada granica, izbora Manual/Auto i AO komande PV._4. *)
 
-	(* Ogranicavanje manualne i SP vrednosti ventila PV._5 na opseg 0..100%. *)
-	IF (PG.Act.PV._5.PV_Input.ManualValue_Percent > 100) THEN PG.Act.PV._5.PV_Input.ManualValue_Percent := 100 ; END_IF
-	IF (PG.Act.PV._5.PV_Input.ManualValue_Percent < 0) THEN PG.Act.PV._5.PV_Input.ManualValue_Percent := 0 ; END_IF
-	IF (PG.Act.PV._5.PV_Input.SP_Percent > 100) THEN PG.Act.PV._5.PV_Input.SP_Percent := 100 ; END_IF
-	IF (PG.Act.PV._5.PV_Input.SP_Percent < 0) THEN PG.Act.PV._5.PV_Input.SP_Percent := 0 ; END_IF
-	
-	PG.Act.PV._5();  (* Dodatni proporcionalni ventil, Fast varijanta *)
+	PG.Act.PV._5(); (* Obrada granica, izbora Manual/Auto i AO komande PV._5. *)
 
 (* -------------------------------------------------------------------------- *)
-(* 9) vfdMain  Pumpe Pu (_1, _2)  DIO metod                                  *)
+(* 10) vfdMain  Pumpe Pu (_1, _2)  DIO metod                                 *)
 (* w_run_fwd/w_reset (DO) i w_freq (AO) mapirani u IoMap.                    *)
 (* Trenutni clamp u kodu: Pu._1 = 10..100 Hz, Pu._2 = 10..50 Hz.             *)
 (* addr_struct postavljen jednom u IO_Init tasku.                             *)
 (* -------------------------------------------------------------------------- *)
 	
-	(* Rucno inkrementiranje i dekrementiranje frekvence pumpe Pu._1. *)
-	IF EDGEPOS(Pu1_1_plus) THEN PG.Act.Pu._1.params.Freq := PG.Act.Pu._1.params.Freq + 1 ; END_IF
-	IF EDGEPOS(Pu1_01_plus) THEN PG.Act.Pu._1.params.Freq := PG.Act.Pu._1.params.Freq + 0.1 ; END_IF
-	IF EDGEPOS(Pu1_1_minus) THEN PG.Act.Pu._1.params.Freq := PG.Act.Pu._1.params.Freq - 1 ; END_IF
-	IF EDGEPOS(Pu1_01_minus) THEN PG.Act.Pu._1.params.Freq := PG.Act.Pu._1.params.Freq - 0.1 ; END_IF
-	
-	(* Ogranicavanje vrednosti pumpe Pu._1 na opseg 10..100 Hz (trenutna logika). *)
-	IF (PG.Act.Pu._1.params.Freq > 100) THEN PG.Act.Pu._1.params.Freq := 100 ; END_IF
-	IF (PG.Act.Pu._1.params.Freq < 10) THEN PG.Act.Pu._1.params.Freq := 10 ; END_IF
-	
 	PG.Act.Pu.VFD_function._1();  (* Pumpa za snabdevanje potrosaca 01, Grundfoss CR45, METOD_DIO *)	
 	
-	(* Rucno inkrementiranje i dekrementiranje frekvence pumpe Pu._2. *)
-	IF EDGEPOS(Pu2_1_plus) THEN PG.Act.Pu._2.params.Freq := PG.Act.Pu._2.params.Freq + 1 ; END_IF
-	IF EDGEPOS(Pu2_01_plus) THEN PG.Act.Pu._2.params.Freq := PG.Act.Pu._2.params.Freq + 0.1 ; END_IF
-	IF EDGEPOS(Pu2_1_minus) THEN PG.Act.Pu._2.params.Freq := PG.Act.Pu._2.params.Freq - 1 ; END_IF
-	IF EDGEPOS(Pu2_01_minus) THEN PG.Act.Pu._2.params.Freq := PG.Act.Pu._2.params.Freq - 0.1 ; END_IF
-	
-	(* Ogranicavanje vrednosti pumpe Pu._2 na opseg 10..50 Hz. *)
-	IF (PG.Act.Pu._2.params.Freq > 50) THEN PG.Act.Pu._2.params.Freq := 50 ; END_IF
-	IF (PG.Act.Pu._2.params.Freq < 10) THEN PG.Act.Pu._2.params.Freq := 10 ; END_IF
-
 	PG.Act.Pu.VFD_function._2();  (* Pumpa za snabdevanje potrosaca 02, Grundfoss CR45, METOD_DIO *)
-
-	(* Racunanje predate snage i diferencijalnih pritisaka. *)
-	Predata_Snaga := 4.181 * (PG.Sens.MP._1.AI_Output.ScaledValue * (PG.Sens.Tt._1.AI_Output.ScaledValue - PG.Sens.Tt._2.AI_Output.ScaledValue)) ;
-	DP_strainer := PG.Sens.Pt._1.AI_Output.ScaledValue - PG.Sens.Pt._2.AI_Output.ScaledValue + 0.123 ;
-	DP_Izmejnivac := PG.Sens.Pt._2.AI_Output.ScaledValue - PG.Sens.Pt._3.AI_Output.ScaledValue + 0.0015 ;
 	
 END_PROGRAM

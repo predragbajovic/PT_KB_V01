@@ -1,12 +1,26 @@
 VAR RETAIN
+	(* Lokalni izbor automatskog rada izlazne pumpe. *)
 	Pu_01_Auto : BOOL;
+	PGRad : typPGRad; (* Retain procesni kontekst podstanice: Ctrl, Par i CmdRetain. *)
 END_VAR
+
 VAR
+	(* Izracunate procesne vrednosti za HMI i nadzor. *)
 	Predata_Snaga : REAL;
 	DP_Izmejnivac : REAL;
 	DP_strainer : REAL;
-	PG : PG_type; (* Korenski objekat podstanice - Podstanica grejanja 1, Kursumlijska Banja. Sadrzi sve aktuatore (Act) i senzore (Sens). *)
 	NivoPRihvatniSud : REAL;
+	PG : PG_type; (* Korenski I/O i HMI objekat podstanice: Act i Sens bez retain-a. *)
+
+	(* Lokalni PID izlazne pumpe. *)
 	PID_Pu_01 : MTBasicsPID;
 	startPIDPu1 : BOOL;
+
+	(* Neretentivni PT komandni vektor i PT-BRB2 komunikacioni ugovor. *)
+	PGRad_Cmd : typCmdPGRad; (* Neretentivni vektor: Rad_PG_KB pise, PID i IO ga primenjuju. *)
+	PGRad_BRB2 : typVezaPGRadBRB2; (* Lokalni procesni ugovor izmedju Rad_PG_KB i komunikacionog taska. *)
+	PGRad_BRB2_Tx : typVezaPGRadBRB2; (* PT izlazni AsIMA snapshot; pise samo BRB2_com. *)
+	PGRad_BRB2_Rx : typVezaPGRadBRB2; (* BRB2 ulazni AsIMA snapshot; pise samo IMAcomm. *)
+	PGRad_Status : typPGRadStatus; (* Process status DTO za HMI i AsIMA snapshot. *)
+	PGRad_AirRelease : typAirReleasePGRad; (* Runtime FB instance i HMI komande odzracivanja PV03/PV04. *)
 END_VAR

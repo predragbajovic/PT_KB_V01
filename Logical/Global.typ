@@ -137,6 +137,13 @@ TYPE
 		BRB2 : typParAirReleaseModePGRad; (* Parametri rada sa izvorom BRB2. *)
 		IEBKB1 : typParAirReleaseModePGRad; (* Parametri rada sa izvorom IEBKB1. *)
 	END_STRUCT;
+	typTimeSPPGRad : 	STRUCT  (* Grupisani vremenski SP parametri u sekundama. *)
+		PrelazPV05Cuvar_s : REAL; (* Vreme PT06 SP rampe [s]. *)
+		OverlapPumpi_s : REAL; (* Maksimalno vreme paralelnog rada pri rotaciji [s]. *)
+		AutoRestartDelay_s : REAL; (* Zadrzavanje pre automatskog starta [s]. *)
+		ValvePositionTimeout_s : REAL; (* Maksimalno vreme hoda ventila [s]. *)
+		InterlockDebounce_s : REAL; (* Vreme potvrde interlock povratnog signala [s]. *)
+	END_STRUCT;
 	typParPGRad : 	STRUCT 
 		SetPritisakPotisa : REAL; (* Zadati pritisak potisa glavne pumpe [bar]. *)
 		MinProtok : REAL; (* Donja granica protoka. *)
@@ -148,13 +155,9 @@ TYPE
 		SetPointPritisakPV05Ispiranje : REAL; (* PT06 SP tokom preispiranja [bar]. *)
 		SetPointPritisakUlazTanka : REAL; (* PT04 SP aktivnog ulaznog ventila [bar]. *)
 		SetPointMaxPritisakDolaznaCev : REAL; (* PT06 SP cuvara instalacije [bar]. *)
-		T_PrelazPV05Cuvar : TIME; (* Vreme PT06 SP rampe. *)
 		PocetnaFrekvencaIzlaznePumpe : REAL; (* PID tracking frekvenca pri startu [Hz]. *)
 		MaxOtvorPropZaZatvaranje : REAL; (* Najveca otvorenost za potvrdu zatvaranja [%]. *)
-		T_OverlapPumpi : TIME; (* Maksimalno vreme paralelnog rada pri rotaciji. *)
-		T_AutoRestartDelay : TIME; (* Zadrzavanje pre automatskog starta. *)
-		T_ValvePositionTimeout : TIME; (* Maksimalno vreme hoda ventila. *)
-		T_InterlockDebounce : TIME; (* Vreme potvrde interlock povratnog signala. *)
+		TimeSP : typTimeSPPGRad; (* RETAIN vremenski SP parametri u sekundama. *)
 		AirRelease : typParAirReleasePGRad; (* RETAIN parametri PV03/PV04 za oba izvora. *)
 	END_STRUCT;
 	typCtrlAirReleasePGRad : 	STRUCT  (* HMI i servisne komande jednog odzracnog ventila. *)

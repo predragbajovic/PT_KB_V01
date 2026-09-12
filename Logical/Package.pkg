@@ -4,9 +4,17 @@
   <Objects>
     <Object Type="File" Description="Global data types">Global.typ</Object>
     <Object Type="File" Description="Global variables">Global.var</Object>
+    <Object Type="File" Description="PG01 AsIMA synoptic data types">PG01.typ</Object>
+    <Object Type="File" Description="PG01 AsIMA synoptic variables">PG01.var</Object>
+      <Object Type="File" Description="IEBKB1 remote mirror data types">IEB_KB1_Comm.typ</Object>
+      <Object Type="File" Description="IEBKB1 remote mirror variables">IEB_KB1_Comm.var</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="DataObject" Language="Vc" Description="1280x800 (WXGA)">Visu1</Object>
     <Object Type="Program" Language="IEC">IO</Object>
+    <Object Type="Program" Language="IEC">DeviceCtrl</Object>
     <Object Type="Program" Language="IEC">PID_Pu_01</Object>
+    <Object Type="Program" Language="IEC">Rad_PG_KB</Object>
+    <Object Type="Package" Description="Funkcionalne procesne jedinice.">ProcessUnit</Object>
+    <Object Type="Package" Description="AsIMA master veza podstanice sa BRB2.">IMA_comm_PG_BRB2</Object>
   </Objects>
 </Package>

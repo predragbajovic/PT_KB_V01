@@ -1,0 +1,7 @@
+VAR
+	(* PT publish vektor: PT Act, Sens i Ctrl podatke salje prema BRB2/HMI. *)
+	PG01_Local : typPG01Syn;
+
+	(* BRB2 mirror vektor: prima se samo za sinoptiku i ne upravlja PT opremom. *)
+	PG01_Remote : typPG01Syn;
+END_VAR

@@ -178,3 +178,24 @@ VAR
 END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK FB_AirRelease (* Automatsko i rucno odzracivanje cevovoda sa 1 do 3 LS senzora. *) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+VAR_INPUT
+	AR_Input : typInAirRelease; (* Procesni ulazi: Enable, manual komanda, pritisak [bar], LS1..LS3 i reset alarma. *)
+	AR_Param : typParAirRelease := (
+		NumberOfLS := 1,
+		PressureSP_bar := 1.5,
+		PressureHysteresis_bar := 0.5,
+		LS1 := (SP_Percent := 20.0, Ramp_PercentPerSecond := 2.0, ConfirmTime_s := 1.0),
+		LS2 := (SP_Percent := 54.5, Ramp_PercentPerSecond := 8.5, ConfirmTime_s := 1.0),
+		LS3 := (SP_Percent := 89.0, Ramp_PercentPerSecond := 15.0, ConfirmTime_s := 1.0)
+	);
+END_VAR
+VAR_OUTPUT
+	AR_Output : typOutAirRelease;
+END_VAR
+VAR
+	AR_Internal : typIntAirRelease;
+	AR_Constant : typConstAirRelease;
+END_VAR
+END_FUNCTION_BLOCK
+

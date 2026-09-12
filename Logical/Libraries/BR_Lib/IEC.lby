@@ -15,5 +15,6 @@
     <File>FB_PvAiAo_Fast.st</File>
     <File>FB_PvAiAo_Slow.st</File>
     <File>FB_PvAoNoFb.st</File>
+    <File>FB_AirRelease.st</File>
   </Files>
 </Library>

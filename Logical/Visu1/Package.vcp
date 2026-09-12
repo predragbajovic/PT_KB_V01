@@ -12,7 +12,7 @@
   <Property Name="DefaultKeyLevelNumeric" Value="0"/>
   <Property Name="DefaultKeyLevelString" Value="0"/>
   <Property Name="DefaultLanguage" Value="en"/>
-  <Property Name="DefaultPage" Value="Source[local].Page[Init_Page]"/>
+  <Property Name="DefaultPage" Value="Source[local].Page[PG1_PID]"/>
   <Property Name="DefaultStyleSheet" Value="Source[local].StyleSheet[Color]"/>
   <Property Name="FocusControlDatapoint" Value="None"/>
   <Property Name="FontAntialiasing" Value="Off"/>
@@ -127,7 +127,15 @@
     <Source File="BitmapGroups\AcknowledgeState.bmgrp"/>
     <Source File="BitmapGroups\NavigationPad.bmgrp"/>
     <Source File="BitmapGroups\Borders.bmgrp"/>
-    <Source File="Pages\Init_Page.page"/>
+    <Source File="Pages\PG1_PID.page"/>
+    <Source File="Pages\PG1_Main_Command.page"/>
+    <Source File="Pages\PG1_Para_AR_IEB.page"/>
+    <Source File="Pages\PG1_Para_AR_BRB2.page"/>
+    <Source File="Pages\PG1_Para_Times.page"/>
+    <Source File="Pages\PG1_Para_Settings.page"/>
+    <Source File="Pages\PG1_Servis.page"/>
+    <Source File="Pages\X_Visak_Opisi.page"/>
+    <Source File="Pages\X_Init_Back.page"/>
     <Source File="StyleSheets\Gray.vcs"/>
     <Source File="StyleSheets\Color.vcs"/>
     <Source File="Borders\Raised.bdr"/>

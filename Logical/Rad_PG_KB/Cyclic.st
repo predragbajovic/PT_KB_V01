@@ -21,13 +21,13 @@ PROGRAM _CYCLIC
 		PGRad.Par.SetPointPritisakPV05Ispiranje := 5.5;
 		PGRad.Par.SetPointPritisakUlazTanka := 5.5;
 		PGRad.Par.SetPointMaxPritisakDolaznaCev := 6.5;
-		PGRad.Par.T_PrelazPV05Cuvar := T#15s;
+		PGRad.Par.TimeSP.PrelazPV05Cuvar_s := 15.0;
 		PGRad.Par.PocetnaFrekvencaIzlaznePumpe := 20.0;
 		PGRad.Par.MaxOtvorPropZaZatvaranje := 0.1;
-		PGRad.Par.T_OverlapPumpi := T#10s;
-		PGRad.Par.T_AutoRestartDelay := T#60s;
-		PGRad.Par.T_ValvePositionTimeout := T#30s;
-		PGRad.Par.T_InterlockDebounce := T#2s;
+		PGRad.Par.TimeSP.OverlapPumpi_s := 10.0;
+		PGRad.Par.TimeSP.AutoRestartDelay_s := 60.0;
+		PGRad.Par.TimeSP.ValvePositionTimeout_s := 30.0;
+		PGRad.Par.TimeSP.InterlockDebounce_s := 2.0;
 
 		(* BRB2 odzracivanje: oba ventila, prag 1.5 bar sa 0.5 bar histerezom. *)
 		PGRad.Par.AirRelease.BRB2.PV03.NumberOfLS := 2;
@@ -108,23 +108,23 @@ PROGRAM _CYCLIC
 	(* 3) Tajmeri pripreme BRB2 dovodne putanje                                  *)
 	(* -------------------------------------------------------------------------- *)
 	T_PG_V01_Close.IN := FALSE;
-	T_PG_V01_Close.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_PG_V01_Close.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_PG_V02_Open.IN := FALSE;
-	T_PG_V02_Open.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_PG_V02_Open.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_PG_V02_Close.IN := FALSE;
-	T_PG_V02_Close.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_PG_V02_Close.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_PG_V01_Open.IN := FALSE;
-	T_PG_V01_Open.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_PG_V01_Open.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_IEBKB1_StartProtokTimeout.IN := FALSE;
-	T_IEBKB1_StartProtokTimeout.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_IEBKB1_StartProtokTimeout.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_IEBKB1_ProtokNula.IN := FALSE;
-	T_IEBKB1_ProtokNula.PT := PGRad.Par.T_InterlockDebounce;
+	T_IEBKB1_ProtokNula.PT := REAL_TO_TIME(PGRad.Par.TimeSP.InterlockDebounce_s * 1000.0);
 	T_IEBKB1_StopProtokTimeout.IN := FALSE;
-	T_IEBKB1_StopProtokTimeout.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_IEBKB1_StopProtokTimeout.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_PG_V05_Close.IN := FALSE;
-	T_PG_V05_Close.PT := PGRad.Par.T_ValvePositionTimeout;
+	T_PG_V05_Close.PT := REAL_TO_TIME(PGRad.Par.TimeSP.ValvePositionTimeout_s * 1000.0);
 	T_PrelazPV05Cuvar.IN := FALSE;
-	T_PrelazPV05Cuvar.PT := PGRad.Par.T_PrelazPV05Cuvar;
+	T_PrelazPV05Cuvar.PT := REAL_TO_TIME(PGRad.Par.TimeSP.PrelazPV05Cuvar_s * 1000.0);
 
 	CASE State OF
 
@@ -175,7 +175,8 @@ PROGRAM _CYCLIC
 					(* Otvaranje BRB2 dovoda je dozvoljeno tek po potvrdi zatvorenog V01. *)
 					PGRad.CmdRetain.V01_Open := FALSE;
 					T_PG_V01_Close.IN := NOT PG.Act.AV._1.Closed;
-					IF PG.Act.AV._1.Closed THEN
+					IF PG.Act.AV._1.Closed AND (NOT ManualMode OR ManualNextStep) THEN
+						ManualNextStep := FALSE;
 						PGRad.CmdRetain.V02_Open := TRUE;
 						Substep := 2;
 					ELSIF T_PG_V01_Close.Q THEN
@@ -193,7 +194,8 @@ PROGRAM _CYCLIC
 					PGRad.CmdRetain.V01_Open := FALSE;
 					PGRad.CmdRetain.V02_Open := TRUE;
 					T_PG_V02_Open.IN := NOT PG.Act.AV._2.Opened;
-					IF PG.Act.AV._2.Opened THEN
+					IF PG.Act.AV._2.Opened AND (NOT ManualMode OR ManualNextStep) THEN
+						ManualNextStep := FALSE;
 						Substep := 3;
 					ELSIF T_PG_V02_Open.Q THEN
 						PGRad.CmdRetain.V01_Open := FALSE;
@@ -216,7 +218,19 @@ PROGRAM _CYCLIC
 					END_IF;
 					IF PGRad_BRB2.IspiranjeMinTrajanjeDostignuto
 						AND (PG.Sens.Tt._7.AI_Output.ScaledValue >= PGRad.Par.SetPointMinTempIspiranja) THEN
-						Substep := 4;
+						IF ManualMode AND NOT ManualNextStep THEN
+							(* Manual mode holds the completed rinse step until operator confirmation. *)
+						ELSE
+							ManualNextStep := FALSE;
+							IF ManualMode AND (ManualSequence = 1) THEN
+								(* Manual flush ends here; controlled stop closes the BRB2 path. *)
+								KomandaStop := TRUE;
+								State := PG_03_Zaustavljanje_BRB2;
+								Substep := 0;
+							ELSE
+								Substep := 4;
+							END_IF
+						END_IF
 					END_IF
 
 				4:
@@ -247,7 +261,8 @@ PROGRAM _CYCLIC
 							PGRad_Cmd.Ventili._07_Open := TRUE;
 							PGRad_Cmd.PropVentili.PV02.Enable := TRUE;
 					END_CASE
-					IF T_PrelazPV05Cuvar.Q THEN
+					IF T_PrelazPV05Cuvar.Q AND (NOT ManualMode OR ManualNextStep) THEN
+						ManualNextStep := FALSE;
 						Substep := 6;
 					END_IF
 
@@ -263,7 +278,9 @@ PROGRAM _CYCLIC
 							PGRad_Cmd.Ventili._07_Open := TRUE;
 							PGRad_Cmd.PropVentili.PV02.Enable := TRUE;
 					END_CASE
-					IF NivoPRihvatniSud >= PGRad.Par.SetPointNivoTanka THEN
+					IF (NivoPRihvatniSud >= PGRad.Par.SetPointNivoTanka)
+						AND (NOT ManualMode OR ManualNextStep) THEN
+						ManualNextStep := FALSE;
 						State := PG_02_Rad_BRB2;
 						Substep := 0;
 					END_IF
@@ -659,7 +676,7 @@ PROGRAM _CYCLIC
 	IF (State = PG_01_Priprema_BRB2) AND (Substep = 5) THEN
 		SP_PV05 := PGRad.Par.SetPointPritisakPV05Ispiranje
 			+ ((PGRad.Par.SetPointMaxPritisakDolaznaCev - PGRad.Par.SetPointPritisakPV05Ispiranje)
-			* TIME_TO_REAL(T_PrelazPV05Cuvar.ET) / TIME_TO_REAL(PGRad.Par.T_PrelazPV05Cuvar));
+			* TIME_TO_REAL(T_PrelazPV05Cuvar.ET) / TIME_TO_REAL(T_PrelazPV05Cuvar.PT));
 	ELSIF (((State = PG_01_Priprema_BRB2) AND (Substep >= 6))
 		OR (State = PG_02_Rad_BRB2)
 		OR ((State = PG_03_Zaustavljanje_BRB2) AND NOT PGRad_BRB2.StopSPDostignut)) THEN

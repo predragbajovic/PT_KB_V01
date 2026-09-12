@@ -973,5 +973,130 @@ TYPE
 		Internal : typIntPvAoNoFb; (* Interna radna stanja i tajmeri. *)
 		Constant : typConstPvAoNoFb; (* Konstante limita, state i fault kodova. *)
 	END_STRUCT;
+
+	(* ======================================================================== *)
+	(* FB_AirRelease (odzracivanje cevovoda sa 1 do 3 LS senzora)              *)
+	(* ======================================================================== *)
+	typInAirRelease : STRUCT (* Ulazna struktura FB_AirRelease. *)
+		Enable : BOOL; (* Spoljna dozvola automatskog odzracivanja; FALSE pokrece bezbedno zatvaranje ventila. *)
+		EnableManual : BOOL; (* TRUE = direktna rucna komanda ventila ima prioritet nad automatskom pressure/LS logikom. *)
+		ManualSP_Percent : REAL; (* Direktna rucna komanda proporcionalnog ventila [%]; ogranicava se na 0.0..100.0. *)
+		Pressure_bar : REAL; (* Skalirani pritisak nadziranog cevovoda [bar]; ocekovani radni opseg >= 0.0 bar. *)
+		LS1_Upper : BOOL; (* Gornji i obavezni LS1; TRUE = voda potvrdena na najvisoj mernoj tacki. *)
+		LS2_Middle : BOOL; (* Drugi LS odozgo; koristi se samo kada je NumberOfLS >= 2; TRUE = voda prisutna. *)
+		LS3_Lower : BOOL; (* Treci i najnizi LS; koristi se samo kada je NumberOfLS = 3; TRUE = voda prisutna. *)
+		ResetAlarm : BOOL; (* Impuls za reset memorisanog alarma kada vise nema aktivnog alarmnog uslova. *)
+	END_STRUCT;
+
+	typParAirReleaseStage : STRUCT (* Parametri jednog LS stepena odzracivanja. *)
+		SP_Percent : REAL; (* Pocetna/granicna komanda pripadajuceg LS stepena [%]; dozvoljeno 0.0..100.0. *)
+		Ramp_PercentPerSecond : REAL; (* Ista rampa otvaranja i zatvaranja stepena [%/s]; mora biti > 0.0. *)
+		ConfirmTime_s : REAL; (* Neprekidno vreme potvrde aktivacije i deaktivacije LS signala [s]; dozvoljeno 0.0..3600.0 s. *)
+	END_STRUCT;
+
+	typParAirRelease : STRUCT (* Parametarska struktura FB_AirRelease; projekat je deklarise kao RETAIN i menja sa HMI-ja. *)
+		NumberOfLS : USINT; (* Broj fizicki ugradenih LS senzora; dozvoljeno 1..3; numeracija je uvek odozgo nadole. *)
+		PressureSP_bar : REAL; (* Prag ukljucenja monitoringa aktivnog pritiska [bar]; mora biti >= 0.0. *)
+		PressureHysteresis_bar : REAL; (* Histereza iskljucenja pritiska [bar]; opseg 0.0..PressureSP_bar. *)
+		LS1 : typParAirReleaseStage; (* Gornji i uvek aktivan stepen. *)
+		LS2 : typParAirReleaseStage; (* Srednji stepen za 2/3 LS. *)
+		LS3 : typParAirReleaseStage; (* Najnizi stepen samo za 3 LS. *)
+	END_STRUCT;
+
+	typOutAirRelease : STRUCT (* Izlazna struktura FB_AirRelease. *)
+		ValveSP_Percent : REAL; (* Finalna auto/manual komanda proporcionalnog ventila [%], ogranicena na 0.0..100.0. *)
+		Status : BOOL; (* TRUE kada je FB omogucen, konfiguracija validna, vreme ciklusa validno i nema alarma. *)
+		State : USINT; (* Numericki kod trenutnog operativnog stanja za HMI i visi nivo. *)
+		State_comment : STRING[80]; (* Jednoznacan tekst trenutnog operativnog stanja. *)
+		ManualActive : BOOL; (* TRUE kada rucna komanda direktno upravlja izlazom ventila. *)
+		PressureActive : BOOL; (* TRUE kada je pritisak presao PressureSP_bar i nije pao ispod SP-histereza. *)
+		LS1_Confirmed : BOOL; (* Filtrirano stanje gornjeg LS1 posle ConfirmTime_s. *)
+		LS2_Confirmed : BOOL; (* Filtrirano stanje LS2. *)
+		LS3_Confirmed : BOOL; (* Filtrirano stanje LS3. *)
+		ActiveStage : USINT; (* Aktivni LS stepen komande: 0=manual, 1=LS1, 2=LS2, 3=LS3. *)
+		Opening : BOOL; (* TRUE kada se automatska komanda povecava prema SP-u aktivnog stepena. *)
+		Closing : BOOL; (* TRUE kada se automatska komanda smanjuje prema 0%. *)
+		AlarmActive : BOOL; (* TRUE kada trenutno postoji alarmni uslov. *)
+		AlarmLatched : BOOL; (* TRUE kada je memorisan prvi alarm i ceka reset. *)
+		FaultCode : USINT; (* Kod prvog memorisanog alarma. *)
+		FaultText : STRING[80]; (* Tekst prvog memorisanog alarma. *)
+		ActiveConditionCode : USINT; (* Kod trenutno aktivnog alarmnog uslova. *)
+		ResetAllowed : BOOL; (* TRUE kada je dozvoljen reset memorisanog alarma. *)
+		ConfigValid : BOOL; (* TRUE kada su svi aktivni parametri validni. *)
+		ConfigFaultText : STRING[80]; (* Opis prve nevalidne parametarske vrednosti. *)
+		LSSequenceInvalid : BOOL; (* TRUE kada potvrdeni LS redosled nije fizicki moguc. *)
+		CycleTime_s : REAL; (* Izmereno vreme task ciklusa [s]. *)
+		Diag : STRING[80]; (* Kratak operativni opis za HMI. *)
+	END_STRUCT;
+
+	typIntAirRelease : STRUCT (* Interna radna struktura FB_AirRelease. *)
+		RtInfo : RTInfo; (* B&R runtime informacija za stvarno vreme task ciklusa. *)
+		ConfigValid : BOOL;
+		RuntimeTimeValid : BOOL;
+		ConfigFaultText : STRING[80];
+		PressureActive : BOOL;
+		ControlActivePrev : BOOL;
+		LS1Confirmed : BOOL;
+		LS2Confirmed : BOOL;
+		LS3Confirmed : BOOL;
+		LS1ConfirmedPrev : BOOL;
+		LS2ConfirmedPrev : BOOL;
+		LS3ConfirmedPrev : BOOL;
+		TonLS1Change : TON;
+		TonLS2Change : TON;
+		TonLS3Change : TON;
+		LS1ConfirmTime : TIME;
+		LS2ConfirmTime : TIME;
+		LS3ConfirmTime : TIME;
+		ValveCmd : REAL;
+		TargetSP : REAL;
+		ActiveRamp : REAL;
+		RampStep : REAL;
+		ActiveStage : USINT;
+		OpeningMode : BOOL;
+		LSSequenceInvalid : BOOL;
+		FaultCondition : BOOL;
+		FaultLatched : BOOL;
+		FaultCode : USINT;
+		ActiveConditionCode : USINT;
+		ResetAllowed : BOOL;
+		Step : USINT;
+	END_STRUCT;
+
+	typConstAirRelease : STRUCT (* Konstante granica, stanja i alarma FB_AirRelease. *)
+		PCT_MIN : REAL := 0.0;
+		PCT_MAX : REAL := 100.0;
+		RAMP_MIN : REAL := 0.0001;
+		CONFIRM_TIME_MAX_S : REAL := 3600.0;
+		CYCLE_TIME_MAX_S : REAL := 1.0;
+		SAFE_CLOSE_SP : REAL := 20.0;
+		SAFE_CLOSE_RAMP : REAL := 2.0;
+		ST_DISABLED : USINT := 0;
+		ST_WAIT_PRESSURE : USINT := 1;
+		ST_OPENING_LS1 : USINT := 2;
+		ST_OPENING_LS2 : USINT := 3;
+		ST_OPENING_LS3 : USINT := 4;
+		ST_CLOSING_LS1 : USINT := 5;
+		ST_CLOSING_LS2 : USINT := 6;
+		ST_CLOSED : USINT := 7;
+		ST_FAULT_SAFE_CLOSE : USINT := 8;
+		ST_MANUAL : USINT := 9;
+		FLT_NONE : USINT := 0;
+		FLT_CONFIG_INVALID : USINT := 1;
+		FLT_LS_SEQUENCE_INVALID : USINT := 2;
+		FLT_RUNTIME_TIME_INVALID : USINT := 3;
+		ACT_NONE : USINT := 0;
+		ACT_CONFIG_INVALID : USINT := 1;
+		ACT_LS_SEQUENCE_INVALID : USINT := 2;
+		ACT_RUNTIME_TIME_INVALID : USINT := 3;
+	END_STRUCT;
+
+	typAirRelease : STRUCT (* Agregatna struktura svih sekcija FB_AirRelease. *)
+		Input : typInAirRelease;
+		Param : typParAirRelease;
+		Output : typOutAirRelease;
+		Internal : typIntAirRelease;
+		Constant : typConstAirRelease;
+	END_STRUCT;
 END_TYPE
 

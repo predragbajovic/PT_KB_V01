@@ -3,7 +3,7 @@
 PROGRAM _EXIT
 	(* ======================================================================== *)
 	(* PID_Pu_01_EXIT                                                            *)
-	(* Task trenutno nema posebnu izlaznu/gasnu logiku.                          *)
+	(* Nema posebne EXIT akcije; Run i frekvencu vlasnicki postavlja CYCLIC.     *)
 	(* ======================================================================== *)
 	 
 END_PROGRAM

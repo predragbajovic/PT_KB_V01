@@ -8,11 +8,19 @@
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
     <Task Name="PID_Pu_01" Source="PID_Pu_01.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Rad_PG_KB" Source="Rad_PG_KB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ProcUnit" Source="ProcessUnit.ProcUnit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="DeviceCtrl" Source="DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <TaskClass Name="Cyclic#5" />
+  <TaskClass Name="Cyclic#5">
+    <Task Name="BRB2_com" Source="IMA_comm_PG_BRB2.BRB2_com.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8" />
+  <DataObjects>
+    <DataObject Name="BRB2" Source="IMA_comm_PG_BRB2.BRB2.dob" Memory="UserROM" Language="Simple" />
+  </DataObjects>
   <VcDataObjects>
     <VcDataObject Name="Visu1" Source="Visu1.dob" Memory="UserROM" Language="Vc" WarningLevel="2" />
   </VcDataObjects>
@@ -73,5 +81,7 @@
     <LibraryObject Name="VFD_Lib" Source="Libraries.VFD_Lib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="AsIMA" Source="Libraries.AsIMA.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="inaclnt" Source="Libraries.inaclnt.lby" Memory="UserROM" Language="binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>
