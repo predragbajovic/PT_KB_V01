@@ -5,7 +5,7 @@
   <Property Name="Index" Value="0"/>
   <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="93939" Value="%m/%d/%Y %H:%M:%S"/>
+    <Text ID="93939" Value="%d.%m.%Y %H:%M:%S"/>
     <Text ID="93940" Value="%H:%M:%S"/>
     <Text ID="93941" Value="%H:%M"/>
   </TextLayer>

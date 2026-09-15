@@ -100,7 +100,6 @@
           <Text ID="103294" Value="S"/>
           <Text ID="103295" Value="R1"/>
           <Text ID="103296" Value="R2"/>
-          <Text ID="103297" Value="AUTO"/>
           <Text ID="103299" Value="BRB2"/>
           <Text ID="103300" Value="IEBKB1"/>
           <Text ID="103301" Value="kW"/>
@@ -109,6 +108,9 @@
           <Text ID="105253" Value="START"/>
           <Text ID="105255" Value="STOP"/>
           <Text ID="105257" Value="RESET GRESKE"/>
+          <Text ID="105793" Value="TREND"/>
+          <Text ID="106200" Value="IZVOR - BRB2"/>
+          <Text ID="106301" Value="IZVOR - IEBKB1"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="103199" Value="Text_1"/>
@@ -186,7 +188,6 @@
           <Text ID="103294" Value="Text_1"/>
           <Text ID="103295" Value="Text_1"/>
           <Text ID="103296" Value="Text_1"/>
-          <Text ID="103297" Value=""/>
           <Text ID="103299" Value="Text_1"/>
           <Text ID="103300" Value="Text_1"/>
           <Text ID="103301" Value="Text_1"/>
@@ -195,6 +196,9 @@
           <Text ID="105253" Value="START"/>
           <Text ID="105255" Value="STOP"/>
           <Text ID="105257" Value="RESET GRESKE"/>
+          <Text ID="105793" Value="TREND"/>
+          <Text ID="106200" Value="IZVOR - BRB2"/>
+          <Text ID="106301" Value="IZVOR - IEBKB1"/>
         </TextLayer>
         <IndexMap>
           <Index ID="103199" Value="35"/>
@@ -272,7 +276,6 @@
           <Index ID="103294" Value="217"/>
           <Index ID="103295" Value="218"/>
           <Index ID="103296" Value="219"/>
-          <Index ID="103297" Value="220"/>
           <Index ID="103299" Value="222"/>
           <Index ID="103300" Value="223"/>
           <Index ID="103301" Value="224"/>
@@ -281,6 +284,9 @@
           <Index ID="105253" Value="25"/>
           <Index ID="105255" Value="27"/>
           <Index ID="105257" Value="29"/>
+          <Index ID="105793" Value="30"/>
+          <Index ID="106200" Value="226"/>
+          <Index ID="106301" Value="32"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -443,6 +449,43 @@
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="215"/>
           <Property Name="Width" Value="58"/>
+        </Control>
+        <Control ClassId="0x00001006" Name="BarGraph_1">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndValue" Value="2.75"/>
+          <Property Name="Height" Value="350"/>
+          <Property Name="Left" Value="735"/>
+          <Property Name="Orientation" Value="Up"/>
+          <Property Name="Range[0].Color" Value="163"/>
+          <Property Name="Range[0].Start" Value="0"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StartValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BarGraph]"/>
+          <Property Name="Top" Value="316"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="Width" Value="125"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_45">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="796"/>
+          <Property Name="EndY" Value="314"/>
+          <Property Name="LineWidth" Value="6"/>
+          <Property Name="StartX" Value="796"/>
+          <Property Name="StartY" Value="253"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_46">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="796"/>
+          <Property Name="EndY" Value="683"/>
+          <Property Name="LineWidth" Value="6"/>
+          <Property Name="StartX" Value="796"/>
+          <Property Name="StartY" Value="668"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
         </Control>
         <Control ClassId="0x00001007" Name="Numeric_6">
           <Property Name="AddFractionDigits" Value="4"/>
@@ -612,7 +655,7 @@
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="87"/>
           <Property Name="Height" Value="24"/>
-          <Property Name="Left" Value="757"/>
+          <Property Name="Left" Value="762"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -633,14 +676,14 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="Height" Value="24"/>
-          <Property Name="Left" Value="759"/>
+          <Property Name="Left" Value="764"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
           <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
           <Property Name="TextIndexOffset" Value="69"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="479"/>
+          <Property Name="Top" Value="477"/>
           <Property Name="Width" Value="65"/>
         </Control>
         <Control ClassId="0x00001007" Name="Numeric_TT08">
@@ -1727,7 +1770,7 @@
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="237"/>
           <Property Name="Height" Value="36"/>
-          <Property Name="Left" Value="753"/>
+          <Property Name="Left" Value="758"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2037,7 +2080,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="Height" Value="27"/>
-          <Property Name="Left" Value="764"/>
+          <Property Name="Left" Value="769"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -2431,10 +2474,10 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_settings2]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="1140"/>
+          <Property Name="Left" Value="516"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -2443,7 +2486,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="72"/>
+          <Property Name="Top" Value="26"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_settings2]"/>
           <Property Name="Width" Value="120"/>
         </Control>
@@ -2904,18 +2947,6 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="90"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_2">
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="FillStyle" Value="Transparent"/>
-          <Property Name="ForeColor" Value="0"/>
-          <Property Name="Height" Value="324"/>
-          <Property Name="Left" Value="734"/>
-          <Property Name="LineWidth" Value="3"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
-          <Property Name="Top" Value="327"/>
-          <Property Name="Width" Value="123"/>
-        </Control>
         <Control ClassId="0x00001002" Name="Button_13">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -3299,39 +3330,6 @@
           <Property Name="Top" Value="728"/>
           <Property Name="Width" Value="30"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_25">
-          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
-          <Property Name="BitmapIndexDatapoint" Value="None"/>
-          <Property Name="BitmapSource" Value="None"/>
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_73]"/>
-          <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="Height" Value="50"/>
-          <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="1069"/>
-          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
-          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
-          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
-          <Property Name="TextIndex" Value="220"/>
-          <Property Name="TextIndexDatapoint" Value="None"/>
-          <Property Name="TextSimulationValue" Value="0"/>
-          <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="551"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_73]"/>
-          <Property Name="Width" Value="90"/>
-        </Control>
-        <Control ClassId="0x0000100D" Name="Line_1">
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EndX" Value="796"/>
-          <Property Name="EndY" Value="327"/>
-          <Property Name="LineWidth" Value="6"/>
-          <Property Name="StartX" Value="796"/>
-          <Property Name="StartY" Value="253"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
-        </Control>
         <Control ClassId="0x00001001" Name="Shape_36">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -3441,16 +3439,6 @@
           <Property Name="StartY" Value="426"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
         </Control>
-        <Control ClassId="0x0000100D" Name="Line_5">
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EndX" Value="796"/>
-          <Property Name="EndY" Value="683"/>
-          <Property Name="LineWidth" Value="6"/>
-          <Property Name="StartX" Value="796"/>
-          <Property Name="StartY" Value="652"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
-        </Control>
         <Control ClassId="0x0000100D" Name="Line_6">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -3537,7 +3525,7 @@
           <Property Name="EndX" Value="627"/>
           <Property Name="EndY" Value="440"/>
           <Property Name="LineWidth" Value="6"/>
-          <Property Name="StartX" Value="733"/>
+          <Property Name="StartX" Value="732"/>
           <Property Name="StartY" Value="440"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
         </Control>
@@ -4042,10 +4030,10 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_start1]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="506"/>
+          <Property Name="Left" Value="417"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -4054,7 +4042,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="26"/>
+          <Property Name="Top" Value="93"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_start1]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4065,10 +4053,10 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_stop1]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="674"/>
+          <Property Name="Left" Value="418"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -4077,7 +4065,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="26"/>
+          <Property Name="Top" Value="160"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_stop1]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4088,10 +4076,10 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_reset1]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="999"/>
+          <Property Name="Left" Value="585"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -4100,9 +4088,85 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="72"/>
+          <Property Name="Top" Value="160"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_reset1]"/>
-          <Property Name="Width" Value="120"/>
+          <Property Name="Width" Value="149"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_Start1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_start2]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="586"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="30"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="93"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_start2]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_SourceSelect">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="OFF = BRB2, ON = IEBKB1"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%source_select]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="501"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="PressedTextIndex" Value="32"/>
+          <Property Name="PressedTextSource" Value="SingleText"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="226"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="225"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%source_select]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="StateComment">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Aktivno stanje sistema"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="760"/>
+          <Property Name="SimulationValue" Value="STANJE: STANDBY"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="55"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_Status.StateComment]"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="SubstepComment">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Opis aktivnog podkoraka sistema"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="760"/>
+          <Property Name="SimulationValue" Value="PODKORAK: Ceka komandu START"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="87"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_Status.SubstepComment]"/>
+          <Property Name="Width" Value="500"/>
         </Control>
       </Controls>
       <KeyMapping>
@@ -4471,22 +4535,6 @@
             </KeyAction>
           </KeyActions>
         </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_73">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x0000016A">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="ResetValue" Value="0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
         <VirtualKey Name="%cmd_start1">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
@@ -4532,6 +4580,35 @@
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
               <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaReset]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%cmd_start2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Trend_1]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%source_select">
+          <Property Name="Description" Value="OFF = BRB2, ON = IEBKB1"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value="Prebacivanje izvora BRB2 / IEBKB1"/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.SelectIEBKB1]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4620,5 +4697,7 @@
     <TabSeqItem Index="34" Value="Source[embedded].Layer[Default].Control[Numeric_32]"/>
     <TabSeqItem Index="35" Value="Source[embedded].Layer[Default].Control[Numeric_36]"/>
     <TabSeqItem Index="36" Value="Source[embedded].Layer[Default].Control[Numeric_3]"/>
+    <TabSeqItem Index="37" Value="Source[embedded].Layer[Default].Control[StateComment]"/>
+    <TabSeqItem Index="38" Value="Source[embedded].Layer[Default].Control[SubstepComment]"/>
   </TabSequence>
 </Page>

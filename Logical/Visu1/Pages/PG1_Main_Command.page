@@ -27,7 +27,7 @@
         <TextLayer LanguageId="en">
           <Text ID="0" Value="GLAVNI KOMANDNI EKRAN"/>
           <Text ID="1" Value="PARAMETRI"/>
-          <Text ID="2" Value="INIT"/>
+          <Text ID="2" Value="GLAVNI EKRAN"/>
           <Text ID="3" Value="START"/>
           <Text ID="4" Value="STOP"/>
           <Text ID="5" Value="RESET GRESKE"/>
@@ -65,11 +65,13 @@
           <Text ID="38" Value="NEXT STEP"/>
           <Text ID="39" Value="ABORT"/>
           <Text ID="104599" Value="Rucna sekvenca"/>
+          <Text ID="104600" Value="0=AUTO, 1=RUCNI"/>
+          <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="0" Value="GLAVNI KOMANDNI EKRAN"/>
           <Text ID="1" Value="PARAMETRI"/>
-          <Text ID="2" Value="INIT"/>
+          <Text ID="2" Value="GLAVNI EKRAN"/>
           <Text ID="3" Value="START"/>
           <Text ID="4" Value="STOP"/>
           <Text ID="5" Value="RESET GRESKE"/>
@@ -107,6 +109,8 @@
           <Text ID="38" Value="NEXT STEP"/>
           <Text ID="39" Value="ABORT"/>
           <Text ID="104599" Value="RUCNI REZIM"/>
+          <Text ID="104600" Value="0=AUTO, 1=RUCNI"/>
+          <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
         </TextLayer>
         <IndexMap>
           <Index ID="0" Value="0"/>
@@ -149,6 +153,8 @@
           <Index ID="38" Value="38"/>
           <Index ID="39" Value="39"/>
           <Index ID="104599" Value="49"/>
+          <Index ID="104600" Value="50"/>
+          <Index ID="104601" Value="51"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -175,7 +181,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_settings]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="928"/>
@@ -198,7 +204,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_init]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="1109"/>
@@ -221,7 +227,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_start]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="385"/>
@@ -244,7 +250,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_stop]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="566"/>
@@ -267,7 +273,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%cmd_reset]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="747"/>
@@ -297,7 +303,7 @@
           <Property Name="TextIndexOffset" Value="6"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="155"/>
-          <Property Name="Width" Value="500"/>
+          <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="ChoiceLabel_0">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -313,22 +319,17 @@
           <Property Name="TextIndexOffset" Value="7"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="188"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="325"/>
         </Control>
         <Control ClassId="0x00001007" Name="ChoiceValue_0">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="455"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -336,7 +337,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="188"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Ctrl.SelektovaniIzvor]"/>
@@ -357,22 +358,17 @@
           <Property Name="TextIndexOffset" Value="8"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="226"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="325"/>
         </Control>
         <Control ClassId="0x00001007" Name="ChoiceValue_1">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="455"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -380,7 +376,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="226"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Ctrl.RegulacionaVarijanta]"/>
@@ -401,22 +397,17 @@
           <Property Name="TextIndexOffset" Value="9"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="264"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="325"/>
         </Control>
         <Control ClassId="0x00001007" Name="ChoiceValue_2">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="455"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -424,7 +415,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="264"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Ctrl.AktivnaPumpaIzlazTanka]"/>
@@ -437,7 +428,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="38"/>
+          <Property Name="Left" Value="35"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -445,22 +436,17 @@
           <Property Name="TextIndexOffset" Value="10"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="301"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="325"/>
         </Control>
         <Control ClassId="0x00001007" Name="ChoiceValue_3">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="455"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -468,7 +454,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="301"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Ctrl.AktivniPropVentilUlazTanka]"/>
@@ -489,22 +475,17 @@
           <Property Name="TextIndexOffset" Value="11"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="339"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="325"/>
         </Control>
         <Control ClassId="0x00001007" Name="ChoiceValue_4">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="455"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -512,7 +493,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="339"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Ctrl.AutoRestart]"/>
@@ -533,7 +514,7 @@
           <Property Name="TextIndexOffset" Value="12"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="399"/>
-          <Property Name="Width" Value="500"/>
+          <Property Name="Width" Value="250"/>
         </Control>
         <Control ClassId="0x00001004" Name="ProcessLabel_0">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -548,24 +529,19 @@
           <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
           <Property Name="TextIndexOffset" Value="13"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="434"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Top" Value="435"/>
+          <Property Name="Width" Value="180"/>
         </Control>
         <Control ClassId="0x00001007" Name="ProcessValue_0">
           <Property Name="AddFractionDigits" Value="2"/>
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="454"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -573,7 +549,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="435"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Par.SetPritisakPotisa]"/>
@@ -594,7 +570,7 @@
           <Property Name="TextIndexOffset" Value="14"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="470"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="180"/>
         </Control>
         <Control ClassId="0x00001007" Name="ProcessValue_1">
           <Property Name="AddFractionDigits" Value="2"/>
@@ -614,7 +590,7 @@
           <Property Name="Top" Value="471"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Sens.Pt._5.AI_Output.ScaledValue]"/>
           <Property Name="ValueMode" Value="Standard"/>
-          <Property Name="Width" Value="110"/>
+          <Property Name="Width" Value="100"/>
         </Control>
         <Control ClassId="0x00001004" Name="ProcessLabel_2">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -630,23 +606,18 @@
           <Property Name="TextIndexOffset" Value="15"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="506"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="180"/>
         </Control>
         <Control ClassId="0x00001007" Name="ProcessValue_2">
           <Property Name="AddFractionDigits" Value="2"/>
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
           <Property Name="InputUpDown" Value="Progressive"/>
           <Property Name="Left" Value="454"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -654,7 +625,7 @@
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="507"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad.Par.SetPointNivoTanka]"/>
@@ -675,7 +646,7 @@
           <Property Name="TextIndexOffset" Value="16"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="543"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="180"/>
         </Control>
         <Control ClassId="0x00001007" Name="ProcessValue_3">
           <Property Name="AddFractionDigits" Value="2"/>
@@ -695,7 +666,7 @@
           <Property Name="Top" Value="544"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
           <Property Name="ValueMode" Value="Standard"/>
-          <Property Name="Width" Value="110"/>
+          <Property Name="Width" Value="100"/>
         </Control>
         <Control ClassId="0x00001004" Name="ProcessLabel_4">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -711,7 +682,7 @@
           <Property Name="TextIndexOffset" Value="17"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="580"/>
-          <Property Name="Width" Value="410"/>
+          <Property Name="Width" Value="180"/>
         </Control>
         <Control ClassId="0x00001007" Name="ProcessValue_4">
           <Property Name="AddFractionDigits" Value="2"/>
@@ -731,7 +702,7 @@
           <Property Name="Top" Value="581"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Sens.MP._1.AI_Output.ScaledValue]"/>
           <Property Name="ValueMode" Value="Standard"/>
-          <Property Name="Width" Value="110"/>
+          <Property Name="Width" Value="100"/>
         </Control>
         <Control ClassId="0x00001004" Name="Head_Status">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -770,8 +741,9 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="941"/>
+          <Property Name="Left" Value="942"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -805,6 +777,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="941"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -840,6 +813,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="941"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -875,6 +849,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="941"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -933,7 +908,7 @@
           <Property Name="TextIndexOffset" Value="24"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="420"/>
-          <Property Name="Width" Value="500"/>
+          <Property Name="Width" Value="150"/>
         </Control>
         <Control ClassId="0x00001004" Name="DeviceLabel_0">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -949,7 +924,7 @@
           <Property Name="TextIndexOffset" Value="25"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="465"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="120"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_0">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -958,7 +933,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="835"/>
+          <Property Name="Left" Value="803"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -985,7 +960,7 @@
           <Property Name="TextIndexOffset" Value="26"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="510"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="120"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_1">
           <Property Name="AlignmentHorizontal" Value="Center"/>
@@ -993,7 +968,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="835"/>
+          <Property Name="Left" Value="803"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -1020,7 +995,7 @@
           <Property Name="TextIndexOffset" Value="27"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="555"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="120"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_2">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1029,7 +1004,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="835"/>
+          <Property Name="Left" Value="803"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -1056,7 +1031,7 @@
           <Property Name="TextIndexOffset" Value="28"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="600"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="120"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_3">
           <Property Name="AlignmentHorizontal" Value="Center"/>
@@ -1064,7 +1039,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="835"/>
+          <Property Name="Left" Value="803"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -1091,7 +1066,7 @@
           <Property Name="TextIndexOffset" Value="29"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="645"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="120"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_4">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1100,7 +1075,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="835"/>
+          <Property Name="Left" Value="803"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="100000"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -1119,7 +1094,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="950"/>
+          <Property Name="Left" Value="981"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -1127,7 +1102,7 @@
           <Property Name="TextIndexOffset" Value="30"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="465"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_5">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1155,7 +1130,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="950"/>
+          <Property Name="Left" Value="981"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -1163,7 +1138,7 @@
           <Property Name="TextIndexOffset" Value="31"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="510"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_6">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1191,7 +1166,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="950"/>
+          <Property Name="Left" Value="981"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -1199,7 +1174,7 @@
           <Property Name="TextIndexOffset" Value="32"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="555"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_7">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1227,7 +1202,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="950"/>
+          <Property Name="Left" Value="981"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -1235,7 +1210,7 @@
           <Property Name="TextIndexOffset" Value="33"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="600"/>
-          <Property Name="Width" Value="180"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001007" Name="DeviceValue_8">
           <Property Name="AddFractionDigits" Value="1"/>
@@ -1275,26 +1250,20 @@
         </Control>
         <Control ClassId="0x00001007" Name="ManualEnable">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
-          <Property Name="InputUpDown" Value="Disabled"/>
           <Property Name="Left" Value="218"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="1"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="637"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualMode]"/>
@@ -1303,26 +1272,20 @@
         </Control>
         <Control ClassId="0x00001007" Name="ManualSequence">
           <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="40"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Input" Value="True"/>
-          <Property Name="InputCancel" Value="Lost Focus"/>
-          <Property Name="InputComma" Value="Explicit"/>
-          <Property Name="InputConfirm" Value="Enter"/>
           <Property Name="InputMinus" Value="Normal"/>
           <Property Name="InputNext" Value="Enter"/>
-          <Property Name="InputStart" Value="Any Key"/>
-          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
-          <Property Name="InputUpDown" Value="Disabled"/>
           <Property Name="Left" Value="219"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="2"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinValue" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[OutputFrameless]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="686"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualSequence]"/>
@@ -1336,7 +1299,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_start]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="40"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="427"/>
@@ -1359,7 +1322,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_stop]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="40"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="630"/>
@@ -1382,7 +1345,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_abort]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="40"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="833"/>
@@ -1405,7 +1368,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%manual_next]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="40"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="1036"/>
@@ -1436,6 +1399,38 @@
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="682"/>
           <Property Name="Width" Value="187"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="ManualModeLegend">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Objasnjenje vrednosti rucnog rezima"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="365"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="50"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="637"/>
+          <Property Name="Width" Value="260"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="ManualSequenceLegend">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Objasnjenje vrednosti rucne sekvence"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="365"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="51"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="686"/>
+          <Property Name="Width" Value="500"/>
         </Control>
       </Controls>
       <KeyMapping>

@@ -100,7 +100,6 @@
           <Text ID="103068" Value="S"/>
           <Text ID="103069" Value="R1"/>
           <Text ID="103070" Value="R2"/>
-          <Text ID="103071" Value="AUTO"/>
           <Text ID="103073" Value="BRB2"/>
           <Text ID="103074" Value="IEBKB1"/>
           <Text ID="103075" Value="kW"/>
@@ -182,7 +181,6 @@
           <Text ID="103068" Value="Text_1"/>
           <Text ID="103069" Value="Text_1"/>
           <Text ID="103070" Value="Text_1"/>
-          <Text ID="103071" Value=""/>
           <Text ID="103073" Value="Text_1"/>
           <Text ID="103074" Value="Text_1"/>
           <Text ID="103075" Value="Text_1"/>
@@ -264,7 +262,6 @@
           <Index ID="103068" Value="57"/>
           <Index ID="103069" Value="59"/>
           <Index ID="103070" Value="61"/>
-          <Index ID="103071" Value="62"/>
           <Index ID="103073" Value="64"/>
           <Index ID="103074" Value="65"/>
           <Index ID="103075" Value="66"/>
@@ -434,6 +431,23 @@
           <Property Name="Top" Value="214"/>
           <Property Name="Width" Value="58"/>
         </Control>
+        <Control ClassId="0x00001006" Name="BarGraph_1">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndValue" Value="2.75"/>
+          <Property Name="Height" Value="350"/>
+          <Property Name="Left" Value="733"/>
+          <Property Name="Orientation" Value="Up"/>
+          <Property Name="Range[0].Color" Value="163"/>
+          <Property Name="Range[0].Start" Value="0"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StartValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BarGraph]"/>
+          <Property Name="Top" Value="315"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="Width" Value="125"/>
+        </Control>
         <Control ClassId="0x00001007" Name="Numeric_6">
           <Property Name="AddFractionDigits" Value="4"/>
           <Property Name="AlignmentHorizontal" Value="Center"/>
@@ -442,7 +456,6 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="242"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
           <Property Name="Left" Value="750"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -463,7 +476,6 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
           <Property Name="Left" Value="744"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -483,7 +495,6 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="242"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
           <Property Name="Left" Value="754"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -504,7 +515,6 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
           <Property Name="Left" Value="743"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -605,7 +615,6 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="87"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="24"/>
           <Property Name="Left" Value="756"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -627,7 +636,6 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="24"/>
           <Property Name="Left" Value="758"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -1347,7 +1355,6 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
           <Property Name="Left" Value="747"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -1364,7 +1371,6 @@
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="20"/>
           <Property Name="Left" Value="772"/>
           <Property Name="Shape" Value="Ellipse"/>
@@ -1724,9 +1730,8 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="237"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="36"/>
-          <Property Name="Left" Value="752"/>
+          <Property Name="Left" Value="753"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2035,7 +2040,6 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="GroupID" Value="31"/>
           <Property Name="Height" Value="27"/>
           <Property Name="Left" Value="763"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -2431,7 +2435,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_settings1]"/>
-          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="1079"/>
@@ -2905,19 +2909,6 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="90"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_2">
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="FillStyle" Value="Transparent"/>
-          <Property Name="ForeColor" Value="0"/>
-          <Property Name="GroupID" Value="31"/>
-          <Property Name="Height" Value="324"/>
-          <Property Name="Left" Value="733"/>
-          <Property Name="LineWidth" Value="3"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
-          <Property Name="Top" Value="326"/>
-          <Property Name="Width" Value="123"/>
-        </Control>
         <Control ClassId="0x00001002" Name="Button_13">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -3301,34 +3292,11 @@
           <Property Name="Top" Value="727"/>
           <Property Name="Width" Value="30"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_25">
-          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
-          <Property Name="BitmapIndexDatapoint" Value="None"/>
-          <Property Name="BitmapSource" Value="None"/>
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_52]"/>
-          <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="Height" Value="50"/>
-          <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="1068"/>
-          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
-          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
-          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
-          <Property Name="TextIndex" Value="62"/>
-          <Property Name="TextIndexDatapoint" Value="None"/>
-          <Property Name="TextSimulationValue" Value="0"/>
-          <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="550"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_52]"/>
-          <Property Name="Width" Value="90"/>
-        </Control>
         <Control ClassId="0x0000100D" Name="Line_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EndX" Value="795"/>
-          <Property Name="EndY" Value="326"/>
+          <Property Name="EndY" Value="313"/>
           <Property Name="LineWidth" Value="6"/>
           <Property Name="StartX" Value="795"/>
           <Property Name="StartY" Value="252"/>
@@ -3450,7 +3418,7 @@
           <Property Name="EndY" Value="682"/>
           <Property Name="LineWidth" Value="6"/>
           <Property Name="StartX" Value="795"/>
-          <Property Name="StartY" Value="651"/>
+          <Property Name="StartY" Value="667"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Line]"/>
         </Control>
         <Control ClassId="0x0000100D" Name="Line_6">
@@ -4026,7 +3994,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.cmds.Run_fwd]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4170,7 +4138,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.Pu_01_Auto]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4312,22 +4280,6 @@
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
               <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.cmds.Enable]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_52">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x0000016A">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="ResetValue" Value="0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="None"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

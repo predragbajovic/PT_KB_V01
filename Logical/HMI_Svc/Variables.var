@@ -1,0 +1,5 @@
+VAR
+	TrendClock : DTGetTime; (* Sistemsko vreme za granice 10-dnevnog trend zapisa. *)
+	TrendNow_s : UDINT; (* Trenutno sistemsko vreme u sekundama od epohe. *)
+	TrendEarliest_s : UDINT; (* Najstarije dostupno vreme unutar 10-dnevnog buffera. *)
+END_VAR

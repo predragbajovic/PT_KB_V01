@@ -14,6 +14,8 @@
     <Object Type="Program" Language="IEC">DeviceCtrl</Object>
     <Object Type="Program" Language="IEC">PID_Pu_01</Object>
     <Object Type="Program" Language="IEC">Rad_PG_KB</Object>
+    <Object Type="Program" Language="IEC">PG_Intf</Object>
+    <Object Type="Program" Language="IEC">HMI_Svc</Object>
     <Object Type="Package" Description="Funkcionalne procesne jedinice.">ProcessUnit</Object>
     <Object Type="Package" Description="AsIMA master veza podstanice sa BRB2.">IMA_comm_PG_BRB2</Object>
   </Objects>

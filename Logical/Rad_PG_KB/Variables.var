@@ -8,6 +8,7 @@ VAR
 	KomandaStart : BOOL; (* HMI komanda za pokretanje sistema *)
 	KomandaStop : BOOL; (* HMI komanda za kontrolisano zaustavljanje *)
 	KomandaReset : BOOL; (* HMI komanda za reset uklonjene greske *)
+	SelectIEBKB1 : BOOL; (* HMI Toggle: FALSE = BRB2, TRUE = IEBKB1; prihvata se samo u Standby. *)
 	ManualMode : BOOL; (* Servisni rucni rezim; dozvoljen samo iz Standby. *)
 	ManualSequence : USINT; (* Izabrana sekvenca servisnog rada. *)
 	ManualStart : BOOL; (* Impuls za pokretanje izabrane sekvence. *)

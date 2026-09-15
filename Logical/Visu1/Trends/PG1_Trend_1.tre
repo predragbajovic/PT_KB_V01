@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Trend xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_Trend_1">
+  <Property Name="BackColor" Value="9"/>
+  <Property Name="Cursor1" Value="True"/>
+  <Property Name="Cursor1Color" Value="5"/>
+  <Property Name="Cursor1PositionDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Position]"/>
+  <Property Name="Cursor1StatusDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Status]"/>
+  <Property Name="Cursor2" Value="False"/>
+  <Property Name="Description" Value="Podstanica - osnovni procesni parametri"/>
+  <Property Name="Height" Value="768"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="1024"/>
+  <Controls>
+    <Control ClassId="0x00001015" Name="TrendGrid_1">
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="251"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendGrid]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001019" Name="TimeScaleContainer">
+      <Property Name="AlignIndex" Value="1"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="40"/>
+      <Property Name="Horizontal" Value="True"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendScaleContainer]"/>
+      <Property Name="Top" Value="564"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001019" Name="ScaleContainerNivo">
+      <Property Name="AlignIndex" Value="-1"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="Horizontal" Value="False"/>
+      <Property Name="Left" Value="10"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendScaleContainer]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="Width" Value="40"/>
+    </Control>
+    <Control ClassId="0x00001019" Name="ScaleContainerPritisak">
+      <Property Name="AlignIndex" Value="-1"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="Horizontal" Value="False"/>
+      <Property Name="Left" Value="50"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendScaleContainer]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="Width" Value="40"/>
+    </Control>
+    <Control ClassId="0x00001019" Name="ScaleContainerProtok">
+      <Property Name="AlignIndex" Value="1"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="Horizontal" Value="False"/>
+      <Property Name="Left" Value="890"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendScaleContainer]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="Width" Value="40"/>
+    </Control>
+    <Control ClassId="0x00001019" Name="ScaleContainerTemperatura">
+      <Property Name="AlignIndex" Value="1"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="Horizontal" Value="False"/>
+      <Property Name="Left" Value="930"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendScaleContainer]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="Width" Value="40"/>
+    </Control>
+    <Control ClassId="0x0000101A" Name="TrendTimeScale_1">
+      <Property Name="AutomaticScrollOffset" Value="10"/>
+      <Property Name="BackColor" Value="8"/>
+      <Property Name="Cursor1TimeDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Time]"/>
+      <Property Name="Cursor2TimeDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="LabelPosition" Value="None"/>
+      <Property Name="ModeDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.AxisMode]"/>
+      <Property Name="PitchLineSpacing" Value="100"/>
+      <Property Name="ScaleContainer" Value="Source[local].Trend[PG1_Trend_1].Control[TimeScaleContainer]"/>
+      <Property Name="StartTimeDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.ViewStart]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendTimeContainer]"/>
+      <Property Name="TextSource" Value="None"/>
+      <Property Name="TimeSpanDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.ViewSpan]"/>
+      <Property Name="ZoomMode" Value="Span"/>
+    </Control>
+    <Control ClassId="0x00001017" Name="ScaleNivo">
+      <Property Name="BackColor" Value="8"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="125"/>
+      <Property Name="MajorPitchLinesLength" Value="6"/>
+      <Property Name="MinorPitchLinesLength" Value="3"/>
+      <Property Name="ScaleContainer" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleContainerNivo]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendValueScale]"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+      <Property Name="UnitTextPosition" Value="End"/>
+    </Control>
+    <Control ClassId="0x00001017" Name="ScalePritisak">
+      <Property Name="BackColor" Value="8"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="201"/>
+      <Property Name="MajorPitchLinesLength" Value="6"/>
+      <Property Name="MinorPitchLinesLength" Value="3"/>
+      <Property Name="ScaleContainer" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleContainerPritisak]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendValueScale]"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+      <Property Name="UnitTextPosition" Value="End"/>
+    </Control>
+    <Control ClassId="0x00001017" Name="ScaleProtok">
+      <Property Name="BackColor" Value="8"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="0"/>
+      <Property Name="MajorPitchLinesLength" Value="6"/>
+      <Property Name="MinorPitchLinesLength" Value="3"/>
+      <Property Name="ScaleContainer" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleContainerProtok]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendValueScale]"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+      <Property Name="UnitTextPosition" Value="End"/>
+    </Control>
+    <Control ClassId="0x00001017" Name="ScaleTemperatura">
+      <Property Name="BackColor" Value="8"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="4"/>
+      <Property Name="MajorPitchLinesLength" Value="6"/>
+      <Property Name="MinorPitchLinesLength" Value="3"/>
+      <Property Name="ScaleContainer" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleContainerTemperatura]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendValueScale]"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+      <Property Name="UnitTextPosition" Value="End"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveNivo">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Nivo]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="125"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_Nivo]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleNivo]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurvePritisak">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Pritisak]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="201"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_Pritisak]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScalePritisak]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveProtok">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.Protok]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="0"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_Protok]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleProtok]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveTT01">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.TT01]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="237"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_TT01]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleTemperatura]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveTT03">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.TT03]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="222"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_TT03]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleTemperatura]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveTT04">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.TT04]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="13"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_TT04]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleTemperatura]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveTT05">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.TT05]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="145"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_TT05]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleTemperatura]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+    <Control ClassId="0x00001016" Name="CurveTT06">
+      <Property Name="Cursor1ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.TT06]"/>
+      <Property Name="Cursor2ValueDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="ForeColor" Value="4"/>
+      <Property Name="Height" Value="360"/>
+      <Property Name="HorizontalScale" Value="Source[local].Trend[PG1_Trend_1].Control[TrendTimeScale_1]"/>
+      <Property Name="Left" Value="90"/>
+      <Property Name="MarkerType" Value="None"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[TrendCurve]"/>
+      <Property Name="Top" Value="204"/>
+      <Property Name="TrendData" Value="Source[local].TrendData[PG1_TT06]"/>
+      <Property Name="VerticalScale" Value="Source[local].Trend[PG1_Trend_1].Control[ScaleTemperatura]"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="ZoomDisplayMode" Value="Average"/>
+    </Control>
+  </Controls>
+</Trend>

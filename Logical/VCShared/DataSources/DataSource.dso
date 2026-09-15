@@ -427,6 +427,15 @@
             <Folder Name="cmds">
               <Property Name="Description" Value=""/>
               <Property Name="FolderType" Value="Struct"/>
+              <DataPoint Name="Run_fwd">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="Visu1"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="BOOL"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="BOOL"/>
+              </DataPoint>
               <DataPoint Name="Reset">
                 <Property Name="ConnectedBySharedResource" Value="False"/>
                 <Property Name="ConnectingVisus" Value="Visu1"/>
@@ -1318,6 +1327,235 @@
         </Folder>
       </Folder>
     </Folder>
+    <Folder Name="PGRad_TrendCursor">
+      <Property Name="Description" Value="Vrednosti na poziciji trend kursora"/>
+      <Property Name="FolderType" Value="Struct"/>
+      <DataPoint Name="Position">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="Normalizovana pozicija kursora od 0.0 do 1.0"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="Time">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Proteklo vreme od pocetka trend zapisa na poziciji kursora [ms]"/>
+        <Property Name="PLCType" Value="UDINT"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="INTEGER"/>
+      </DataPoint>
+      <DataPoint Name="RecordingStart">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Apsolutno vreme prvog uzorka referentnog trend zapisa"/>
+        <Property Name="PLCType" Value="DATE_AND_TIME"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="DateTime">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Apsolutni datum i vreme uzorka na poziciji kursora"/>
+        <Property Name="PLCType" Value="DATE_AND_TIME"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="ViewStart">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Leva granica prikazanog trend prozora"/>
+        <Property Name="PLCType" Value="DATE_AND_TIME"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="ViewSpan">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Sirina prikazanog trend prozora [s]"/>
+        <Property Name="PLCType" Value="DINT"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="INTEGER"/>
+      </DataPoint>
+      <DataPoint Name="AxisMode">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="VC time-scale mod; 0 drzi zadati vremenski prozor"/>
+        <Property Name="PLCType" Value="UINT"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="INTEGER"/>
+      </DataPoint>
+      <DataPoint Name="CmdBack">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Prethodni trend prozor"/>
+        <Property Name="PLCType" Value="BOOL"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="BOOL"/>
+      </DataPoint>
+      <DataPoint Name="CmdForward">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Sledeci trend prozor"/>
+        <Property Name="PLCType" Value="BOOL"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="BOOL"/>
+      </DataPoint>
+      <DataPoint Name="CmdNow">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Povratak na najnovije trend podatke"/>
+        <Property Name="PLCType" Value="BOOL"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="BOOL"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime0">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Pocetak prikazanog vremenskog prozora"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime1">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Prva unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime2">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Druga unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime3">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Treca unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime4">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Cetvrta unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime5">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Peta unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime6">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Sesta unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime7">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Sedma unutrasnja vremenska oznaka"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="AxisTime8">
+        <Property Name="ConnectedBySharedResource" Value="False"/><Property Name="ConnectingVisus" Value="Visu1"/><Property Name="Description" Value="Kraj prikazanog vremenskog prozora"/><Property Name="PLCType" Value="DATE_AND_TIME"/><Property Name="UpdateTime" Value="Default"/><Property Name="UserID" Value="None"/><Property Name="VCType" Value="None"/>
+      </DataPoint>
+      <DataPoint Name="Status">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="VC status trend kursora; bit 10 oznacava validan Cursor 1"/>
+        <Property Name="PLCType" Value="UINT"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="INTEGER"/>
+      </DataPoint>
+      <DataPoint Name="Nivo">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="Nivo prihvatnog tanka na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="Pritisak">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="PT05 pritisak potisa na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="Protok">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="Protok ka bazenima na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="TT01">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="TT01 na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="TT03">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="TT03 u tanku na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="TT04">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="TT04 na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="TT05">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="TT05 na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+      <DataPoint Name="TT06">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="DPLimit" Value="None"/>
+        <Property Name="Description" Value="TT06 na poziciji kursora"/>
+        <Property Name="PLCType" Value="REAL"/>
+        <Property Name="PLCUnit" Value="None"/>
+        <Property Name="UnitGroup" Value="None"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="SCALED"/>
+      </DataPoint>
+    </Folder>
     <DataPoint Name="NivoPRihvatniSud">
       <Property Name="ConnectedBySharedResource" Value="False"/>
       <Property Name="ConnectingVisus" Value="Visu1"/>
@@ -1526,6 +1764,15 @@
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="BOOL"/>
       </DataPoint>
+      <DataPoint Name="SelectIEBKB1">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="HMI izbor izvora: FALSE = BRB2, TRUE = IEBKB1"/>
+        <Property Name="PLCType" Value="BOOL"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="BOOL"/>
+      </DataPoint>
       <DataPoint Name="Pu_01_Auto">
         <Property Name="ConnectedBySharedResource" Value="False"/>
         <Property Name="ConnectingVisus" Value="Visu1"/>
@@ -1558,6 +1805,16 @@
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="INTEGER"/>
       </DataPoint>
+      <DataPoint Name="StateComment">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Operaterski opis aktivnog stanja"/>
+        <Property Name="PLCType" Value="STRING"/>
+        <Property Name="StringLength" Value="80"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="STRING"/>
+      </DataPoint>
       <DataPoint Name="Substep">
         <Property Name="ConnectedBySharedResource" Value="False"/>
         <Property Name="ConnectingVisus" Value="Visu1"/>
@@ -1566,6 +1823,16 @@
         <Property Name="UpdateTime" Value="Default"/>
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="INTEGER"/>
+      </DataPoint>
+      <DataPoint Name="SubstepComment">
+        <Property Name="ConnectedBySharedResource" Value="False"/>
+        <Property Name="ConnectingVisus" Value="Visu1"/>
+        <Property Name="Description" Value="Operaterski opis aktivnog podkoraka"/>
+        <Property Name="PLCType" Value="STRING"/>
+        <Property Name="StringLength" Value="80"/>
+        <Property Name="UpdateTime" Value="Default"/>
+        <Property Name="UserID" Value="None"/>
+        <Property Name="VCType" Value="STRING"/>
       </DataPoint>
       <DataPoint Name="Fault">
         <Property Name="ConnectedBySharedResource" Value="False"/>
@@ -1800,6 +2067,7 @@
           <DataPoint Name="PrelazPV05Cuvar_s">
             <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="ConnectingVisus" Value="Visu1"/>
+            <Property Name="DPLimit" Value="None"/>
             <Property Name="Description" Value="PT PGRad vremenski parametar [s]"/>
             <Property Name="PLCType" Value="REAL"/>
             <Property Name="PLCUnit" Value="None"/>
@@ -1811,6 +2079,7 @@
           <DataPoint Name="OverlapPumpi_s">
             <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="ConnectingVisus" Value="Visu1"/>
+            <Property Name="DPLimit" Value="None"/>
             <Property Name="Description" Value="PT PGRad vremenski parametar [s]"/>
             <Property Name="PLCType" Value="REAL"/>
             <Property Name="PLCUnit" Value="None"/>
@@ -1822,6 +2091,7 @@
           <DataPoint Name="AutoRestartDelay_s">
             <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="ConnectingVisus" Value="Visu1"/>
+            <Property Name="DPLimit" Value="None"/>
             <Property Name="Description" Value="PT PGRad vremenski parametar [s]"/>
             <Property Name="PLCType" Value="REAL"/>
             <Property Name="PLCUnit" Value="None"/>
@@ -1833,6 +2103,7 @@
           <DataPoint Name="ValvePositionTimeout_s">
             <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="ConnectingVisus" Value="Visu1"/>
+            <Property Name="DPLimit" Value="None"/>
             <Property Name="Description" Value="PT PGRad vremenski parametar [s]"/>
             <Property Name="PLCType" Value="REAL"/>
             <Property Name="PLCUnit" Value="None"/>
@@ -1844,6 +2115,7 @@
           <DataPoint Name="InterlockDebounce_s">
             <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="ConnectingVisus" Value="Visu1"/>
+            <Property Name="DPLimit" Value="None"/>
             <Property Name="Description" Value="PT PGRad vremenski parametar [s]"/>
             <Property Name="PLCType" Value="REAL"/>
             <Property Name="PLCUnit" Value="None"/>

@@ -47,6 +47,8 @@
     <Source File="Fonts\Arial12px.fninfo"/>
     <Source File="Fonts\Arial9pxValue.fninfo"/>
     <Source File="Fonts\Font_1.fninfo"/>
+    <Source File="Fonts\Arial12pxBold.fninfo"/>
+    <Source File="Fonts\TrendAxis.fninfo"/>
     <Source File="Bitmaps\AlphaPadQVGA1.bminfo"/>
     <Source File="Bitmaps\AlphaPadQVGA2.bminfo"/>
     <Source File="Bitmaps\AlphaPadQVGA3.bminfo"/>
@@ -128,6 +130,7 @@
     <Source File="BitmapGroups\NavigationPad.bmgrp"/>
     <Source File="BitmapGroups\Borders.bmgrp"/>
     <Source File="Pages\PG1_PID.page"/>
+    <Source File="Pages\PG1_Trend_1.page"/>
     <Source File="Pages\PG1_Main_Command.page"/>
     <Source File="Pages\PG1_Para_AR_IEB.page"/>
     <Source File="Pages\PG1_Para_AR_BRB2.page"/>
@@ -135,7 +138,6 @@
     <Source File="Pages\PG1_Para_Settings.page"/>
     <Source File="Pages\PG1_Servis.page"/>
     <Source File="Pages\X_Visak_Opisi.page"/>
-    <Source File="Pages\X_Init_Back.page"/>
     <Source File="StyleSheets\Gray.vcs"/>
     <Source File="StyleSheets\Color.vcs"/>
     <Source File="Borders\Raised.bdr"/>
@@ -179,6 +181,15 @@
     <Source File="TouchPads\NavigationPad_hor.tpr"/>
     <Source File="TouchPads\EditPad.tpr"/>
     <Source File="Trends\TrendData.tdc"/>
+    <Source File="Trends\PG1_Nivo.trd"/>
+    <Source File="Trends\PG1_Pritisak.trd"/>
+    <Source File="Trends\PG1_Protok.trd"/>
+    <Source File="Trends\PG1_TT01.trd"/>
+    <Source File="Trends\PG1_TT03.trd"/>
+    <Source File="Trends\PG1_TT04.trd"/>
+    <Source File="Trends\PG1_TT05.trd"/>
+    <Source File="Trends\PG1_TT06.trd"/>
+    <Source File="Trends\PG1_Trend_1.tre"/>
     <Source File="ColorMaps\V_OF.clm"/>
     <Source File="ColorMaps\V_ON.clm"/>
     <Source File="ColorMaps\Status.clm"/>

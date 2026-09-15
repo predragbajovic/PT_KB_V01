@@ -1,0 +1,109 @@
+PROGRAM _CYCLIC
+	(* ======================================================================== *)
+	(* 1) Rezim i raspolozivi vremenski opseg Podstanica trenda                 *)
+	(* ======================================================================== *)
+	(* VC pri otvaranju continuous trenda postavlja mod 1; mod 0 drzi zadati prozor. *)
+	PGRad_TrendCursor.AxisMode := 0;
+
+	TrendClock.enable := TRUE;
+	TrendClock();
+	TrendNow_s := DT_TO_UDINT(TrendClock.DT1);
+	IF TrendNow_s > 864000 THEN
+		TrendEarliest_s := TrendNow_s - 864000;
+	ELSE
+		TrendEarliest_s := 0;
+	END_IF;
+	IF (DT_TO_UDINT(PGRad_TrendCursor.RecordingStart) > TrendEarliest_s)
+		AND (DT_TO_UDINT(PGRad_TrendCursor.RecordingStart) <= TrendNow_s) THEN
+		TrendEarliest_s := DT_TO_UDINT(PGRad_TrendCursor.RecordingStart);
+	END_IF;
+
+	(* ======================================================================== *)
+	(* 2) Zoom i navigacija vremenskog prozora                                  *)
+	(* ======================================================================== *)
+	IF PGRad_TrendCursor.ViewSpan < 3600 THEN
+		PGRad_TrendCursor.ViewSpan := 3600;
+	ELSIF PGRad_TrendCursor.ViewSpan > 172800 THEN
+		PGRad_TrendCursor.ViewSpan := 172800;
+	END_IF;
+
+	IF (DT_TO_UDINT(PGRad_TrendCursor.ViewStart) = 0)
+		AND (TrendNow_s >= DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) THEN
+		PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+			TrendNow_s - DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		PGRad_TrendCursor.FollowNow := FALSE;
+	END_IF;
+
+	IF PGRad_TrendCursor.ViewSpan <> PGRad_TrendCursor.PreviousViewSpan THEN
+		IF PGRad_TrendCursor.FollowNow THEN
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				TrendNow_s - DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		ELSE
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				DT_TO_UDINT(PGRad_TrendCursor.ViewStart)
+				+ DINT_TO_UDINT(PGRad_TrendCursor.PreviousViewSpan)
+				- DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		END_IF;
+		PGRad_TrendCursor.PreviousViewSpan := PGRad_TrendCursor.ViewSpan;
+		PGRad_TrendCursor.FollowNow := FALSE;
+	END_IF;
+
+	IF PGRad_TrendCursor.CmdNow THEN
+		IF TrendNow_s >= DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan) THEN
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				TrendNow_s - DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		END_IF;
+		PGRad_TrendCursor.FollowNow := FALSE;
+	END_IF;
+
+	IF PGRad_TrendCursor.CmdBack THEN
+		PGRad_TrendCursor.FollowNow := FALSE;
+		IF DT_TO_UDINT(PGRad_TrendCursor.ViewStart) > (TrendEarliest_s + DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) THEN
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				DT_TO_UDINT(PGRad_TrendCursor.ViewStart) - DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		ELSE
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(TrendEarliest_s);
+		END_IF;
+	END_IF;
+
+	IF PGRad_TrendCursor.CmdForward THEN
+		IF (DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + (2 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan))) >= TrendNow_s THEN
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				TrendNow_s - DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+			PGRad_TrendCursor.FollowNow := FALSE;
+		ELSE
+			PGRad_TrendCursor.ViewStart := UDINT_TO_DT(
+				DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+		END_IF;
+	END_IF;
+
+	(* ======================================================================== *)
+	(* 3) Oznake vremenske ose i apsolutno vreme kursora                        *)
+	(* ======================================================================== *)
+	PGRad_TrendCursor.AxisTime0 := PGRad_TrendCursor.ViewStart;
+	PGRad_TrendCursor.AxisTime1 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + (DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan) / 8));
+	PGRad_TrendCursor.AxisTime2 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((2 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime3 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((3 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime4 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((4 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime5 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((5 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime6 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((6 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime7 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + ((7 * DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan)) / 8));
+	PGRad_TrendCursor.AxisTime8 := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.ViewStart) + DINT_TO_UDINT(PGRad_TrendCursor.ViewSpan));
+
+	(* VC vraca vreme kursora u ms od pocetka referentnog trend zapisa. *)
+	PGRad_TrendCursor.DateTime := UDINT_TO_DT(
+		DT_TO_UDINT(PGRad_TrendCursor.RecordingStart)
+		+ (PGRad_TrendCursor.Time / 1000));
+
+	PGRad_TrendCursor.CmdBack := FALSE;
+	PGRad_TrendCursor.CmdForward := FALSE;
+	PGRad_TrendCursor.CmdNow := FALSE;
+END_PROGRAM

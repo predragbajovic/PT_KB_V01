@@ -9,6 +9,8 @@
   <TaskClass Name="Cyclic#4">
     <Task Name="PID_Pu_01" Source="PID_Pu_01.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Rad_PG_KB" Source="Rad_PG_KB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PG_Intf" Source="PG_Intf.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="HMI_Svc" Source="HMI_Svc.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ProcUnit" Source="ProcessUnit.ProcUnit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DeviceCtrl" Source="DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>

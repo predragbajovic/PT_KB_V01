@@ -86,23 +86,34 @@ PROGRAM _CYCLIC
 	PGRad_Cmd.PID.MaxOut := 0.0;
 	PGRad_Cmd.PID.EnableTracking := FALSE;
 	PGRad_Cmd.PID.TrackingValue := 0.0;
-	PGRad_BRB2.RadKaPodstanici := FALSE;
-	PGRad_BRB2.ZahtevStarta := FALSE;
-	PGRad_BRB2.ZahtevZaustavljanja := FALSE;
-	PGRad_BRB2.ManualMode := ManualMode;
-	PGRad_BRB2.ManualSequence := ManualSequence;
-	PGRad_BRB2.ManualStart := ManualStart;
-	PGRad_BRB2.ManualStop := ManualStop;
-	PGRad_BRB2.ManualNextStep := ManualNextStep;
-	PGRad_BRB2.ManualAbort := ManualAbort;
-	PGRad_BRB2.VentiliPodstaniceZatvoreni := FALSE;
-	PGRad_BRB2.PritisakIEBKB1 := IEB_KB1.Sens.Pt.B_02._01_value;
-	PGRad_BRB2.PodstanicaURezimuRada := FALSE;
+	PGRad_BRB2Cmd.RadKaPodstanici := FALSE;
+	PGRad_BRB2Cmd.ZahtevStarta := FALSE;
+	PGRad_BRB2Cmd.ZahtevZaustavljanja := FALSE;
+	PGRad_BRB2Cmd.ManualMode := ManualMode;
+	PGRad_BRB2Cmd.ManualSequence := ManualSequence;
+	PGRad_BRB2Cmd.ManualStart := ManualStart;
+	PGRad_BRB2Cmd.ManualStop := ManualStop;
+	PGRad_BRB2Cmd.ManualNextStep := ManualNextStep;
+	PGRad_BRB2Cmd.ManualAbort := ManualAbort;
+	PGRad_BRB2Cmd.VentiliPodstaniceZatvoreni := FALSE;
+	PGRad_BRB2Cmd.PritisakIEBKB1 := IEB_KB1.Sens.Pt.B_02._01_value;
+	PGRad_BRB2Cmd.PodstanicaURezimuRada := FALSE;
 	IEB_KB1.Cntrl.Comm.Podstanica.Zahtev.ZahtevVode := FALSE;
 	IEB_KB1.Cntrl.Comm.Podstanica.Zahtev.NivoPrihvatnogTanka := NivoPRihvatniSud;
 	IEB_KB1.Cntrl.Comm.Podstanica.Zahtev.CiljaniProtok := PGRad.Par.MaxProtok;
 	IEB_KB1.Cntrl.Comm.Podstanica.Zahtev.ModRada := 0;
 	IEB_KB1.Cntrl.proba := FALSE;
+
+	(* Izbor izvora sa HMI prihvata se samo u bezbednom Standby stanju. *)
+	IF State = PG_00_Stand_By THEN
+		IF SelectIEBKB1 THEN
+			PGRad.Ctrl.SelektovaniIzvor := _02_IEBKB1;
+		ELSE
+			PGRad.Ctrl.SelektovaniIzvor := _01_BRB2;
+		END_IF;
+	ELSE
+		SelectIEBKB1 := PGRad.Ctrl.SelektovaniIzvor = _02_IEBKB1;
+	END_IF;
 
 	(* -------------------------------------------------------------------------- *)
 	(* 3) Tajmeri pripreme BRB2 dovodne putanje                                  *)
@@ -163,8 +174,8 @@ PROGRAM _CYCLIC
 				ManualStop := FALSE;
 				ManualAbort := FALSE;
 			END_IF;
-			PGRad_BRB2.RadKaPodstanici := TRUE;
-			PGRad_BRB2.ZahtevStarta := TRUE;
+			PGRad_BRB2Cmd.RadKaPodstanici := TRUE;
+			PGRad_BRB2Cmd.ZahtevStarta := TRUE;
 			CASE Substep OF
 				0:
 					(* Prioritet BRB2: najpre zatvori dovod sa IEBKB1. *)
@@ -290,8 +301,8 @@ PROGRAM _CYCLIC
 			END_CASE
 
 		PG_02_Rad_BRB2:
-			PGRad_BRB2.RadKaPodstanici := TRUE;
-			PGRad_BRB2.ZahtevStarta := TRUE;
+			PGRad_BRB2Cmd.RadKaPodstanici := TRUE;
+			PGRad_BRB2Cmd.ZahtevStarta := TRUE;
 			(* Odrzava PID regulaciju ulaza i PT06 cuvara nakon punjenja tanka. *)
 			PGRad_Cmd.Aktivan := TRUE;
 			PGRad_Cmd.PropVentili.PV05.Enable := TRUE;
@@ -335,7 +346,7 @@ PROGRAM _CYCLIC
 			END_IF
 
 			(* BRB2 sme preci u rad tek kada je tank pun i izabrana PG pumpa stvarno radi. *)
-			PGRad_BRB2.PodstanicaURezimuRada :=
+			PGRad_BRB2Cmd.PodstanicaURezimuRada :=
 				(NivoPRihvatniSud >= PGRad.Par.SetPointNivoTanka)
 				AND (
 					((PGRad.Ctrl.AktivnaPumpaIzlazTanka = _01_Pu_PG_01)
@@ -353,7 +364,7 @@ PROGRAM _CYCLIC
 		PG_03_Zaustavljanje_BRB2:
 			(* PT najpre trazi BRB2 ramp-down, zatim zatvara PV grane po stop SP potvrdi. *)
 			PGRad_Cmd.Aktivan := TRUE;
-			PGRad_BRB2.ZahtevZaustavljanja := TRUE;
+			PGRad_BRB2Cmd.ZahtevZaustavljanja := TRUE;
 
 			IF Substep = 0 THEN
 				IzlaznaPumpaUStopu := TRUE;
@@ -405,7 +416,7 @@ PROGRAM _CYCLIC
 			END_IF;
 
 			(* Nakon BRB2 stop SP-a svi proporcionalni ventili ostaju bez zahteva. *)
-			PGRad_BRB2.VentiliPodstaniceZatvoreni := PGRad_BRB2.StopSPDostignut
+			PGRad_BRB2Cmd.VentiliPodstaniceZatvoreni := PGRad_BRB2.StopSPDostignut
 				AND (PG.Act.PV._1.PV_Output.PV_Percent <= PGRad.Par.MaxOtvorPropZaZatvaranje)
 				AND (PG.Act.PV._2.PV_Output.PV_Percent <= PGRad.Par.MaxOtvorPropZaZatvaranje)
 				AND (PG.Act.PV._5.PV_Output.PV_Percent <= PGRad.Par.MaxOtvorPropZaZatvaranje);
@@ -731,26 +742,92 @@ PROGRAM _CYCLIC
 	END_IF;
 
 	(* -------------------------------------------------------------------------- *)
-	(* 9) Procesni status za Communication/HMI task                              *)
+	(* 8) Procesni status za Communication/HMI task                              *)
 	(* -------------------------------------------------------------------------- *)
 	(* Enum State se preslikava u stabilan brojcani status AsIMA/HMI ugovora. *)
 	CASE State OF
 		PG_01_Priprema_BRB2:
 			PGRad_Status.State := 1;
+			PGRad_Status.StateComment := 'STANJE: PRIPREMA BRB2';
 		PG_02_Rad_BRB2:
 			PGRad_Status.State := 2;
+			PGRad_Status.StateComment := 'STANJE: RAD BRB2';
 		PG_03_Zaustavljanje_BRB2:
 			PGRad_Status.State := 3;
+			PGRad_Status.StateComment := 'STANJE: ZAUSTAVLJANJE BRB2';
 		PG_11_Priprema_IEBKB1:
 			PGRad_Status.State := 11;
+			PGRad_Status.StateComment := 'STANJE: PRIPREMA IEBKB1';
 		PG_12_Rad_IEBKB1:
 			PGRad_Status.State := 12;
+			PGRad_Status.StateComment := 'STANJE: RAD IEBKB1';
 		PG_13_Zaustavljanje_IEBKB1:
 			PGRad_Status.State := 13;
+			PGRad_Status.StateComment := 'STANJE: ZAUSTAVLJANJE IEBKB1';
 	ELSE
 		PGRad_Status.State := 0;
+		PGRad_Status.StateComment := 'STANJE: STANDBY';
 	END_CASE
 	PGRad_Status.Substep := Substep;
+
+	CASE State OF
+		PG_00_Stand_By:
+			PGRad_Status.SubstepComment := 'PODKORAK: Ceka komandu START';
+
+		PG_01_Priprema_BRB2:
+			CASE Substep OF
+				0: PGRad_Status.SubstepComment := 'PODKORAK: Ulazak u pripremu BRB2';
+				1: PGRad_Status.SubstepComment := 'PODKORAK: Ceka zatvaranje PG_V01';
+				2: PGRad_Status.SubstepComment := 'PODKORAK: Ceka otvaranje PG_V02';
+				3: PGRad_Status.SubstepComment := 'PODKORAK: Ispiranje BRB2 grane';
+				4: PGRad_Status.SubstepComment := 'PODKORAK: Priprema ulaza prihvatnog tanka';
+				5: PGRad_Status.SubstepComment := 'PODKORAK: Mek prelaz pritiska PG_PV05';
+				6: PGRad_Status.SubstepComment := 'PODKORAK: Punjenje prihvatnog tanka';
+			ELSE
+				PGRad_Status.SubstepComment := 'PODKORAK: Nepoznata priprema BRB2';
+			END_CASE
+
+		PG_02_Rad_BRB2:
+			IF Substep = 0 THEN
+				PGRad_Status.SubstepComment := 'PODKORAK: Pokretanje izlazne pumpe';
+			ELSE
+				PGRad_Status.SubstepComment := 'PODKORAK: Regulacija i odrzavanje rada';
+			END_IF
+
+		PG_03_Zaustavljanje_BRB2:
+			PGRad_Status.SubstepComment := 'PODKORAK: Kontrolisano zaustavljanje BRB2';
+
+		PG_11_Priprema_IEBKB1:
+			CASE Substep OF
+				0: PGRad_Status.SubstepComment := 'PODKORAK: Ulazak u pripremu IEBKB1';
+				1: PGRad_Status.SubstepComment := 'PODKORAK: Ceka zatvaranje PG_V02';
+				2: PGRad_Status.SubstepComment := 'PODKORAK: Ceka otvaranje PG_V01';
+				3: PGRad_Status.SubstepComment := 'PODKORAK: Ceka pocetak dotoka IEBKB1';
+				4: PGRad_Status.SubstepComment := 'PODKORAK: Punjenje prihvatnog tanka';
+			ELSE
+				PGRad_Status.SubstepComment := 'PODKORAK: Nepoznata priprema IEBKB1';
+			END_CASE
+
+		PG_12_Rad_IEBKB1:
+			IF Substep = 0 THEN
+				PGRad_Status.SubstepComment := 'PODKORAK: Pokretanje izlazne pumpe';
+			ELSE
+				PGRad_Status.SubstepComment := 'PODKORAK: Regulacija i odrzavanje rada';
+			END_IF
+
+		PG_13_Zaustavljanje_IEBKB1:
+			CASE Substep OF
+				0: PGRad_Status.SubstepComment := 'PODKORAK: Ulazak u zaustavljanje IEBKB1';
+				1: PGRad_Status.SubstepComment := 'PODKORAK: Ceka prestanak dotoka IEBKB1';
+				2: PGRad_Status.SubstepComment := 'PODKORAK: Ceka zatvaranje PG_V05';
+				3: PGRad_Status.SubstepComment := 'PODKORAK: Ceka zatvaranje PG_V01';
+			ELSE
+				PGRad_Status.SubstepComment := 'PODKORAK: Nepoznat stop IEBKB1';
+			END_CASE
+
+	ELSE
+		PGRad_Status.SubstepComment := 'PODKORAK: Nepoznato stanje sistema';
+	END_CASE
 	PGRad_Status.Fault := FaultLatched;
 	PGRad_Status.FaultCode := FaultCode;
 

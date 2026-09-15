@@ -11,6 +11,12 @@ PROGRAM _INIT
 	KomandaStop := FALSE;
 	KomandaReset := FALSE;
 	CmdSetDefaultParameters := FALSE;
+	IF PGRad.Ctrl.SelektovaniIzvor = _02_IEBKB1 THEN
+		SelectIEBKB1 := TRUE;
+	ELSE
+		SelectIEBKB1 := FALSE;
+		PGRad.Ctrl.SelektovaniIzvor := _01_BRB2;
+	END_IF;
 
 	FaultLatched := FALSE;
 	FaultCode := 0;
@@ -78,8 +84,8 @@ PROGRAM _INIT
 	PGRad_Cmd.PID.MaxOut := 0.0;
 	PGRad_Cmd.PID.EnableTracking := FALSE;
 	PGRad_Cmd.PID.TrackingValue := 0.0;
-	PGRad_BRB2.ZahtevZaustavljanja := FALSE;
-	PGRad_BRB2.VentiliPodstaniceZatvoreni := FALSE;
+	PGRad_BRB2Cmd.ZahtevZaustavljanja := FALSE;
+	PGRad_BRB2Cmd.VentiliPodstaniceZatvoreni := FALSE;
 
 	(* ======================================================================== *)
 	(* 5) Cold-boot provera RETAIN parametara                                   *)
