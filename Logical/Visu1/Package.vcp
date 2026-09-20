@@ -130,12 +130,14 @@
     <Source File="BitmapGroups\NavigationPad.bmgrp"/>
     <Source File="BitmapGroups\Borders.bmgrp"/>
     <Source File="Pages\PG1_PID.page"/>
-    <Source File="Pages\PG1_Trend_1.page"/>
+    <Source File="Pages\PG1_Para_BRB2_Transfer.page"/>
     <Source File="Pages\PG1_Main_Command.page"/>
     <Source File="Pages\PG1_Para_AR_IEB.page"/>
     <Source File="Pages\PG1_Para_AR_BRB2.page"/>
     <Source File="Pages\PG1_Para_Times.page"/>
     <Source File="Pages\PG1_Para_Settings.page"/>
+    <Source File="Pages\PG1_Trend_1.page"/>
+    <Source File="Pages\PG1_AirRelease_Service.page"/>
     <Source File="Pages\PG1_Servis.page"/>
     <Source File="Pages\X_Visak_Opisi.page"/>
     <Source File="StyleSheets\Gray.vcs"/>
@@ -193,6 +195,7 @@
     <Source File="ColorMaps\V_OF.clm"/>
     <Source File="ColorMaps\V_ON.clm"/>
     <Source File="ColorMaps\Status.clm"/>
+    <Source File="ColorMaps\CommStatus.clm"/>
     <Source File="VirtualKeys.vcvk"/>
     <Source File="Palette.vcr"/>
   </SourceFiles>

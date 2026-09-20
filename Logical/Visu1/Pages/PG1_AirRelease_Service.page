@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_AirRelease_Service">
+  <Property Name="Description" Value="Servisne komande AirRelease PV03 i PV04"/>
+  <Property Name="Height" Value="800"/>
+  <Property Name="Index" Value="45"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[default]"/>
+  <Property Name="Width" Value="1280"/>
+  <Layers>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="800"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="1280"/>
+      <Property Name="Z-Order" Value="0"/>
+      <TextGroup>
+        <TextLayer LanguageId="en">
+          <Text ID="108544" Value="AIR RELEASE - SERVISNE KOMANDE"/>
+          <Text ID="108545" Value="AIR RELEASE BRB2"/>
+          <Text ID="108546" Value="AIR RELEASE IEBKB1"/>
+          <Text ID="108547" Value="KOMANDE"/>
+          <Text ID="108548" Value="GLAVNI EKRAN"/>
+          <Text ID="108549" Value="PV03 - ULAZ U PODSTANICU"/>
+          <Text ID="108550" Value="PROMENI MANUAL REZIM"/>
+          <Text ID="108551" Value="MANUAL REZIM: 0=OFF, 1=ON"/>
+          <Text ID="108552" Value="Rucna komanda otvora [%] (0..100)"/>
+          <Text ID="108553" Value="RESET ALARMA"/>
+          <Text ID="108554" Value="PV04 - ULAZ U PRIHVATNI TANK"/>
+        </TextLayer>
+        <TextLayer LanguageId="de">
+          <Text ID="108544" Value="AIR RELEASE - SERVISNE KOMANDE"/>
+          <Text ID="108545" Value="AIR RELEASE BRB2"/>
+          <Text ID="108546" Value="AIR RELEASE IEBKB1"/>
+          <Text ID="108547" Value="KOMANDE"/>
+          <Text ID="108548" Value="GLAVNI EKRAN"/>
+          <Text ID="108549" Value="PV03 - ULAZ U PODSTANICU"/>
+          <Text ID="108550" Value="PROMENI MANUAL REZIM"/>
+          <Text ID="108551" Value="MANUAL REZIM: 0=OFF, 1=ON"/>
+          <Text ID="108552" Value="Rucna komanda otvora [%] (0..100)"/>
+          <Text ID="108553" Value="RESET ALARMA"/>
+          <Text ID="108554" Value="PV04 - ULAZ U PRIHVATNI TANK"/>
+        </TextLayer>
+        <IndexMap>
+          <Index ID="108544" Value="0"/>
+          <Index ID="108545" Value="1"/>
+          <Index ID="108546" Value="2"/>
+          <Index ID="108547" Value="3"/>
+          <Index ID="108548" Value="4"/>
+          <Index ID="108549" Value="5"/>
+          <Index ID="108550" Value="6"/>
+          <Index ID="108551" Value="7"/>
+          <Index ID="108552" Value="8"/>
+          <Index ID="108553" Value="9"/>
+          <Index ID="108554" Value="10"/>
+        </IndexMap>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="PageTitle">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="30"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="15"/>
+          <Property Name="Width" Value="700"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_AR_BRB2">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_ar_brb2]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="35"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="58"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_ar_brb2]"/>
+          <Property Name="Width" Value="220"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_AR_IEB">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_ar_ieb]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="275"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="2"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="58"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_ar_ieb]"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_Commands">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_commands]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="780"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="58"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_commands]"/>
+          <Property Name="Width" Value="190"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_Main">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_main]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="990"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="58"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_main]"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Head_PV03">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="175"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_PV03_Manual">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_PV03_manual]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="6"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="245"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_PV03_manual]"/>
+          <Property Name="Width" Value="260"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Label_PV03_ManualState">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Value_PV03_ManualState">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="465"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100000"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="-100000"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV03.Ctrl.EnableManual]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Label_PV03_SP">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="8"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="355"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Value_PV03_SP">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Input" Value="True"/>
+          <Property Name="InputCancel" Value="Lost Focus"/>
+          <Property Name="InputComma" Value="Explicit"/>
+          <Property Name="InputConfirm" Value="Enter"/>
+          <Property Name="InputMinus" Value="Normal"/>
+          <Property Name="InputNext" Value="Enter"/>
+          <Property Name="InputStart" Value="Any Key"/>
+          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
+          <Property Name="InputUpDown" Value="Progressive"/>
+          <Property Name="Left" Value="465"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="355"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV03.Ctrl.ManualSP_Percent]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_PV03_Reset">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_PV03_reset]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="9"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="455"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_PV03_reset]"/>
+          <Property Name="Width" Value="260"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Head_PV04">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="690"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="175"/>
+          <Property Name="Width" Value="500"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_PV04_Manual">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_PV04_manual]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="690"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="6"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="245"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_PV04_manual]"/>
+          <Property Name="Width" Value="260"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Label_PV04_ManualState">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="690"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Value_PV04_ManualState">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="1065"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100000"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="-100000"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV04.Ctrl.EnableManual]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Label_PV04_SP">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="690"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="8"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="355"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Value_PV04_SP">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Input" Value="True"/>
+          <Property Name="InputCancel" Value="Lost Focus"/>
+          <Property Name="InputComma" Value="Explicit"/>
+          <Property Name="InputConfirm" Value="Enter"/>
+          <Property Name="InputMinus" Value="Normal"/>
+          <Property Name="InputNext" Value="Enter"/>
+          <Property Name="InputStart" Value="Any Key"/>
+          <Property Name="InputTouchpad" Value="Source[local].TouchPad[NumPad]"/>
+          <Property Name="InputUpDown" Value="Progressive"/>
+          <Property Name="Left" Value="1065"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="355"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV04.Ctrl.ManualSP_Percent]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_PV04_Reset">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%service_PV04_reset]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="48"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="690"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="9"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="455"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%service_PV04_reset]"/>
+          <Property Name="Width" Value="260"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%service_ar_brb2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Para_AR_BRB2]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_ar_ieb">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Para_AR_IEB]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_commands">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Main_Command]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_main">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_PID]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_PV03_manual">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV03.Ctrl.EnableManual]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_PV03_reset">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV03.Ctrl.ResetAlarm]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_PV04_manual">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV04.Ctrl.EnableManual]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%service_PV04_reset">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_AirRelease.PV04.Ctrl.ResetAlarm]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[Value_PV03_SP]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Value_PV04_SP]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Value_PV04_SP]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Value_PV04_SP]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Value_PV04_SP]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[Value_PV04_SP]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Value_PV03_SP]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Value_PV03_SP]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Value_PV03_SP]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Value_PV03_SP]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[Value_PV03_ManualState]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[Value_PV03_SP]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[Value_PV04_ManualState]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[Value_PV04_SP]"/>
+  </TabSequence>
+</Page>

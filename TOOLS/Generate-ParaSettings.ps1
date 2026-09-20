@@ -222,6 +222,27 @@ function New-MomentaryKey([string]$VirtualKey, [string]$DataPoint) {
 "@
 }
 
+function New-ToggleKey([string]$VirtualKey, [string]$DataPoint) {
+        return @"
+                <VirtualKey Name="$VirtualKey">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="VirtualKey_LED" Value="False"/>
+                    <KeyActions>
+                        <KeyAction ClassId="0x0000016A">
+                            <Property Name="CompletionDatapoint" Value="None"/>
+                            <Property Name="CompletionValue" Value="0"/>
+                            <Property Name="Description" Value=""/>
+                            <Property Name="Locking" Value="Never"/>
+                            <Property Name="Name" Value="Action_0"/>
+                            <Property Name="ResetValue" Value="0"/>
+                            <Property Name="SetValue" Value="1"/>
+                            <Property Name="ValueDatapoint" Value="Source[global].Variable[$DataPoint]"/>
+                        </KeyAction>
+                    </KeyActions>
+                </VirtualKey>
+"@
+}
+
 function New-SettingsPage([string]$Name, [string]$Title, [array]$Fields) {
     $texts = [System.Collections.Generic.List[string]]::new()
     $controls = [System.Collections.Generic.List[string]]::new()
@@ -232,13 +253,19 @@ function New-SettingsPage([string]$Name, [string]$Title, [array]$Fields) {
     $controls.Add((New-TextControl 'PageTitle' $textId 30 15 850 40))
     $textId++
 
+    $commandsPage = if ($Name -in @('PG1_Para_AR_BRB2', 'PG1_Para_AR_IEB')) {
+        'PG1_AirRelease_Service'
+    } else {
+        'PG1_Main_Command'
+    }
     $nav = @(
-        @{ Label = 'PROCES'; Page = 'Para_Settings'; Left = 20; Width = 150 },
-        @{ Label = 'VREMENA'; Page = 'Para_Times'; Left = 180; Width = 150 },
-        @{ Label = 'AIR RELEASE BRB2'; Page = 'Para_AR_BRB2'; Left = 340; Width = 200 },
-        @{ Label = 'AIR RELEASE IEBKB1'; Page = 'Para_AR_IEB'; Left = 550; Width = 220 },
-        @{ Label = 'KOMANDE'; Page = 'Main_Command'; Left = 900; Width = 170 },
-        @{ Label = 'INIT'; Page = 'Init_Page'; Left = 1090; Width = 160 }
+        @{ Label = 'PROCES'; Page = 'PG1_Para_Settings'; Left = 20; Width = 125 },
+        @{ Label = 'VREMENA'; Page = 'PG1_Para_Times'; Left = 155; Width = 125 },
+        @{ Label = 'BRB2 / TRANSFER'; Page = 'PG1_Para_BRB2_Transfer'; Left = 290; Width = 175 },
+        @{ Label = 'AIR RELEASE BRB2'; Page = 'PG1_Para_AR_BRB2'; Left = 475; Width = 175 },
+        @{ Label = 'AIR RELEASE IEBKB1'; Page = 'PG1_Para_AR_IEB'; Left = 660; Width = 185 },
+        @{ Label = 'KOMANDE'; Page = $commandsPage; Left = 855; Width = 160 },
+        @{ Label = 'GLAVNI EKRAN'; Page = 'PG1_PID'; Left = 1025; Width = 175 }
     )
     $navIndex = 0
     foreach ($item in $nav) {
@@ -253,10 +280,12 @@ function New-SettingsPage([string]$Name, [string]$Title, [array]$Fields) {
 
     $fieldIndex = 0
     foreach ($field in $Fields) {
-        $column = [math]::Floor($fieldIndex / 12)
-        $row = $fieldIndex % 12
+        $rowsPerColumn = if ($Name -eq 'PG1_Para_BRB2_Transfer') { 7 } else { 12 }
+        $column = [math]::Floor($fieldIndex / $rowsPerColumn)
+        $row = $fieldIndex % $rowsPerColumn
         $left = 35 + ($column * 615)
-        $top = 125 + ($row * 53)
+        $firstRowTop = if ($Name -eq 'PG1_Para_BRB2_Transfer') { 180 } else { 125 }
+        $top = $firstRowTop + ($row * 53)
         $texts.Add("          <Text ID=`"$textId`" Value=`"$(Escape-Xml $field.Label)`"/>")
         $controls.Add((New-TextControl "Label_$fieldIndex" $textId $left $top 430))
         $controls.Add((New-NumericControl "Value_$fieldIndex" $field.DataPoint ($left + 450) $top $field.Min $field.Max $field.Digits))
@@ -264,11 +293,43 @@ function New-SettingsPage([string]$Name, [string]$Title, [array]$Fields) {
         $fieldIndex++
     }
 
-    if ($Name -eq 'Para_Settings') {
+    if ($Name -eq 'PG1_Para_Settings') {
         $texts.Add("          <Text ID=`"$textId`" Value=`"VRATI DEFAULT PARAMETRE`"/>")
         $controls.Add((New-CommandButton 'Btn_DefaultParameters' $textId '%cmd_defaults' 910 710 300))
         $keys.Add((New-MomentaryKey '%cmd_defaults' 'DataSource.Rad_PG_KB.CmdSetDefaultParameters'))
         $textId++
+    }
+
+    if ($Name -eq 'PG1_Para_BRB2_Transfer') {
+        $commandRows = @(
+            @{ Label = 'PRIPREMA BRB2'; Key = '%cmd_brb2_prepare'; DP = 'DataSource.Rad_PG_KB.KomandaPripremaBRB2' },
+            @{ Label = 'NASTAVAK'; Key = '%cmd_brb2_continue'; DP = 'DataSource.Rad_PG_KB.KomandaNastavak' },
+            @{ Label = 'TRANSFER NA BRB2'; Key = '%cmd_brb2_transfer'; DP = 'DataSource.Rad_PG_KB.KomandaTransferNaBRB2' }
+        )
+        for ($index = 0; $index -lt $commandRows.Count; $index++) {
+            $left = 145 + ($index * 340)
+            $texts.Add("          <Text ID=`"$textId`" Value=`"$($commandRows[$index].Label)`"/>")
+            $controls.Add((New-CommandButton "BRB2Command_$index" $textId $commandRows[$index].Key $left 120 310))
+            $keys.Add((New-MomentaryKey $commandRows[$index].Key $commandRows[$index].DP))
+            $textId++
+        }
+
+        $statusRows = @(
+            @{ Label = 'Stanje pripreme BRB2'; DP = 'DataSource.PGRad_Status.BRB2PreparationState' },
+            @{ Label = 'BRB2 spreman'; DP = 'DataSource.PGRad_Status.BRB2Ready' },
+            @{ Label = 'IEBKB1 interfejs spreman'; DP = 'DataSource.PGRad_Status.IEBKB1InterfaceReady' },
+            @{ Label = 'Transfer blokiran'; DP = 'DataSource.PGRad_Status.TransferBlocked' }
+        )
+        for ($index = 0; $index -lt $statusRows.Count; $index++) {
+            $column = $index % 2
+            $row = [math]::Floor($index / 2)
+            $left = 20 + ($column * 620)
+            $top = 575 + ($row * 48)
+            $texts.Add("          <Text ID=`"$textId`" Value=`"$($statusRows[$index].Label)`"/>")
+            $controls.Add((New-TextControl "BRB2StatusLabel_$index" $textId $left $top 300))
+            $controls.Add((New-NumericOutput "BRB2StatusValue_$index" $statusRows[$index].DP ($left + 310) $top 0 100))
+            $textId++
+        }
     }
 
     $textBlock = $texts -join "`r`n"
@@ -279,10 +340,11 @@ function New-SettingsPage([string]$Name, [string]$Title, [array]$Fields) {
     $controlBlock = $controls -join "`r`n"
     $keyBlock = $keys -join "`r`n"
     $pageIndex = switch ($Name) {
-        'Para_Settings' { 40 }
-        'Para_Times' { 41 }
-        'Para_AR_BRB2' { 42 }
-        'Para_AR_IEB' { 43 }
+        'PG1_Para_Settings' { 40 }
+        'PG1_Para_Times' { 41 }
+        'PG1_Para_AR_BRB2' { 42 }
+        'PG1_Para_AR_IEB' { 43 }
+        'PG1_Para_BRB2_Transfer' { 44 }
         default { throw "Unknown settings page: $Name" }
     }
     $page = @"
@@ -444,7 +506,7 @@ function New-MainCommandPage {
     $page = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <?AutomationStudio Version="4.12.3.127 SP"?>
-<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="Main_Command">
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_Main_Command">
   <Property Name="Description" Value="Glavni komandni ekran podstanice"/>
   <Property Name="Height" Value="800"/>
   <Property Name="Index" Value="30"/>
@@ -470,7 +532,96 @@ function New-MainCommandPage {
   <MovementOrder/><TabSequence/>
 </Page>
 "@
-    Write-Utf8NoBom (Join-Path $pagesRoot 'Main_Command.page') $page
+    Write-Utf8NoBom (Join-Path $pagesRoot 'PG1_Main_Command.page') $page
+}
+
+function New-AirReleaseServicePage {
+    $texts = @(
+        'AIR RELEASE - SERVISNE KOMANDE',
+        'AIR RELEASE BRB2',
+        'AIR RELEASE IEBKB1',
+        'KOMANDE',
+        'GLAVNI EKRAN',
+        'PV03 - ULAZ U PODSTANICU',
+        'PROMENI MANUAL REZIM',
+        'MANUAL REZIM: 0=OFF, 1=ON',
+        'Rucna komanda otvora [%] (0..100)',
+        'RESET ALARMA',
+        'PV04 - ULAZ U PRIHVATNI TANK'
+    )
+    $textLines = for ($index = 0; $index -lt $texts.Count; $index++) {
+        "          <Text ID=`"$index`" Value=`"$(Escape-Xml $texts[$index])`"/>"
+    }
+    $indexLines = for ($index = 0; $index -lt $texts.Count; $index++) {
+        "          <Index ID=`"$index`" Value=`"$index`"/>"
+    }
+
+    $controls = [System.Collections.Generic.List[string]]::new()
+    $keys = [System.Collections.Generic.List[string]]::new()
+    $controls.Add((New-TextControl 'PageTitle' 0 30 15 700 40))
+
+    $nav = @(
+        @{ Name = 'Nav_AR_BRB2'; Text = 1; Key = '%service_ar_brb2'; Page = 'PG1_Para_AR_BRB2'; Left = 35; Width = 220 },
+        @{ Name = 'Nav_AR_IEB'; Text = 2; Key = '%service_ar_ieb'; Page = 'PG1_Para_AR_IEB'; Left = 275; Width = 240 },
+        @{ Name = 'Nav_Commands'; Text = 3; Key = '%service_commands'; Page = 'PG1_Main_Command'; Left = 780; Width = 190 },
+        @{ Name = 'Nav_Main'; Text = 4; Key = '%service_main'; Page = 'PG1_PID'; Left = 990; Width = 240 }
+    )
+    foreach ($item in $nav) {
+        $controls.Add((New-NavButton $item.Name $item.Text $item.Key $item.Left $item.Width))
+        $keys.Add((New-PageKey $item.Key $item.Page))
+    }
+
+    $valves = @(
+        @{ Name = 'PV03'; Header = 5; Left = 90 },
+        @{ Name = 'PV04'; Header = 10; Left = 690 }
+    )
+    foreach ($valve in $valves) {
+        $base = "DataSource.PGRad_AirRelease.$($valve.Name).Ctrl"
+        $controls.Add((New-TextControl "Head_$($valve.Name)" $valve.Header $valve.Left 175 500 40))
+
+        $controls.Add((New-CommandButton "Btn_$($valve.Name)_Manual" 6 "%service_$($valve.Name)_manual" $valve.Left 245 260))
+        $keys.Add((New-ToggleKey "%service_$($valve.Name)_manual" "$base.EnableManual"))
+
+        $controls.Add((New-TextControl "Label_$($valve.Name)_ManualState" 7 $valve.Left 300 360))
+        $controls.Add((New-NumericOutput "Value_$($valve.Name)_ManualState" "$base.EnableManual" ($valve.Left + 375) 300 0 100))
+
+        $controls.Add((New-TextControl "Label_$($valve.Name)_SP" 8 $valve.Left 355 360))
+        $controls.Add((New-NumericControl "Value_$($valve.Name)_SP" "$base.ManualSP_Percent" ($valve.Left + 375) 355 0 100 1))
+
+        $controls.Add((New-CommandButton "Btn_$($valve.Name)_Reset" 9 "%service_$($valve.Name)_reset" $valve.Left 455 260))
+        $keys.Add((New-MomentaryKey "%service_$($valve.Name)_reset" "$base.ResetAlarm"))
+    }
+
+    $page = @"
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_AirRelease_Service">
+  <Property Name="Description" Value="Servisne komande AirRelease PV03 i PV04"/>
+  <Property Name="Height" Value="800"/>
+  <Property Name="Index" Value="45"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[default]"/>
+  <Property Name="Width" Value="1280"/>
+  <Layers><Layer Name="Default">
+    <Property Name="BackColor" Value="9"/><Property Name="Description" Value=""/>
+    <Property Name="EditingMode" Value="Normal"/><Property Name="Height" Value="800"/>
+    <Property Name="Left" Value="0"/><Property Name="OutlineColor" Value="0"/>
+    <Property Name="OutlineDisplayControl" Value="False"/><Property Name="OutlineDisplayName" Value="True"/>
+    <Property Name="OutlineHatched" Value="False"/><Property Name="StatusDatapoint" Value="None"/>
+    <Property Name="Top" Value="0"/><Property Name="VisibilityMode" Value="Normal"/>
+    <Property Name="Width" Value="1280"/><Property Name="Z-Order" Value="0"/>
+    <TextGroup>
+      <TextLayer LanguageId="en">$($textLines -join "`r`n")</TextLayer>
+      <TextLayer LanguageId="de">$($textLines -join "`r`n")</TextLayer>
+      <IndexMap>$($indexLines -join "`r`n")</IndexMap>
+    </TextGroup>
+    <Controls>$($controls -join "`r`n")</Controls>
+    <KeyMapping>$($keys -join "`r`n")</KeyMapping>
+  </Layer></Layers>
+  <MovementOrder/><TabSequence/>
+</Page>
+"@
+    Write-Utf8NoBom (Join-Path $pagesRoot 'PG1_AirRelease_Service.page') $page
 }
 
 function New-Field([string]$Label, [string]$DataPoint, [double]$Min, [double]$Max, [int]$Digits) {
@@ -479,6 +630,16 @@ function New-Field([string]$Label, [string]$DataPoint, [double]$Min, [double]$Ma
 
 # Extend datasource with time and AirRelease parameters once.
 $dataSource = Get-Content -Raw -LiteralPath $dataSourcePath
+$pgradStart = $dataSource.IndexOf('    <Folder Name="PGRad">')
+$ctrlStart = $dataSource.IndexOf('      <Folder Name="Ctrl">', $pgradStart)
+$ctrlEnd = $dataSource.IndexOf('      </Folder>', $ctrlStart)
+$staleDefaultStart = $dataSource.IndexOf('<DataPoint Name="CmdSetDefaultParameters">', $ctrlStart)
+if (($pgradStart -ge 0) -and ($ctrlStart -ge 0) -and ($ctrlEnd -ge 0) -and
+    ($staleDefaultStart -ge $ctrlStart) -and ($staleDefaultStart -lt $ctrlEnd)) {
+    $staleDefaultLineStart = $dataSource.LastIndexOf("`n", $staleDefaultStart) + 1
+    $staleDefaultEnd = $dataSource.IndexOf('</DataPoint>', $staleDefaultStart) + '</DataPoint>'.Length
+    $dataSource = $dataSource.Remove($staleDefaultLineStart, $staleDefaultEnd - $staleDefaultLineStart)
+}
 if ($dataSource -notmatch '<Folder Name="AirRelease">') {
     $extra = ''
     foreach ($timeName in 'T_PrelazPV05Cuvar', 'T_OverlapPumpi', 'T_AutoRestartDelay', 'T_ValvePositionTimeout', 'T_InterlockDebounce') {
@@ -510,19 +671,48 @@ $(New-DataPoint 'CmdSetDefaultParameters' 'BOOL' 'BOOL' '      ')
 "@
     $dataSource = $dataSource.Replace('  </DataPoints>', "$programFolder  </DataPoints>")
 }
+
+if ($dataSource -notmatch '<Folder Name="PGRad_AirRelease">') {
+        $airReleaseRuntimeFolder = @"
+        <Folder Name="PGRad_AirRelease">
+            <Property Name="Description" Value="AirRelease runtime servisne komande"/>
+            <Property Name="FolderType" Value="Struct"/>
+"@
+        foreach ($valve in 'PV03', 'PV04') {
+                $airReleaseRuntimeFolder += @"
+            <Folder Name="$valve">
+                <Property Name="Description" Value="Servisne komande $valve"/>
+                <Property Name="FolderType" Value="Struct"/>
+                <Folder Name="Ctrl">
+                    <Property Name="Description" Value="HMI servisne komande"/>
+                    <Property Name="FolderType" Value="Struct"/>
+$(New-DataPoint 'EnableManual' 'BOOL' 'BOOL' '          ')$(New-DataPoint 'ManualSP_Percent' 'REAL' 'SCALED' '          ')$(New-DataPoint 'ResetAlarm' 'BOOL' 'BOOL' '          ')        </Folder>
+            </Folder>
+"@
+        }
+        $airReleaseRuntimeFolder += "    </Folder>`r`n"
+        $dataSource = $dataSource.Replace('  </DataPoints>', "$airReleaseRuntimeFolder  </DataPoints>")
+}
 $programDataPoints = @(
+    @{ Name = 'CmdSetDefaultParameters'; Plc = 'BOOL'; Vc = 'BOOL' },
     @{ Name = 'KomandaStart'; Plc = 'BOOL'; Vc = 'BOOL' },
     @{ Name = 'KomandaStop'; Plc = 'BOOL'; Vc = 'BOOL' },
     @{ Name = 'KomandaReset'; Plc = 'BOOL'; Vc = 'BOOL' },
     @{ Name = 'State'; Plc = 'E_PGRad_State'; Vc = 'INTEGER' },
     @{ Name = 'Substep'; Plc = 'USINT'; Vc = 'INTEGER' },
     @{ Name = 'FaultLatched'; Plc = 'BOOL'; Vc = 'BOOL' },
-    @{ Name = 'FaultCode'; Plc = 'USINT'; Vc = 'INTEGER' }
+    @{ Name = 'FaultCode'; Plc = 'USINT'; Vc = 'INTEGER' },
+    @{ Name = 'KomandaPripremaBRB2'; Plc = 'BOOL'; Vc = 'BOOL' },
+    @{ Name = 'KomandaNastavak'; Plc = 'BOOL'; Vc = 'BOOL' },
+    @{ Name = 'KomandaTransferNaBRB2'; Plc = 'BOOL'; Vc = 'BOOL' }
 )
 foreach ($point in $programDataPoints) {
-    if ($dataSource -notmatch "(?s)<Folder Name=`"Rad_PG_KB`">.*?<DataPoint Name=`"$($point.Name)`">") {
+    $programFolderStart = $dataSource.IndexOf('    <Folder Name="Rad_PG_KB">')
+    $programFolderEnd = $dataSource.IndexOf('    </Folder>', $programFolderStart)
+    $programFolderText = $dataSource.Substring($programFolderStart, $programFolderEnd - $programFolderStart)
+    if ($programFolderText -notmatch [regex]::Escape("<DataPoint Name=`"$($point.Name)`">")) {
         $entry = New-DataPoint $point.Name $point.Plc $point.Vc '      '
-        $dataSource = $dataSource.Replace('    </Folder>  </DataPoints>', "$entry    </Folder>  </DataPoints>")
+        $dataSource = $dataSource.Insert($programFolderEnd, $entry)
     }
 }
 if ($dataSource -notmatch '(?s)<Folder Name="Rad_PG_KB">.*?<DataPoint Name="FaultText">') {
@@ -539,6 +729,45 @@ if ($dataSource -notmatch '(?s)<Folder Name="Rad_PG_KB">.*?<DataPoint Name="Faul
       </DataPoint>
 "@
     $dataSource = $dataSource.Replace('    </Folder>  </DataPoints>', "$faultTextPoint    </Folder>  </DataPoints>")
+}
+Write-Utf8NoBom $dataSourcePath $dataSource
+
+# Add grouped BRB2 preparation/transfer parameters before the existing TimeSP folder.
+if ($dataSource -notmatch '<Folder Name="BRB2Preparation">') {
+    $brb2PreparationFolder = @"
+        <Folder Name="BRB2Preparation">
+          <Property Name="Description" Value="Paralelna priprema i zagrevanje BRB2"/>
+          <Property Name="FolderType" Value="Struct"/>
+$(New-DataPoint 'MinTemperature_degC' 'REAL' 'SCALED' '          ')$(New-DataPoint 'MinFlow_lps' 'REAL' 'SCALED' '          ')$(New-DataPoint 'FlowTimeout_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'TemperatureAlarm_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'TemperatureStopDelay_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'PressureAlarmDelay_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'PressureStopDelay_s' 'REAL' 'SCALED' '          ')        </Folder>
+"@
+    $dataSource = $dataSource.Replace('        <Folder Name="TimeSP">', "$brb2PreparationFolder        <Folder Name=`"TimeSP`">")
+}
+if ($dataSource -notmatch '<Folder Name="Transfer">') {
+    $transferFolder = @"
+        <Folder Name="Transfer">
+          <Property Name="Description" Value="Kontrolisani transfer IEBKB1 na BRB2"/>
+          <Property Name="FolderType" Value="Struct"/>
+$(New-DataPoint 'PV05StartPressure_bar' 'REAL' 'SCALED' '          ')$(New-DataPoint 'PV05FinalPressure_bar' 'REAL' 'SCALED' '          ')$(New-DataPoint 'TankInletPressure_bar' 'REAL' 'SCALED' '          ')$(New-DataPoint 'PressureRamp_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'FlowTimeout_s' 'REAL' 'SCALED' '          ')$(New-DataPoint 'PV05ClosedPercent' 'REAL' 'SCALED' '          ')        </Folder>
+"@
+    $dataSource = $dataSource.Replace('        <Folder Name="TimeSP">', "$transferFolder        <Folder Name=`"TimeSP`">")
+}
+
+# Publish the four preparation/transfer diagnostics inside PGRad_Status.
+$statusDataPoints = @(
+    @{ Name = 'BRB2PreparationState'; Plc = 'USINT'; Vc = 'INTEGER' },
+    @{ Name = 'BRB2Ready'; Plc = 'BOOL'; Vc = 'BOOL' },
+    @{ Name = 'IEBKB1InterfaceReady'; Plc = 'BOOL'; Vc = 'BOOL' },
+    @{ Name = 'TransferBlocked'; Plc = 'BOOL'; Vc = 'BOOL' }
+)
+$statusFolderStart = $dataSource.IndexOf('    <Folder Name="PGRad_Status">')
+$statusFolderEnd = $dataSource.IndexOf('    </Folder>', $statusFolderStart)
+foreach ($point in $statusDataPoints) {
+    $statusFolderText = $dataSource.Substring($statusFolderStart, $statusFolderEnd - $statusFolderStart)
+    if ($statusFolderText -notmatch [regex]::Escape("<DataPoint Name=`"$($point.Name)`">")) {
+        $entry = New-DataPoint $point.Name $point.Plc $point.Vc '      '
+        $dataSource = $dataSource.Insert($statusFolderEnd, $entry)
+        $statusFolderEnd += $entry.Length
+    }
 }
 Write-Utf8NoBom $dataSourcePath $dataSource
 
@@ -570,6 +799,22 @@ $timeFields = @(
     (New-Field 'Interlock debounce [s]' 'DataSource.PGRad.Par.TimeSP.InterlockDebounce_s' 0.1 3600 1)
 )
 
+$brb2TransferFields = @(
+    (New-Field 'Minimalna temperatura BRB2 [degC]' 'DataSource.PGRad.Par.BRB2Preparation.MinTemperature_degC' 0 120 1),
+    (New-Field 'Minimalni protok BRB2 [l/s]' 'DataSource.PGRad.Par.BRB2Preparation.MinFlow_lps' 0 30 2),
+    (New-Field 'Timeout potvrde protoka [s]' 'DataSource.PGRad.Par.BRB2Preparation.FlowTimeout_s' 1 600 1),
+    (New-Field 'Alarm temperature [s]' 'DataSource.PGRad.Par.BRB2Preparation.TemperatureAlarm_s' 1 14400 0),
+    (New-Field 'Stop posle alarma [s]' 'DataSource.PGRad.Par.BRB2Preparation.TemperatureStopDelay_s' 1 3600 0),
+    (New-Field 'Alarm visokog PT06 [s]' 'DataSource.PGRad.Par.BRB2Preparation.PressureAlarmDelay_s' 0.1 60 1),
+    (New-Field 'Stop visokog PT06 [s]' 'DataSource.PGRad.Par.BRB2Preparation.PressureStopDelay_s' 0.1 60 1),
+    (New-Field 'PT06 pocetni SP [bar]' 'DataSource.PGRad.Par.Transfer.PV05StartPressure_bar' 0 8 2),
+    (New-Field 'PT06 krajnji SP [bar]' 'DataSource.PGRad.Par.Transfer.PV05FinalPressure_bar' 0 8 2),
+    (New-Field 'PT04 SP ulaza tanka [bar]' 'DataSource.PGRad.Par.Transfer.TankInletPressure_bar' 0 8 2),
+    (New-Field 'Rampa PT06 SP [s]' 'DataSource.PGRad.Par.Transfer.PressureRamp_s' 0.1 600 1),
+    (New-Field 'Transfer timeout protoka [s]' 'DataSource.PGRad.Par.Transfer.FlowTimeout_s' 1 600 1),
+    (New-Field 'PV05 zatvoren prag [%]' 'DataSource.PGRad.Par.Transfer.PV05ClosedPercent' 0 100 1)
+)
+
 function New-AirFields([string]$Source) {
     $fields = [System.Collections.Generic.List[object]]::new()
     foreach ($valve in 'PV03', 'PV04') {
@@ -585,22 +830,27 @@ function New-AirFields([string]$Source) {
     return $fields.ToArray()
 }
 
-New-SettingsPage 'Para_Settings' 'PARA / SETTINGS - PROCES' $processFields
-New-SettingsPage 'Para_Times' 'PARA / SETTINGS - VREMENA' $timeFields
-New-SettingsPage 'Para_AR_BRB2' 'PARA / SETTINGS - AIR RELEASE BRB2' (New-AirFields 'BRB2')
-New-SettingsPage 'Para_AR_IEB' 'PARA / SETTINGS - AIR RELEASE IEBKB1' (New-AirFields 'IEBKB1')
-New-MainCommandPage
+New-SettingsPage 'PG1_Para_Settings' 'PARA / SETTINGS - PROCES' $processFields
+New-SettingsPage 'PG1_Para_Times' 'PARA / SETTINGS - VREMENA' $timeFields
+New-SettingsPage 'PG1_Para_AR_BRB2' 'PARA / SETTINGS - AIR RELEASE BRB2' (New-AirFields 'BRB2')
+New-SettingsPage 'PG1_Para_AR_IEB' 'PARA / SETTINGS - AIR RELEASE IEBKB1' (New-AirFields 'IEBKB1')
+New-SettingsPage 'PG1_Para_BRB2_Transfer' 'BRB2 PRIPREMA I TRANSFER' $brb2TransferFields
+New-AirReleaseServicePage
+if (-not (Test-Path -LiteralPath (Join-Path $pagesRoot 'PG1_Main_Command.page'))) {
+    New-MainCommandPage
+}
 
-# Add the Settings button and its page action to Init_Page once.
-$initPage = Get-Content -Raw -LiteralPath $initPagePath
-if ($initPage -notmatch 'Name="Btn_ParaSettings"') {
+# Add the Settings button and its page action to legacy Init_Page when present.
+if (Test-Path -LiteralPath $initPagePath) {
+    $initPage = Get-Content -Raw -LiteralPath $initPagePath
+    if ($initPage -notmatch 'Name="Btn_ParaSettings"') {
     $initPage = $initPage.Replace('<Text ID="96783" Value="Pu1 AUTO"/>', '<Text ID="96783" Value="Pu1 AUTO"/>' + "`r`n          <Text ID=`"97000`" Value=`"PARAMETRI`"/>")
     $button = New-NavButton 'Btn_ParaSettings' 97000 '%nav_settings' 1090 160
     $initPage = $initPage.Replace('      </Controls>' + "`r`n" + '      <KeyMapping>', $button + '      </Controls>' + "`r`n" + '      <KeyMapping>')
     $key = New-PageKey '%nav_settings' 'Para_Settings'
     $initPage = $initPage.Replace('      </KeyMapping>', $key + '      </KeyMapping>')
-}
-$initPage = [regex]::Replace(
+    }
+    $initPage = [regex]::Replace(
     $initPage,
     '(?s)(<TextLayer LanguageId="[^"]+">)(.*?)(</TextLayer>)',
     {
@@ -612,49 +862,99 @@ $initPage = [regex]::Replace(
         }
         return $match.Groups[1].Value + $content + "`r`n          <Text ID=`"97000`" Value=`"KOMANDE`"/>`r`n        " + $match.Groups[3].Value
     }
-)
-$settingsTextIndex = 143
-if ($initPage -notmatch '<Index ID="97000"') {
+    )
+    $settingsTextIndex = 143
+    if ($initPage -notmatch '<Index ID="97000"') {
     $initPage = $initPage.Replace('        </IndexMap>', "          <Index ID=`"97000`" Value=`"$settingsTextIndex`"/>`r`n        </IndexMap>")
-}
-$settingsButton = New-NavButton 'Btn_ParaSettings' $settingsTextIndex '%nav_settings' 1090 160
-$initPage = [regex]::Replace(
+    }
+    $settingsButton = New-NavButton 'Btn_ParaSettings' $settingsTextIndex '%nav_settings' 1090 160
+    $initPage = [regex]::Replace(
     $initPage,
     '(?s)        <Control ClassId="0x00001002" Name="Btn_ParaSettings">.*?</Control>',
     [System.Text.RegularExpressions.MatchEvaluator]{ param($match) $settingsButton.TrimEnd() }
-)
-$initPage = [regex]::Replace(
+    )
+    $initPage = [regex]::Replace(
     $initPage,
     '(?s)(<VirtualKey Name="%nav_settings">.*?<Property Name="Page" Value=")Source\[local\]\.Page\[[^]]+\]("/>.*?</VirtualKey>)',
-    '$1Source[local].Page[Main_Command]$2'
-)
-Write-Utf8NoBom $initPagePath $initPage
+    '$1Source[local].Page[PG1_Main_Command]$2'
+    )
+    Write-Utf8NoBom $initPagePath $initPage
+}
 
 # Register all generated pages in the VC package once.
 $package = Get-Content -Raw -LiteralPath $packagePath
-foreach ($pageName in 'Main_Command', 'Para_Settings', 'Para_Times', 'Para_AR_BRB2', 'Para_AR_IEB') {
+foreach ($pageName in 'PG1_PID', 'PG1_Trend_1', 'PG1_Main_Command', 'PG1_Para_Settings', 'PG1_Para_Times', 'PG1_Para_AR_BRB2', 'PG1_Para_AR_IEB', 'PG1_Para_BRB2_Transfer', 'PG1_AirRelease_Service') {
     if ($package -notmatch [regex]::Escape("Pages\$pageName.page")) {
-        $package = $package.Replace('    <Source File="Pages\Init_Page.page"/>', '    <Source File="Pages\Init_Page.page"/>' + "`r`n    <Source File=`"Pages\$pageName.page`"/>")
+        $package = $package.Replace('    <Source File="Pages\PG1_Servis.page"/>', "    <Source File=`"Pages\$pageName.page`"/>`r`n    <Source File=`"Pages\PG1_Servis.page`"/>")
     }
 }
 Write-Utf8NoBom $packagePath $package
 
 $xmlPaths = @(
     $dataSourcePath,
-    $initPagePath,
     $packagePath,
-    (Join-Path $pagesRoot 'Para_Settings.page'),
-    (Join-Path $pagesRoot 'Para_Times.page'),
-    (Join-Path $pagesRoot 'Para_AR_BRB2.page'),
-    (Join-Path $pagesRoot 'Para_AR_IEB.page'),
-    (Join-Path $pagesRoot 'Main_Command.page')
+    (Join-Path $pagesRoot 'PG1_Para_Settings.page'),
+    (Join-Path $pagesRoot 'PG1_Para_Times.page'),
+    (Join-Path $pagesRoot 'PG1_Para_AR_BRB2.page'),
+    (Join-Path $pagesRoot 'PG1_Para_AR_IEB.page'),
+    (Join-Path $pagesRoot 'PG1_Para_BRB2_Transfer.page'),
+    (Join-Path $pagesRoot 'PG1_AirRelease_Service.page'),
+    (Join-Path $pagesRoot 'PG1_Main_Command.page')
 )
+if (Test-Path -LiteralPath $initPagePath) {
+    $xmlPaths += $initPagePath
+}
 foreach ($xmlPath in $xmlPaths) {
     [xml](Get-Content -Raw -LiteralPath $xmlPath) | Out-Null
     $bytes = [System.IO.File]::ReadAllBytes($xmlPath)
     if (($bytes.Length -ge 3) -and ($bytes[0] -eq 0xEF) -and ($bytes[1] -eq 0xBB) -and ($bytes[2] -eq 0xBF)) {
         throw "UTF-8 BOM detected: $xmlPath"
     }
+}
+
+$generatedPages = @{
+    'PG1_Para_Settings' = 40
+    'PG1_Para_Times' = 41
+    'PG1_Para_AR_BRB2' = 42
+    'PG1_Para_AR_IEB' = 43
+    'PG1_Para_BRB2_Transfer' = 44
+    'PG1_AirRelease_Service' = 45
+}
+foreach ($pageName in $generatedPages.Keys) {
+    $pagePath = Join-Path $pagesRoot "$pageName.page"
+    $pageXml = [xml](Get-Content -Raw -LiteralPath $pagePath)
+    if (($pageXml.Page.Name -ne $pageName) -or
+        ([int]$pageXml.Page.Property[2].Value -ne $generatedPages[$pageName])) {
+        throw "Generated page identity mismatch: $pagePath"
+    }
+}
+$transferPage = Get-Content -Raw -LiteralPath (Join-Path $pagesRoot 'PG1_Para_BRB2_Transfer.page')
+if ($transferPage -match 'Name="TrendView"|TrendConfig') {
+    throw 'Transfer page contains trend controls.'
+}
+$trendPagePath = Join-Path $pagesRoot 'PG1_Trend_1.page'
+$trendPageXml = [xml](Get-Content -Raw -LiteralPath $trendPagePath)
+$trendIndex = ($trendPageXml.Page.Property | Where-Object { $_.Name -eq 'Index' }).Value
+if (($trendPageXml.Page.Name -ne 'PG1_Trend_1') -or ([int]$trendIndex -ne 3)) {
+    throw "Trend page identity mismatch: $trendPagePath"
+}
+$trendPage = Get-Content -Raw -LiteralPath $trendPagePath
+if (($trendPage -notmatch 'Name="TrendView"') -or ($trendPage -match 'Name="BRB2Command_')) {
+    throw 'Trend page content is mixed with transfer controls.'
+}
+
+$airReleaseServicePage = Get-Content -Raw -LiteralPath (Join-Path $pagesRoot 'PG1_AirRelease_Service.page')
+foreach ($valve in 'PV03', 'PV04') {
+    foreach ($command in 'EnableManual', 'ManualSP_Percent', 'ResetAlarm') {
+        $binding = "DataSource.PGRad_AirRelease.$valve.Ctrl.$command"
+        $expectedCount = if ($command -eq 'EnableManual') { 2 } else { 1 }
+        if (([regex]::Matches($airReleaseServicePage, [regex]::Escape($binding))).Count -ne $expectedCount) {
+            throw "Expected $expectedCount AirRelease service binding(s): $binding"
+        }
+    }
+}
+if (($airReleaseServicePage -match 'NumberOfLS') -or ($airReleaseServicePage -match 'LS3')) {
+    throw 'AirRelease service page must not expose NumberOfLS or LS3.'
 }
 
 Write-Output 'Para_Settings generation completed: XML valid, UTF-8 without BOM.'

@@ -76,7 +76,6 @@
           <Text ID="102477" Value="V05"/>
           <Text ID="102479" Value="V06"/>
           <Text ID="102481" Value="V07"/>
-          <Text ID="102483" Value="AUTO"/>
           <Text ID="102485" Value="KOMANDE"/>
           <Text ID="102487" Value="TT 04"/>
           <Text ID="102488" Value="TT 05"/>
@@ -157,7 +156,6 @@
           <Text ID="102477" Value=""/>
           <Text ID="102479" Value=""/>
           <Text ID="102481" Value=""/>
-          <Text ID="102483" Value=""/>
           <Text ID="102485" Value="KOMANDE"/>
           <Text ID="102487" Value="Text_1"/>
           <Text ID="102488" Value="Text_1"/>
@@ -238,7 +236,6 @@
           <Index ID="102477" Value="88"/>
           <Index ID="102479" Value="90"/>
           <Index ID="102481" Value="92"/>
-          <Index ID="102483" Value="94"/>
           <Index ID="102485" Value="96"/>
           <Index ID="102487" Value="98"/>
           <Index ID="102488" Value="99"/>
@@ -1411,7 +1408,7 @@
           <Property Name="Width" Value="40"/>
         </Control>
         <Control ClassId="0x00001001" Name="Shape_37">
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.states.ALARM]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.Alarm_FR]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[Status]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1499,7 +1496,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[OutputFrameless]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="361"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.params.Freq]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.FR_set]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="81"/>
         </Control>
@@ -2405,29 +2402,6 @@
           <Property Name="Top" Value="516"/>
           <Property Name="Width" Value="20"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_12">
-          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
-          <Property Name="BitmapIndexDatapoint" Value="None"/>
-          <Property Name="BitmapSource" Value="None"/>
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_47]"/>
-          <Property Name="Font" Value="Source[local].Font[Font_1]"/>
-          <Property Name="Height" Value="50"/>
-          <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="1068"/>
-          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
-          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
-          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
-          <Property Name="TextIndex" Value="94"/>
-          <Property Name="TextIndexDatapoint" Value="None"/>
-          <Property Name="TextSimulationValue" Value="0"/>
-          <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="273"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_47]"/>
-          <Property Name="Width" Value="90"/>
-        </Control>
         <Control ClassId="0x00001002" Name="Btn_ParaSettings">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
@@ -2963,7 +2937,7 @@
           <Property Name="Width" Value="281"/>
         </Control>
         <Control ClassId="0x00001001" Name="Shape_50">
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.states.ALARM]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.Alarm_FR]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[Status]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -3051,7 +3025,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[OutputFrameless]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="637"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.params.Freq]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.FR_set]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="81"/>
         </Control>
@@ -3994,7 +3968,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.cmds.Run_fwd]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4010,7 +3984,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.cmds.Reset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.Reset_Alarm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4126,22 +4100,6 @@
             </KeyAction>
           </KeyActions>
         </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_47">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x0000016A">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="ResetValue" Value="0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.Pu_01_Auto]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
         <VirtualKey Name="%nav_settings1">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
@@ -4167,7 +4125,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.cmds.Enable]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.Enable]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4183,7 +4141,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.cmds.Run_fwd]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4199,7 +4157,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.cmds.Reset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.Reset_Alarm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4279,7 +4237,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.cmds.Enable]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.Enable]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

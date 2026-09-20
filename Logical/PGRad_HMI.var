@@ -1,0 +1,4 @@
+VAR
+	PGRad_Status : typPGRadStatus; (* Procesni status za HMI. *)
+	PGRad_TrendCursor : typPGRadTrendCursor; (* HMI trend kursor. *)
+END_VAR

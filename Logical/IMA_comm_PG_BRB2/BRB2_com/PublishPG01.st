@@ -47,16 +47,16 @@ ACTION PublishPG01:
 	(* 2) PG01 lokalni snapshot za AsIMA sinoptiku                              *)
 	(* ======================================================================== *)
 	(* 2.1) Pu01: komanda, ostvareni rad, frekvencija i fault prve izlazne pumpe. *)
-	PG01_Local.PGAct.Pu01.RunCmd := PG.Act.Pu._1.cmds.Run_fwd;
-	PG01_Local.PGAct.Pu01.Running := PG.Act.Pu._1.states.RUN;
-	PG01_Local.PGAct.Pu01.Frequency := PG.Act.Pu._1.status.act_freq;
-	PG01_Local.PGAct.Pu01.Alarm := PG.Act.Pu._1.states.FAULT;
+	PG01_Local.PGAct.Pu01.RunCmd := PG.Act.Pu._1.Start;
+	PG01_Local.PGAct.Pu01.Running := PG.Act.Pu._1.Status_inRun;
+	PG01_Local.PGAct.Pu01.Frequency := PG.Act.Pu._1.Ostvarena_brzina;
+	PG01_Local.PGAct.Pu01.Alarm := PG.Act.Pu._1.Alarm_FR OR PG.Act.Pu._1.Alarm_CAN;
 
 	(* 2.2) Pu02: komanda, ostvareni rad, frekvencija i fault druge izlazne pumpe. *)
-	PG01_Local.PGAct.Pu02.RunCmd := PG.Act.Pu._2.cmds.Run_fwd;
-	PG01_Local.PGAct.Pu02.Running := PG.Act.Pu._2.states.RUN;
-	PG01_Local.PGAct.Pu02.Frequency := PG.Act.Pu._2.status.act_freq;
-	PG01_Local.PGAct.Pu02.Alarm := PG.Act.Pu._2.states.FAULT;
+	PG01_Local.PGAct.Pu02.RunCmd := PG.Act.Pu._2.Start;
+	PG01_Local.PGAct.Pu02.Running := PG.Act.Pu._2.Status_inRun;
+	PG01_Local.PGAct.Pu02.Frequency := PG.Act.Pu._2.Ostvarena_brzina;
+	PG01_Local.PGAct.Pu02.Alarm := PG.Act.Pu._2.Alarm_FR OR PG.Act.Pu._2.Alarm_CAN;
 
 	(* 2.3) PV01 i PV02: komandovana i stvarna pozicija ulaznih ventila tanka. *)
 	PG01_Local.PGAct.PV01.Enable := PG.Act.PV._1.PV_Input.Enable;

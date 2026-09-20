@@ -11,6 +11,13 @@ PROGRAM _INIT
 	KomandaStop := FALSE;
 	KomandaReset := FALSE;
 	CmdSetDefaultParameters := FALSE;
+	KomandaPripremaBRB2 := FALSE;
+	KomandaTransferNaBRB2 := FALSE;
+	KomandaNastavak := FALSE;
+	BRB2PreparationState := BRB2_PREP_00_IDLE;
+	BRB2PreparationSubstep := 0;
+	BRB2Ready := FALSE;
+	TransferRequested := FALSE;
 	IF PGRad.Ctrl.SelektovaniIzvor = _02_IEBKB1 THEN
 		SelectIEBKB1 := TRUE;
 	ELSE
@@ -24,6 +31,12 @@ PROGRAM _INIT
 	T_PG_V01_Close(IN := FALSE, PT := T#0s);
 	T_PG_V02_Open(IN := FALSE, PT := T#0s);
 	T_PrelazPV05Cuvar(IN := FALSE, PT := T#0s);
+	T_BRB2PreparationFlow(IN := FALSE, PT := T#0s);
+	T_BRB2TemperatureAlarm(IN := FALSE, PT := T#0s);
+	T_BRB2TemperatureStop(IN := FALSE, PT := T#0s);
+	T_BRB2PressureAlarm(IN := FALSE, PT := T#0s);
+	T_BRB2PressureStop(IN := FALSE, PT := T#0s);
+	T_TransferFlow(IN := FALSE, PT := T#0s);
 	SP_PV05 := 0.0;
 	PV05IspiranjeOtvoreno := FALSE;
 	IzlaznaPumpaUStopu := FALSE;
@@ -32,10 +45,11 @@ PROGRAM _INIT
 	(* 2) Inicijalizacija PID parametara proporcionalnih ventila                *)
 	(* ======================================================================== *)
 	(* PV05 cuva pritisak dolaznog voda, a aktivni ulazni PV odrzava PT04. *)
+	(* FilterTime filtrira D clan i nema uticaja dok je DerivativeTime = 0.0. *)
 	PID_PV05.MinOut := 0.0;
 	PID_PV05.MaxOut := 100.0;
 	PID_PV05.PIDParameters.DerivativeTime := 0.0;
-	PID_PV05.PIDParameters.FilterTime := 45.0;
+	PID_PV05.PIDParameters.FilterTime := 10.0;
 	PID_PV05.PIDParameters.Gain := 1.0;
 	PID_PV05.PIDParameters.IntegrationTime := 180.0;
 	PID_PV05.Invert := TRUE;
@@ -44,7 +58,7 @@ PROGRAM _INIT
 	PID_PV_UlazTanka.MinOut := 0.0;
 	PID_PV_UlazTanka.MaxOut := 100.0;
 	PID_PV_UlazTanka.PIDParameters.DerivativeTime := 0.0;
-	PID_PV_UlazTanka.PIDParameters.FilterTime := 45.0;
+	PID_PV_UlazTanka.PIDParameters.FilterTime := 10.0;
 	PID_PV_UlazTanka.PIDParameters.Gain := 1.0;
 	PID_PV_UlazTanka.PIDParameters.IntegrationTime := 180.0;
 	PID_PV_UlazTanka.Invert := FALSE;
@@ -95,6 +109,12 @@ PROGRAM _INIT
 		OR (PGRad.Par.MaxFR_Pumpe <= 0.0)
 		OR (PGRad.Par.SetPointPritisakPV05Ispiranje <= 0.0)
 		OR (PGRad.Par.SetPointPritisakUlazTanka <= 0.0)
+		OR (PGRad.Par.BRB2Preparation.MinTemperature_degC <= 0.0)
+		OR (PGRad.Par.BRB2Preparation.FlowTimeout_s <= 0.0)
+		OR (PGRad.Par.Transfer.PV05StartPressure_bar <= 0.0)
+		OR (PGRad.Par.Transfer.PV05FinalPressure_bar <= 0.0)
+		OR (PGRad.Par.Transfer.TankInletPressure_bar <= 0.0)
+		OR (PGRad.Par.Transfer.PressureRamp_s <= 0.0)
 		OR (PGRad.Par.TimeSP.PrelazPV05Cuvar_s <= 0.0)
 		OR (PGRad.Par.PocetnaFrekvencaIzlaznePumpe <= 0.0)
 		OR (PGRad.Par.MaxOtvorPropZaZatvaranje <= 0.0)

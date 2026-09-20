@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.12.3.127 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="4PPC50_101E_13A" Type="4PPC50.101E-13A" Version="1.2.2.0">
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="10.0.0.205" />
+      <Parameter ID="SubnetMask" Value="255.255.254.0" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF4">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="PT_KB_V01_C50_Terminal" />
+    <Parameter ID="TimerDeviceType" Value="SWIOTIMER" />
+    <Parameter ID="Cyclic1Duration" Value="10000" />
+    <Parameter ID="Cyclic1Tolerance" Value="10000" />
+    <Parameter ID="Cyclic2Duration" Value="20000" />
+    <Parameter ID="Cyclic2Tolerance" Value="20000" />
+    <Parameter ID="Cyclic3Duration" Value="50000" />
+    <Parameter ID="Cyclic3Tolerance" Value="50000" />
+    <Parameter ID="Cyclic4Duration" Value="100000" />
+    <Parameter ID="Cyclic4Tolerance" Value="100000" />
+    <Parameter ID="Cyclic5Duration" Value="200000" />
+    <Parameter ID="Cyclic5Tolerance" Value="200000" />
+    <Parameter ID="Cyclic6Duration" Value="500000" />
+    <Parameter ID="Cyclic6Tolerance" Value="500000" />
+    <Parameter ID="Cyclic7Duration" Value="1000000" />
+    <Parameter ID="Cyclic7Tolerance" Value="1000000" />
+    <Parameter ID="Cyclic8Duration" Value="10000" />
+    <Parameter ID="Cyclic8Tolerance" Value="30000000" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="USER" />
+    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Parameter ID="LXTMode" Value="Manual" />
+    <Parameter ID="LXTInternetAddress" Value="10.0.0.205" />
+    <Parameter ID="LXTSubnetmask" Value="255.255.254.0" />
+    <Parameter ID="LXTActivateDns" Value="0" />
+    <Parameter ID="LXTVisuMode" Value="VNC" />
+    <Parameter ID="LXTVisuURL" Value="10.0.0.204:5900" />
+    <Parameter ID="LXTPasswordVNC" Value="" />
+    <Parameter ID="LXTUpdateTrigger" Value="0" />
+  </Module>
+</Hardware>

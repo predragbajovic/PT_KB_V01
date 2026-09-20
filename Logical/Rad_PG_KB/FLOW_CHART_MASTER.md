@@ -138,6 +138,11 @@ stateDiagram-v2
     PG_11_Priprema_IEBKB1 --> PG_13_Zaustavljanje_IEBKB1 : Stop / Fault
 
     PG_12_Rad_IEBKB1 --> PG_13_Zaustavljanje_IEBKB1 : Stop / Fault / promena izvora
+    PG_12_Rad_IEBKB1 --> PG_14_Transfer_IEBKB1_BRB2 : BRB2 spreman + IEB interfejs OK + komanda transfer
+
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_02_Rad_BRB2 : transfer zavrsen
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_13_Zaustavljanje_IEBKB1 : IEB stop / V05 / V01 greska
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_03_Zaustavljanje_BRB2 : V02 / BRB2 protok greska
 
     PG_13_Zaustavljanje_IEBKB1 --> PG_00_Stand_By : zaustavljanje završeno
 ```
@@ -151,10 +156,11 @@ stateDiagram-v2
 | `PG_02_Rad_BRB2` | Rad sa BRB2 kao izvorom. **`PG_PV01/PV02` NE regulisu protok** — samo održavaju bezbedan pritisak u cevovodu (štite izmenjivače i tank). Ko šta drži zavisi od `RegulacionaVarijanta` (F.1): u `pritisak` varijanti BRB2 drži `NivoTanka` a pumpe drže `PT_PG_05`; u `protok` BRB2 drži svoj FT a pumpe drže `NivoTanka`; u `temperatura` BRB2 juri `T_Sek_Izl` a pumpe kombinovano drže nivo i pritisak potisa (radi zaštite od prelivanja tanka). Anti-udar: `PG_PV05` otvara auto kad `PT_PG_06` > 6.5 bar. |
 | `PG_03_Zaustavljanje_BRB2` | Smanjuje protok, zatvara tank granu, gasi izlaznu pumpu, po potrebi zatvara `PG_V02` (samo ako se izvor menja u `Stand_By`-u). Šalje BRB2 komandu za gašenje bunara. Kad je gotovo — sistem se vraća u `PG_00_Stand_By`. |
 | `PG_11_Priprema_IEBKB1` | **Prvi uslov (interlock):** proverava da je `PG_V02` = zatvoren (razdvajanje sistema pod nadpritiskom od sistema bez nadpritiska). Ako nije — blok, greška, ne otvara ništa. Zatim **osigurava da je `PG_V01` otvoren** (obično već jeste iz Stand_By-a jer je IEBKB1 izabran) i otvara bypass `PG_V05` ka tanku, pušta IEBKB1 pumpu, čeka punjenje tanka do 1.0 m. Startuje izlaznu pumpu. **Kad pumpa ustali regulaciju na svom SP-u prema aktivnoj `RegulacionaVarijanta` (F.1) — sistem ulazi u radno stanje.** |
-| `PG_12_Rad_IEBKB1` | Rad sa IEBKB1 kao izvorom. `PG_V01` otvoren; voda ide preko bypass-a `PG_V05` **koji zaobilazi regulacione ventile `PG_PV01/PV02`** (oni su zatvoreni jer se u ovom režimu ne koristi njihova regulacija) i preko izmenjivača ulazi u tank. Ko šta drži zavisi od `RegulacionaVarijanta` (F.1) — ista logika kao BRB2, sa dodatnim clamp-om svih `SP_Protok` na `MaxProtok_IEBKB1`. |
+| `PG_12_Rad_IEBKB1` | Rad sa IEBKB1 kao izvorom. `PG_V01` je otvoren i IEBKB1 nastavlja punjenje tanka preko `PG_V05`. Komanda `KomandaPripremaBRB2` nezavisno pokreće BRB2 prema drenaži dok `PG_V02` ostaje zatvoren. Priprema potvrđuje pumpu, protok, minimalno trajanje i `TT_PG_07`; `KomandaNastavak` može preskočiti samo temperaturni uslov, ne i potvrdu protoka. |
+| `PG_14_Transfer_IEBKB1_BRB2` | Guarded transfer bez prekida rada izlazne pumpe: opoziva zahtev IEBKB1 i čeka nulti protok, zatvara `PG_V05`, zatvara i potvrđuje `PG_V01`, pa tek zatim otvara `PG_V02`. U završnom podkoraku istovremeno radi rampa `PG_PV05/PT06` i regulacija aktivnog `PG_PV01/PV02` prema `PT04`; po potvrđenom BRB2 protoku i zatvorenom `PG_PV05` prelazi u `PG_02_Rad_BRB2`. |
 | `PG_13_Zaustavljanje_IEBKB1` | Smanjuje protok IEBKB1, zatvara bypass `PG_V05`, gasi izlaznu pumpu, po potrebi zatvara `PG_V01` (samo ako se izvor menja u `Stand_By`-u). Kad je gotovo — sistem se vraća u `PG_00_Stand_By`. |
 
-> **Važno o prelazu između izvora:** oba `Zaustavljanje` koraka **uvek** završavaju u `PG_00_Stand_By`. Promena izvora se dešava **samo iz `Stand_By`-a** — operater bira novi izvor na HMI i daje Start, pa sistem ide u odgovarajuću Pripremu. Nema prečice iz jednog Zaustavljanja u drugu Pripremu.
+> **Važno o prelazu između izvora:** direktan IEBKB1 → BRB2 transfer dozvoljen je samo kada su `BRB2Ready`, `InterfaceReady`, `CommValid` i `HeartbeatValid` potvrđeni i nema udaljenog fault-a. Bez kompletnog budućeg IEBKB1 statusnog ugovora komanda transfera ostaje blokirana. IEBKB1 PLC se ovom implementacijom ne menja.
 
 **Auto-restart posle nestanka struje:** sistem uvek startuje iz `PG_00_Stand_By`. Ponašanje kontroliše HMI selektor `AutoRestart` (RETAIN):
 - **`AutoRestart = OFF`** — sistem ostaje u `Stand_By`, čeka manuelnu komandu Start sa HMI-ja.

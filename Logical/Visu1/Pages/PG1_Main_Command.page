@@ -25,34 +25,34 @@
       <Property Name="Z-Order" Value="0"/>
       <TextGroup>
         <TextLayer LanguageId="en">
-          <Text ID="0" Value="GLAVNI KOMANDNI EKRAN"/>
-          <Text ID="1" Value="PARAMETRI"/>
-          <Text ID="2" Value="GLAVNI EKRAN"/>
-          <Text ID="3" Value="START"/>
-          <Text ID="4" Value="STOP"/>
-          <Text ID="5" Value="RESET GRESKE"/>
-          <Text ID="6" Value="OPERATIVNI IZBORI"/>
-          <Text ID="7" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="8" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
-          <Text ID="9" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
-          <Text ID="10" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
-          <Text ID="11" Value="AutoRestart: 0=OFF, 1=ON"/>
-          <Text ID="12" Value="ZADATE I STVARNE VREDNOSTI"/>
-          <Text ID="13" Value="Pritisak potisa SP [bar]"/>
-          <Text ID="14" Value="Pritisak potisa PV [bar]"/>
-          <Text ID="15" Value="Nivo tanka SP [m]"/>
-          <Text ID="16" Value="Nivo tanka PV [m]"/>
-          <Text ID="17" Value="Protok PV [l/s]"/>
-          <Text ID="18" Value="STATUS PROCESA"/>
-          <Text ID="19" Value="State"/>
-          <Text ID="20" Value="Substep"/>
-          <Text ID="21" Value="Fault"/>
-          <Text ID="22" Value="Fault code"/>
-          <Text ID="23" Value="Fault tekst"/>
-          <Text ID="24" Value="STATUS UREDJAJA"/>
-          <Text ID="25" Value="Pumpa 1 FR [Hz]"/>
-          <Text ID="26" Value="Pumpa 1 greska"/>
-          <Text ID="27" Value="Pumpa 2 FR [Hz]"/>
+          <Text ID="107688" Value="GLAVNI KOMANDNI EKRAN"/>
+          <Text ID="107689" Value="PARAMETRI"/>
+          <Text ID="107690" Value="GLAVNI EKRAN"/>
+          <Text ID="107691" Value="START"/>
+          <Text ID="107692" Value="STOP"/>
+          <Text ID="107693" Value="RESET GRESKE"/>
+          <Text ID="107694" Value="OPERATIVNI IZBORI"/>
+          <Text ID="107695" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
+          <Text ID="107696" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="107697" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
+          <Text ID="107698" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
+          <Text ID="107699" Value="AutoRestart: 0=OFF, 1=ON"/>
+          <Text ID="107700" Value="ZADATE I STVARNE VREDNOSTI"/>
+          <Text ID="107701" Value="Pritisak potisa SP [bar]"/>
+          <Text ID="107702" Value="Pritisak potisa PV [bar]"/>
+          <Text ID="107703" Value="Nivo tanka SP [m]"/>
+          <Text ID="107704" Value="Nivo tanka PV [m]"/>
+          <Text ID="107705" Value="Protok PV [l/s]"/>
+          <Text ID="107706" Value="STATUS PROCESA"/>
+          <Text ID="107707" Value="State"/>
+          <Text ID="107708" Value="Substep"/>
+          <Text ID="107709" Value="Fault"/>
+          <Text ID="107710" Value="Fault code"/>
+          <Text ID="107711" Value="Fault tekst"/>
+          <Text ID="107712" Value="STATUS UREDJAJA"/>
+          <Text ID="107713" Value="Pumpa 1 FR [Hz]"/>
+          <Text ID="107714" Value="Pumpa 1 greska"/>
+          <Text ID="107715" Value="Pumpa 2 FR [Hz]"/>
           <Text ID="28" Value="Pumpa 2 greska"/>
           <Text ID="29" Value="PV01 polozaj [%]"/>
           <Text ID="30" Value="PV02 polozaj [%]"/>
@@ -69,34 +69,34 @@
           <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
         </TextLayer>
         <TextLayer LanguageId="de">
-          <Text ID="0" Value="GLAVNI KOMANDNI EKRAN"/>
-          <Text ID="1" Value="PARAMETRI"/>
-          <Text ID="2" Value="GLAVNI EKRAN"/>
-          <Text ID="3" Value="START"/>
-          <Text ID="4" Value="STOP"/>
-          <Text ID="5" Value="RESET GRESKE"/>
-          <Text ID="6" Value="OPERATIVNI IZBORI"/>
-          <Text ID="7" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="8" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
-          <Text ID="9" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
-          <Text ID="10" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
-          <Text ID="11" Value="AutoRestart: 0=OFF, 1=ON"/>
-          <Text ID="12" Value="ZADATE I STVARNE VREDNOSTI"/>
-          <Text ID="13" Value="Pritisak potisa SP [bar]"/>
-          <Text ID="14" Value="Pritisak potisa PV [bar]"/>
-          <Text ID="15" Value="Nivo tanka SP [m]"/>
-          <Text ID="16" Value="Nivo tanka PV [m]"/>
-          <Text ID="17" Value="Protok PV [l/s]"/>
-          <Text ID="18" Value="STATUS PROCESA"/>
-          <Text ID="19" Value="State"/>
-          <Text ID="20" Value="Substep"/>
-          <Text ID="21" Value="Fault"/>
-          <Text ID="22" Value="Fault code"/>
-          <Text ID="23" Value="Fault tekst"/>
-          <Text ID="24" Value="STATUS UREDJAJA"/>
-          <Text ID="25" Value="Pumpa 1 FR [Hz]"/>
-          <Text ID="26" Value="Pumpa 1 greska"/>
-          <Text ID="27" Value="Pumpa 2 FR [Hz]"/>
+          <Text ID="107688" Value="GLAVNI KOMANDNI EKRAN"/>
+          <Text ID="107689" Value="PARAMETRI"/>
+          <Text ID="107690" Value="GLAVNI EKRAN"/>
+          <Text ID="107691" Value="START"/>
+          <Text ID="107692" Value="STOP"/>
+          <Text ID="107693" Value="RESET GRESKE"/>
+          <Text ID="107694" Value="OPERATIVNI IZBORI"/>
+          <Text ID="107695" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
+          <Text ID="107696" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="107697" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
+          <Text ID="107698" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
+          <Text ID="107699" Value="AutoRestart: 0=OFF, 1=ON"/>
+          <Text ID="107700" Value="ZADATE I STVARNE VREDNOSTI"/>
+          <Text ID="107701" Value="Pritisak potisa SP [bar]"/>
+          <Text ID="107702" Value="Pritisak potisa PV [bar]"/>
+          <Text ID="107703" Value="Nivo tanka SP [m]"/>
+          <Text ID="107704" Value="Nivo tanka PV [m]"/>
+          <Text ID="107705" Value="Protok PV [l/s]"/>
+          <Text ID="107706" Value="STATUS PROCESA"/>
+          <Text ID="107707" Value="State"/>
+          <Text ID="107708" Value="Substep"/>
+          <Text ID="107709" Value="Fault"/>
+          <Text ID="107710" Value="Fault code"/>
+          <Text ID="107711" Value="Fault tekst"/>
+          <Text ID="107712" Value="STATUS UREDJAJA"/>
+          <Text ID="107713" Value="Pumpa 1 FR [Hz]"/>
+          <Text ID="107714" Value="Pumpa 1 greska"/>
+          <Text ID="107715" Value="Pumpa 2 FR [Hz]"/>
           <Text ID="28" Value="Pumpa 2 greska"/>
           <Text ID="29" Value="PV01 polozaj [%]"/>
           <Text ID="30" Value="PV02 polozaj [%]"/>
@@ -113,34 +113,34 @@
           <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
         </TextLayer>
         <IndexMap>
-          <Index ID="0" Value="0"/>
-          <Index ID="1" Value="1"/>
-          <Index ID="2" Value="2"/>
-          <Index ID="3" Value="3"/>
-          <Index ID="4" Value="4"/>
-          <Index ID="5" Value="5"/>
-          <Index ID="6" Value="6"/>
-          <Index ID="7" Value="7"/>
-          <Index ID="8" Value="8"/>
-          <Index ID="9" Value="9"/>
-          <Index ID="10" Value="10"/>
-          <Index ID="11" Value="11"/>
-          <Index ID="12" Value="12"/>
-          <Index ID="13" Value="13"/>
-          <Index ID="14" Value="14"/>
-          <Index ID="15" Value="15"/>
-          <Index ID="16" Value="16"/>
-          <Index ID="17" Value="17"/>
-          <Index ID="18" Value="18"/>
-          <Index ID="19" Value="19"/>
-          <Index ID="20" Value="20"/>
-          <Index ID="21" Value="21"/>
-          <Index ID="22" Value="22"/>
-          <Index ID="23" Value="23"/>
-          <Index ID="24" Value="24"/>
-          <Index ID="25" Value="25"/>
-          <Index ID="26" Value="26"/>
-          <Index ID="27" Value="27"/>
+          <Index ID="107688" Value="0"/>
+          <Index ID="107689" Value="1"/>
+          <Index ID="107690" Value="2"/>
+          <Index ID="107691" Value="3"/>
+          <Index ID="107692" Value="4"/>
+          <Index ID="107693" Value="5"/>
+          <Index ID="107694" Value="6"/>
+          <Index ID="107695" Value="7"/>
+          <Index ID="107696" Value="8"/>
+          <Index ID="107697" Value="9"/>
+          <Index ID="107698" Value="10"/>
+          <Index ID="107699" Value="11"/>
+          <Index ID="107700" Value="12"/>
+          <Index ID="107701" Value="13"/>
+          <Index ID="107702" Value="14"/>
+          <Index ID="107703" Value="15"/>
+          <Index ID="107704" Value="16"/>
+          <Index ID="107705" Value="17"/>
+          <Index ID="107706" Value="18"/>
+          <Index ID="107707" Value="19"/>
+          <Index ID="107708" Value="20"/>
+          <Index ID="107709" Value="21"/>
+          <Index ID="107710" Value="22"/>
+          <Index ID="107711" Value="23"/>
+          <Index ID="107712" Value="24"/>
+          <Index ID="107713" Value="25"/>
+          <Index ID="107714" Value="26"/>
+          <Index ID="107715" Value="27"/>
           <Index ID="28" Value="28"/>
           <Index ID="29" Value="29"/>
           <Index ID="30" Value="30"/>
@@ -942,7 +942,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="465"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.params.Freq]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.FR_set]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
@@ -977,7 +977,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="510"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.states.ALARM]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._1.Alarm_FR]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
@@ -1013,7 +1013,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="555"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.params.Freq]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.FR_set]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
@@ -1048,7 +1048,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="600"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.states.ALARM]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PG.Act.Pu._2.Alarm_FR]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>

@@ -1815,4 +1815,88 @@
     <Property Name="Description" Value="Pomeri trend kursor pet minuta unapred"/>
     <Property Name="VirtualKey_LED" Value="False"/>
   </VirtualKey>
+  <VirtualKey Name="%source_select">
+    <Property Name="Description" Value="OFF = BRB2, ON = IEBKB1"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%view_1h">
+    <Property Name="Description" Value="Prikazi jedan sat"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%view_4h">
+    <Property Name="Description" Value="Prikazi cetiri sata"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%view_8h">
+    <Property Name="Description" Value="Prikazi osam sati"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%view_24h">
+    <Property Name="Description" Value="Prikazi dvadeset cetiri sata"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%view_48h">
+    <Property Name="Description" Value="Prikazi cetrdeset osam sati"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%history_back">
+    <Property Name="Description" Value="Prethodni vremenski prozor"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%history_forward">
+    <Property Name="Description" Value="Sledeci vremenski prozor"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%history_now">
+    <Property Name="Description" Value="Prikazi najnovije podatke"/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%nav_6">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%cmd_brb2_prepare">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%cmd_brb2_continue">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%cmd_brb2_transfer">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_ar_brb2">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_ar_ieb">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_commands">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_main">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_PV03_manual">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_PV03_reset">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_PV04_manual">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%service_PV04_reset">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
 </KeyMapping>

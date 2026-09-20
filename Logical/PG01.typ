@@ -1,165 +1,165 @@
 
 TYPE
-	typPG01SynVentil : 	STRUCT 
+	typPG01SynVentil : 	STRUCT  (* Sinopticki komandni i statusni podaci jednog ON/OFF ventila. *)
 		OpenCmd : BOOL; (* Lokalna komanda otvaranja. *)
 		CloseCmd : BOOL; (* Lokalna komanda zatvaranja. *)
 		Opened : BOOL; (* Povratni signal otvorenog polozaja. *)
 		Closed : BOOL; (* Povratni signal zatvorenog polozaja. *)
 		Alarm : BOOL; (* Dijagnosticki alarm ventila. *)
 	END_STRUCT;
-	typPG01SynPropVentil : 	STRUCT 
+	typPG01SynPropVentil : 	STRUCT  (* Sinopticki komandni i statusni podaci jednog proporcionalnog ventila. *)
 		Enable : BOOL; (* Dozvola automatske regulacije. *)
 		CmdPercent : REAL; (* Zadata otvorenost [%]. *)
 		PositionPercent : REAL; (* Ostvarena otvorenost [%]. *)
 		Alarm : BOOL; (* Dijagnosticki alarm ventila. *)
 	END_STRUCT;
-	typPG01SynPumpa : 	STRUCT 
+	typPG01SynPumpa : 	STRUCT  (* Sinopticki komandni i statusni podaci jedne pumpe. *)
 		RunCmd : BOOL; (* Lokalni zahtev rada. *)
 		Running : BOOL; (* Stvarni status rada. *)
 		Frequency : REAL; (* Frekventni zahtev/ostvarenje [Hz]. *)
 		Alarm : BOOL; (* Dijagnosticki alarm pumpe. *)
 	END_STRUCT;
-	typPG01SynAnalog : 	STRUCT 
+	typPG01SynAnalog : 	STRUCT  (* Sinopticki podatak jednog analognog procesnog signala. *)
 		Value : REAL; (* Skalirana merena vrednost. *)
 		Valid : BOOL; (* Validnost signala. *)
 		Alarm : BOOL; (* Dijagnosticki alarm signala. *)
 	END_STRUCT;
-	typPG01SynDigital : 	STRUCT 
+	typPG01SynDigital : 	STRUCT  (* Sinopticki podatak jednog digitalnog procesnog signala. *)
 		Value : BOOL; (* Digitalna merena vrednost. *)
 		Alarm : BOOL; (* Dijagnosticki alarm signala. *)
 	END_STRUCT;
-	typPG01SynPGAct : 	STRUCT 
-		Pu01 : typPG01SynPumpa;
-		Pu02 : typPG01SynPumpa;
-		PV01 : typPG01SynPropVentil;
-		PV02 : typPG01SynPropVentil;
-		PV03 : typPG01SynPropVentil;
-		PV04 : typPG01SynPropVentil;
-		PV05 : typPG01SynPropVentil;
-		AV01 : typPG01SynVentil;
-		AV02 : typPG01SynVentil;
-		AV03 : typPG01SynVentil;
-		AV04 : typPG01SynVentil;
-		AV05 : typPG01SynVentil;
-		AV06 : typPG01SynVentil;
-		AV07 : typPG01SynVentil;
-		RV19 : typPG01SynVentil;
-		RV21 : typPG01SynVentil;
-		RV22 : typPG01SynVentil;
-		RV23 : typPG01SynVentil;
-		RV24 : typPG01SynVentil;
-		RV25 : typPG01SynVentil;
-		RV26 : typPG01SynVentil;
-		RV27 : typPG01SynVentil;
+	typPG01SynPGAct : 	STRUCT  (* Lokalni PT aktuatori koje Podstanica objavljuje BRB2-u i sinoptici. *)
+		Pu01 : typPG01SynPumpa; (* PG_Pu01 - prva izlazna pumpa prihvatnog tanka. *)
+		Pu02 : typPG01SynPumpa; (* PG_Pu02 - druga izlazna pumpa prihvatnog tanka. *)
+		PV01 : typPG01SynPropVentil; (* PG_PV01 - prvi regulacioni ulaz u tank. *)
+		PV02 : typPG01SynPropVentil; (* PG_PV02 - drugi regulacioni ulaz u tank. *)
+		PV03 : typPG01SynPropVentil; (* PG_PV03 - odzracni proporcionalni ventil na ulazu u Podstanicu. *)
+		PV04 : typPG01SynPropVentil; (* PG_PV04 - odzracni proporcionalni ventil na ulazu u tank. *)
+		PV05 : typPG01SynPropVentil; (* PG_PV05 - regulacioni/drenazni ventil BRB2 grane. *)
+		AV01 : typPG01SynVentil; (* PG_AV01 - lokalni automatski ventil; funkcija se vidi iz PT procesne logike. *)
+		AV02 : typPG01SynVentil; (* PG_AV02 - lokalni automatski ventil; funkcija se vidi iz PT procesne logike. *)
+		AV03 : typPG01SynVentil; (* PG_AV03 - izlazna grana pumpe PG_Pu01. *)
+		AV04 : typPG01SynVentil; (* PG_AV04 - izlazna grana pumpe PG_Pu02. *)
+		AV05 : typPG01SynVentil; (* PG_AV05 - bypass/preispiranje Podstanice. *)
+		AV06 : typPG01SynVentil; (* PG_AV06 - grana PG_PV01 ka prihvatnom tanku. *)
+		AV07 : typPG01SynVentil; (* PG_AV07 - grana PG_PV02 ka prihvatnom tanku. *)
+		RV19 : typPG01SynVentil; (* PG_RV19 - rucni ventil posle PG_PV01. *)
+		RV21 : typPG01SynVentil; (* PG_RV21 - rucni ventil posle PG_PV02. *)
+		RV22 : typPG01SynVentil; (* PG_RV22 - drenazni ventil na dnu prihvatnog tanka. *)
+		RV23 : typPG01SynVentil; (* PG_RV23 - ulazni rucni ventil pumpe PG_Pu01. *)
+		RV24 : typPG01SynVentil; (* PG_RV24 - ulazni rucni ventil pumpe PG_Pu02. *)
+		RV25 : typPG01SynVentil; (* PG_RV25 - bypassni izlaz gasa iz prihvatnog tanka. *)
+		RV26 : typPG01SynVentil; (* PG_RV26 - ulazni rucni ventil vakuum pumpe. *)
+		RV27 : typPG01SynVentil; (* PG_RV27 - izlazni rucni ventil vakuum pumpe. *)
 	END_STRUCT;
-	typPG01SynPGSens : 	STRUCT 
-		Pt00 : typPG01SynAnalog;
-		Pt01 : typPG01SynAnalog;
-		Pt02 : typPG01SynAnalog;
-		Pt03 : typPG01SynAnalog;
-		Pt04 : typPG01SynAnalog;
-		Pt05 : typPG01SynAnalog;
-		Pt06 : typPG01SynAnalog;
-		PtNS1 : typPG01SynAnalog;
-		PtNS2 : typPG01SynAnalog;
-		Tt01 : typPG01SynAnalog;
-		Tt02 : typPG01SynAnalog;
-		Tt03 : typPG01SynAnalog;
-		Tt04 : typPG01SynAnalog;
-		Tt05 : typPG01SynAnalog;
-		Tt06 : typPG01SynAnalog;
-		Tt07 : typPG01SynAnalog;
+	typPG01SynPGSens : 	STRUCT  (* Lokalni PT senzorski snapshot; analogne vrednosti koriste procesne jedinice. *)
+		Pt00 : typPG01SynAnalog; (* Pritisak komprimovanog vazduha [bar]. *)
+		Pt01 : typPG01SynAnalog; (* Pritisak termalne vode na ulazu u Podstanicu [bar]. *)
+		Pt02 : typPG01SynAnalog; (* PT_PG_02 - pritisak posle grubih filtera [bar]. *)
+		Pt03 : typPG01SynAnalog; (* PT_PG_03 - pritisak posle velikog izmenjivaca [bar]. *)
+		Pt04 : typPG01SynAnalog; (* PT_PG_04 - pritisak na ulazu u prihvatni tank [bar]. *)
+		Pt05 : typPG01SynAnalog; (* PT_PG_05 - pritisak na potisu izlaznih pumpi [bar]. *)
+		Pt06 : typPG01SynAnalog; (* PT_PG_06 - pritisak BRB2 magistrale pre PG_V02 [bar]. *)
+		PtNS1 : typPG01SynAnalog; (* Pritisak na dnu prihvatnog tanka [mbar]. *)
+		PtNS2 : typPG01SynAnalog; (* Pritisak na vrhu prihvatnog tanka [mbar]. *)
+		Tt01 : typPG01SynAnalog; (* TT_PG_01 - ulaz u veliki izmenjivac [degC]. *)
+		Tt02 : typPG01SynAnalog; (* TT_PG_02 - ulaz u prihvatni tank [degC]. *)
+		Tt03 : typPG01SynAnalog; (* TT_PG_03 - temperatura prihvatnog tanka [degC]. *)
+		Tt04 : typPG01SynAnalog; (* TT_PG_04 - izlaz iz velikog izmenjivaca [degC]. *)
+		Tt05 : typPG01SynAnalog; (* TT_PG_05 - ulaz u mali izmenjivac [degC]. *)
+		Tt06 : typPG01SynAnalog; (* TT_PG_06 - izlaz iz malog izmenjivaca [degC]. *)
+		Tt07 : typPG01SynAnalog; (* TT_PG_07 - drenazni vod za potvrdu preispiranja [degC]. *)
 		Tt08 : typPG01SynAnalog; (* TT_PG_08 - ulaz tehnicke vode u direktni izmenjivac. *)
 		Tt09 : typPG01SynAnalog; (* TT_PG_09 - izlaz tehnicke vode iz direktnog izmenjivaca. *)
 		Tt10 : typPG01SynAnalog; (* TT_PG_10 - ulaz sanitarne vode u direktni izmenjivac. *)
 		Tt11 : typPG01SynAnalog; (* TT_PG_11 - izlaz sanitarne vode iz direktnog izmenjivaca. *)
-		MP01 : typPG01SynAnalog;
-		LS01 : typPG01SynDigital;
-		LS02 : typPG01SynDigital;
-		LS03 : typPG01SynDigital;
-		LS04 : typPG01SynDigital;
-		LS05 : typPG01SynDigital;
-		OWF01 : typPG01SynDigital;
-		OWF02 : typPG01SynDigital;
+		MP01 : typPG01SynAnalog; (* MP_PG_01 - protok ka potrosacima [m3/h]. *)
+		LS01 : typPG01SynDigital; (* LS_PG_01 - nizak nivo prihvatnog tanka. *)
+		LS02 : typPG01SynDigital; (* LS_PG_02 - donji nivo prvog odzracnog cilindra. *)
+		LS03 : typPG01SynDigital; (* LS_PG_03 - gornji nivo prvog odzracnog cilindra. *)
+		LS04 : typPG01SynDigital; (* LS_PG_04 - donji nivo drugog odzracnog cilindra. *)
+		LS05 : typPG01SynDigital; (* LS_PG_05 - gornji nivo drugog odzracnog cilindra. *)
+		OWF01 : typPG01SynDigital; (* PG_OWF01 - status prvog zastitnog prestrujnog ventila. *)
+		OWF02 : typPG01SynDigital; (* PG_OWF02 - status drugog zastitnog prestrujnog ventila. *)
 	END_STRUCT;
-	typPG01SynPGCtrl : 	STRUCT 
+	typPG01SynPGCtrl : 	STRUCT  (* Lokalni PT izbori, stanje i procesna dijagnostika za sinoptiku. *)
 		Izvor : USINT; (* E_SelektovaniIzvor kao numericka vrednost. *)
 		Regulacija : USINT; (* E_RegulacionaVarijanta kao numericka vrednost. *)
 		IzlaznaPumpa : USINT; (* E_AktivnaPumpaIzlazTanka kao numericka vrednost. *)
 		UlazniPV : USINT; (* E_AktivniPropVentilUlazTanka kao numericka vrednost. *)
-		AutoRestart : BOOL;
+		AutoRestart : BOOL; (* RETAIN zahtev automatskog ponovnog pokretanja nakon cold boot-a. *)
 		State : USINT; (* E_PGRad_State kao numericka vrednost. *)
-		Substep : USINT;
-		Fault : BOOL;
-		FaultCode : USINT;
+		Substep : USINT; (* Aktivni podkorak unutar glavnog procesnog stanja. *)
+		Fault : BOOL; (* Zbirni procesni fault Podstanice. *)
+		FaultCode : USINT; (* Numericka sifra uzroka procesnog fault-a. *)
 	END_STRUCT;
-	typPG01SynBRB2Act : 	STRUCT 
-		RB101 : typPG01SynPumpa;
-		RB201 : typPG01SynPumpa;
-		RB202 : typPG01SynPumpa;
-		RB211 : typPG01SynPumpa;
-		AVRB1V01 : typPG01SynVentil;
-		AVRB1V02 : typPG01SynVentil;
-		AVRB2V01 : typPG01SynVentil;
-		AVRB2V02 : typPG01SynVentil;
-		AVRB2V20 : typPG01SynVentil;
-		AVRB2V21 : typPG01SynVentil;
-		RVRB1RV04 : typPG01SynVentil;
-		RVRB1RV05 : typPG01SynVentil;
-		RVRB2RV04 : typPG01SynVentil;
-		RVRB2RV05 : typPG01SynVentil;
-		RVRB2RV06 : typPG01SynVentil;
-		RVRB2RV10 : typPG01SynVentil;
-		RVRB2RV51 : typPG01SynVentil;
-		PVRB1PV01 : typPG01SynPropVentil;
-		PVRB2PV01 : typPG01SynPropVentil;
-		PVRB2PV11 : typPG01SynPropVentil;
-		PVRB2PV21 : typPG01SynPropVentil;
+	typPG01SynBRB2Act : 	STRUCT  (* Udaljeni BRB2 aktuatori koje BRB2 pise, a Podstanica samo prikazuje. *)
+		RB101 : typPG01SynPumpa; (* BRB2 pumpa oznake RB1_01; udaljeni status/komanda. *)
+		RB201 : typPG01SynPumpa; (* BRB2 pumpa oznake RB2_01; udaljeni status/komanda. *)
+		RB202 : typPG01SynPumpa; (* BRB2 pumpa oznake RB2_02; udaljeni status/komanda. *)
+		RB211 : typPG01SynPumpa; (* BRB2 pumpa oznake RB2_11; udaljeni status/komanda. *)
+		AVRB1V01 : typPG01SynVentil; (* BRB2 automatski ventil RB1_V01; udaljeni status/komanda. *)
+		AVRB1V02 : typPG01SynVentil; (* BRB2 automatski ventil RB1_V02; udaljeni status/komanda. *)
+		AVRB2V01 : typPG01SynVentil; (* BRB2 automatski ventil RB2_V01; udaljeni status/komanda. *)
+		AVRB2V02 : typPG01SynVentil; (* BRB2 automatski ventil RB2_V02; udaljeni status/komanda. *)
+		AVRB2V20 : typPG01SynVentil; (* BRB2 automatski ventil RB2_V20; udaljeni status/komanda. *)
+		AVRB2V21 : typPG01SynVentil; (* BRB2 automatski ventil RB2_V21; udaljeni status/komanda. *)
+		RVRB1RV04 : typPG01SynVentil; (* BRB2 rucni ventil RB1_RV04; udaljeni status. *)
+		RVRB1RV05 : typPG01SynVentil; (* BRB2 rucni ventil RB1_RV05; udaljeni status. *)
+		RVRB2RV04 : typPG01SynVentil; (* BRB2 rucni ventil RB2_RV04; udaljeni status. *)
+		RVRB2RV05 : typPG01SynVentil; (* BRB2 rucni ventil RB2_RV05; udaljeni status. *)
+		RVRB2RV06 : typPG01SynVentil; (* BRB2 rucni ventil RB2_RV06; udaljeni status. *)
+		RVRB2RV10 : typPG01SynVentil; (* BRB2 rucni ventil RB2_RV10; udaljeni status. *)
+		RVRB2RV51 : typPG01SynVentil; (* BRB2 rucni ventil RB2_RV51; udaljeni status. *)
+		PVRB1PV01 : typPG01SynPropVentil; (* BRB2 proporcionalni ventil RB1_PV01; udaljeni status/komanda. *)
+		PVRB2PV01 : typPG01SynPropVentil; (* BRB2 proporcionalni ventil RB2_PV01; udaljeni status/komanda. *)
+		PVRB2PV11 : typPG01SynPropVentil; (* BRB2 proporcionalni ventil RB2_PV11; udaljeni status/komanda. *)
+		PVRB2PV21 : typPG01SynPropVentil; (* BRB2 proporcionalni ventil RB2_PV21; udaljeni status/komanda. *)
 	END_STRUCT;
-	typPG01SynBRB2Sens : 	STRUCT 
-		PtAir : typPG01SynAnalog;
-		PtColdWater : typPG01SynAnalog;
-		PtRB10 : typPG01SynAnalog;
-		PtRB11 : typPG01SynAnalog;
-		PtRB20A : typPG01SynAnalog;
-		PtRB20B : typPG01SynAnalog;
-		PtRB21 : typPG01SynAnalog;
-		PtRB22 : typPG01SynAnalog;
-		PtRB211 : typPG01SynAnalog;
-		PtRB212 : typPG01SynAnalog;
-		PtRB213 : typPG01SynAnalog;
-		TtRB11 : typPG01SynAnalog;
-		TtRB21 : typPG01SynAnalog;
-		TtRB22 : typPG01SynAnalog;
-		TtRB211 : typPG01SynAnalog;
-		TtPump : typPG01SynAnalog;
-		FtRB11 : typPG01SynAnalog;
-		FtRB21 : typPG01SynAnalog;
-		FtRB211 : typPG01SynAnalog;
-		KRB211 : typPG01SynAnalog;
-		RHT01T : typPG01SynAnalog;
-		RHT01RH : typPG01SynAnalog;
-		RHT02T : typPG01SynAnalog;
-		RHT02RH : typPG01SynAnalog;
-		RHT03T : typPG01SynAnalog;
-		RHT03RH : typPG01SynAnalog;
-		LSRB11 : typPG01SynDigital;
-		LSRB21 : typPG01SynDigital;
-		OWFRB101 : typPG01SynDigital;
-		OWFRB201 : typPG01SynDigital;
-		OWFRB202 : typPG01SynDigital;
+	typPG01SynBRB2Sens : 	STRUCT  (* Udaljeni BRB2 senzori; vrednosti ostaju u jedinicama izvornog PLC-a. *)
+		PtAir : typPG01SynAnalog; (* BRB2 pritisak vazduha; jedinica i fizicki identitet nepotvrdjeni u PT kodu. *)
+		PtColdWater : typPG01SynAnalog; (* BRB2 pritisak hladne vode; jedinica i fizicki identitet nepotvrdjeni u PT kodu. *)
+		PtRB10 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB10; jedinica prema udaljenom PLC-u. *)
+		PtRB11 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB11; jedinica prema udaljenom PLC-u. *)
+		PtRB20A : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB20A; jedinica prema udaljenom PLC-u. *)
+		PtRB20B : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB20B; jedinica prema udaljenom PLC-u. *)
+		PtRB21 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB21; jedinica prema udaljenom PLC-u. *)
+		PtRB22 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB22; jedinica prema udaljenom PLC-u. *)
+		PtRB211 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB211; jedinica prema udaljenom PLC-u. *)
+		PtRB212 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB212; jedinica prema udaljenom PLC-u. *)
+		PtRB213 : typPG01SynAnalog; (* BRB2 senzor pritiska oznake RB213; jedinica prema udaljenom PLC-u. *)
+		TtRB11 : typPG01SynAnalog; (* BRB2 senzor temperature oznake RB11; jedinica prema udaljenom PLC-u. *)
+		TtRB21 : typPG01SynAnalog; (* BRB2 senzor temperature oznake RB21; jedinica prema udaljenom PLC-u. *)
+		TtRB22 : typPG01SynAnalog; (* BRB2 senzor temperature oznake RB22; jedinica prema udaljenom PLC-u. *)
+		TtRB211 : typPG01SynAnalog; (* BRB2 senzor temperature oznake RB211; jedinica prema udaljenom PLC-u. *)
+		TtPump : typPG01SynAnalog; (* BRB2 temperatura pumpe; fizicki identitet nepotvrdjen u PT kodu. *)
+		FtRB11 : typPG01SynAnalog; (* BRB2 senzor protoka oznake RB11; jedinica prema udaljenom PLC-u. *)
+		FtRB21 : typPG01SynAnalog; (* BRB2 senzor protoka oznake RB21; jedinica prema udaljenom PLC-u. *)
+		FtRB211 : typPG01SynAnalog; (* BRB2 senzor protoka oznake RB211; jedinica prema udaljenom PLC-u. *)
+		KRB211 : typPG01SynAnalog; (* BRB2 senzor provodnosti oznake RB211; jedinica prema udaljenom PLC-u. *)
+		RHT01T : typPG01SynAnalog; (* BRB2 temperatura senzora RHT01; jedinica prema udaljenom PLC-u. *)
+		RHT01RH : typPG01SynAnalog; (* BRB2 relativna vlaznost senzora RHT01; jedinica prema udaljenom PLC-u. *)
+		RHT02T : typPG01SynAnalog; (* BRB2 temperatura senzora RHT02; jedinica prema udaljenom PLC-u. *)
+		RHT02RH : typPG01SynAnalog; (* BRB2 relativna vlaznost senzora RHT02; jedinica prema udaljenom PLC-u. *)
+		RHT03T : typPG01SynAnalog; (* BRB2 temperatura senzora RHT03; jedinica prema udaljenom PLC-u. *)
+		RHT03RH : typPG01SynAnalog; (* BRB2 relativna vlaznost senzora RHT03; jedinica prema udaljenom PLC-u. *)
+		LSRB11 : typPG01SynDigital; (* BRB2 binarni nivo signal oznake RB11; fizicki identitet nepotvrdjen. *)
+		LSRB21 : typPG01SynDigital; (* BRB2 binarni nivo signal oznake RB21; fizicki identitet nepotvrdjen. *)
+		OWFRB101 : typPG01SynDigital; (* BRB2 prestrujni zastitni signal oznake RB101. *)
+		OWFRB201 : typPG01SynDigital; (* BRB2 prestrujni zastitni signal oznake RB201. *)
+		OWFRB202 : typPG01SynDigital; (* BRB2 prestrujni zastitni signal oznake RB202. *)
 	END_STRUCT;
-	typPG01SynBRB2Ctrl : 	STRUCT 
+	typPG01SynBRB2Ctrl : 	STRUCT  (* Udaljeni BRB2 procesni izbori, stanje i potvrde za PT sinoptiku. *)
 		Odrediste : USINT; (* E_OdredisteBRB2 kao numericka vrednost. *)
 		Regulacija : USINT; (* E_RegulacionaVarijanta kao numericka vrednost. *)
-		Ispiranje : BOOL;
-		Aktivan : BOOL;
+		Ispiranje : BOOL; (* BRB2 potvrda da je aktivna faza ispiranja/punjenja cevovoda. *)
+		Aktivan : BOOL; (* BRB2 state masina trenutno poseduje fizicke komande. *)
 		StopFaza : USINT; (* E_FazaZaustavljanjaBRB2 kao numericka vrednost. *)
-		PumpaPotvrdjena : BOOL;
-		StopSPDostignut : BOOL;
-		RB2V02Zatvoren : BOOL;
+		PumpaPotvrdjena : BOOL; (* BRB2 potvrda stvarnog rada aktivne pumpe. *)
+		StopSPDostignut : BOOL; (* BRB2 potvrda dostignute minimalne frekvencije pri stopu. *)
+		RB2V02Zatvoren : BOOL; (* BRB2 potvrda zatvorenog ventila RB2_V02. *)
 	END_STRUCT;
-	typPG01Syn : 	STRUCT 
+	typPG01Syn : 	STRUCT  (* Zbirni PT/BRB2 snapshot za razmenu i prikaz na sinoptici. *)
 		PGAct : typPG01SynPGAct; (* PT Act snapshot za sinoptiku. *)
 		PGSens : typPG01SynPGSens; (* PT Sens snapshot za sinoptiku. *)
 		PGCtrl : typPG01SynPGCtrl; (* PT Ctrl i state snapshot. *)

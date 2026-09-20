@@ -23,8 +23,8 @@ Projektni dokument definise samo lokalne specifičnosti koje dopunjuju workspace
 - [PT_KB_V01/Logical/IO/Init.st](PT_KB_V01/Logical/IO/Init.st)
 - [PT_KB_V01/Logical/IO/Cyclic.st](PT_KB_V01/Logical/IO/Cyclic.st)
 - [PT_KB_V01/Logical/IO/Exit.st](PT_KB_V01/Logical/IO/Exit.st)
-- [PT_KB_V01/Logical/PID_Pu_01/Init.st](PT_KB_V01/Logical/PID_Pu_01/Init.st)
-- [PT_KB_V01/Logical/PID_Pu_01/Cyclic.st](PT_KB_V01/Logical/PID_Pu_01/Cyclic.st)
-- [PT_KB_V01/Logical/PID_Pu_01/Exit.st](PT_KB_V01/Logical/PID_Pu_01/Exit.st)
+- [PT_KB_V01/Logical/PID_Pu_PT/Init.st](PT_KB_V01/Logical/PID_Pu_PT/Init.st)
+- [PT_KB_V01/Logical/PID_Pu_PT/Cyclic.st](PT_KB_V01/Logical/PID_Pu_PT/Cyclic.st)
+- [PT_KB_V01/Logical/PID_Pu_PT/Exit.st](PT_KB_V01/Logical/PID_Pu_PT/Exit.st)
 
 2. Dokument je namenjen kao lokalni dodatak; za nove projekte prvo se koristi workspace standard, pa se dodaju samo potrebna lokalna pravila.

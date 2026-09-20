@@ -100,7 +100,7 @@ PG.Sens.Pt._NS2.AI_Param.EnableStatusCheck  := FALSE;   (* bez TransmitterStatus
 
 (* -------------------------------------------------------------------------- *)
 (* 3) FBAI01_DI01  Temperature TT_PG_01..TT_PG_07                             *)
-(* TT_PG_01..03 su mapirani na X20AI4622b; TT_PG_04..07 cekaju AI mapiranje.   *)
+(* TT_PG_01..03 su na X20AI4622b, a TT_PG_04..07 na X67AI1323/X67AI1333b.     *)
 (* Easytemp TMR35, 4-20mA. Opseg: 0-120 degC.                                  *)
 (* -------------------------------------------------------------------------- *)
 (* Tt._1 / TT_PG_01: Ulaz u veliki razmenjivac PGRT01 [degC]. *)
@@ -489,29 +489,5 @@ PG.Act.PV._5.PV_Param.HoldOutputOnFault    := TRUE;     (* zadrzava poslednju AO
 PG.Act.PV._5.PV_Param.DeviationOnLimit     := 8.0;      (* [%] alarm aktivira se kada odstupanje predje 8% *)
 PG.Act.PV._5.PV_Param.DeviationOffLimit    := 3.0;      (* [%] alarm gasi se kada odstupanje padne ispod 3% *)
 PG.Act.PV._5.PV_Param.DeviationTime        := T#5s;     (* vreme pre aktiviranja alarma odstupanja *)
-
-(* -------------------------------------------------------------------------- *)
-(* 10) vfdMain  Pumpe Pu (_1, _2)  Grundfoss CR45-2A, DIO metod              *)
-(* Frekventni opseg: 0-50 Hz. w_run_fwd, w_reset (DO) i w_freq (AO=16bit)   *)
-(* mapirani u IoMap. addr_struct se postavlja jednom ovde.                    *)
-(* -------------------------------------------------------------------------- *)
-
-(* Pu._1: Pumpa za snabdevanje potrosaca 01, vertikalna visestepena Grundfoss CR45, METOD_DIO *)
-PG.Act.Pu._1.settings.METOD_OF_CONTROL          := METOD_DIO;  (* DIO metod: run_fwd/reset/freq kroz IoMap *)
-PG.Act.Pu._1.settings.MIN_Freq                  := 0.0;        (* [Hz] minimalna frekvencija - pumpa stoji *)
-PG.Act.Pu._1.settings.MAX_Freq                  := 70.0;       (* [Hz] maksimalna frekvencija motora - 50Hz mreza *)
-PG.Act.Pu._1.settings.HaveOverCurrentProtection := FALSE;      (* bez hardverske strujne zastite u VFD *)
-PG.Act.Pu._1.cmds.Enable                        := TRUE;       (* aktivira VFD upravljanje *)
-PG.Act.Pu._1.cmds.en_autoReset                  := TRUE;       (* automatski reset greske frekventnog regulatora *)
-PG.Act.Pu.VFD_function._1.addr_struct           := ADR(PG.Act.Pu._1);  (* vezuje vfdMain FB za VFD_type strukturu pumpe *)
-
-(* Pu._2: Pumpa za snabdevanje potrosaca 02, vertikalna visestepena Grundfoss CR45, METOD_DIO *)
-PG.Act.Pu._2.settings.METOD_OF_CONTROL          := METOD_DIO;  (* DIO metod: run_fwd/reset/freq kroz IoMap *)
-PG.Act.Pu._2.settings.MIN_Freq                  := 0.0;        (* [Hz] minimalna frekvencija - pumpa stoji *)
-PG.Act.Pu._2.settings.MAX_Freq                  := 50.0;       (* [Hz] maksimalna frekvencija motora - 50Hz mreza *)
-PG.Act.Pu._2.settings.HaveOverCurrentProtection := FALSE;      (* bez hardverske strujne zastite u VFD *)
-PG.Act.Pu._2.cmds.Enable                        := TRUE;       (* aktivira VFD upravljanje *)
-PG.Act.Pu._2.cmds.en_autoReset                  := TRUE;       (* automatski reset greske frekventnog regulatora *)
-PG.Act.Pu.VFD_function._2.addr_struct           := ADR(PG.Act.Pu._2);  (* vezuje vfdMain FB za VFD_type strukturu pumpe *)
 
 END_PROGRAM

@@ -1,0 +1,8 @@
+VAR
+	PGRad_BRB2Cmd : typVezaPGRadBRB2; (* Kanonski PT izlazni status. *)
+	PGRad_BRB2 : typVezaPGRadBRB2; (* Lokalni procesni komunikacioni ugovor. *)
+	PGRad_BRB2_Tx : typVezaPGRadBRB2; (* PT izlazni AsIMA snapshot. *)
+	PGRad_BRB2_Rx : typVezaPGRadBRB2; (* BRB2 ulazni AsIMA snapshot. *)
+	PGRad_BRB2Watchdog : typBRB2CommWatchdog; (* Nadzor BRB2 StatusCounter-a. *)
+	PGRad_IEBKB1Prepared : typIEBKB1PreparedInterface; (* Buduci IEBKB1 ugovor. *)
+END_VAR

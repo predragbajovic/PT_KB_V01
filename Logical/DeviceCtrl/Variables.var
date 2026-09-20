@@ -1,10 +1,12 @@
 VAR
-	Pu1_1_plus : BOOL;
-	Pu1_01_plus : BOOL;
-	Pu1_1_minus : BOOL;
-	Pu1_01_minus : BOOL;
-	Pu2_1_plus : BOOL;
-	Pu2_01_plus : BOOL;
-	Pu2_1_minus : BOOL;
-	Pu2_01_minus : BOOL;
+	(* HMI impulsi koriguju Pu01 za +1.0/+0.1/-1.0/-0.1 Hz samo kada procesni komandni vektor nije vlasnik. *)
+	Pu1_1_plus : BOOL; (* HMI impuls povecanja zahteva PG_Pu01 za 1.0 Hz. *)
+	Pu1_01_plus : BOOL; (* HMI impuls povecanja zahteva PG_Pu01 za 0.1 Hz. *)
+	Pu1_1_minus : BOOL; (* HMI impuls smanjenja zahteva PG_Pu01 za 1.0 Hz. *)
+	Pu1_01_minus : BOOL; (* HMI impuls smanjenja zahteva PG_Pu01 za 0.1 Hz. *)
+	(* HMI impulsi koriguju Pu02 za +1.0/+0.1/-1.0/-0.1 Hz samo kada procesni komandni vektor nije vlasnik. *)
+	Pu2_1_plus : BOOL; (* HMI impuls povecanja zahteva PG_Pu02 za 1.0 Hz. *)
+	Pu2_01_plus : BOOL; (* HMI impuls povecanja zahteva PG_Pu02 za 0.1 Hz. *)
+	Pu2_1_minus : BOOL; (* HMI impuls smanjenja zahteva PG_Pu02 za 1.0 Hz. *)
+	Pu2_01_minus : BOOL; (* HMI impuls smanjenja zahteva PG_Pu02 za 0.1 Hz. *)
 END_VAR

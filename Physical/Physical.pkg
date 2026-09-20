@@ -3,5 +3,7 @@
 <Physical xmlns="http://br-automation.co.at/AS/Physical">
   <Objects>
     <Object Type="Configuration">Config1</Object>
+    <Object Type="Configuration">Config2</Object>
+    <Object Type="Configuration">C50_Terminal</Object>
   </Objects>
 </Physical>

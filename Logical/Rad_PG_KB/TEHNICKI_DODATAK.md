@@ -300,7 +300,25 @@ stateDiagram-v2
         ST12_ROT --> ST12_MAIN: rotacija završena
     }
 
+    PG_12_Rad_IEBKB1 --> PG_14_Transfer_IEBKB1_BRB2: KomandaTransferNaBRB2\nI BRB2Ready\nI kompletan IEBKB1 statusni ugovor
     PG_12_Rad_IEBKB1 --> PG_13_Zaustavljanje_IEBKB1: KomandaStop\nILI Fault\nILI SelektovaniIzvor promena
+
+    state PG_14_Transfer_IEBKB1_BRB2 {
+        [*] --> ST14_0
+        ST14_0: Opoziv IEBKB1 zahteva i cekanje nultog protoka
+        ST14_0 --> ST14_1: IEBKB1 protok = 0
+        ST14_1: Zatvaranje PG_V05
+        ST14_1 --> ST14_2: PG_V05 CLOSED
+        ST14_2: Zatvaranje i potvrda PG_V01
+        ST14_2 --> ST14_3: PG_V01 CLOSED
+        ST14_3: Otvaranje PG_V02 uz interlock
+        ST14_3 --> ST14_4: PG_V02 OPEN
+        ST14_4: Paralelno PG_PV05/PT06 rampa i PG_PV01/PV02/PT04 regulacija
+    }
+
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_02_Rad_BRB2: BRB2 protok potvrden\nI PG_PV05 zatvoren
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_13_Zaustavljanje_IEBKB1: IEB stop / V05 / V01 fault
+    PG_14_Transfer_IEBKB1_BRB2 --> PG_03_Zaustavljanje_BRB2: V02 / BRB2 protok fault
 
     state PG_13_Zaustavljanje_IEBKB1 {
         direction TB

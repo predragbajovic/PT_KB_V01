@@ -88,7 +88,7 @@ PG.Act.RV._26();  (* Ulaz u vakuum pumpu *)
 PG.Act.RV._27();  (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa van kotlarnice *)
 
 (* -------------------------------------------------------------------------- *)
-(* 9) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._5)           *)
+(* 8) FB_PvAiAo_Fast  Proporcionalni membranski ventili PV (_1.._5)           *)
 (* AI_Raw povratni signal i AO_Raw komanda direktno mapirani u IoMap.         *)
 (* -------------------------------------------------------------------------- *)
 
@@ -102,15 +102,4 @@ PG.Act.RV._27();  (* Izlaz iz vakuum pumpe ka instalaciji za izbacivanje gasa va
 
 	PG.Act.PV._5(); (* Obrada granica, izbora Manual/Auto i AO komande PV._5. *)
 
-(* -------------------------------------------------------------------------- *)
-(* 10) vfdMain  Pumpe Pu (_1, _2)  DIO metod                                 *)
-(* w_run_fwd/w_reset (DO) i w_freq (AO) mapirani u IoMap.                    *)
-(* Trenutni clamp u kodu: Pu._1 = 10..100 Hz, Pu._2 = 10..50 Hz.             *)
-(* addr_struct postavljen jednom u IO_Init tasku.                             *)
-(* -------------------------------------------------------------------------- *)
-	
-	PG.Act.Pu.VFD_function._1();  (* Pumpa za snabdevanje potrosaca 01, Grundfoss CR45, METOD_DIO *)	
-	
-	PG.Act.Pu.VFD_function._2();  (* Pumpa za snabdevanje potrosaca 02, Grundfoss CR45, METOD_DIO *)
-	
 END_PROGRAM

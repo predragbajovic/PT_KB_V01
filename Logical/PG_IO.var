@@ -1,0 +1,3 @@
+VAR
+	PG : PG_type; (* Korenski I/O i HMI objekat podstanice. *)
+END_VAR

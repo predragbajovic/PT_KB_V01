@@ -2,12 +2,14 @@ ACTION CommandMap:
 	(* ======================================================================== *)
 	(* 1) Adapter RETAIN ulaznih ventila                                        *)
 	(* ======================================================================== *)
+	(* RETAIN vektor je uvek vlasnik komandi V01/V02, nezavisno od procesnog rezima. *)
 	PG.Act.AV._1.Open := PGRad.CmdRetain.V01_Open;
 	PG.Act.AV._2.Open := PGRad.CmdRetain.V02_Open;
 
 	(* ======================================================================== *)
 	(* 2) Adapter neretentivnog upravljackog vektora                            *)
 	(* ======================================================================== *)
+	(* Ostale komande se prepisuju samo kada je PGRad_Cmd.Aktivan; u suprotnom servisni/lokalni rezim zadrzava ownership. *)
 	IF PGRad_Cmd.Aktivan THEN
 		PG.Act.AV._3.Open := PGRad_Cmd.Ventili._03_Open;
 		PG.Act.AV._4.Open := PGRad_Cmd.Ventili._04_Open;

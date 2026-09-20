@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.12.3.127 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="ATV6x0_V2.3" Type="FBC.0x0200005A.600.SEATV6x0_010203E" Version="1.1" OrderNumber="ATV6x0_V2.3">
+    <Connection Connector="CAN1" TargetModule="X20CP1382" TargetConnector="IF7" NodeNumber="3" />
+    <Parameter ID="p2002sub5_connecttomaster" Value="1" />
+    <Parameter ID="p2002sub8_connecttomaster" Value="2" />
+    <Parameter ID="p2002subc_connecttomaster" Value="1" />
+    <Parameter ID="p2061sub2a_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2b_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2c_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2d_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub3e_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub3f_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub40_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub41_connecttomaster" Value="0" />
+    <Parameter ID="p206bsub30_connecttomaster" Value="2" />
+    <Parameter ID="p206bsub31_connecttomaster" Value="2" />
+    <Parameter ID="p206bsub32_connecttomaster" Value="2" />
+    <Parameter ID="p1801_canidentifier" Value="$NodeID+0x00000280" />
+    <Parameter ID="pheartbeat_producertime" Value="100" />
+    <Parameter ID="p203c_objflags" Value="1" />
+  </Module>
+  <Module Name="ATV6x0_V2.3a" Type="FBC.0x0200005A.600.SEATV6x0_010203E" Version="1.1" OrderNumber="ATV6x0_V2.3">
+    <Connection Connector="CAN1" TargetModule="ATV6x0_V2.3" TargetConnector="CAN2" NodeNumber="4" />
+    <Parameter ID="p2002sub5_connecttomaster" Value="1" />
+    <Parameter ID="p2002sub8_connecttomaster" Value="2" />
+    <Parameter ID="p2002subc_connecttomaster" Value="1" />
+    <Parameter ID="p2061sub2a_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2b_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2c_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub2d_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub3e_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub3f_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub40_connecttomaster" Value="0" />
+    <Parameter ID="p2061sub41_connecttomaster" Value="0" />
+    <Parameter ID="p206bsub30_connecttomaster" Value="2" />
+    <Parameter ID="p206bsub31_connecttomaster" Value="2" />
+    <Parameter ID="p206bsub32_connecttomaster" Value="2" />
+    <Parameter ID="p1801_canidentifier" Value="$NodeID+0x00000280" />
+    <Parameter ID="pheartbeat_producertime" Value="100" />
+    <Parameter ID="p203c_objflags" Value="1" />
+  </Module>
+  <Module Name="X20AI4622" Type="X20AI4622" Version="1.5.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12h" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11g" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AI4622a" Type="X20AI4622" Version="1.5.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12i" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11h" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AI4622b" Type="X20AI4622" Version="1.5.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12j" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11i" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AI4622c" Type="X20AI4622" Version="1.5.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12k" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11j" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AI4622d" Type="X20AI4622" Version="1.5.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12l" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11k" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AO4622" Type="X20AO4622" Version="1.4.1.0">
+    <Connection Connector="SS1" TargetModule="X20TB12m" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11l" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AO4622a" Type="X20AO4622" Version="1.4.1.0">
+    <Connection Connector="SS1" TargetModule="X20TB12n" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11m" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20AO4622b" Type="X20AO4622" Version="1.4.1.0">
+    <Connection Connector="SS1" TargetModule="X20TB12o" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11n" TargetConnector="SL1" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+    <Parameter ID="ChannelType04" Value="4 to 20mA" />
+  </Module>
+  <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
+  <Module Name="X20BC0083" Type="X20BC0083" Version="2.14.0.0">
+    <Connection Connector="PLK1" TargetModule="X20CP1382" TargetConnector="IF3" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="SL" TargetModule="X20BB80" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X20BM11" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20CP1382" TargetConnector="IF6" />
+  </Module>
+  <Module Name="X20BM11b" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11c" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11b" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11e" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11c" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11f" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11e" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11g" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11f" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11h" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11g" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11i" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11h" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11j" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11i" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11k" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11j" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11l" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11k" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11m" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11l" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11n" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BM11m" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11p" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BB80" TargetConnector="IF1" />
+  </Module>
+  <Module Name="X20BT9100a" Type="X20BT9100" Version="1.3.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12q" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11p" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20CP1382" Type="X20CP1382" Version="1.15.0.0">
+    <Module Name="X1" Type="X1" Virtual="true" Version="1.15.0.0">
+      <Connection Connector="SS1" TargetModule="X20TB1F" TargetConnector="SS" />
+      <Connection Connector="SL" TargetModule="X20CP1382" TargetConnector="X1" />
+    </Module>
+    <Module Name="X2" Type="X2" Virtual="true" Version="1.15.0.0">
+      <Connection Connector="SS1" TargetModule="X20TB1F1" TargetConnector="SS" />
+      <Connection Connector="SL" TargetModule="X20CP1382" TargetConnector="X2" />
+    </Module>
+    <Module Name="X3" Type="X3" Virtual="true" Version="1.15.0.0">
+      <Connection Connector="SS1" TargetModule="X20TB1F2" TargetConnector="SS" />
+      <Connection Connector="SL" TargetModule="X20CP1382" TargetConnector="X3" />
+    </Module>
+    <Connection Connector="X1" TargetModule="X1" TargetConnector="SL" />
+    <Connection Connector="X2" TargetModule="X2" TargetConnector="SL" />
+    <Connection Connector="X3" TargetModule="X3" TargetConnector="SL" />
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="10.0.0.204" />
+      <Parameter ID="SubnetMask" Value="255.255.254.0" />
+      <Group ID="Vnc1" />
+      <Parameter ID="VncVcObjectName1" Value="Visu1" />
+      <Parameter ID="VncKeyMappingFile1" Value="VC\PS2-Keyboard.dis" />
+      <Parameter ID="VncMaxConnections1" Value="10" />
+    </Connector>
+    <Connector Name="IF7">
+      <Parameter ID="ActivateCANIO" Value="0" />
+      <Parameter ID="ActivateCanOpen" Value="1" />
+      <Parameter ID="pnmtstartup_bit1" Value="1" />
+      <Parameter ID="p100c_parametervalue" Value="1000" />
+      <Parameter ID="p100d_parametervalue" Value="3" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="PT_KB_V01_Config2" />
+    <Parameter ID="RemanentGlobalPvSize" Value="5000" />
+    <Parameter ID="VolatileGlobalPvSize" Value="150000" />
+    <Parameter ID="RebootReset" Value="1" />
+  </Module>
+  <Module Name="X20DI9371" Type="X20DI9371" Version="1.6.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12a" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20DI9371a" Type="X20DI9371" Version="1.6.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12c" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11b" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20DI9371b" Type="X20DI9371" Version="1.6.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12d" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11c" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20DO9322" Type="X20DO9322" Version="1.6.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12f" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11e" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20DO9322a" Type="X20DO9322" Version="1.6.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12g" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11f" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20PS9400" Type="X20PS9400" Version="1.8.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12r" TargetConnector="SS" />
+    <Connection Connector="PS" TargetModule="X20BB80" TargetConnector="PS1" />
+  </Module>
+  <Module Name="X20TB12a" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12c" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12d" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12f" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12g" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12h" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12i" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12j" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12k" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12l" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12m" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12n" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12o" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12q" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12r" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB1F" Type="X20TB1F" Version="1.0.0.0" />
+  <Module Name="X20TB1F1" Type="X20TB1F" Version="1.0.0.0" />
+  <Module Name="X20TB1F2" Type="X20TB1F" Version="1.0.0.0" />
+  <Module Name="X67AI1323" Type="X67AI1323" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X67DM1321.L12" TargetConnector="X2X2">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="InputFilter" Value="level 128" />
+    <Parameter ID="EnhChannelConfig" Value="on" />
+    <Parameter ID="ChannelType01" Value="4to20mA" />
+    <Parameter ID="ChannelType02" Value="4to20mA" />
+    <Parameter ID="ChannelType03" Value="4to20mA" />
+    <Parameter ID="ChannelType04" Value="4to20mA" />
+  </Module>
+  <Module Name="X67AI1333b" Type="X67AI1333" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X67AI1323" TargetConnector="X2X2">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="InputFilter" Value="level 128" />
+    <Parameter ID="ChannelType01" Value="4to20mA" />
+    <Parameter ID="ChannelType02" Value="4to20mA" />
+    <Parameter ID="ChannelType03" Value="4to20mA" />
+    <Parameter ID="ChannelType04" Value="4to20mA" />
+  </Module>
+  <Module Name="X67DI1371.L12" Type="X67DI1371.L12" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="X20BT9100a" TargetConnector="X2X1">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X67DM1321.L12" Type="X67DM1321.L12" Version="1.3.0.0">
+    <Connection Connector="X2X1" TargetModule="X67DI1371.L12" TargetConnector="X2X2">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+</Hardware>

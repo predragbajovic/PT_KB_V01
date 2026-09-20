@@ -1,0 +1,109 @@
+VAR_CONFIG
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanOut.w_ZadataBrz AT %QW."ATV6x0_V2.3".TargetVelocity_6042_Out; (* PG_Pu01 - CANopen zadata brzina ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanOut.w_ControlReg AT %QW."ATV6x0_V2.3".Controlword_6040_Out; (* PG_Pu01 - CANopen kontrolna rec ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.w_StatusReg AT %IW."ATV6x0_V2.3".Statusword_6041; (* PG_Pu01 - CANopen statusna rec ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.w_MotorBrz AT %IW."ATV6x0_V2.3".ControlEffort_6044; (* PG_Pu01 - ostvarena brzina ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.w_MotorSnaga AT %IW."ATV6x0_V2.3".OPR_3211_2002subc; (* PG_Pu01 - ostvarena snaga ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.w_MotorStruja AT %IW."ATV6x0_V2.3".LCR_3204_2002sub5; (* PG_Pu01 - struja motora ATV630. *)
+	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.b_NodeState AT %IX."ATV6x0_V2.3".ModuleOk; (* PG_Pu01 - status CANopen uredjaja. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanOut.w_ZadataBrz AT %QW."ATV6x0_V2.3a".TargetVelocity_6042_Out; (* PG_Pu02 - CANopen zadata brzina ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanOut.w_ControlReg AT %QW."ATV6x0_V2.3a".Controlword_6040_Out; (* PG_Pu02 - CANopen kontrolna rec ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanIn.w_StatusReg AT %IW."ATV6x0_V2.3a".Statusword_6041; (* PG_Pu02 - CANopen statusna rec ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanIn.w_MotorBrz AT %IW."ATV6x0_V2.3a".ControlEffort_6044; (* PG_Pu02 - ostvarena brzina ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanIn.w_MotorSnaga AT %IW."ATV6x0_V2.3a".OPR_3211_2002subc; (* PG_Pu02 - ostvarena snaga ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanIn.w_MotorStruja AT %IW."ATV6x0_V2.3a".LCR_3204_2002sub5; (* PG_Pu02 - struja motora ATV630. *)
+	Cyclic#4.PG.Act.Pu._2.CAN_FB.AtvCanIn.b_NodeState AT %IX."ATV6x0_V2.3a".ModuleOk; (* PG_Pu02 - status CANopen uredjaja. *)
+	Cyclic#1.PG.Sens.Pt._1.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput01; (* PT01 - pritisak termalne vode na ulazu podstanice [bar]. *)
+	Cyclic#1.PG.Sens.Pt._2.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput02; (* PT02 - pritisak posle streinera grubih filtera [bar]. *)
+	Cyclic#1.PG.Sens.Pt._3.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput03; (* PT03 - pritisak posle velikog razmenjivaca [bar]. *)
+	Cyclic#1.PG.Sens.Pt._4.AI_Input.RawValue AT %IW."X20AI4622".AnalogInput04; (* PT04 - pritisak na ulazu u prihvatni tank [bar]. *)
+	Cyclic#1.PG.Sens.Pt._5.AI_Input.RawValue AT %IW."X20AI4622a".AnalogInput01; (* PT05 - pritisak na potisu transportnih pumpi [bar]. *)
+	Cyclic#1.PG.Sens.Pt._NS1.AI_Input.RawValue AT %IW."X20AI4622a".AnalogInput02; (* PTNS01 - pritisak na dnu prihvatnog tanka [bar]. *)
+	Cyclic#1.PG.Sens.Pt._NS2.AI_Input.RawValue AT %IW."X20AI4622a".AnalogInput03; (* PTNS02 - pritisak na vrhu prihvatnog tanka [bar]. *)
+	Cyclic#1.PG.Sens.Pt._0_0.AI_Input.RawValue AT %IW."X20AI4622a".AnalogInput04; (* Pritisak komprimovanog vazduha [bar]. *)
+	Cyclic#1.PG.Sens.Tt._7.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput01;
+	Cyclic#1.PG.Sens.Tt._2.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput02; (* TT_PG_02 - ulaz u prihvatni tank. *)
+	Cyclic#1.PG.Sens.Tt._3.AI_Input.RawValue AT %IW."X20AI4622b".AnalogInput03; (* TT_PG_03 - temperatura u prihvatnom tanku. *)
+	Cyclic#1.PG.Act.PV._5.PV_Input.AI_Raw AT %IW."X20AI4622b".AnalogInput04; (* PG_PV05 - analogna povratna pozicija ventila. *)
+	Cyclic#1.PG.Sens.MP._1.AI_Input.RawValue AT %IW."X20AI4622c".AnalogInput01; (* MP01 - protok potisa ka potrosacima [l/s]. *)
+	Cyclic#1.PG.Sens.Pt._6.AI_Input.RawValue AT %IW."X20AI4622c".AnalogInput02; (* PT06 - dodatni transmiter pritiska [bar]. *)
+	Cyclic#1.PG.Act.PV._1.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput01; (* PG_PV01 - analogna povratna pozicija ulaznog ventila tanka. *)
+	Cyclic#1.PG.Act.PV._2.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput02; (* PG_PV02 - analogna povratna pozicija ulaznog ventila tanka. *)
+	Cyclic#1.PG.Act.PV._3.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput03; (* PV03 - analogna povratna pozicija odzracnog ventila ulaza podstanice. *)
+	Cyclic#1.PG.Act.PV._4.PV_Input.AI_Raw AT %IW."X20AI4622d".AnalogInput04; (* PV04 - analogna povratna pozicija odzracnog ventila ulaza tanka. *)
+	Cyclic#1.PG.Act.PV._1.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput01; (* PG_PV01 - analogna komanda polozaja ulaznog ventila tanka. *)
+	Cyclic#1.PG.Act.PV._2.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput02; (* PG_PV02 - analogna komanda polozaja ulaznog ventila tanka. *)
+	Cyclic#1.PG.Act.PV._3.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput03; (* PV03 - analogna komanda polozaja odzracnog ventila ulaza podstanice. *)
+	Cyclic#1.PG.Act.PV._4.PV_Output.AO_Raw AT %QW."X20AO4622a".AnalogOutput04; (* PV04 - analogna komanda polozaja odzracnog ventila ulaza tanka. *)
+	Cyclic#1.PG.Act.PV._5.PV_Output.AO_Raw AT %QW."X20AO4622b".AnalogOutput01; (* PG_PV05 - analogna komanda polozaja ventila drenaze/preispiranja. *)
+	Cyclic#1.PG.Act.AV._1.V_Input.CloseFb AT %IX."X20DI9371".DigitalInput03; (* PG_V01 - potvrdjen zatvoren polozaj IEBKB1 dovoda. *)
+	Cyclic#1.PG.Act.AV._1.V_Input.OpenFb AT %IX."X20DI9371".DigitalInput04; (* PG_V01 - potvrdjen otvoren polozaj IEBKB1 dovoda. *)
+	Cyclic#1.PG.Act.AV._2.V_Input.CloseFb AT %IX."X20DI9371".DigitalInput05; (* PG_V02 - potvrdjen zatvoren polozaj BRB2 dovoda. *)
+	Cyclic#1.PG.Act.AV._2.V_Input.OpenFb AT %IX."X20DI9371".DigitalInput06; (* PG_V02 - potvrdjen otvoren polozaj BRB2 dovoda. *)
+	Cyclic#1.PG.Act.RV._25.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput05; (* PG_RV25 - rucni gasni bypass iz tanka, zatvoren. *)
+	Cyclic#1.PG.Act.RV._25.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput06; (* PG_RV25 - rucni gasni bypass iz tanka, otvoren. *)
+	Cyclic#1.PG.Act.RV._26.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput07; (* PG_RV26 - rucni ulazni ventil vakuum pumpe, zatvoren. *)
+	Cyclic#1.PG.Act.RV._26.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput08; (* PG_RV26 - rucni ulazni ventil vakuum pumpe, otvoren. *)
+	Cyclic#1.PG.Act.RV._27.HV_Input.CloseFb AT %IX."X20DI9371a".DigitalInput09; (* PG_RV27 - rucni izlazni ventil vakuum pumpe, zatvoren. *)
+	Cyclic#1.PG.Act.RV._27.HV_Input.OpenFb AT %IX."X20DI9371a".DigitalInput10; (* PG_RV27 - rucni izlazni ventil vakuum pumpe, otvoren. *)
+	Cyclic#1.PG.Sens.LS._1.DI_Input.SensorIn AT %IX."X20DI9371b".DigitalInput01; (* LS01 - nizak nivo prihvatnog tanka. *)
+	Cyclic#1.PG.Sens.LS._2.DI_Input.SensorIn AT %IX."X20DI9371b".DigitalInput02; (* LS02 - donji nivo odzracnog cilindra na ulazu podstanice. *)
+	Cyclic#1.PG.Sens.LS._3.DI_Input.SensorIn AT %IX."X20DI9371b".DigitalInput03; (* LS03 - gornji nivo odzracnog cilindra na ulazu podstanice. *)
+	Cyclic#1.PG.Sens.LS._4.DI_Input.SensorIn AT %IX."X20DI9371b".DigitalInput04; (* LS04 - donji nivo odzracnog cilindra na ulazu tanka. *)
+	Cyclic#1.PG.Sens.LS._5.DI_Input.SensorIn AT %IX."X20DI9371b".DigitalInput05; (* LS05 - gornji nivo odzracnog cilindra na ulazu tanka. *)
+	Cyclic#1.PG.Sens.MP._1.AI_Input.TransmitterStatus AT %IX."X20DI9371b".DigitalInput06; (* MP01 - status meraca protoka potisa ka potrosacima. *)
+	Cyclic#1.PG.Act.AV._1.V_Input.LampOpen AT %IX."X20DI9371b".DigitalInput07; (* PG_V01 - signal pogona dostigao otvoren kraj. *)
+	Cyclic#1.PG.Act.AV._1.V_Input.LampClose AT %IX."X20DI9371b".DigitalInput08; (* PG_V01 - signal pogona dostigao zatvoren kraj. *)
+	Cyclic#1.PG.Act.AV._2.V_Input.LampOpen AT %IX."X20DI9371b".DigitalInput09; (* PG_V02 - signal pogona dostigao otvoren kraj. *)
+	Cyclic#1.PG.Act.AV._2.V_Input.LampClose AT %IX."X20DI9371b".DigitalInput10; (* PG_V02 - signal pogona dostigao zatvoren kraj. *)
+	Cyclic#1.PG.Act.AV._1.V_Input.OverTorque AT %IX."X20DI9371b".DigitalInput11; (* PG_V01 - zastita pogona od prevelikog momenta. *)
+	Cyclic#1.PG.Act.AV._1.V_Output.CmdOpen AT %QX."X20DO9322".DigitalOutput05; (* PG_V01 - komanda otvaranja bistabilnog IEBKB1 dovoda. *)
+	Cyclic#1.PG.Act.AV._1.V_Output.CmdClose AT %QX."X20DO9322".DigitalOutput06; (* PG_V01 - komanda zatvaranja bistabilnog IEBKB1 dovoda. *)
+	Cyclic#1.PG.Act.AV._2.V_Output.CmdOpen AT %QX."X20DO9322".DigitalOutput07; (* PG_V02 - komanda otvaranja bistabilnog BRB2 dovoda. *)
+	Cyclic#1.PG.Act.AV._2.V_Output.CmdClose AT %QX."X20DO9322".DigitalOutput08; (* PG_V02 - komanda zatvaranja bistabilnog BRB2 dovoda. *)
+	Cyclic#1.PG.Act.AV._3.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput09; (* PG_V03 - komanda otvaranja pneumatskog ventila izlaza PG_Pu01. *)
+	Cyclic#1.PG.Act.AV._4.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput10; (* PG_V04 - komanda otvaranja pneumatskog ventila izlaza PG_Pu02. *)
+	Cyclic#1.PG.Act.AV._5.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput11; (* PG_V05 - komanda otvaranja pneumatskog bypass ventila. *)
+	Cyclic#1.PG.Act.AV._6.V_Output.Cmd AT %QX."X20DO9322".DigitalOutput12; (* PG_V06 - komanda otvaranja pneumatske grane PG_PV01. *)
+	Cyclic#1.PG.Act.AV._7.V_Output.Cmd AT %QX."X20DO9322a".DigitalOutput01; (* PG_V07 - komanda otvaranja pneumatske grane PG_PV02. *)
+	Cyclic#1.PG.Sens.Tt._5.AI_Input.RawValue AT %IW."X67AI1323".AnalogInput01;
+	Cyclic#1.PG.Sens.Tt._6.AI_Input.RawValue AT %IW."X67AI1323".AnalogInput02;
+	Cyclic#1.PG.Sens.Tt._10.AI_Input.RawValue AT %IW."X67AI1323".AnalogInput03;
+	Cyclic#1.PG.Sens.Tt._11.AI_Input.RawValue AT %IW."X67AI1323".AnalogInput04;
+	Cyclic#1.PG.Sens.Tt._1.AI_Input.RawValue AT %IW."X67AI1333b".AnalogInput01;
+	Cyclic#1.PG.Sens.Tt._4.AI_Input.RawValue AT %IW."X67AI1333b".AnalogInput02;
+	Cyclic#1.PG.Sens.Tt._9.AI_Input.RawValue AT %IW."X67AI1333b".AnalogInput03;
+	Cyclic#1.PG.Sens.Tt._8.AI_Input.RawValue AT %IW."X67AI1333b".AnalogInput04;
+	Cyclic#1.PG.Act.AV._3.V_Input.CloseFb AT %IX."X67DI1371.L12".DigitalInput01;
+	Cyclic#1.PG.Act.AV._3.V_Input.OpenFb AT %IX."X67DI1371.L12".DigitalInput02;
+	Cyclic#1.PG.Act.AV._4.V_Input.CloseFb AT %IX."X67DI1371.L12".DigitalInput03;
+	Cyclic#1.PG.Act.AV._4.V_Input.OpenFb AT %IX."X67DI1371.L12".DigitalInput04;
+	Cyclic#1.PG.Act.RV._22.HV_Input.CloseFb AT %IX."X67DI1371.L12".DigitalInput05;
+	Cyclic#1.PG.Act.RV._22.HV_Input.OpenFb AT %IX."X67DI1371.L12".DigitalInput06;
+	Cyclic#1.PG.Act.RV._23.HV_Input.CloseFb AT %IX."X67DI1371.L12".DigitalInput07;
+	Cyclic#1.PG.Act.RV._23.HV_Input.OpenFb AT %IX."X67DI1371.L12".DigitalInput08;
+	Cyclic#1.PG.Act.RV._24.HV_Input.CloseFb AT %IX."X67DI1371.L12".DigitalInput09;
+	Cyclic#1.PG.Act.RV._24.HV_Input.OpenFb AT %IX."X67DI1371.L12".DigitalInput10;
+	Cyclic#1.PG.Act.AV._5.V_Input.CloseFb AT %IX."X67DM1321.L12".DigitalInput01;
+	Cyclic#1.PG.Act.AV._5.V_Input.OpenFb AT %IX."X67DM1321.L12".DigitalInput02;
+	Cyclic#1.PG.Act.AV._6.V_Input.CloseFb AT %IX."X67DM1321.L12".DigitalInput03;
+	Cyclic#1.PG.Act.AV._6.V_Input.OpenFb AT %IX."X67DM1321.L12".DigitalInput04;
+	Cyclic#1.PG.Act.AV._7.V_Input.CloseFb AT %IX."X67DM1321.L12".DigitalInput05;
+	Cyclic#1.PG.Act.AV._7.V_Input.OpenFb AT %IX."X67DM1321.L12".DigitalInput06;
+	Cyclic#1.PG.Act.RV._19.HV_Input.CloseFb AT %IX."X67DM1321.L12".DigitalInput07;
+	Cyclic#1.PG.Act.RV._19.HV_Input.OpenFb AT %IX."X67DM1321.L12".DigitalInput08;
+	Cyclic#1.PG.Act.RV._21.HV_Input.CloseFb AT %IX."X67DM1321.L12".DigitalInput09;
+	Cyclic#1.PG.Act.RV._21.HV_Input.OpenFb AT %IX."X67DM1321.L12".DigitalInput10;
+	Cyclic#1.PG.Sens.OWF._1.DI_Input.SensorIn AT %IX."X67DM1321.L12".DigitalInput11;
+	Cyclic#1.PG.Sens.OWF._2.DI_Input.SensorIn AT %IX."X67DM1321.L12".DigitalInput12;
+	Cyclic#4.PG.Act.Pu._1.Node_status AT %IW."ATV6x0_V2.3".NodeStatus;
+	Cyclic#4.PG.Act.Pu._1.U_int.U_srednje AT %IW."ATV6x0_V2.3".ULN_3207_2002sub8;
+	Cyclic#4.PG.Act.Pu._1.U_int.U_12 AT %IW."ATV6x0_V2.3".UL1_13747_206bsub30;
+	Cyclic#4.PG.Act.Pu._1.U_int.U_23 AT %IW."ATV6x0_V2.3".UL2_13748_206bsub31;
+	Cyclic#4.PG.Act.Pu._1.U_int.U_31 AT %IW."ATV6x0_V2.3".UL3_13749_206bsub32;
+	Cyclic#4.PG.Act.Pu._2.Node_status AT %IW."ATV6x0_V2.3a".NodeStatus;
+	Cyclic#4.PG.Act.Pu._2.U_int.U_srednje AT %IW."ATV6x0_V2.3a".ULN_3207_2002sub8;
+	Cyclic#4.PG.Act.Pu._2.U_int.U_12 AT %IW."ATV6x0_V2.3a".UL1_13747_206bsub30;
+	Cyclic#4.PG.Act.Pu._2.U_int.U_23 AT %IW."ATV6x0_V2.3a".UL2_13748_206bsub31;
+	Cyclic#4.PG.Act.Pu._2.U_int.U_31 AT %IW."ATV6x0_V2.3a".UL3_13749_206bsub32;
+END_VAR

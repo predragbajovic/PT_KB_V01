@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExternalHardware>
+  <Modules>
+    <Module ModuleID="FBC.0x0200005A.600.SEATV6x0_010203E" Version="1.1" OrderNumber="ATV6x0_V2.3">
+      <SourceFile OriginalFile="SEATV6x0_010203E_V2.3IE25_B07.eds" TranslationFile="65MFOB9E.ext" />
+    </Module>
+  </Modules>
+</ExternalHardware>

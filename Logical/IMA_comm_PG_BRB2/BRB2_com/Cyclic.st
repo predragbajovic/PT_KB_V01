@@ -3,6 +3,7 @@ PROGRAM _CYCLIC
 	(* 1) Priprema i prenos PG01 lokalnog snapshot-a                            *)
 	(* ======================================================================== *)
 	(* PublishPG01 priprema lokalni AsIMA DTO; IMAcomm obavlja dvosmerni prenos. *)
+	(* Ako statusInit nije IMA_OK, PublishPG01 i IMAcomm se ne pozivaju. *)
 	IF statusInit = IMA_OK THEN
 		PublishPG01;
 		statusComm := IMAcomm(stationId, connInfoPV, connInfoAUX);
@@ -19,5 +20,4 @@ PROGRAM _CYCLIC
 		connInfoPV.commandClearError := 0;
 	END_IF
 	
-	PG01_Remote := PG01_Remote;
 END_PROGRAM
