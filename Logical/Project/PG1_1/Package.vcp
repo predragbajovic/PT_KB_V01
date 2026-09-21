@@ -130,6 +130,7 @@
     <Source File="BitmapGroups\NavigationPad.bmgrp"/>
     <Source File="BitmapGroups\Borders.bmgrp"/>
     <Source File="Pages\PG1_PID.page"/>
+    <Source File="Pages\PG1_Alarms.page"/>
     <Source File="Pages\PG1_Para_BRB2_Transfer.page"/>
     <Source File="Pages\PG1_Main_Command.page"/>
     <Source File="Pages\PG1_Para_AR_IEB.page"/>
@@ -194,6 +195,7 @@
     <Source File="Trends\PG1_Trend_1.tre"/>
     <Source File="ColorMaps\V_OF.clm"/>
     <Source File="ColorMaps\V_ON.clm"/>
+    <Source File="ColorMaps\AlarmStatus.clm"/>
     <Source File="ColorMaps\Status.clm"/>
     <Source File="ColorMaps\CommStatus.clm"/>
     <Source File="VirtualKeys.vcvk"/>

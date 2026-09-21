@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_Alarms">
+  <Property Name="Description" Value="Podstanica projektni alarmi"/>
+  <Property Name="Height" Value="800"/>
+  <Property Name="Index" Value="46"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[default]"/>
+  <Property Name="Width" Value="1280"/>
+  <Layers>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="800"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="1280"/>
+      <Property Name="Z-Order" Value="0"/>
+      <TextGroup>
+        <TextLayer LanguageId="en">
+          <Text ID="0" Value="PODSTANICA ALARMI"/>
+          <Text ID="1" Value="POVRATAK"/>
+          <Text ID="2" Value="POTVRDI SVE"/>
+          <Text ID="3" Value="RESET ZAPISA"/>
+          <Text ID="4" Value="RESET UREDJAJA"/>
+          <Text ID="5" Value="AKTIVNI"/>
+          <Text ID="6" Value="MEMORISANI"/>
+          <Text ID="7" Value="PRVI KOD"/>
+          <Text ID="8" Value="PRIORITET"/>
+          <Text ID="9" Value="21001  Gubitak komunikacije BRB2"/>
+          <Text ID="10" Value="21002  Gubitak komunikacije IEBKB1"/>
+          <Text ID="11" Value="21003  Udaljeni BRB2 fault"/>
+          <Text ID="12" Value="22001  PG_Pu01 VFD fault"/>
+          <Text ID="13" Value="22002  PG_Pu01 CAN fault"/>
+          <Text ID="14" Value="22003  PG_Pu02 VFD fault"/>
+          <Text ID="15" Value="22004  PG_Pu02 CAN fault"/>
+          <Text ID="16" Value="25010  Konflikt zahteva ventila"/>
+          <Text ID="17" Value="25011  V01 timeout zatvaranja"/>
+          <Text ID="18" Value="25012  V02 timeout otvaranja"/>
+          <Text ID="19" Value="25013  V02 timeout zatvaranja"/>
+          <Text ID="20" Value="25014  V01 timeout otvaranja"/>
+          <Text ID="21" Value="25015  V01 timeout pri IEB stopu"/>
+          <Text ID="22" Value="25016  IEB protok nije zaustavljen"/>
+          <Text ID="23" Value="25017  V05 timeout zatvaranja"/>
+          <Text ID="24" Value="25018  IEB protok nije pokrenut"/>
+          <Text ID="25" Value="25021  BRB2 protok nije potvrdjen"/>
+          <Text ID="26" Value="25022  BRB2 temperatura nije dostignuta"/>
+          <Text ID="27" Value="25023  Visok pritisak PT06"/>
+          <Text ID="28" Value="25031  IEB protok nije nula pri transferu"/>
+          <Text ID="29" Value="25032  V05 timeout pri transferu"/>
+          <Text ID="30" Value="25033  V01 timeout pri transferu"/>
+          <Text ID="31" Value="25034  V02 timeout pri transferu"/>
+          <Text ID="32" Value="25035  BRB2 protok nije potvrdjen pri transferu"/>
+          <Text ID="33" Value="26001  PG_PV03 AirRelease alarm"/>
+          <Text ID="34" Value="26002  PG_PV04 AirRelease alarm"/>
+        </TextLayer>
+        <TextLayer LanguageId="de">
+          <Text ID="0" Value="PODSTANICA ALARMI"/>
+          <Text ID="1" Value="POVRATAK"/>
+          <Text ID="2" Value="POTVRDI SVE"/>
+          <Text ID="3" Value="RESET ZAPISA"/>
+          <Text ID="4" Value="RESET UREDJAJA"/>
+          <Text ID="5" Value="AKTIVNI"/>
+          <Text ID="6" Value="MEMORISANI"/>
+          <Text ID="7" Value="PRVI KOD"/>
+          <Text ID="8" Value="PRIORITET"/>
+          <Text ID="9" Value="21001  Gubitak komunikacije BRB2"/>
+          <Text ID="10" Value="21002  Gubitak komunikacije IEBKB1"/>
+          <Text ID="11" Value="21003  Udaljeni BRB2 fault"/>
+          <Text ID="12" Value="22001  PG_Pu01 VFD fault"/>
+          <Text ID="13" Value="22002  PG_Pu01 CAN fault"/>
+          <Text ID="14" Value="22003  PG_Pu02 VFD fault"/>
+          <Text ID="15" Value="22004  PG_Pu02 CAN fault"/>
+          <Text ID="16" Value="25010  Konflikt zahteva ventila"/>
+          <Text ID="17" Value="25011  V01 timeout zatvaranja"/>
+          <Text ID="18" Value="25012  V02 timeout otvaranja"/>
+          <Text ID="19" Value="25013  V02 timeout zatvaranja"/>
+          <Text ID="20" Value="25014  V01 timeout otvaranja"/>
+          <Text ID="21" Value="25015  V01 timeout pri IEB stopu"/>
+          <Text ID="22" Value="25016  IEB protok nije zaustavljen"/>
+          <Text ID="23" Value="25017  V05 timeout zatvaranja"/>
+          <Text ID="24" Value="25018  IEB protok nije pokrenut"/>
+          <Text ID="25" Value="25021  BRB2 protok nije potvrdjen"/>
+          <Text ID="26" Value="25022  BRB2 temperatura nije dostignuta"/>
+          <Text ID="27" Value="25023  Visok pritisak PT06"/>
+          <Text ID="28" Value="25031  IEB protok nije nula pri transferu"/>
+          <Text ID="29" Value="25032  V05 timeout pri transferu"/>
+          <Text ID="30" Value="25033  V01 timeout pri transferu"/>
+          <Text ID="31" Value="25034  V02 timeout pri transferu"/>
+          <Text ID="32" Value="25035  BRB2 protok nije potvrdjen pri transferu"/>
+          <Text ID="33" Value="26001  PG_PV03 AirRelease alarm"/>
+          <Text ID="34" Value="26002  PG_PV04 AirRelease alarm"/>
+        </TextLayer>
+        <IndexMap>
+          <Index ID="0" Value="0"/>
+          <Index ID="1" Value="1"/>
+          <Index ID="2" Value="2"/>
+          <Index ID="3" Value="3"/>
+          <Index ID="4" Value="4"/>
+          <Index ID="5" Value="5"/>
+          <Index ID="6" Value="6"/>
+          <Index ID="7" Value="7"/>
+          <Index ID="8" Value="8"/>
+          <Index ID="9" Value="9"/>
+          <Index ID="10" Value="10"/>
+          <Index ID="11" Value="11"/>
+          <Index ID="12" Value="12"/>
+          <Index ID="13" Value="13"/>
+          <Index ID="14" Value="14"/>
+          <Index ID="15" Value="15"/>
+          <Index ID="16" Value="16"/>
+          <Index ID="17" Value="17"/>
+          <Index ID="18" Value="18"/>
+          <Index ID="19" Value="19"/>
+          <Index ID="20" Value="20"/>
+          <Index ID="21" Value="21"/>
+          <Index ID="22" Value="22"/>
+          <Index ID="23" Value="23"/>
+          <Index ID="24" Value="24"/>
+          <Index ID="25" Value="25"/>
+          <Index ID="26" Value="26"/>
+          <Index ID="27" Value="27"/>
+          <Index ID="28" Value="28"/>
+          <Index ID="29" Value="29"/>
+          <Index ID="30" Value="30"/>
+          <Index ID="31" Value="31"/>
+          <Index ID="32" Value="32"/>
+          <Index ID="33" Value="33"/>
+          <Index ID="34" Value="34"/>
+        </IndexMap>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="Title">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="290"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="12"/>
+          <Property Name="Width" Value="700"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Back">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%back]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="20"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="12"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%back]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="LblActive">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="250"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="75"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="ActiveCount">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="350"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="70"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmActiveCount]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="LblLatched">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="450"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="6"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="75"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="LatchedCount">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="580"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="70"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmLatchedCount]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="LblFirst">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="75"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="FirstCode">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="780"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="70"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmFirstOutCode]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="LblSeverity">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="910"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="8"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="75"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Severity">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="1020"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="70"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmHighestSeverity]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp21001">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_21001]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="139"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text21001">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="9"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="137"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp21002">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_21002]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="177"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text21002">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="175"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp21003">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_21003]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="215"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text21003">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="11"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="213"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp22001">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_22001]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="253"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text22001">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="251"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp22002">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_22002]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="291"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text22002">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="13"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="289"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp22003">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_22003]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="329"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text22003">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="14"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="327"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp22004">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_22004]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="367"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text22004">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="15"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="365"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25010">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25010]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="405"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25010">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="16"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="403"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25011">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25011]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="443"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25011">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="17"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="441"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25012">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25012]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="481"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25012">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="18"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="479"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25013">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25013]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="519"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25013">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="19"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="517"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25014">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25014]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="557"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25014">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="20"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="555"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25015">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25015]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="25"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="595"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25015">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="55"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="21"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="593"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25016">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25016]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="140"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25016">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="22"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="138"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25017">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25017]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="178"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25017">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="23"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="176"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25018">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25018]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="216"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25018">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="24"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="214"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25021">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25021]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="254"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25021">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="252"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25022">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25022]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="292"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25022">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25023">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25023]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="330"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25023">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="328"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25031">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25031]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="368"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25031">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="366"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25032">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25032]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="406"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25032">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="29"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="404"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25033">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25033]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="444"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25033">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="30"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="442"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25034">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25034]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="482"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25034">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="31"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="480"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp25035">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_25035]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="520"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text25035">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="32"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="518"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp26001">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_26001]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="558"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text26001">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="33"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="556"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Lamp26002">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.Alarm_26002]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="596"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text26002">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="680"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="34"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="594"/>
+          <Property Name="Width" Value="240"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Acknowledge">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%ack]"/>
+          <Property Name="Height" Value="55"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="250"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="2"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="700"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%ack]"/>
+          <Property Name="Width" Value="220"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="ResetRecords">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%reset_records]"/>
+          <Property Name="Height" Value="55"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="530"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="700"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%reset_records]"/>
+          <Property Name="Width" Value="220"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="ResetDevices">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%reset_devices]"/>
+          <Property Name="Height" Value="55"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="810"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="700"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%reset_devices]"/>
+          <Property Name="Width" Value="220"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%back">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_PID]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%ack">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmCmdAcknowledge]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%reset_records">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmCmdResetRecords]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%reset_devices">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmCmdResetDevices]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder/>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[ActiveCount]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[LatchedCount]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[FirstCode]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[Severity]"/>
+  </TabSequence>
+</Page>

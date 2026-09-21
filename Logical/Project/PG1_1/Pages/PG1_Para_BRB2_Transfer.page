@@ -25,94 +25,94 @@
       <Property Name="Z-Order" Value="0"/>
       <TextGroup>
         <TextLayer LanguageId="en">
-          <Text ID="0" Value="BRB2 PRIPREMA I TRANSFER"/>
-          <Text ID="1" Value="PROCES"/>
-          <Text ID="2" Value="VREMENA"/>
-          <Text ID="3" Value="BRB2 / TRANSFER"/>
-          <Text ID="4" Value="AIR RELEASE BRB2"/>
-          <Text ID="5" Value="AIR RELEASE IEBKB1"/>
-          <Text ID="6" Value="KOMANDE"/>
-          <Text ID="7" Value="GLAVNI EKRAN"/>
-          <Text ID="8" Value="Minimalna temperatura BRB2 [degC]"/>
-          <Text ID="9" Value="Minimalni protok BRB2 [l/s]"/>
-          <Text ID="10" Value="Timeout potvrde protoka [s]"/>
-          <Text ID="11" Value="Alarm temperature [s]"/>
-          <Text ID="12" Value="Stop posle alarma [s]"/>
-          <Text ID="13" Value="Alarm visokog PT06 [s]"/>
-          <Text ID="14" Value="Stop visokog PT06 [s]"/>
-          <Text ID="15" Value="PT06 pocetni SP [bar]"/>
-          <Text ID="16" Value="PT06 krajnji SP [bar]"/>
-          <Text ID="17" Value="PT04 SP ulaza tanka [bar]"/>
-          <Text ID="18" Value="Rampa PT06 SP [s]"/>
-          <Text ID="19" Value="Transfer timeout protoka [s]"/>
-          <Text ID="20" Value="PV05 zatvoren prag [%]"/>
-          <Text ID="21" Value="PRIPREMA BRB2"/>
-          <Text ID="22" Value="NASTAVAK"/>
-          <Text ID="23" Value="TRANSFER NA BRB2"/>
-          <Text ID="24" Value="Stanje pripreme BRB2"/>
-          <Text ID="25" Value="BRB2 spreman"/>
-          <Text ID="26" Value="IEBKB1 interfejs spreman"/>
-          <Text ID="27" Value="Transfer blokiran"/>
+          <Text ID="109697" Value="BRB2 PRIPREMA I TRANSFER"/>
+          <Text ID="109698" Value="PROCES"/>
+          <Text ID="109699" Value="VREMENA"/>
+          <Text ID="109700" Value="BRB2 / TRANSFER"/>
+          <Text ID="109701" Value="AIR RELEASE BRB2"/>
+          <Text ID="109702" Value="AIR RELEASE IEBKB1"/>
+          <Text ID="109703" Value="KOMANDE"/>
+          <Text ID="109704" Value="GLAVNI EKRAN"/>
+          <Text ID="109705" Value="Minimalna temperatura BRB2 [degC]"/>
+          <Text ID="109706" Value="Minimalni protok BRB2 [l/s]"/>
+          <Text ID="109707" Value="Timeout potvrde protoka [s]"/>
+          <Text ID="109708" Value="Alarm temperature [s]"/>
+          <Text ID="109709" Value="Stop posle alarma [s]"/>
+          <Text ID="109710" Value="Alarm visokog PT06 [s]"/>
+          <Text ID="109711" Value="Stop visokog PT06 [s]"/>
+          <Text ID="109712" Value="PT06 pocetni SP [bar]"/>
+          <Text ID="109713" Value="PT06 krajnji SP [bar]"/>
+          <Text ID="109714" Value="PT04 SP ulaza tanka [bar]"/>
+          <Text ID="109715" Value="Rampa PT06 SP [s]"/>
+          <Text ID="109716" Value="Transfer timeout protoka [s]"/>
+          <Text ID="109717" Value="PV05 zatvoren prag [%]"/>
+          <Text ID="109718" Value="PRIPREMA BRB2"/>
+          <Text ID="109719" Value="NASTAVAK"/>
+          <Text ID="109720" Value="TRANSFER NA BRB2"/>
+          <Text ID="109721" Value="Stanje pripreme BRB2"/>
+          <Text ID="109722" Value="BRB2 spreman"/>
+          <Text ID="109723" Value="IEBKB1 interfejs spreman"/>
+          <Text ID="109724" Value="Transfer blokiran"/>
         </TextLayer>
         <TextLayer LanguageId="de">
-          <Text ID="0" Value="BRB2 PRIPREMA I TRANSFER"/>
-          <Text ID="1" Value="PROCES"/>
-          <Text ID="2" Value="VREMENA"/>
-          <Text ID="3" Value="BRB2 / TRANSFER"/>
-          <Text ID="4" Value="AIR RELEASE BRB2"/>
-          <Text ID="5" Value="AIR RELEASE IEBKB1"/>
-          <Text ID="6" Value="KOMANDE"/>
-          <Text ID="7" Value="GLAVNI EKRAN"/>
-          <Text ID="8" Value="Minimalna temperatura BRB2 [degC]"/>
-          <Text ID="9" Value="Minimalni protok BRB2 [l/s]"/>
-          <Text ID="10" Value="Timeout potvrde protoka [s]"/>
-          <Text ID="11" Value="Alarm temperature [s]"/>
-          <Text ID="12" Value="Stop posle alarma [s]"/>
-          <Text ID="13" Value="Alarm visokog PT06 [s]"/>
-          <Text ID="14" Value="Stop visokog PT06 [s]"/>
-          <Text ID="15" Value="PT06 pocetni SP [bar]"/>
-          <Text ID="16" Value="PT06 krajnji SP [bar]"/>
-          <Text ID="17" Value="PT04 SP ulaza tanka [bar]"/>
-          <Text ID="18" Value="Rampa PT06 SP [s]"/>
-          <Text ID="19" Value="Transfer timeout protoka [s]"/>
-          <Text ID="20" Value="PV05 zatvoren prag [%]"/>
-          <Text ID="21" Value="PRIPREMA BRB2"/>
-          <Text ID="22" Value="NASTAVAK"/>
-          <Text ID="23" Value="TRANSFER NA BRB2"/>
-          <Text ID="24" Value="Stanje pripreme BRB2"/>
-          <Text ID="25" Value="BRB2 spreman"/>
-          <Text ID="26" Value="IEBKB1 interfejs spreman"/>
-          <Text ID="27" Value="Transfer blokiran"/>
+          <Text ID="109697" Value="BRB2 PRIPREMA I TRANSFER"/>
+          <Text ID="109698" Value="PROCES"/>
+          <Text ID="109699" Value="VREMENA"/>
+          <Text ID="109700" Value="BRB2 / TRANSFER"/>
+          <Text ID="109701" Value="AIR RELEASE BRB2"/>
+          <Text ID="109702" Value="AIR RELEASE IEBKB1"/>
+          <Text ID="109703" Value="KOMANDE"/>
+          <Text ID="109704" Value="GLAVNI EKRAN"/>
+          <Text ID="109705" Value="Minimalna temperatura BRB2 [degC]"/>
+          <Text ID="109706" Value="Minimalni protok BRB2 [l/s]"/>
+          <Text ID="109707" Value="Timeout potvrde protoka [s]"/>
+          <Text ID="109708" Value="Alarm temperature [s]"/>
+          <Text ID="109709" Value="Stop posle alarma [s]"/>
+          <Text ID="109710" Value="Alarm visokog PT06 [s]"/>
+          <Text ID="109711" Value="Stop visokog PT06 [s]"/>
+          <Text ID="109712" Value="PT06 pocetni SP [bar]"/>
+          <Text ID="109713" Value="PT06 krajnji SP [bar]"/>
+          <Text ID="109714" Value="PT04 SP ulaza tanka [bar]"/>
+          <Text ID="109715" Value="Rampa PT06 SP [s]"/>
+          <Text ID="109716" Value="Transfer timeout protoka [s]"/>
+          <Text ID="109717" Value="PV05 zatvoren prag [%]"/>
+          <Text ID="109718" Value="PRIPREMA BRB2"/>
+          <Text ID="109719" Value="NASTAVAK"/>
+          <Text ID="109720" Value="TRANSFER NA BRB2"/>
+          <Text ID="109721" Value="Stanje pripreme BRB2"/>
+          <Text ID="109722" Value="BRB2 spreman"/>
+          <Text ID="109723" Value="IEBKB1 interfejs spreman"/>
+          <Text ID="109724" Value="Transfer blokiran"/>
         </TextLayer>
         <IndexMap>
-          <Index ID="0" Value="0"/>
-          <Index ID="1" Value="1"/>
-          <Index ID="2" Value="2"/>
-          <Index ID="3" Value="3"/>
-          <Index ID="4" Value="4"/>
-          <Index ID="5" Value="5"/>
-          <Index ID="6" Value="6"/>
-          <Index ID="7" Value="7"/>
-          <Index ID="8" Value="8"/>
-          <Index ID="9" Value="9"/>
-          <Index ID="10" Value="10"/>
-          <Index ID="11" Value="11"/>
-          <Index ID="12" Value="12"/>
-          <Index ID="13" Value="13"/>
-          <Index ID="14" Value="14"/>
-          <Index ID="15" Value="15"/>
-          <Index ID="16" Value="16"/>
-          <Index ID="17" Value="17"/>
-          <Index ID="18" Value="18"/>
-          <Index ID="19" Value="19"/>
-          <Index ID="20" Value="20"/>
-          <Index ID="21" Value="21"/>
-          <Index ID="22" Value="22"/>
-          <Index ID="23" Value="23"/>
-          <Index ID="24" Value="24"/>
-          <Index ID="25" Value="25"/>
-          <Index ID="26" Value="26"/>
-          <Index ID="27" Value="27"/>
+          <Index ID="109697" Value="0"/>
+          <Index ID="109698" Value="1"/>
+          <Index ID="109699" Value="2"/>
+          <Index ID="109700" Value="3"/>
+          <Index ID="109701" Value="4"/>
+          <Index ID="109702" Value="5"/>
+          <Index ID="109703" Value="6"/>
+          <Index ID="109704" Value="7"/>
+          <Index ID="109705" Value="8"/>
+          <Index ID="109706" Value="9"/>
+          <Index ID="109707" Value="10"/>
+          <Index ID="109708" Value="11"/>
+          <Index ID="109709" Value="12"/>
+          <Index ID="109710" Value="13"/>
+          <Index ID="109711" Value="14"/>
+          <Index ID="109712" Value="15"/>
+          <Index ID="109713" Value="16"/>
+          <Index ID="109714" Value="17"/>
+          <Index ID="109715" Value="18"/>
+          <Index ID="109716" Value="19"/>
+          <Index ID="109717" Value="20"/>
+          <Index ID="109718" Value="21"/>
+          <Index ID="109719" Value="22"/>
+          <Index ID="109720" Value="23"/>
+          <Index ID="109721" Value="24"/>
+          <Index ID="109722" Value="25"/>
+          <Index ID="109723" Value="26"/>
+          <Index ID="109724" Value="27"/>
         </IndexMap>
       </TextGroup>
       <Controls>

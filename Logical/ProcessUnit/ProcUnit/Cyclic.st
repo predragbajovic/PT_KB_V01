@@ -21,7 +21,9 @@ PROGRAM _CYCLIC
 	PGRad_AirRelease.PV03.FB.AR_Input.LS2_Middle := PG.Sens.LS._2.DI_Output.Value;
 	PGRad_AirRelease.PV03.FB.AR_Input.LS3_Lower := FALSE;
 	PGRad_AirRelease.PV03.FB.AR_Input.ResetAlarm :=
-		PGRad_Cmd.AirRelease.ResetAll OR PGRad_AirRelease.PV03.Ctrl.ResetAlarm;
+		PGRad_Cmd.AirRelease.ResetAll
+		OR PGRad_AirRelease.PV03.Ctrl.ResetAlarm
+		OR (PT_Alarm.ResetPulse.Devices AND PGRad_AirRelease.PV03.FB.AR_Output.ResetAllowed);
 	PGRad_AirRelease.PV03.FB();
 	PGRad_AirRelease.PV03.Ctrl.ResetAlarm := FALSE;
 
@@ -36,7 +38,9 @@ PROGRAM _CYCLIC
 	PGRad_AirRelease.PV04.FB.AR_Input.LS2_Middle := PG.Sens.LS._4.DI_Output.Value;
 	PGRad_AirRelease.PV04.FB.AR_Input.LS3_Lower := FALSE;
 	PGRad_AirRelease.PV04.FB.AR_Input.ResetAlarm :=
-		PGRad_Cmd.AirRelease.ResetAll OR PGRad_AirRelease.PV04.Ctrl.ResetAlarm;
+		PGRad_Cmd.AirRelease.ResetAll
+		OR PGRad_AirRelease.PV04.Ctrl.ResetAlarm
+		OR (PT_Alarm.ResetPulse.Devices AND PGRad_AirRelease.PV04.FB.AR_Output.ResetAllowed);
 	PGRad_AirRelease.PV04.FB();
 	PGRad_AirRelease.PV04.Ctrl.ResetAlarm := FALSE;
 END_PROGRAM

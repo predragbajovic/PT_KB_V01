@@ -111,6 +111,7 @@
           <Text ID="106200" Value="IZVOR - BRB2"/>
           <Text ID="106301" Value="IZVOR - IEBKB1"/>
           <Text ID="109002" Value="BRB2-COM"/>
+          <Text ID="109003" Value="ALARMI"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="103199" Value="Text_1"/>
@@ -199,6 +200,7 @@
           <Text ID="106200" Value="IZVOR - BRB2"/>
           <Text ID="106301" Value="IZVOR - IEBKB1"/>
           <Text ID="109002" Value="VEZA BRB2: CRVENO=PREKID"/>
+          <Text ID="109003" Value="ALARMI"/>
         </TextLayer>
         <IndexMap>
           <Index ID="103199" Value="35"/>
@@ -287,6 +289,7 @@
           <Index ID="106200" Value="226"/>
           <Index ID="106301" Value="32"/>
           <Index ID="109002" Value="227"/>
+          <Index ID="109003" Value="228"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -4174,6 +4177,42 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_Status.SubstepComment]"/>
           <Property Name="Width" Value="500"/>
         </Control>
+        <Control ClassId="0x00001002" Name="AlarmNavigation">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Pregled projektnih alarma"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarms]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="390"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="228"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="0"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarms]"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="AlarmActiveIndicator">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmAnyActive]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Aktivan projektni alarm"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="Left" Value="492"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="10"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
       </Controls>
       <KeyMapping>
         <VirtualKey Name="%embVirtualKey_32">
@@ -4599,6 +4638,19 @@
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
               <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.SelectIEBKB1]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarms">
+          <Property Name="Description" Value="Pregled projektnih alarma"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Alarms]"/>
+              <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

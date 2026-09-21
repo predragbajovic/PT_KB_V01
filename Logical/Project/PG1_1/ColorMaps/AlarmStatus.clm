@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<ColorMap xmlns="http://br-automation.co.at/AS/VC/Project" Name="AlarmStatus">
+  <Property Name="Description" Value="Alarm indication: 0 gray, 1 red"/>
+  <ColorMapItem>
+    <Property Name="BackColor" Value="4"/>
+    <Property Name="Description" Value="Alarm"/>
+    <Property Name="ForeColor" Value="4"/>
+    <Property Name="Index" Value="1"/>
+  </ColorMapItem>
+  <ColorMapItem>
+    <Property Name="BackColor" Value="249"/>
+    <Property Name="Description" Value="No alarm"/>
+    <Property Name="ForeColor" Value="249"/>
+    <Property Name="Index" Value="0"/>
+  </ColorMapItem>
+</ColorMap>

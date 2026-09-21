@@ -53,13 +53,13 @@
           <Text ID="107713" Value="Pumpa 1 FR [Hz]"/>
           <Text ID="107714" Value="Pumpa 1 greska"/>
           <Text ID="107715" Value="Pumpa 2 FR [Hz]"/>
-          <Text ID="28" Value="Pumpa 2 greska"/>
-          <Text ID="29" Value="PV01 polozaj [%]"/>
-          <Text ID="30" Value="PV02 polozaj [%]"/>
-          <Text ID="31" Value="PV03 odzraka [%]"/>
-          <Text ID="32" Value="PV04 odzraka [%]"/>
-          <Text ID="33" Value="PV05 drenaza [%]"/>
-          <Text ID="34" Value="RUCNI REZIM"/>
+          <Text ID="109725" Value="Pumpa 2 greska"/>
+          <Text ID="109726" Value="PV01 polozaj [%]"/>
+          <Text ID="109727" Value="PV02 polozaj [%]"/>
+          <Text ID="109728" Value="PV03 odzraka [%]"/>
+          <Text ID="109729" Value="PV04 odzraka [%]"/>
+          <Text ID="109730" Value="PV05 drenaza [%]"/>
+          <Text ID="109731" Value="RUCNI REZIM"/>
           <Text ID="36" Value="MANUAL START"/>
           <Text ID="37" Value="MANUAL STOP"/>
           <Text ID="38" Value="NEXT STEP"/>
@@ -97,13 +97,13 @@
           <Text ID="107713" Value="Pumpa 1 FR [Hz]"/>
           <Text ID="107714" Value="Pumpa 1 greska"/>
           <Text ID="107715" Value="Pumpa 2 FR [Hz]"/>
-          <Text ID="28" Value="Pumpa 2 greska"/>
-          <Text ID="29" Value="PV01 polozaj [%]"/>
-          <Text ID="30" Value="PV02 polozaj [%]"/>
-          <Text ID="31" Value="PV03 odzraka [%]"/>
-          <Text ID="32" Value="PV04 odzraka [%]"/>
-          <Text ID="33" Value="PV05 drenaza [%]"/>
-          <Text ID="34" Value="RUCNI REZIM"/>
+          <Text ID="109725" Value="Pumpa 2 greska"/>
+          <Text ID="109726" Value="PV01 polozaj [%]"/>
+          <Text ID="109727" Value="PV02 polozaj [%]"/>
+          <Text ID="109728" Value="PV03 odzraka [%]"/>
+          <Text ID="109729" Value="PV04 odzraka [%]"/>
+          <Text ID="109730" Value="PV05 drenaza [%]"/>
+          <Text ID="109731" Value="RUCNI REZIM"/>
           <Text ID="36" Value="MANUAL START"/>
           <Text ID="37" Value="MANUAL STOP"/>
           <Text ID="38" Value="NEXT STEP"/>
@@ -141,13 +141,13 @@
           <Index ID="107713" Value="25"/>
           <Index ID="107714" Value="26"/>
           <Index ID="107715" Value="27"/>
-          <Index ID="28" Value="28"/>
-          <Index ID="29" Value="29"/>
-          <Index ID="30" Value="30"/>
-          <Index ID="31" Value="31"/>
-          <Index ID="32" Value="32"/>
-          <Index ID="33" Value="33"/>
-          <Index ID="34" Value="34"/>
+          <Index ID="109725" Value="28"/>
+          <Index ID="109726" Value="29"/>
+          <Index ID="109727" Value="30"/>
+          <Index ID="109728" Value="31"/>
+          <Index ID="109729" Value="32"/>
+          <Index ID="109730" Value="33"/>
+          <Index ID="109731" Value="34"/>
           <Index ID="36" Value="36"/>
           <Index ID="37" Value="37"/>
           <Index ID="38" Value="38"/>

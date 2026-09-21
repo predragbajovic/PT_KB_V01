@@ -106,4 +106,60 @@ PROGRAM _CYCLIC
 	PGRad_TrendCursor.CmdBack := FALSE;
 	PGRad_TrendCursor.CmdForward := FALSE;
 	PGRad_TrendCursor.CmdNow := FALSE;
+
+	(* ======================================================================== *)
+	(* 4) Alarmne komande i status za VC                                        *)
+	(* ======================================================================== *)
+	IF AlarmCmdAcknowledge THEN
+		PT_Alarm.Cmd.AcknowledgeAll := TRUE;
+		AlarmCmdAcknowledge := FALSE;
+	END_IF;
+	IF AlarmCmdResetRecords THEN
+		PT_Alarm.Cmd.ResetAlarmRecords := TRUE;
+		AlarmCmdResetRecords := FALSE;
+	END_IF;
+	IF AlarmCmdResetDevices THEN
+		PT_Alarm.Cmd.ResetDevices := TRUE;
+		AlarmCmdResetDevices := FALSE;
+	END_IF;
+	IF AlarmCmdResetProcess THEN
+		PT_Alarm.Cmd.ResetProcess := TRUE;
+		AlarmCmdResetProcess := FALSE;
+	END_IF;
+
+	AlarmAnyActive := PT_Alarm.Summary.AnyActive;
+	AlarmAnyLatched := PT_Alarm.Summary.AnyLatched;
+	AlarmAnyUnacknowledged := PT_Alarm.Summary.AnyUnacknowledged;
+	AlarmAnyTrip := PT_Alarm.Summary.AnyTrip;
+	AlarmRestartBlocked := PT_Alarm.Summary.RestartBlocked;
+	AlarmHighestSeverity := PT_Alarm.Summary.HighestSeverity;
+	AlarmFirstOutCode := PT_Alarm.Summary.FirstOutCode;
+	AlarmActiveCount := PT_Alarm.Summary.ActiveCount;
+	AlarmLatchedCount := PT_Alarm.Summary.LatchedCount;
+	Alarm_21001 := PT_Alarm.Comm.BRB2.Latched;
+	Alarm_21002 := PT_Alarm.Comm.IEBKB1.Latched;
+	Alarm_21003 := PT_Alarm.Comm.BRB2RemoteFault.Latched;
+	Alarm_22001 := PT_Alarm.Drive.PG_Pu01_VFD.Latched;
+	Alarm_22002 := PT_Alarm.Drive.PG_Pu01_CAN.Latched;
+	Alarm_22003 := PT_Alarm.Drive.PG_Pu02_VFD.Latched;
+	Alarm_22004 := PT_Alarm.Drive.PG_Pu02_CAN.Latched;
+	Alarm_25010 := PT_Alarm.Process.ValveRequestConflict.Latched;
+	Alarm_25011 := PT_Alarm.Process.V01CloseTimeout.Latched;
+	Alarm_25012 := PT_Alarm.Process.V02OpenTimeout.Latched;
+	Alarm_25013 := PT_Alarm.Process.V02CloseTimeout.Latched;
+	Alarm_25014 := PT_Alarm.Process.V01OpenTimeout.Latched;
+	Alarm_25015 := PT_Alarm.Process.V01CloseIEBStopTimeout.Latched;
+	Alarm_25016 := PT_Alarm.Process.IEBFlowStopTimeout.Latched;
+	Alarm_25017 := PT_Alarm.Process.V05CloseTimeout.Latched;
+	Alarm_25018 := PT_Alarm.Process.IEBFlowStartTimeout.Latched;
+	Alarm_25021 := PT_Alarm.Process.BRB2FlowNotConfirmed.Latched;
+	Alarm_25022 := PT_Alarm.Process.BRB2TemperatureNotReached.Latched;
+	Alarm_25023 := PT_Alarm.Process.PT06HighPressure.Latched;
+	Alarm_25031 := PT_Alarm.Process.TransferIEBFlowNotZero.Latched;
+	Alarm_25032 := PT_Alarm.Process.TransferV05CloseTimeout.Latched;
+	Alarm_25033 := PT_Alarm.Process.TransferV01CloseTimeout.Latched;
+	Alarm_25034 := PT_Alarm.Process.TransferV02OpenTimeout.Latched;
+	Alarm_25035 := PT_Alarm.Process.TransferBRB2FlowNotConfirmed.Latched;
+	Alarm_26001 := PT_Alarm.AirRelease.PG_PV03.Latched;
+	Alarm_26002 := PT_Alarm.AirRelease.PG_PV04.Latched;
 END_PROGRAM

@@ -9,5 +9,6 @@
     <Object Type="Program" Language="IEC">HMI_Svc</Object>
     <Object Type="DataObject" Language="Vc" Description="1280x800 (WXGA)">PG1_1</Object>
     <Object Type="Program" Language="IEC">PID_Pu_PT</Object>
+	<Object Type="Program" Language="IEC">AlarmMgr</Object>
   </Objects>
 </Package>

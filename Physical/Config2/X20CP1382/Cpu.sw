@@ -14,6 +14,7 @@
     <Task Name="ProcUnit" Source="ProcessUnit.ProcUnit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DeviceCtrl" Source="Project.DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Cfg2ATV" Source="CAN.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+	<Task Name="AlarmMgr" Source="Project.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5">
     <Task Name="BRB2_com" Source="IMA_comm_PG_BRB2.BRB2_com.prg" Memory="UserROM" Language="IEC" Debugging="true" />

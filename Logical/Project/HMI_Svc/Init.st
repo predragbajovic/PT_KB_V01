@@ -9,4 +9,8 @@ PROGRAM _INIT
 	PGRad_TrendCursor.CmdBack := FALSE;
 	PGRad_TrendCursor.CmdForward := FALSE;
 	PGRad_TrendCursor.CmdNow := FALSE;
+	AlarmCmdAcknowledge := FALSE;
+	AlarmCmdResetRecords := FALSE;
+	AlarmCmdResetDevices := FALSE;
+	AlarmCmdResetProcess := FALSE;
 END_PROGRAM

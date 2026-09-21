@@ -1,0 +1,4 @@
+VAR
+	ProcessAnyLatched : BOOL; (* Najmanje jedan imenovani procesni alarm je memorisan. *)
+	ProcessAnyUnacknowledged : BOOL; (* Najmanje jedan procesni alarm ceka potvrdu. *)
+END_VAR

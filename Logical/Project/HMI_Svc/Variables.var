@@ -2,4 +2,43 @@ VAR
 	TrendClock : DTGetTime; (* Sistemsko vreme za granice 10-dnevnog trend zapisa. *)
 	TrendNow_s : UDINT; (* Trenutno sistemsko vreme u sekundama od epohe. *)
 	TrendEarliest_s : UDINT; (* Najstarije dostupno vreme unutar 10-dnevnog buffera. *)
+	AlarmCmdAcknowledge : BOOL; (* HMI impuls za potvrdu svih alarma. *)
+	AlarmCmdResetRecords : BOOL; (* HMI impuls za brisanje dozvoljenih alarmnih zapisa. *)
+	AlarmCmdResetDevices : BOOL; (* HMI impuls za reset uredjaja bez procesnog starta. *)
+	AlarmCmdResetProcess : BOOL; (* HMI impuls za reset procesa bez ponovnog starta. *)
+	AlarmAnyActive : BOOL; (* Najmanje jedan alarmni uzrok je aktivan. *)
+	AlarmAnyLatched : BOOL; (* Najmanje jedan alarm je memorisan. *)
+	AlarmAnyUnacknowledged : BOOL; (* Najmanje jedan alarm nije potvrden. *)
+	AlarmAnyTrip : BOOL; (* Najmanje jedan TRIP alarm postoji. *)
+	AlarmRestartBlocked : BOOL; (* Novi procesni start je blokiran. *)
+	AlarmHighestSeverity : USINT; (* Najvisi trenutni prioritet alarma. *)
+	AlarmFirstOutCode : UINT; (* Kod prvog memorisanog alarma. *)
+	AlarmActiveCount : UINT; (* Broj aktivnih alarmnih uzroka. *)
+	AlarmLatchedCount : UINT; (* Broj memorisanih alarma. *)
+	Alarm_21001 : BOOL;
+	Alarm_21002 : BOOL;
+	Alarm_21003 : BOOL;
+	Alarm_22001 : BOOL;
+	Alarm_22002 : BOOL;
+	Alarm_22003 : BOOL;
+	Alarm_22004 : BOOL;
+	Alarm_25010 : BOOL;
+	Alarm_25011 : BOOL;
+	Alarm_25012 : BOOL;
+	Alarm_25013 : BOOL;
+	Alarm_25014 : BOOL;
+	Alarm_25015 : BOOL;
+	Alarm_25016 : BOOL;
+	Alarm_25017 : BOOL;
+	Alarm_25018 : BOOL;
+	Alarm_25021 : BOOL;
+	Alarm_25022 : BOOL;
+	Alarm_25023 : BOOL;
+	Alarm_25031 : BOOL;
+	Alarm_25032 : BOOL;
+	Alarm_25033 : BOOL;
+	Alarm_25034 : BOOL;
+	Alarm_25035 : BOOL;
+	Alarm_26001 : BOOL;
+	Alarm_26002 : BOOL;
 END_VAR

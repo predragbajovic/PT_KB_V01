@@ -1,0 +1,3 @@
+VAR
+	PT_Alarm : typPTAlarm; (* Centralni alarmni status i komande Podstanice. *)
+END_VAR
