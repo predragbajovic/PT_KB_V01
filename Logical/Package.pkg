@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Package Version="1.00.0" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
@@ -12,18 +12,12 @@
     <Object Type="File" Description="Functional global variables">PGRad_HMI.var</Object>
     <Object Type="File" Description="PG01 AsIMA synoptic data types">PG01.typ</Object>
     <Object Type="File" Description="PG01 AsIMA synoptic variables">PG01.var</Object>
-      <Object Type="File" Description="IEBKB1 remote mirror data types">IEB_KB1_Comm.typ</Object>
-      <Object Type="File" Description="IEBKB1 remote mirror variables">IEB_KB1_Comm.var</Object>
+    <Object Type="File" Description="IEBKB1 remote mirror data types">IEB_KB1_Comm.typ</Object>
+    <Object Type="File" Description="IEBKB1 remote mirror variables">IEB_KB1_Comm.var</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
-    <Object Type="DataObject" Language="Vc" Description="1280x800 (WXGA)">Visu1</Object>
-    <Object Type="Program" Language="IEC">IO</Object>
-    <Object Type="Program" Language="IEC">DeviceCtrl</Object>
-    <Object Type="Program" Language="IEC">PID_Pu_PT</Object>
-    <Object Type="Program" Language="IEC">Rad_PG_KB</Object>
-    <Object Type="Program" Language="IEC">PG_Intf</Object>
-    <Object Type="Program" Language="IEC">HMI_Svc</Object>
-    <Object Type="Program" Language="IEC">Config2_ATV</Object>
-    <Object Type="Package" Description="Funkcionalne procesne jedinice.">ProcessUnit</Object>
     <Object Type="Package" Description="AsIMA master veza podstanice sa BRB2.">IMA_comm_PG_BRB2</Object>
+    <Object Type="Package" Description="Funkcionalne procesne jedinice.">ProcessUnit</Object>
+    <Object Type="Package">Project</Object>
+    <Object Type="Program" Language="IEC">CAN</Object>
   </Objects>
 </Package>

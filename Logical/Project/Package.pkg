@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Program" Language="IEC">IO</Object>
+    <Object Type="Program" Language="IEC">DeviceCtrl</Object>
+    <Object Type="Program" Language="IEC">Rad_PG_KB</Object>
+    <Object Type="Program" Language="IEC">PG_Intf</Object>
+    <Object Type="Program" Language="IEC">HMI_Svc</Object>
+    <Object Type="DataObject" Language="Vc" Description="1280x800 (WXGA)">PG1_1</Object>
+    <Object Type="Program" Language="IEC">PID_Pu_PT</Object>
+  </Objects>
+</Package>

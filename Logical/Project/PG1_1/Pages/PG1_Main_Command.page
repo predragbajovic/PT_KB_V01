@@ -891,7 +891,7 @@
           <Property Name="SimulationValue" Value="Proba teksta malenoga"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="Top" Value="376"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.FaultText]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.FaultText]"/>
           <Property Name="Width" Value="580"/>
         </Control>
         <Control ClassId="0x00001004" Name="Head_Devices">
@@ -1266,7 +1266,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="637"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualMode]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualMode]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="130"/>
         </Control>
@@ -1288,7 +1288,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="686"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualSequence]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualSequence]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="130"/>
         </Control>
@@ -1459,7 +1459,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaStart]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStart]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1475,7 +1475,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaStop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1491,7 +1491,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.KomandaReset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaReset]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1520,7 +1520,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualStart]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualStart]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1536,7 +1536,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualStop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualStop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1552,7 +1552,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualAbort]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualAbort]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1568,7 +1568,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Rad_PG_KB.ManualNextStep]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualNextStep]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

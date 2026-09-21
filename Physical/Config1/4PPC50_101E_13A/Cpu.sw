@@ -2,17 +2,17 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="IO" Source="IO.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="IO" Source="Project.IO.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
-    <Task Name="PID_Pu_PT" Source="PID_Pu_PT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Rad_PG_KB" Source="Rad_PG_KB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PG_Intf" Source="PG_Intf.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="HMI_Svc" Source="HMI_Svc.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PID_Pu_PT" Source="Project.PID_Pu_PT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Rad_PG_KB" Source="Project.Rad_PG_KB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PG_Intf" Source="Project.PG_Intf.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="HMI_Svc" Source="Project.HMI_Svc.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ProcUnit" Source="ProcessUnit.ProcUnit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DeviceCtrl" Source="DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="DeviceCtrl" Source="Project.DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5">
     <Task Name="BRB2_com" Source="IMA_comm_PG_BRB2.BRB2_com.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -24,7 +24,7 @@
     <DataObject Name="BRB2" Source="IMA_comm_PG_BRB2.BRB2.dob" Memory="UserROM" Language="Simple" />
   </DataObjects>
   <VcDataObjects>
-    <VcDataObject Name="Visu1" Source="Visu1.dob" Memory="UserROM" Language="Vc" WarningLevel="2" />
+    <VcDataObject Name="PG1_1" Source="Project.PG1_1.dob" Memory="UserROM" Language="Vc" WarningLevel="2" />
   </VcDataObjects>
   <Binaries>
     <BinaryObject Name="vcmgr" Source="" Memory="UserROM" Language="Binary" />

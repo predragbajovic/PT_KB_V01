@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version="3.0"?>
 <VisualComponents xmlns="http://br-automation.co.at/AS/VC/Project">
-  <Visualization Name="Visu1">
+  <Visualization Name="PG1_1">
     <Property Name="Width" Value="1280" />
     <Property Name="Height" Value="800" />
   </Visualization>
