@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<AlarmGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Communication">
+  <Property Name="AcknowledgeImage" Value="None"/>
+  <Property Name="ActiveBackColor" Value="4"/>
+  <Property Name="ActiveForeColor" Value="0"/>
+  <Property Name="AlarmImage" Value="None"/>
+  <Property Name="BypassBackColor" Value="14"/>
+  <Property Name="BypassForeColor" Value="0"/>
+  <Property Name="BypassImage" Value="None"/>
+  <Property Name="DefaultBackColor" Value="15"/>
+  <Property Name="DefaultForeColor" Value="0"/>
+  <Property Name="Description" Value="Komunikacioni alarmi Podstanice"/>
+  <Property Name="GroupAlarm" Value="None"/>
+  <Property Name="ImageOffset" Value="0"/>
+  <Property Name="Index" Value="2"/>
+  <Property Name="LatchedBackColor" Value="2"/>
+  <Property Name="LatchedForeColor" Value="0"/>
+  <Property Name="Priority" Value="4"/>
+  <Property Name="QuitBackColor" Value="1"/>
+  <Property Name="QuitForeColor" Value="0"/>
+  <Alarms>
+    <Alarm Index="1">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Disabled"/>
+      <Property Name="Bypass" Value="Disabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="True"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="None"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="True"/>
+    </Alarm>
+    <Alarm Index="2">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Disabled"/>
+      <Property Name="Bypass" Value="Disabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="True"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="None"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="True"/>
+    </Alarm>
+    <Alarm Index="3">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Disabled"/>
+      <Property Name="Bypass" Value="Disabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="True"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="None"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="True"/>
+    </Alarm>
+    <Alarm Index="Group">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="False"/>
+    </Alarm>
+  </Alarms>
+  <TextGroup>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="1" Value="Gubitak komunikacije sa BRB2"/>
+      <Text ID="2" Value="Gubitak komunikacije sa IEBKB1"/>
+      <Text ID="3" Value="Udaljeni BRB2 fault"/>
+      <Text ID="10" Value="Communication"/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="1" Value="Communication BRB2 verloren"/>
+      <Text ID="2" Value="Communication IEBKB1 verloren"/>
+      <Text ID="3" Value="Remote BRB2 fault"/>
+      <Text ID="10" Value="Communication"/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="1" Value="1"/>
+      <Index ID="2" Value="2"/>
+      <Index ID="3" Value="3"/>
+      <Index ID="10" Value="Group"/>
+    </IndexMap>
+  </TextGroup>
+</AlarmGroup>

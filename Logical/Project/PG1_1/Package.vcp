@@ -49,6 +49,9 @@
     <Source File="Fonts\Font_1.fninfo"/>
     <Source File="Fonts\Arial12pxBold.fninfo"/>
     <Source File="Fonts\TrendAxis.fninfo"/>
+    <Source File="Fonts\Font_18.fninfo"/>
+    <Source File="Fonts\Font_18_Bold.fninfo"/>
+    <Source File="Fonts\Font_27_Bold.fninfo"/>
     <Source File="Bitmaps\AlphaPadQVGA1.bminfo"/>
     <Source File="Bitmaps\AlphaPadQVGA2.bminfo"/>
     <Source File="Bitmaps\AlphaPadQVGA3.bminfo"/>
@@ -130,7 +133,7 @@
     <Source File="BitmapGroups\NavigationPad.bmgrp"/>
     <Source File="BitmapGroups\Borders.bmgrp"/>
     <Source File="Pages\PG1_PID.page"/>
-    <Source File="Pages\PG1_Alarms.page"/>
+    <Source File="Pages\PG1_Alarms_OLD.page"/>
     <Source File="Pages\PG1_Para_BRB2_Transfer.page"/>
     <Source File="Pages\PG1_Main_Command.page"/>
     <Source File="Pages\PG1_Para_AR_IEB.page"/>
@@ -141,6 +144,10 @@
     <Source File="Pages\PG1_AirRelease_Service.page"/>
     <Source File="Pages\PG1_Servis.page"/>
     <Source File="Pages\X_Visak_Opisi.page"/>
+    <Source File="Pages\PG1_AlarmsActive.page"/>
+    <Source File="Pages\PG1_AlarmHistory.page"/>
+    <Source File="Pages\PG1_AlarmsCurent.page"/>
+    <Source File="Pages\PG1_Valve_Reset.page"/>
     <Source File="StyleSheets\Gray.vcs"/>
     <Source File="StyleSheets\Color.vcs"/>
     <Source File="Borders\Raised.bdr"/>

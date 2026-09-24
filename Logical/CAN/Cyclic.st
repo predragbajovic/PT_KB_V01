@@ -1,4 +1,11 @@
 PROGRAM _CYCLIC
+	(* ======================================================================== *)
+	(* CAN - UPRAVLJANJE PG_PU01 I PG_PU02                                  *)
+	(* COMMON: prenosi granice, nazivnu snagu i reset komandu ka CAN FB-u.    *)
+	(* AUTO/MANUAL: CAN sloj ne bira rezim; koristi vec formirani Start/FR_set. *)
+	(* STOP/FAULT: CAN alarmi se vracaju u status pumpe i alarmni sloj.        *)
+	(* STATUS: Running, brzina, snaga, struja i alarmi se objavljuju lokalno.  *)
+	(* ======================================================================== *)
 	(* -------------------------------------------------------------------------- *)
 	(* 1) PG_Pu01 CANopen upravljanje                                              *)
 	(* -------------------------------------------------------------------------- *)

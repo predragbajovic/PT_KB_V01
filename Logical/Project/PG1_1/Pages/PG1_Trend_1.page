@@ -594,7 +594,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="668"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="100"/>
         </Control>

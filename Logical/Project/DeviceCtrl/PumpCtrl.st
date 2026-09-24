@@ -1,5 +1,12 @@
 ACTION PumpCtrl:
 	(* ======================================================================== *)
+	(* PUMPCTRL - MANUELNA SERVISNA KOREKCIJA FREKVENCIJE                    *)
+	(* MANUAL: tasteri menjaju frekvencu samo kada automatski vlasnik ne radi. *)
+	(* AUTO: BRB2_rad/RB1_work zadrzavaju vlasnistvo nad regulacijom i rampom. *)
+	(* COMMON: svi zahtevi se ogranicavaju na FR_min..FR_max pogona.           *)
+	(* STOP/FAULT: ovaj action ne zaobilazi fault ili sigurnosno zaustavljanje. *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) Rucna korekcija frekvencije pumpi                                     *)
 	(* ======================================================================== *)
 	IF NOT PGRad_Cmd.Aktivan THEN

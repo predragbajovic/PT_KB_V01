@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="3.0.90.9"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
 <StyleSheet xmlns="http://br-automation.co.at/AS/VC/Project" Name="Color">
   <Property Name="Description" Value="Stylesheet for Color displays"/>
   <StyleGroup ClassId="0x00000400">
@@ -440,6 +440,7 @@
       <Property Name="Input" Value="False"/>
       <Property Name="Locking" Value="Never"/>
       <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="MinMaxViolation" Value="Limit to Min/Max"/>
       <Property Name="StatusDatapoint" Value="None"/>
       <Property Name="UnitText" Value="None"/>
       <Property Name="UnitTextAlignment" Value="Left"/>
@@ -471,6 +472,7 @@
       <Property Name="InputUpDown" Value="Disabled"/>
       <Property Name="Locking" Value="Never"/>
       <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="MinMaxViolation" Value="Limit to Min/Max"/>
       <Property Name="StatusDatapoint" Value="None"/>
       <Property Name="UnitText" Value="None"/>
       <Property Name="UnitTextAlignment" Value="Left"/>
@@ -494,6 +496,7 @@
       <Property Name="Input" Value="False"/>
       <Property Name="Locking" Value="Never"/>
       <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="MinMaxViolation" Value="Limit to Min/Max"/>
       <Property Name="StatusDatapoint" Value="None"/>
       <Property Name="UnitText" Value="None"/>
       <Property Name="UnitTextAlignment" Value="Left"/>
@@ -736,6 +739,7 @@
     <StyleClass Name="AlarmCurrentView">
       <Property Name="AlarmDatapoint" Value="None"/>
       <Property Name="AlignmentHorizontal" Value="Left"/>
+      <Property Name="AlignmentVertical" Value="Top"/>
       <Property Name="BackColor" Value="252"/>
       <Property Name="Border" Value="Source[local].Border[Flat_grey]"/>
       <Property Name="ColorDatapoint" Value="None"/>
@@ -758,6 +762,7 @@
     <StyleClass Name="AlarmCurrentEdit">
       <Property Name="AlarmDatapoint" Value="None"/>
       <Property Name="AlignmentHorizontal" Value="Left"/>
+      <Property Name="AlignmentVertical" Value="Top"/>
       <Property Name="BackColor" Value="252"/>
       <Property Name="Border" Value="Source[local].Border[Flat_black]"/>
       <Property Name="ColorDatapoint" Value="None"/>
@@ -917,9 +922,6 @@
       <Property Name="Border" Value="Source[local].Border[Flat_grey]"/>
       <Property Name="ColorDatapoint" Value="None"/>
       <Property Name="ColorMap" Value="None"/>
-      <Property Name="CommandRequestDatapoint" Value="None"/>
-      <Property Name="CommandResponseDatapoint" Value="None"/>
-      <Property Name="CommandStatusDatapoint" Value="None"/>
       <Property Name="CompletionDatapoint" Value="None"/>
       <Property Name="CompletionValue" Value="0"/>
       <Property Name="Description" Value="Default style"/>
@@ -959,6 +961,7 @@
       <Property Name="ColorMap" Value="None"/>
       <Property Name="Description" Value="Default style"/>
       <Property Name="ForeColor" Value="0"/>
+      <Property Name="GridMode" Value="Manual"/>
       <Property Name="SpacingHorizontal" Value="50"/>
       <Property Name="SpacingVertical" Value="50"/>
       <Property Name="StatusDatapoint" Value="None"/>

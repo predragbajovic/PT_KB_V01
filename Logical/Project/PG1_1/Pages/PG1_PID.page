@@ -112,6 +112,8 @@
           <Text ID="106301" Value="IZVOR - IEBKB1"/>
           <Text ID="109002" Value="BRB2-COM"/>
           <Text ID="109003" Value="ALARMI"/>
+          <Text ID="114170" Value="ALARMI_STARI"/>
+          <Text ID="116422" Value="RESET VENTILA"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="103199" Value="Text_1"/>
@@ -201,6 +203,8 @@
           <Text ID="106301" Value="IZVOR - IEBKB1"/>
           <Text ID="109002" Value="VEZA BRB2: CRVENO=PREKID"/>
           <Text ID="109003" Value="ALARMI"/>
+          <Text ID="114170" Value="ALARMI"/>
+          <Text ID="116422" Value="RESET VENTILA"/>
         </TextLayer>
         <IndexMap>
           <Index ID="103199" Value="35"/>
@@ -290,6 +294,8 @@
           <Index ID="106301" Value="32"/>
           <Index ID="109002" Value="227"/>
           <Index ID="109003" Value="228"/>
+          <Index ID="114170" Value="33"/>
+          <Index ID="116422" Value="39"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -299,12 +305,12 @@
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value="Validnost komunikacije sa BRB2"/>
-          <Property Name="Height" Value="50"/>
-          <Property Name="Left" Value="662"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="700"/>
           <Property Name="Shape" Value="Ellipse"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
-          <Property Name="Top" Value="5"/>
-          <Property Name="Width" Value="50"/>
+          <Property Name="Top" Value="9"/>
+          <Property Name="Width" Value="40"/>
         </Control>
         <Control ClassId="0x00001004" Name="BRB2CommunicationLabel">
           <Property Name="AlignmentVertical" Value="Center"/>
@@ -312,7 +318,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="721"/>
+          <Property Name="Left" Value="759"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -496,7 +502,7 @@
           <Property Name="StartValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BarGraph]"/>
           <Property Name="Top" Value="316"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="Width" Value="125"/>
         </Control>
         <Control ClassId="0x0000100D" Name="Line_45">
@@ -1811,7 +1817,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[OutputFrameless]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="432"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="75"/>
         </Control>
@@ -2248,7 +2254,7 @@
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="ForeColor" Value="237"/>
           <Property Name="Height" Value="35"/>
-          <Property Name="Left" Value="960"/>
+          <Property Name="Left" Value="985"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2269,7 +2275,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="Height" Value="35"/>
-          <Property Name="Left" Value="877"/>
+          <Property Name="Left" Value="902"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -2495,7 +2501,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="26"/>
+          <Property Name="Top" Value="92"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_settings2]"/>
           <Property Name="Width" Value="120"/>
         </Control>
@@ -3761,7 +3767,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[Font_1]"/>
           <Property Name="Height" Value="35"/>
-          <Property Name="Left" Value="1058"/>
+          <Property Name="Left" Value="1073"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
@@ -4042,7 +4048,7 @@
           <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="48"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="417"/>
+          <Property Name="Left" Value="418"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -4051,7 +4057,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="93"/>
+          <Property Name="Top" Value="144"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_start1]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4074,7 +4080,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="160"/>
+          <Property Name="Top" Value="196"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_stop1]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4097,7 +4103,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="160"/>
+          <Property Name="Top" Value="196"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_reset1]"/>
           <Property Name="Width" Value="149"/>
         </Control>
@@ -4120,7 +4126,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="93"/>
+          <Property Name="Top" Value="144"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%cmd_start2]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4145,7 +4151,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="225"/>
+          <Property Name="Top" Value="248"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%source_select]"/>
           <Property Name="Width" Value="150"/>
         </Control>
@@ -4187,7 +4193,7 @@
           <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
           <Property Name="Height" Value="40"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="390"/>
+          <Property Name="Left" Value="567"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
@@ -4196,7 +4202,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="0"/>
+          <Property Name="Top" Value="9"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarms]"/>
           <Property Name="Width" Value="100"/>
         </Control>
@@ -4206,12 +4212,84 @@
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value="Aktivan projektni alarm"/>
-          <Property Name="Height" Value="18"/>
-          <Property Name="Left" Value="492"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="509"/>
           <Property Name="Shape" Value="Ellipse"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
-          <Property Name="Top" Value="10"/>
-          <Property Name="Width" Value="18"/>
+          <Property Name="Top" Value="8"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmNavigation1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Pregled projektnih alarma"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarms1]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12pxBold]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="510"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="33"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="649"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarms1]"/>
+          <Property Name="Width" Value="142"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="AlarmActiveIndicator1">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmAnyActive]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Aktivan projektni alarm"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="452"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="648"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_ValveReset">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Reset ventila"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_valve_reset1]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="506"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="39"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="584"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_valve_reset1]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="ValveAlarmIndicator">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.ValveResetSvc.ValveAlarmActive]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Alarm ventila"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="Left" Value="451"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="584"/>
+          <Property Name="Width" Value="40"/>
         </Control>
       </Controls>
       <KeyMapping>
@@ -4576,7 +4654,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStart]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4592,7 +4670,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Stop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4608,7 +4686,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaReset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Reset]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4637,7 +4715,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.SelectIEBKB1]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.SelectIEBKB1]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -4649,7 +4727,33 @@
               <Property Name="Description" Value=""/>
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
-              <Property Name="Page" Value="Source[local].Page[PG1_Alarms]"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_AlarmsCurent]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarms1">
+          <Property Name="Description" Value="Pregled projektnih alarma"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Alarms_OLD]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%nav_valve_reset1">
+          <Property Name="Description" Value="Otvori reset ventila"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Valve_Reset]"/>
               <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>

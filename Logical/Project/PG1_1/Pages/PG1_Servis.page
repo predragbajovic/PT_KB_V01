@@ -442,7 +442,7 @@
           <Property Name="StartValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BarGraph]"/>
           <Property Name="Top" Value="315"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="Width" Value="125"/>
         </Control>
         <Control ClassId="0x00001007" Name="Numeric_6">
@@ -1737,7 +1737,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[OutputFrameless]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="431"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="75"/>
         </Control>

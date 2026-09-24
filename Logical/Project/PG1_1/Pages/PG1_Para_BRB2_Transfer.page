@@ -1015,6 +1015,18 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="100"/>
         </Control>
+        <Control ClassId="0x0000100B" Name="BRB2PreparationStateComment">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Tekstualni opis stanja pripreme BRB2"/>
+          <Property Name="Font" Value="Source[local].Font[Arial12px]"/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="20"/>
+          <Property Name="SimulationValue" Value="proba malena"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
+          <Property Name="Top" Value="696"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.PGRad_Status.BRB2PreparationStateComment]"/>
+          <Property Name="Width" Value="1200"/>
+        </Control>
         <Control ClassId="0x00001004" Name="BRB2StatusLabel_2">
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
@@ -1190,7 +1202,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaPripremaBRB2]"/>
+              <Property Name="ValueDatapoint" Value="None"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1206,7 +1218,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaNastavak]"/>
+              <Property Name="ValueDatapoint" Value="None"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1222,7 +1234,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaTransferNaBRB2]"/>
+              <Property Name="ValueDatapoint" Value="None"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1327,5 +1339,6 @@
     <TabSeqItem Index="14" Value="Source[embedded].Layer[Default].Control[BRB2StatusValue_1]"/>
     <TabSeqItem Index="15" Value="Source[embedded].Layer[Default].Control[BRB2StatusValue_2]"/>
     <TabSeqItem Index="16" Value="Source[embedded].Layer[Default].Control[BRB2StatusValue_3]"/>
+    <TabSeqItem Index="17" Value="Source[embedded].Layer[Default].Control[BRB2PreparationStateComment]"/>
   </TabSequence>
 </Page>

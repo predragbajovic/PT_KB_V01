@@ -4,65 +4,68 @@ PROGRAM _INIT
 	(* ======================================================================== *)
 	(* 1) Inicijalizacija izvrsnog konteksta                                     *)
 	(* ======================================================================== *)
-	State := PG_00_Stand_By;
-	Substep := 0;
+	Rad_PG_KB.Sequence.State := PG_00_Stand_By;
+	Rad_PG_KB.Sequence.Substep := 0;
 
-	KomandaStart := FALSE;
-	KomandaStop := FALSE;
-	KomandaReset := FALSE;
-	CmdSetDefaultParameters := FALSE;
-	KomandaPripremaBRB2 := FALSE;
-	KomandaTransferNaBRB2 := FALSE;
-	KomandaNastavak := FALSE;
-	BRB2PreparationState := BRB2_PREP_00_IDLE;
-	BRB2PreparationSubstep := 0;
-	BRB2Ready := FALSE;
-	TransferRequested := FALSE;
+	Rad_PG_KB.HMI.Cntrl.Start := FALSE;
+	Rad_PG_KB.HMI.Cntrl.Stop := FALSE;
+	Rad_PG_KB.HMI.Cntrl.Reset := FALSE;
+	Rad_PG_KB.HMI.Cntrl.SetDefaultParameters := FALSE;
+	Rad_PG_KB.HMI.Cntrl.PrepareBRB2 := FALSE;
+	Rad_PG_KB.HMI.Cntrl.TransferToBRB2 := FALSE;
+	Rad_PG_KB.HMI.Cntrl.Continue := FALSE;
+	Rad_PG_KB.Sequence.BRB2.PreparationState := BRB2_PREP_00_IDLE;
+	Rad_PG_KB.Sequence.BRB2.PreparationSubstep := 0;
+	Rad_PG_KB.Sequence.BRB2.Ready := FALSE;
+	Rad_PG_KB.Sequence.Transfer.Requested := FALSE;
+	IF PGRad.Ctrl.BRB2Regulacija = BRB2_00_NEAKTIVNA THEN
+		PGRad.Ctrl.BRB2Regulacija := BRB2_01_REG_PROTOK;
+	END_IF;
 	IF PGRad.Ctrl.SelektovaniIzvor = _02_IEBKB1 THEN
-		SelectIEBKB1 := TRUE;
+		Rad_PG_KB.HMI.Cntrl.SelectIEBKB1 := TRUE;
 	ELSE
-		SelectIEBKB1 := FALSE;
+		Rad_PG_KB.HMI.Cntrl.SelectIEBKB1 := FALSE;
 		PGRad.Ctrl.SelektovaniIzvor := _01_BRB2;
 	END_IF;
 
-	FaultLatched := FALSE;
-	FaultCode := 0;
-	FaultText := '';
-	T_PG_V01_Close(IN := FALSE, PT := T#0s);
-	T_PG_V02_Open(IN := FALSE, PT := T#0s);
-	T_PrelazPV05Cuvar(IN := FALSE, PT := T#0s);
-	T_BRB2PreparationFlow(IN := FALSE, PT := T#0s);
-	T_BRB2TemperatureAlarm(IN := FALSE, PT := T#0s);
-	T_BRB2TemperatureStop(IN := FALSE, PT := T#0s);
-	T_BRB2PressureAlarm(IN := FALSE, PT := T#0s);
-	T_BRB2PressureStop(IN := FALSE, PT := T#0s);
-	T_TransferFlow(IN := FALSE, PT := T#0s);
-	SP_PV05 := 0.0;
-	PV05IspiranjeOtvoreno := FALSE;
-	IzlaznaPumpaUStopu := FALSE;
+	Rad_PG_KB.Diag.Fault.Latched := FALSE;
+	Rad_PG_KB.Diag.Fault.Code := 0;
+	Rad_PG_KB.Diag.Fault.Text := '';
+	Rad_PG_KB.Timer.PG_V01.Close(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.PG_V02.Open(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.Transfer.PV05Guard(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.BRB2.PreparationFlow(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.BRB2.TemperatureAlarm(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.BRB2.TemperatureStop(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.BRB2.PressureAlarm(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.BRB2.PressureStop(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Timer.Transfer.Flow(IN := FALSE, PT := T#0s);
+	Rad_PG_KB.Control.PV05.FlushingSP := 0.0;
+	Rad_PG_KB.Status.PV05.FlushingOpened := FALSE;
+	Rad_PG_KB.Status.Pump.OutletStopped := FALSE;
 
 	(* ======================================================================== *)
 	(* 2) Inicijalizacija PID parametara proporcionalnih ventila                *)
 	(* ======================================================================== *)
 	(* PV05 cuva pritisak dolaznog voda, a aktivni ulazni PV odrzava PT04. *)
 	(* FilterTime filtrira D clan i nema uticaja dok je DerivativeTime = 0.0. *)
-	PID_PV05.MinOut := 0.0;
-	PID_PV05.MaxOut := 100.0;
-	PID_PV05.PIDParameters.DerivativeTime := 0.0;
-	PID_PV05.PIDParameters.FilterTime := 10.0;
-	PID_PV05.PIDParameters.Gain := 1.0;
-	PID_PV05.PIDParameters.IntegrationTime := 180.0;
-	PID_PV05.Invert := TRUE;
-	PID_PV05.Update := TRUE;
+	Rad_PG_KB.Control.PV05.PID.MinOut := 0.0;
+	Rad_PG_KB.Control.PV05.PID.MaxOut := 100.0;
+	Rad_PG_KB.Control.PV05.PID.PIDParameters.DerivativeTime := 0.0;
+	Rad_PG_KB.Control.PV05.PID.PIDParameters.FilterTime := 10.0;
+	Rad_PG_KB.Control.PV05.PID.PIDParameters.Gain := 1.0;
+	Rad_PG_KB.Control.PV05.PID.PIDParameters.IntegrationTime := 180.0;
+	Rad_PG_KB.Control.PV05.PID.Invert := TRUE;
+	Rad_PG_KB.Control.PV05.PID.Update := TRUE;
 
-	PID_PV_UlazTanka.MinOut := 0.0;
-	PID_PV_UlazTanka.MaxOut := 100.0;
-	PID_PV_UlazTanka.PIDParameters.DerivativeTime := 0.0;
-	PID_PV_UlazTanka.PIDParameters.FilterTime := 10.0;
-	PID_PV_UlazTanka.PIDParameters.Gain := 1.0;
-	PID_PV_UlazTanka.PIDParameters.IntegrationTime := 180.0;
-	PID_PV_UlazTanka.Invert := FALSE;
-	PID_PV_UlazTanka.Update := TRUE;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.MinOut := 0.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.MaxOut := 100.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.PIDParameters.DerivativeTime := 0.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.PIDParameters.FilterTime := 10.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.PIDParameters.Gain := 1.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.PIDParameters.IntegrationTime := 180.0;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.Invert := FALSE;
+	Rad_PG_KB.Control.PV_UlazTanka.PID.Update := TRUE;
 
 	(* ======================================================================== *)
 	(* 3) Obnova RETAIN komandi bistabilnih ulaznih ventila                      *)
@@ -126,7 +129,7 @@ PROGRAM _INIT
 		OR (PGRad.Par.AirRelease.BRB2.PV04.NumberOfLS = 0)
 		OR (PGRad.Par.AirRelease.IEBKB1.PV03.NumberOfLS = 0)
 		OR (PGRad.Par.AirRelease.IEBKB1.PV04.NumberOfLS = 0) THEN
-		CmdSetDefaultParameters := TRUE;
+		Rad_PG_KB.HMI.Cntrl.SetDefaultParameters := TRUE;
 	END_IF
 
 END_PROGRAM

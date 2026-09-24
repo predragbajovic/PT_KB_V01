@@ -1,5 +1,12 @@
 ACTION ValveCtrl:
 	(* ======================================================================== *)
+	(* VALVECTRL - PROPORCIONALNI VENTILI I IZLAZNI LIMITI                    *)
+	(* AUTO: ProcessUnit/FB_AirRelease daje automatski SP.                    *)
+	(* MANUAL: FB manual ulaz se postuje samo kada je lokalni EnableManual TRUE. *)
+	(* COMMON: svaki procenat se ogranicava na fizicki opseg 0..100 %.         *)
+	(* STOP/FAULT: bez dozvole pripadajuci FB primenjuje svoj bezbedni izlaz.  *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) ProcessUnit izlazi odzracnih ventila                                  *)
 	(* ======================================================================== *)
 	(* ProcessUnit poseduje SP za PV03/PV04; manualni FB ulaz je prisilno iskljucen. *)

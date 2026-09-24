@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?AutomationStudio Version="4.12.3.127 SP"?>
-<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_Alarms">
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_Alarms_OLD">
   <Property Name="Description" Value="Podstanica projektni alarmi"/>
   <Property Name="Height" Value="800"/>
   <Property Name="Index" Value="46"/>
@@ -1092,7 +1092,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="700"/>
+          <Property Name="Top" Value="701"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%reset_devices]"/>
           <Property Name="Width" Value="220"/>
         </Control>

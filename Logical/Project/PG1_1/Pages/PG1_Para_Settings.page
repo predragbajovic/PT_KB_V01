@@ -34,7 +34,7 @@
           <Text ID="108524" Value="KOMANDE"/>
           <Text ID="108525" Value="GLAVNI EKRAN"/>
           <Text ID="108526" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="108527" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="108527" Value="Regulacija izlazne pumpe: 0=Off, 1=Pritisak, 2=Nivo"/>
           <Text ID="108528" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
           <Text ID="108529" Value="Aktivni PV ulaza: 0=Nijedan, 1=PV01, 2=PV02"/>
           <Text ID="108530" Value="AutoRestart: 0=OFF, 1=ON"/>
@@ -62,7 +62,7 @@
           <Text ID="108524" Value="KOMANDE"/>
           <Text ID="108525" Value="GLAVNI EKRAN"/>
           <Text ID="108526" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="108527" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="108527" Value="Regulacija izlazne pumpe: 0=Off, 1=Pritisak, 2=Nivo"/>
           <Text ID="108528" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
           <Text ID="108529" Value="Aktivni PV ulaza: 0=Nijedan, 1=PV01, 2=PV02"/>
           <Text ID="108530" Value="AutoRestart: 0=OFF, 1=ON"/>
@@ -1162,7 +1162,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.CmdSetDefaultParameters]"/>
+              <Property Name="ValueDatapoint" Value="None"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

@@ -1,0 +1,19 @@
+
+Usage: BR.AS.Build.exe file... [options]
+Options:
+-h / -?	Displays this information
+-c <config>	Name of the configuration to be built
+-t <directory>	Temporary directory
+-o <directory>	Output directory
+-all	Project rebuild (cleans the binary and parts of the temporary files)
+-profile	Display profiling information
+-X	Create cross reference only data
+-clean	Cleans the Binary and parts of the Temp folder
+-clean-temporary	Cleans the Temp folder
+-clean-binary	Cleans the Binary folder
+-clean-generated	Cleans the Temp\Includes and Temp\Archives\<ConfigName> folder
+-clean-diagnosis	Cleans the Diagnosis folder
+-cleanAll	Cleans the Temp, Binaries, Diagnosis and the rest of temporary folders
+-buildMode "<mode>" Defines the mode of the build ("Build", "BuildAndTransfer", "BuildAndCreateCompactFlash")
+-simulation Flag indicating if a simulated configuration should be built
+-buildRUCPackage Flag indicating if a RUC Package should be created during build

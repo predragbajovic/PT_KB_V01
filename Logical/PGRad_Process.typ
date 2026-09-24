@@ -1,5 +1,12 @@
 
 TYPE
+	E_RegulacijaBRB2 :
+		( (* Regulaciona petlja pumpe koja doprema vodu iz BRB2. *) (* -------------------------------------------------------------------------- *) (* 1) Glavna stanja, izbor izvora i izbor aktivne opreme                     *)
+		BRB2_00_NEAKTIVNA,
+		BRB2_01_REG_PROTOK, (* Protok ka Podstanici/Hotelu. *)
+		BRB2_02_REG_NIVO, (* Nivo prihvatnog suda. *)
+		BRB2_03_REG_TEMPERATURA (* Temperatura sekundara izmenjivaca. *)
+		);
 	E_PGRad_State : 
 		( (* Glavna procesna stanja rada Podstanice prema izabranom izvoru. *)
 		PG_00_Stand_By, (* Bez aktivnog izvora; izlazi su u bezbednom stanju i ceka se izbor/start. *)
@@ -24,8 +31,7 @@ TYPE
 		( (* Izbor procesne velicine koju Podstanica regulise. *)
 		_00_neaktivan, (* 0 - sve ugaseno, ni jedna varijanta nije izabrana. *)
 		_01_REG_PRITISAK, (* 1 - PT vodi, prati zadati pritisak. *)
-		_02_REG_NIVO, (* 2 - PT vodi nivo prihvatnog tanka preko izlazne pumpe. *)
-		_03_REG_TEMPERATURA (* 3 - temperatura/snaga sekundara. *)
+		_02_REG_NIVO (* 2 - PT vodi nivo prihvatnog tanka preko izlazne pumpe. *)
 		);
 	E_SelektovaniIzvor : 
 		( (* Izbor aktivnog izvora termalne vode za Podstanicu. *)
@@ -40,7 +46,7 @@ TYPE
 		_02_Pu_PG_02 (* 2 - Pu_PG_02 aktivna. *)
 		);
 	E_AktivniPropVentilUlazTanka : 
-		( (* Izbor aktivnog proporcionalnog ventila na ulazu u tank. *)
+		( (* Izbor aktivnog proporcionalnog ventila na ulazu u tank. *) (* -------------------------------------------------------------------------- *) (* 2) Retentivni parametri procesa i pomocne runtime strukture                *)
 		_00_PROP_VENTIL_NIJE_IZABRAN, (* 0 - nijedan prop. ventil nije izabran. *)
 		_01_PG_PV01, (* 1 - PG_PV01 aktivan. *)
 		_02_PG_PV02 (* 2 - PG_PV02 aktivan. *)
@@ -118,6 +124,7 @@ TYPE
 		AktivnaPumpaIzlazTanka : E_AktivnaPumpaIzlazTanka; (* Aktivna izlazna pumpa. *)
 		AktivniPropVentilUlazTanka : E_AktivniPropVentilUlazTanka; (* Aktivni ulazni prop. ventil. *)
 		AutoRestart : BOOL; (* Automatski start nakon cold boot-a. *)
+		BRB2Regulacija : E_RegulacijaBRB2; (* Zaseban izbor regulacije pumpe BRB2; ne menja regulaciju izlaznih pumpi. *)
 	END_STRUCT;
 	typManualPGRad : 	STRUCT  (* Servisne rucne komande procesnih sekvenci Podstanice. *)
 		Enable : BOOL; (* Dozvola servisnog rucnog rezima; aktivan samo u Standby. *)
@@ -127,6 +134,128 @@ TYPE
 		NextStep : BOOL; (* Impuls za zahtev sledeceg dozvoljenog podkoraka. *)
 		Abort : BOOL; (* Impuls za povratak u Standby bez preskakanja stop logike. *)
 	END_STRUCT;
+END_TYPE
+
+(* -------------------------------------------------------------------------- *)
+(* 3) Krovni lokalni kontekst programa Rad_PG_KB                            *)
+(* -------------------------------------------------------------------------- *)
+
+TYPE
+	typRadPGKBHmiCntrl : 	STRUCT  (* Komande automatskog rada iz HMI-ja Podstanice. *)
+		Start : BOOL; (* Zahtev za pokretanje izabranog automatskog izvora. *)
+		Stop : BOOL; (* Zahtev za kontrolisano zaustavljanje aktivnog izvora. *)
+		Reset : BOOL; (* Zahtev za reset zakacenog procesnog fault-a. *)
+		SelectIEBKB1 : BOOL; (* FALSE = BRB2 izvor; TRUE = IEBKB1 izvor. Prihvata se u Standby. *)
+		SetDefaultParameters : BOOL; (* Jednokratni zahtev za vracanje RETAIN parametara na default vrednosti. *)
+		PrepareBRB2 : BOOL; (* Zahtev za nezavisnu pripremu/zagrevanje BRB2 izvora. *)
+		TransferToBRB2 : BOOL; (* Zahtev za transfer sa IEBKB1 na prethodno pripremljeni BRB2. *)
+		Continue : BOOL; (* Zahtev za nastavak nakon potvrdenog protoka BRB2. *)
+	END_STRUCT;
+	typRadPGKBHmiManual : 	STRUCT  (* Komande servisnog manuelnog rada procesne sekvence. *)
+		Enable : BOOL; (* Dozvola manuelnog rezima; koristi se samo kada je sekvenca u Standby. *)
+		Sequence : USINT; (* Izbor manuelne sekvence: 1 = BRB2, 2 = IEBKB1. *)
+		Start : BOOL; (* Impuls za pokretanje izabrane manuelne sekvence. *)
+		Stop : BOOL; (* Impuls za kontrolisani prekid manuelne sekvence. *)
+		NextStep : BOOL; (* Impuls za potvrdu sledeceg dozvoljenog podkoraka. *)
+		Abort : BOOL; (* Impuls za prekid i povratak u bezbedni Standby. *)
+	END_STRUCT;
+	typRadPGKBHmi : 	STRUCT  (* Zbirni HMI interfejs lokalnog programa Rad_PG_KB. *)
+		Cntrl : typRadPGKBHmiCntrl; (* Komande automatskog rada. *)
+		Manual : typRadPGKBHmiManual; (* Komande servisnog manuelnog rada. *)
+	END_STRUCT;
+	typRadPGKBSequenceBRB2 : 	STRUCT  (* Lokalno stanje paralelne pripreme izvora BRB2. *)
+		PreparationState : E_BRB2PreparationState; (* Stanje pripreme: start, zagrevanje, SP spreman, stop ili fault. *)
+		PreparationSubstep : USINT; (* Aktivni podkorak pripreme BRB2. *)
+		Ready : BOOL; (* TRUE kada su potvrdeni uslovi spremnosti BRB2 za transfer. *)
+	END_STRUCT;
+	typRadPGKBSequenceTransfer : 	STRUCT  (* Lokalna memorija zahteva transfera izvora. *)
+		Requested : BOOL; (* Zakacen zahtev transfera do zavrsetka ili opoziva. *)
+	END_STRUCT;
+	typRadPGKBSequence : 	STRUCT  (* Izvrsni kontekst glavne state masine. *)
+		State : E_PGRad_State; (* Aktivno glavno stanje rada Podstanice. *)
+		Substep : USINT; (* Aktivni podkorak glavnog stanja; 0 je ulaz u stanje. *)
+		BRB2 : typRadPGKBSequenceBRB2; (* Podstanje pripreme BRB2. *)
+		Transfer : typRadPGKBSequenceTransfer; (* Podaci zahteva transfera IEBKB1 -> BRB2. *)
+	END_STRUCT;
+	typRadPGKBDiagFault : 	STRUCT  (* Zakacena procesna dijagnostika lokalne sekvence. *)
+		Latched : BOOL; (* TRUE kada fault ostaje memorisan do dozvoljenog reset-a. *)
+		Code : USINT; (* Numericki kod fault-a za HMI i komunikacioni status. *)
+		Text : STRING[80]; (* Tekstualni opis aktivnog fault-a za operatera. *)
+	END_STRUCT;
+	typRadPGKBStatusPV05 : 	STRUCT  (* Status regulatora i funkcije PV05. *)
+		FlushingOpened : BOOL; (* PT06 je dostigao uslov za dozvolu PV05 ispiranja. *)
+	END_STRUCT;
+	typRadPGKBStatusPump : 	STRUCT  (* Status izlazne pumpe prihvatnog tanka. *)
+		OutletStopped : BOOL; (* Pumpa je u kontrolisanom praznjenju do donje granice histereze. *)
+	END_STRUCT;
+	typRadPGKBStatus : 	STRUCT  (* Izvedeni statusi lokalnih regulacionih funkcija. *)
+		PV05 : typRadPGKBStatusPV05; (* Status PV05 funkcije. *)
+		Pump : typRadPGKBStatusPump; (* Status izlazne pumpe. *)
+	END_STRUCT;
+	typRadPGKBDiag : 	STRUCT  (* Zbirna dijagnostika programa Rad_PG_KB. *)
+		Fault : typRadPGKBDiagFault; (* Zakaceni procesni fault. *)
+	END_STRUCT;
+	typRadPGKBControlPV05 : 	STRUCT  (* Izvrsna regulacija pritiska preko PV05. *)
+		PID : MTBasicsPID; (* PID koji koristi PT06 kao PV i upravlja otvorenoscu PV05. *)
+		FlushingSP : REAL; (* Trenutni rampirani SP pritiska PT06 [bar]. *)
+	END_STRUCT;
+	typRadPGKBControlPVUlazTanka : 	STRUCT  (* Izvrsna regulacija ulaznog proporcionalnog ventila. *)
+		PID : MTBasicsPID; (* PID koji reguliše PT04 preko aktivnog PV01/PV02 ventila. *)
+	END_STRUCT;
+	typRadPGKBControl : 	STRUCT  (* Zbirni regulacioni FB-ovi programa Rad_PG_KB. *)
+		PV05 : typRadPGKBControlPV05; (* Regulacija pritiska i cuvar PT06. *)
+		PV_UlazTanka : typRadPGKBControlPVUlazTanka; (* Regulacija pritiska ulaza u prihvatni tank. *)
+	END_STRUCT;
+	typRadPGKBTimerValve : 	STRUCT  (* Tajmeri hoda PG_V01. *)
+		Close : TON; (* Timeout potvrde zatvaranja PG_V01. *)
+		Open : TON; (* Timeout potvrde otvaranja PG_V01. *)
+	END_STRUCT;
+	typRadPGKBTimerPGV02 : 	STRUCT  (* Tajmeri hoda PG_V02. *)
+		Open : TON; (* Timeout potvrde otvaranja PG_V02. *)
+		Close : TON; (* Timeout potvrde zatvaranja PG_V02. *)
+	END_STRUCT;
+	typRadPGKBTimerIEBKB1 : 	STRUCT  (* Tajmeri potvrde protoka izvora IEBKB1. *)
+		StartProtokTimeout : TON; (* Maksimalno cekanje pocetka dotoka IEBKB1. *)
+		ProtokNula : TON; (* Debounce potvrda da je protok IEBKB1 pao ispod praga. *)
+		StopProtokTimeout : TON; (* Maksimalno cekanje prestanka dotoka IEBKB1. *)
+	END_STRUCT;
+	typRadPGKBTimerPGV05 : 	STRUCT  (* Tajmer zatvaranja izlaznog ventila PG_V05. *)
+		Close : TON; (* Timeout potvrde zatvaranja PG_V05. *)
+	END_STRUCT;
+	typRadPGKBTimerBRB2 : 	STRUCT  (* Tajmeri nadzora pripreme izvora BRB2. *)
+		PreparationFlow : TON; (* Timeout potvrde protoka BRB2 tokom pripreme. *)
+		TemperatureAlarm : TON; (* Vreme do alarma ako temperatura BRB2 nije dostignuta. *)
+		TemperatureStop : TON; (* Dodatno vreme do kontrolisanog stopa posle alarma temperature. *)
+		PressureAlarm : TON; (* Vreme potvrde previsokog PT06 pritiska pre alarma. *)
+		PressureStop : TON; (* Dodatno vreme do kontrolisanog stopa zbog PT06 pritiska. *)
+	END_STRUCT;
+	typRadPGKBTimerTransfer : 	STRUCT  (* Tajmeri kontrolisanog transfera izvora. *)
+		PV05Guard : TON; (* Vreme rampe/cekanja promene PT06 SP-a. *)
+		Flow : TON; (* Timeout potvrde BRB2 protoka tokom transfera. *)
+	END_STRUCT;
+	typRadPGKBTimer : 	STRUCT  (* Svi interni TON tajmeri programa Rad_PG_KB. *)
+		PG_V01 : typRadPGKBTimerValve; (* Tajmeri ulaznog ventila IEBKB1. *)
+		PG_V02 : typRadPGKBTimerPGV02; (* Tajmeri ulaznog ventila BRB2. *)
+		PG_V05 : typRadPGKBTimerPGV05; (* Tajmer izlaznog/prelaznog ventila PG_V05. *)
+		IEBKB1 : typRadPGKBTimerIEBKB1; (* Tajmeri protoka izvora IEBKB1. *)
+		BRB2 : typRadPGKBTimerBRB2; (* Tajmeri pritiska, temperature i protoka BRB2. *)
+		Transfer : typRadPGKBTimerTransfer; (* Tajmeri transfera i cuvara PT06. *)
+	END_STRUCT;
+	typRadPGKB : 	STRUCT  (* Krovni lokalni kontekst programa Rad_PG_KB. *)
+		HMI : typRadPGKBHmi; (* HMI komande automatskog i manuelnog rada. *)
+		Sequence : typRadPGKBSequence; (* Stanje glavne i pomocnih sekvenci. *)
+		Control : typRadPGKBControl; (* Lokalni PID regulatori i njihove procesne vrednosti. *)
+		Status : typRadPGKBStatus; (* Izvedeni statusi regulacije i aktuatora. *)
+		Diag : typRadPGKBDiag; (* Fault status i tekst za HMI. *)
+		Timer : typRadPGKBTimer; (* Interni tajmeri svih sekvenci. *)
+	END_STRUCT;
+END_TYPE
+
+(* -------------------------------------------------------------------------- *)
+(* 4) Procesne komande aktuatora i regulacioni ulazi                        *)
+(* -------------------------------------------------------------------------- *)
+
+TYPE
 	typCmdOnOffPGRad : 	STRUCT  (* Procesni zahtevi otvaranja lokalnih ON/OFF ventila PG_V03..PG_V07. *)
 		_03_Open : BOOL; (* PG_V03 - zahtev otvaranja izlazne grane pumpe 1. *)
 		_04_Open : BOOL; (* PG_V04 - zahtev otvaranja izlazne grane pumpe 2. *)
@@ -153,7 +282,7 @@ TYPE
 		ResetAll : BOOL; (* Zajednicki reset oba FB-a iz KomandaReset. *)
 	END_STRUCT;
 	typCmdPumpaPGRad : 	STRUCT  (* Procesna dozvola rada jedne izlazne pumpe. *)
-			Run : BOOL; (* Dozvola rada pumpe; frekvencu iskljucivo vodi PID_Pu_PT. *)
+		Run : BOOL; (* Dozvola rada pumpe; frekvencu iskljucivo vodi PID_Pu_PT. *)
 	END_STRUCT;
 	typCmdPumpePGRad : 	STRUCT  (* Grupisane procesne komande izlaznih pumpi PG_Pu01 i PG_Pu02. *)
 		_01 : typCmdPumpaPGRad; (* PG_Pu01 - komandni zahtev za izlaznu pumpu 1. *)
@@ -176,6 +305,13 @@ TYPE
 		Pumpe : typCmdPumpePGRad; (* Zahtevi izlaznih pumpi. *)
 		PID : typCmdPIDPumpePGRad; (* Ulazi jedinog PID-a izlazne pumpe. *)
 	END_STRUCT;
+END_TYPE
+
+(* -------------------------------------------------------------------------- *)
+(* 5) Statusni i retentivni kontekst Podstanice                              *)
+(* -------------------------------------------------------------------------- *)
+
+TYPE
 	typPGRadStatus : 	STRUCT  (* Procesno stanje, podkorak i zakacena dijagnostika Podstanice. *)
 		State : USINT; (* Eksplicitni PGRad state kod za komunikaciju i HMI. *)
 		StateComment : STRING[80]; (* Operaterski opis aktivnog stanja. *)
@@ -184,6 +320,7 @@ TYPE
 		Fault : BOOL; (* Zakacena procesna greska. *)
 		FaultCode : USINT; (* Sifra zakacene procesne greske. *)
 		BRB2PreparationState : USINT; (* Nezavisno stanje pripreme BRB2. *)
+		BRB2PreparationStateComment : STRING[80]; (* Tekstualni opis nezavisnog stanja pripreme BRB2. *)
 		BRB2Ready : BOOL; (* Temperatura, protok i minimalno trajanje su potvrdeni. *)
 		IEBKB1InterfaceReady : BOOL; (* Buduci IEBKB1 ugovor je kompletan i validan. *)
 		TransferBlocked : BOOL; (* Transfer je blokiran zbog nepotpunog IEBKB1 ugovora ili interlocka. *)

@@ -1,4 +1,24 @@
 VAR_CONFIG
+	PT_Alarm.IO.X20AI4622.ModuleOk AT %IX."X20AI4622".ModuleOk;
+	PT_Alarm.IO.X20AI4622a.ModuleOk AT %IX."X20AI4622a".ModuleOk;
+	PT_Alarm.IO.X20AI4622b.ModuleOk AT %IX."X20AI4622b".ModuleOk;
+	PT_Alarm.IO.X20AI4622c.ModuleOk AT %IX."X20AI4622c".ModuleOk;
+	PT_Alarm.IO.X20AI4622d.ModuleOk AT %IX."X20AI4622d".ModuleOk;
+	PT_Alarm.IO.X20AO4622.ModuleOk AT %IX."X20AO4622".ModuleOk;
+	PT_Alarm.IO.X20AO4622a.ModuleOk AT %IX."X20AO4622a".ModuleOk;
+	PT_Alarm.IO.X20AO4622b.ModuleOk AT %IX."X20AO4622b".ModuleOk;
+	PT_Alarm.IO.X20DI9371.ModuleOk AT %IX."X20DI9371".ModuleOk;
+	PT_Alarm.IO.X20DI9371a.ModuleOk AT %IX."X20DI9371a".ModuleOk;
+	PT_Alarm.IO.X20DI9371b.ModuleOk AT %IX."X20DI9371b".ModuleOk;
+	PT_Alarm.IO.X20DO9322.ModuleOk AT %IX."X20DO9322".ModuleOk;
+	PT_Alarm.IO.X20DO9322a.ModuleOk AT %IX."X20DO9322a".ModuleOk;
+	PT_Alarm.IO.X20BC0083.ModuleOk AT %IX."X20BC0083".ModuleOk;
+	PT_Alarm.IO.X20PS9400.ModuleOk AT %IX."X20PS9400".ModuleOk;
+	PT_Alarm.IO.X20BT9100a.ModuleOk AT %IX."X20BT9100a".ModuleOk;
+	PT_Alarm.IO.X67AI1323.ModuleOk AT %IX."X67AI1323".ModuleOk;
+	PT_Alarm.IO.X67AI1333b.ModuleOk AT %IX."X67AI1333b".ModuleOk;
+	PT_Alarm.IO.X67DI1371_L12.ModuleOk AT %IX."X67DI1371.L12".ModuleOk;
+	PT_Alarm.IO.X67DM1321_L12.ModuleOk AT %IX."X67DM1321.L12".ModuleOk;
 	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanOut.w_ZadataBrz AT %QW."ATV6x0_V2.3".TargetVelocity_6042_Out; (* PG_Pu01 - CANopen zadata brzina ATV630. *)
 	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanOut.w_ControlReg AT %QW."ATV6x0_V2.3".Controlword_6040_Out; (* PG_Pu01 - CANopen kontrolna rec ATV630. *)
 	Cyclic#4.PG.Act.Pu._1.CAN_FB.AtvCanIn.w_StatusReg AT %IW."ATV6x0_V2.3".Statusword_6041; (* PG_Pu01 - CANopen statusna rec ATV630. *)

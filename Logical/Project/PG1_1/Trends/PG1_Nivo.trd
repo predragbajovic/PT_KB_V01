@@ -19,6 +19,6 @@
   <Property Name="TrendSampleCountDatapoint" Value="None"/>
   <Property Name="TrendSampleDateTimeDatapoint" Value="Source[global].Variable[DataSource.PGRad_TrendCursor.RecordingStart]"/>
   <Property Name="TrendSimulationValue" Value="Random"/>
-  <Property Name="TrendValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+  <Property Name="TrendValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
   <Property Name="TriggerDatapoint" Value="None"/>
 </TrendData>

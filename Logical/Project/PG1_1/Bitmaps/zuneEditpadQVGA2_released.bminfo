@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="3.0.90.9"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
 <Bitmap xmlns="http://br-automation.co.at/AS/VC/Project" Name="zuneEditpadQVGA2_released">
   <Property Name="Description" Value="Bitmap for alpha pad QVGA &quot;zune&quot; - Layer 2"/>
   <Property Name="File" Value="zuneEditpadQVGA2_released.bmp"/>

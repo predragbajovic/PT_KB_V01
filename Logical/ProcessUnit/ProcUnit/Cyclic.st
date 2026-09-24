@@ -1,5 +1,12 @@
 PROGRAM _CYCLIC
 	(* ======================================================================== *)
+	(* PROCUNIT - ODZRACIVANJE BR1 I BR2                                     *)
+	(* AUTO: FB_AirRelease vodi pritisak i LS stepene.                        *)
+	(* MANUAL: EnableManual i ManualSP_Percent daju direktnu servisnu komandu. *)
+	(* STOP/FAULT: reset, alarm i bezbedno zatvaranje ostaju u vlasnistvu FB-a. *)
+	(* STATUS: State, Alarm, Position i Fault statusi se objavljuju HMI-ju.   *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) Izbor parametara odzracivanja prema aktivnom izvoru                   *)
 	(* ======================================================================== *)
 	IF PGRad_Cmd.AirRelease.UseIEBKB1Parameters THEN

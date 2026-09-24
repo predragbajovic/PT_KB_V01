@@ -33,7 +33,7 @@
           <Text ID="107693" Value="RESET GRESKE"/>
           <Text ID="107694" Value="OPERATIVNI IZBORI"/>
           <Text ID="107695" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="107696" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="107696" Value="Regulacija izlazne pumpe: 0=Off, 1=Pritisak, 2=Nivo"/>
           <Text ID="107697" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
           <Text ID="107698" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
           <Text ID="107699" Value="AutoRestart: 0=OFF, 1=ON"/>
@@ -67,6 +67,8 @@
           <Text ID="104599" Value="Rucna sekvenca"/>
           <Text ID="104600" Value="0=AUTO, 1=RUCNI"/>
           <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
+          <Text ID="104602" Value="RESET VENTILA"/>
+          <Text ID="104603" Value="RESET KOMUNIKACIJE"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="107688" Value="GLAVNI KOMANDNI EKRAN"/>
@@ -77,7 +79,7 @@
           <Text ID="107693" Value="RESET GRESKE"/>
           <Text ID="107694" Value="OPERATIVNI IZBORI"/>
           <Text ID="107695" Value="Izvor: 0=Nijedan, 1=BRB2, 2=IEBKB1"/>
-          <Text ID="107696" Value="Regulacija: 0=Off, 1=Pritisak, 2=Nivo, 3=Temp"/>
+          <Text ID="107696" Value="Regulacija izlazne pumpe: 0=Off, 1=Pritisak, 2=Nivo"/>
           <Text ID="107697" Value="Aktivna pumpa: 0=Nijedna, 1=Pu1, 2=Pu2"/>
           <Text ID="107698" Value="Aktivni PV: 0=Nijedan, 1=PV01, 2=PV02"/>
           <Text ID="107699" Value="AutoRestart: 0=OFF, 1=ON"/>
@@ -111,6 +113,8 @@
           <Text ID="104599" Value="RUCNI REZIM"/>
           <Text ID="104600" Value="0=AUTO, 1=RUCNI"/>
           <Text ID="104601" Value="0=bez izbora, 1=BRB2, 2=IEBKB1"/>
+          <Text ID="104602" Value="RESET VENTILA"/>
+          <Text ID="104603" Value="RESET KOMUNIKACIJE"/>
         </TextLayer>
         <IndexMap>
           <Index ID="107688" Value="0"/>
@@ -155,6 +159,8 @@
           <Index ID="104599" Value="49"/>
           <Index ID="104600" Value="50"/>
           <Index ID="104601" Value="51"/>
+          <Index ID="104602" Value="52"/>
+          <Index ID="104603" Value="53"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -664,7 +670,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="544"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPRihvatniSud]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.NivoPrihvatniSud]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="100"/>
         </Control>
@@ -891,7 +897,7 @@
           <Property Name="SimulationValue" Value="Proba teksta malenoga"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Output]"/>
           <Property Name="Top" Value="376"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.FaultText]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.Diag.Fault.Text]"/>
           <Property Name="Width" Value="580"/>
         </Control>
         <Control ClassId="0x00001004" Name="Head_Devices">
@@ -1266,7 +1272,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="637"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualMode]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.Enable]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="130"/>
         </Control>
@@ -1288,7 +1294,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="686"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualSequence]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.Sequence]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="130"/>
         </Control>
@@ -1432,6 +1438,65 @@
           <Property Name="Top" Value="686"/>
           <Property Name="Width" Value="500"/>
         </Control>
+        <Control ClassId="0x00001002" Name="Btn_CommReset">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Ponovo otvori AsIMA komunikaciju sa BRB2"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%comm_reset]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="780"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="53"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="85"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%comm_reset]"/>
+          <Property Name="Width" Value="220"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Btn_ValveReset">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Reset ventila"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_valve_reset]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1012"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="52"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="85"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_valve_reset]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="ValveAlarmIndicator">
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Project.ValveResetSvc.ValveAlarmActive]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[AlarmStatus]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value="Alarm ventila"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="970"/>
+          <Property Name="Shape" Value="Ellipse"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Shape]"/>
+          <Property Name="Top" Value="91"/>
+          <Property Name="Width" Value="28"/>
+        </Control>
       </Controls>
       <KeyMapping>
         <VirtualKey Name="%nav_init">
@@ -1459,7 +1524,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStart]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1475,7 +1540,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaStop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Stop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1491,7 +1556,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.KomandaReset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Cntrl.Reset]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1520,7 +1585,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualStart]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1536,7 +1601,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualStop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.Stop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1552,7 +1617,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualAbort]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.Abort]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1568,7 +1633,36 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.ManualNextStep]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.Rad_PG_KB.HMI.Manual.NextStep]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%comm_reset">
+          <Property Name="Description" Value="Rucni reset AsIMA komunikacije"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.BRB2_com.ResetCommunication]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%nav_valve_reset">
+          <Property Name="Description" Value="Otvori reset ventila"/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_Valve_Reset]"/>
+              <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

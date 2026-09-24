@@ -10,5 +10,6 @@
     <Object Type="DataObject" Language="Vc" Description="1280x800 (WXGA)">PG1_1</Object>
     <Object Type="Program" Language="IEC">PID_Pu_PT</Object>
 	<Object Type="Program" Language="IEC">AlarmMgr</Object>
+  <Object Type="Program" Language="IEC">ValveResetSvc</Object>
   </Objects>
 </Package>

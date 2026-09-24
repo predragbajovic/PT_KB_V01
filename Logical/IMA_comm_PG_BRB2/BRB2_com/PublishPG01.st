@@ -1,6 +1,11 @@
 
 ACTION PublishPG01:
 	(* ======================================================================== *)
+	(* PUBLISH_PG01 - STATUSNI SNAPSHOT PODSTANICE ZA ASIMA/HMI               *)
+	(* AUTO/MANUAL: samo objavljuje izabrane komande i statuse; ne komanduje   *)
+	(* lokalnim aktuatorima. STOP/FAULT se prenose kao statusi i kodovi.       *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) PG01 kontrolni snapshot za AsIMA DTO                                  *)
 	(* ======================================================================== *)
 	(* Lokalna stanja se pretvaraju u stabilne brojcane vrednosti komunikacionog ugovora. *)
@@ -16,7 +21,6 @@ ACTION PublishPG01:
 	CASE PGRad.Ctrl.RegulacionaVarijanta OF
 		_01_REG_PRITISAK: PG01_Local.PGCtrl.Regulacija := 1;
 		_02_REG_NIVO: PG01_Local.PGCtrl.Regulacija := 2;
-		_03_REG_TEMPERATURA: PG01_Local.PGCtrl.Regulacija := 3;
 	ELSE
 		PG01_Local.PGCtrl.Regulacija := 0;
 	END_CASE

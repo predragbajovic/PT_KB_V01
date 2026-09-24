@@ -1,6 +1,13 @@
 
 PROGRAM _CYCLIC
 	(* ======================================================================== *)
+	(* PID_PU_PT - REGULACIJA IZLAZNIH PUMPI PRIHVATNOG TANKA                *)
+	(* AUTO: PID komande i frekvencija dolaze iz PGRad_Cmd.                   *)
+	(* MANUAL: kada PGRad_Cmd nije aktivan, izlazne pumpe vode lokalne komande. *)
+	(* STOP/FAULT: Disable PID i zaustavljanje izlaza imaju prioritet.         *)
+	(* STATUS: UpdateDone i ostvarena frekvencija ostaju dostupni HMI-ju.      *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* PID_Pu_PT_CYCLIC                                                           *)
 	(* PID petlja pumpi na izlazu iz prihvatnog tanka.                            *)
 	(* ======================================================================== *)

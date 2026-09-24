@@ -9,7 +9,7 @@ VAR
 	Snaga_sanitarnog_grejanja : REAL; (* Preostala snaga predata sanitarnom grejanju [kW]. *)
 	DP_Izmejnivac : REAL; (* DeviceCtrl racuna diferencijalni pritisak velikog izmenjivaca [bar]. *)
 	DP_strainer : REAL; (* DeviceCtrl racuna diferencijalni pritisak grubog filtera [bar]. *)
-	NivoPRihvatniSud : REAL; (* DeviceCtrl racuna hidrostaticki nivo prihvatnog suda [m]. *)
+	NivoPrihvatniSud : REAL; (* DeviceCtrl racuna hidrostaticki nivo prihvatnog suda [m]. *)
 	PID_Pu_PT : MTBasicsPID; (* PID petlja pumpi na izlazu iz prihvatnog tanka. *)
 	PGRad_Cmd : typCmdPGRad; (* Neretentivni komandni vektor state masine. *)
 	PGRad_AirRelease : typAirReleasePGRad; (* Runtime odzracivanje PV03/PV04. *)

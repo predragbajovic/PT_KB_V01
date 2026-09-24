@@ -1,5 +1,13 @@
 PROGRAM _CYCLIC
 	(* ======================================================================== *)
+	(* PG_INTF - PT/BRB2 KOMUNIKACIONI UGOVOR                                 *)
+	(* COMMON: lokalni PGRad ugovor i brojači snapshot-a.                     *)
+	(* MANUAL: prenosi ManualMode, Start, Stop, NextStep i Abort ka BRB2.      *)
+	(* AUTO: prenosi procesne zahteve, regulacioni PV/SP i izbor izvora.       *)
+	(* STOP/FAULT: watchdog status BRB2 se koristi kao komunikacioni fault.    *)
+	(* STATUS: Rx statusi se prihvataju samo dok je udaljeni watchdog validan.  *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) Lokalni PT-BRB2 procesni ugovor                                       *)
 	(* ======================================================================== *)
 	(* PGRad_BRB2Cmd je jedini lokalni izvor komandi. Ovaj program preslikava   *)
@@ -16,11 +24,17 @@ PROGRAM _CYCLIC
 	PGRad_BRB2.VentiliPodstaniceZatvoreni := PGRad_BRB2Cmd.VentiliPodstaniceZatvoreni;
 	PGRad_BRB2.PritisakIEBKB1 := PGRad_BRB2Cmd.PritisakIEBKB1;
 	PGRad_BRB2.PodstanicaURezimuRada := PGRad_BRB2Cmd.PodstanicaURezimuRada;
-	PGRad_BRB2.RegulationMode := PGRad_BRB2Cmd.RegulationMode;
+	CASE PGRad_BRB2Cmd.RegulationMode OF
+		BRB2_01_REG_PROTOK: PGRad_BRB2.RegulationMode := 1;
+		BRB2_02_REG_NIVO: PGRad_BRB2.RegulationMode := 2;
+		BRB2_03_REG_TEMPERATURA: PGRad_BRB2.RegulationMode := 3;
+		ELSE PGRad_BRB2.RegulationMode := 0;
+	END_CASE;
 	PGRad_BRB2.RegulationPV := PGRad_BRB2Cmd.RegulationPV;
 	PGRad_BRB2.RegulationSP := PGRad_BRB2Cmd.RegulationSP;
 	PGRad_BRB2.RegulationPVValid := PGRad_BRB2Cmd.RegulationPVValid;
 	PGRad_BRB2.RegulationInvert := PGRad_BRB2Cmd.RegulationInvert;
+	PGRad_BRB2.NivoPrihvatniSud := PGRad_BRB2Cmd.NivoPrihvatniSud;
 	(* Brojac se menja svakim ciklusom i udaljenom PLC-u dokazuje da snapshot   *)
 	(* nije samo poslednja zadrzana vrednost nakon prekida komunikacije.        *)
 	PGRad_BRB2Cmd.CommandCounter := PGRad_BRB2Cmd.CommandCounter + 1;
@@ -44,11 +58,17 @@ PROGRAM _CYCLIC
 	PGRad_BRB2_Tx.VentiliPodstaniceZatvoreni := PGRad_BRB2Cmd.VentiliPodstaniceZatvoreni;
 	PGRad_BRB2_Tx.PritisakIEBKB1 := PGRad_BRB2Cmd.PritisakIEBKB1;
 	PGRad_BRB2_Tx.PodstanicaURezimuRada := PGRad_BRB2Cmd.PodstanicaURezimuRada;
-	PGRad_BRB2_Tx.RegulationMode := PGRad_BRB2Cmd.RegulationMode;
+	CASE PGRad_BRB2Cmd.RegulationMode OF
+		BRB2_01_REG_PROTOK: PGRad_BRB2_Tx.RegulationMode := 1;
+		BRB2_02_REG_NIVO: PGRad_BRB2_Tx.RegulationMode := 2;
+		BRB2_03_REG_TEMPERATURA: PGRad_BRB2_Tx.RegulationMode := 3;
+		ELSE PGRad_BRB2_Tx.RegulationMode := 0;
+	END_CASE;
 	PGRad_BRB2_Tx.RegulationPV := PGRad_BRB2Cmd.RegulationPV;
 	PGRad_BRB2_Tx.RegulationSP := PGRad_BRB2Cmd.RegulationSP;
 	PGRad_BRB2_Tx.RegulationPVValid := PGRad_BRB2Cmd.RegulationPVValid;
 	PGRad_BRB2_Tx.RegulationInvert := PGRad_BRB2Cmd.RegulationInvert;
+	PGRad_BRB2_Tx.NivoPrihvatniSud := PGRad_BRB2Cmd.NivoPrihvatniSud;
 
 	(* ======================================================================== *)
 	(* 3) BRB2 ulazni procesni status                                           *)

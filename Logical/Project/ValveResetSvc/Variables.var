@@ -1,0 +1,78 @@
+VAR
+	ResetAll : BOOL; (* HMI zahtev za reset svih ventila. *)
+	Reset_01 : BOOL; (* HMI zahtev za reset PG_V01. *)
+	Reset_02 : BOOL; (* HMI zahtev za reset PG_V02. *)
+	Reset_03 : BOOL; (* HMI zahtev za reset PG_V03. *)
+	Reset_04 : BOOL; (* HMI zahtev za reset PG_V04. *)
+	Reset_05 : BOOL; (* HMI zahtev za reset PG_V05. *)
+	Reset_06 : BOOL; (* HMI zahtev za reset PG_V06. *)
+	Reset_07 : BOOL; (* HMI zahtev za reset PG_V07. *)
+	ResetInProgress_01 : BOOL;
+	ResetInProgress_02 : BOOL;
+	ResetInProgress_03 : BOOL;
+	ResetInProgress_04 : BOOL;
+	ResetInProgress_05 : BOOL;
+	ResetInProgress_06 : BOOL;
+	ResetInProgress_07 : BOOL;
+	ResetDone_01 : BOOL;
+	ResetDone_02 : BOOL;
+	ResetDone_03 : BOOL;
+	ResetDone_04 : BOOL;
+	ResetDone_05 : BOOL;
+	ResetDone_06 : BOOL;
+	ResetDone_07 : BOOL;
+	ResetFault_01 : BOOL;
+	ResetFault_02 : BOOL;
+	ResetFault_03 : BOOL;
+	ResetFault_04 : BOOL;
+	ResetFault_05 : BOOL;
+	ResetFault_06 : BOOL;
+	ResetFault_07 : BOOL;
+	ResetAllInProgress : BOOL;
+	ResetAllDone : BOOL;
+	ResetAllFault : BOOL;
+	PrevResetAll : BOOL;
+	PrevReset_01 : BOOL;
+	PrevReset_02 : BOOL;
+	PrevReset_03 : BOOL;
+	PrevReset_04 : BOOL;
+	PrevReset_05 : BOOL;
+	PrevReset_06 : BOOL;
+	PrevReset_07 : BOOL;
+	ResetPulse_01 : BOOL;
+	ResetPulse_02 : BOOL;
+	ResetPulse_03 : BOOL;
+	ResetPulse_04 : BOOL;
+	ResetPulse_05 : BOOL;
+	ResetPulse_06 : BOOL;
+	ResetPulse_07 : BOOL;
+	Disable_01 : BOOL;
+	Disable_02 : BOOL;
+	Disable_03 : BOOL;
+	Disable_04 : BOOL;
+	Disable_05 : BOOL;
+	Disable_06 : BOOL;
+	Disable_07 : BOOL;
+	StateComment_01 : STRING[80];
+	FaultText_01 : STRING[80];
+	Diag_01 : STRING[80];
+	StateComment_02 : STRING[80];
+	FaultText_02 : STRING[80];
+	Diag_02 : STRING[80];
+	StateComment_03 : STRING[80];
+	FaultText_03 : STRING[80];
+	Diag_03 : STRING[80];
+	StateComment_04 : STRING[80];
+	FaultText_04 : STRING[80];
+	Diag_04 : STRING[80];
+	StateComment_05 : STRING[80];
+	FaultText_05 : STRING[80];
+	Diag_05 : STRING[80];
+	StateComment_06 : STRING[80];
+	FaultText_06 : STRING[80];
+	Diag_06 : STRING[80];
+	StateComment_07 : STRING[80];
+	FaultText_07 : STRING[80];
+	Diag_07 : STRING[80];
+	ValveAlarmActive : BOOL; (* Zbirni alarm bilo kog PG_V01..PG_V07 ventila. *)
+END_VAR

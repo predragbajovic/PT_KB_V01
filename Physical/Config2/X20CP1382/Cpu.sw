@@ -14,7 +14,8 @@
     <Task Name="ProcUnit" Source="ProcessUnit.ProcUnit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DeviceCtrl" Source="Project.DeviceCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Cfg2ATV" Source="CAN.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-	<Task Name="AlarmMgr" Source="Project.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AlarmMgr" Source="Project.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ValveReset" Source="Project.ValveResetSvc.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5">
     <Task Name="BRB2_com" Source="IMA_comm_PG_BRB2.BRB2_com.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -36,7 +37,6 @@
     <BinaryObject Name="vcalarm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcshared" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcgclass" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Visu101" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vctcal" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccshape" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcnet" Source="" Memory="UserROM" Language="Binary" />
@@ -46,13 +46,11 @@
     <BinaryObject Name="FWRules" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcdsint" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcfile" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Visu102" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcrt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcbclass" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcfntttf" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcdsloc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccovl" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Visu103" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arial" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccnum" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccstr" Source="" Memory="UserROM" Language="Binary" />
@@ -63,6 +61,10 @@
     <BinaryObject Name="vcctrend" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccbar" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcpfx20" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PG1_101" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PG1_102" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PG1_103" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vccalarm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
@@ -71,6 +73,9 @@
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Visu101" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Visu102" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Visu103" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vcpfgen" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>

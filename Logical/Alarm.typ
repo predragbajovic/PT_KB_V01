@@ -34,6 +34,44 @@ TYPE
 		LatchedCount : UINT; (* Broj memorisanih alarma. *)
 	END_STRUCT;
 
+	typIOModuleAlarm : STRUCT (* Status jednog fizickog IO modula. *)
+		ModuleOk : BOOL; (* TRUE kada je modul prisutan i operativan. *)
+		Fault : BOOL; (* TRUE kada je ModuleOk FALSE. *)
+		Latched : BOOL; (* Memorisan ispad modula. *)
+		Acknowledged : BOOL; (* Operatorska potvrda alarma modula. *)
+		ResetAllowed : BOOL; (* TRUE kada je modul ponovo OK. *)
+		Blocking : BOOL; (* TRUE kada ispad zahteva kontrolisani STOP. *)
+		Code : UINT; (* Stabilan kod IO alarma. *)
+	END_STRUCT;
+
+	typPTAlarmIO : STRUCT (* Svi IO moduli Podstanice u jednoj alarmnoj grupi. *)
+		X20AI4622 : typIOModuleAlarm;
+		X20AI4622a : typIOModuleAlarm;
+		X20AI4622b : typIOModuleAlarm;
+		X20AI4622c : typIOModuleAlarm;
+		X20AI4622d : typIOModuleAlarm;
+		X20AO4622 : typIOModuleAlarm;
+		X20AO4622a : typIOModuleAlarm;
+		X20AO4622b : typIOModuleAlarm;
+		X20DI9371 : typIOModuleAlarm;
+		X20DI9371a : typIOModuleAlarm;
+		X20DI9371b : typIOModuleAlarm;
+		X20DO9322 : typIOModuleAlarm;
+		X20DO9322a : typIOModuleAlarm;
+		X20BC0083 : typIOModuleAlarm;
+		X20PS9400 : typIOModuleAlarm;
+		X20BT9100a : typIOModuleAlarm;
+		X67AI1323 : typIOModuleAlarm;
+		X67AI1333b : typIOModuleAlarm;
+		X67DI1371_L12 : typIOModuleAlarm;
+		X67DM1321_L12 : typIOModuleAlarm;
+		AnyFault : BOOL;
+		AnyLatched : BOOL;
+		StopRequest : BOOL;
+		FirstOutCode : UINT;
+		FaultCount : UINT;
+	END_STRUCT;
+
 	typPTAlarmComm : STRUCT (* Alarmi komunikacije Podstanice sa udaljenim PLC-ovima. *)
 		BRB2 : typAlarmState; (* Gubitak validne komunikacije sa BRB2. *)
 		IEBKB1 : typAlarmState; (* Gubitak komunikacije ili heartbeat-a sa IEBKB1. *)
@@ -80,5 +118,6 @@ TYPE
 		Drive : typPTAlarmDrive; (* Alarmi pogona. *)
 		Process : typPTAlarmProcess; (* Procesni i sekvencni alarmi. *)
 		AirRelease : typPTAlarmAirRelease; (* Alarmi odzracivanja. *)
+		IO : typPTAlarmIO; (* Alarmna grupa svih fizickih IO modula. *)
 	END_STRUCT;
 END_TYPE

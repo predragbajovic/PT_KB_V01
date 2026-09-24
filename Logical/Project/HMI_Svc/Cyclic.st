@@ -162,4 +162,24 @@ PROGRAM _CYCLIC
 	Alarm_25035 := PT_Alarm.Process.TransferBRB2FlowNotConfirmed.Latched;
 	Alarm_26001 := PT_Alarm.AirRelease.PG_PV03.Latched;
 	Alarm_26002 := PT_Alarm.AirRelease.PG_PV04.Latched;
+	Alarm_41001 := PT_Alarm.IO.X20AI4622.Latched;
+	Alarm_41002 := PT_Alarm.IO.X20AI4622a.Latched;
+	Alarm_41003 := PT_Alarm.IO.X20AI4622b.Latched;
+	Alarm_41004 := PT_Alarm.IO.X20AI4622c.Latched;
+	Alarm_41005 := PT_Alarm.IO.X20AI4622d.Latched;
+	Alarm_41101 := PT_Alarm.IO.X20AO4622.Latched;
+	Alarm_41102 := PT_Alarm.IO.X20AO4622a.Latched;
+	Alarm_41103 := PT_Alarm.IO.X20AO4622b.Latched;
+	Alarm_41201 := PT_Alarm.IO.X20DI9371.Latched;
+	Alarm_41202 := PT_Alarm.IO.X20DI9371a.Latched;
+	Alarm_41203 := PT_Alarm.IO.X20DI9371b.Latched;
+	Alarm_41301 := PT_Alarm.IO.X20DO9322.Latched;
+	Alarm_41302 := PT_Alarm.IO.X20DO9322a.Latched;
+	Alarm_41401 := PT_Alarm.IO.X20BC0083.Latched;
+	Alarm_41402 := PT_Alarm.IO.X20PS9400.Latched;
+	Alarm_41403 := PT_Alarm.IO.X20BT9100a.Latched;
+	Alarm_41501 := PT_Alarm.IO.X67AI1323.Latched;
+	Alarm_41502 := PT_Alarm.IO.X67AI1333b.Latched;
+	Alarm_41601 := PT_Alarm.IO.X67DI1371_L12.Latched;
+	Alarm_41701 := PT_Alarm.IO.X67DM1321_L12.Latched;
 END_PROGRAM

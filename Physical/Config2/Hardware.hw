@@ -44,6 +44,7 @@
   <Module Name="X20AI4622" Type="X20AI4622" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12h" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11g" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
     <Parameter ID="ChannelType01" Value="4 to 20mA" />
     <Parameter ID="ChannelType02" Value="4 to 20mA" />
     <Parameter ID="ChannelType03" Value="4 to 20mA" />
@@ -52,6 +53,7 @@
   <Module Name="X20AI4622a" Type="X20AI4622" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12i" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11h" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
     <Parameter ID="ChannelType01" Value="4 to 20mA" />
     <Parameter ID="ChannelType02" Value="4 to 20mA" />
     <Parameter ID="ChannelType03" Value="4 to 20mA" />
@@ -60,6 +62,7 @@
   <Module Name="X20AI4622b" Type="X20AI4622" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12j" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11i" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
     <Parameter ID="ChannelType01" Value="4 to 20mA" />
     <Parameter ID="ChannelType02" Value="4 to 20mA" />
     <Parameter ID="ChannelType03" Value="4 to 20mA" />
@@ -68,6 +71,7 @@
   <Module Name="X20AI4622c" Type="X20AI4622" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12k" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11j" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
     <Parameter ID="ChannelType01" Value="4 to 20mA" />
     <Parameter ID="ChannelType02" Value="4 to 20mA" />
     <Parameter ID="ChannelType03" Value="4 to 20mA" />
@@ -76,6 +80,7 @@
   <Module Name="X20AI4622d" Type="X20AI4622" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12l" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11k" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
     <Parameter ID="ChannelType01" Value="4 to 20mA" />
     <Parameter ID="ChannelType02" Value="4 to 20mA" />
     <Parameter ID="ChannelType03" Value="4 to 20mA" />

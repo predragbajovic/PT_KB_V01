@@ -1,5 +1,12 @@
 ACTION CommandMap:
 	(* ======================================================================== *)
+	(* COMMANDMAP - VLASNIK FIZICKOG MAPIRANJA                               *)
+	(* COMMON: preslikava vec formiran komandni vektor na fizicke izlaze.     *)
+	(* AUTO/MANUAL: ne bira rezim; BRB2Rad_Cmd.Aktivan odredjuje vlasnika.    *)
+	(* STOP/FAULT: nevalidan ili neaktivan vektor ne prepisuje lokalne izlaze. *)
+	(* STATUS: fizicki feedback se obradjuje u IO i alarmnim slojevima.        *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) Adapter RETAIN ulaznih ventila                                        *)
 	(* ======================================================================== *)
 	(* RETAIN vektor je uvek vlasnik komandi V01/V02, nezavisno od procesnog rezima. *)

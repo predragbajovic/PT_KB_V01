@@ -1,5 +1,10 @@
 ACTION ProcessValues:
 	(* ======================================================================== *)
+	(* PROCESSVALUES - IZVEDENE PROCESNE VELICINE                            *)
+	(* COMMON: racuna nivo, protok i toplotne velicine; ne komanduje opremom. *)
+	(* STATUS: rezultatima se koriste Rad_PG_KB, HMI i komunikacioni ugovori.  *)
+	(* ======================================================================== *)
+	(* ======================================================================== *)
 	(* 1) Izbor realnog protoka aktivnog izvora                                 *)
 	(* ======================================================================== *)
 	CASE PGRad.Ctrl.SelektovaniIzvor OF
@@ -17,9 +22,9 @@ ACTION ProcessValues:
 	(* 2) Toplotne snage                                                        *)
 	(* ======================================================================== *)
 	(* 4.181 je specificni toplotni kapacitet vode; uz protok [l/s] i delta T [degC] rezultat je [kW]. *)
-	Predata_Snaga := 4.181 * AktivniUlazniProtok
+	Predata_Snaga := 4.181 * (*AktivniUlazniProtok*) PG.Sens.MP._1.AI_Output.ScaledValue
 		* (PG.Sens.Tt._1.AI_Output.ScaledValue - PG.Sens.Tt._2.AI_Output.ScaledValue);
-	Snaga_grejanja_hotela := 4.181 * AktivniUlazniProtok
+	Snaga_grejanja_hotela := 4.181 * (*AktivniUlazniProtok*) PG.Sens.MP._1.AI_Output.ScaledValue
 		* (PG.Sens.Tt._1.AI_Output.ScaledValue - PG.Sens.Tt._4.AI_Output.ScaledValue);
 	Snaga_sanitarnog_grejanja := Predata_Snaga - Snaga_grejanja_hotela;
 
@@ -27,7 +32,7 @@ ACTION ProcessValues:
 	(* 3) Ostale izvedene procesne velicine                                     *)
 	(* ======================================================================== *)
 	(* Faktor 0.09804 pretvara diferencijalni hidrostatski pritisak [bar] u nivo vode [m]. *)
-	NivoPRihvatniSud := (PG.Sens.Pt._NS1.AI_Output.ScaledValue - PG.Sens.Pt._NS2.AI_Output.ScaledValue) / 0.09804;
+	NivoPrihvatniSud := (PG.Sens.Pt._NS1.AI_Output.ScaledValue - PG.Sens.Pt._NS2.AI_Output.ScaledValue) / 0.09804;
 	(* 0.123 je postojeca commissioning korekcija DP strainer-a; fizicko poreklo treba potvrditi. *)
 	DP_strainer := PG.Sens.Pt._1.AI_Output.ScaledValue - PG.Sens.Pt._2.AI_Output.ScaledValue + 0.123;
 	(* 0.0015 je postojeca commissioning korekcija DP izmenjivaca; fizicko poreklo treba potvrditi. *)

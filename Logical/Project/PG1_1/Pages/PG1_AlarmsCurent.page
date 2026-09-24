@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="PG1_AlarmsCurent">
+  <Property Name="Description" Value="Podstanica projektni alarmi"/>
+  <Property Name="Height" Value="800"/>
+  <Property Name="Index" Value="6"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[default]"/>
+  <Property Name="Width" Value="1280"/>
+  <Layers>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="800"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="1280"/>
+      <Property Name="Z-Order" Value="0"/>
+      <TextGroup>
+        <TextLayer LanguageId="en">
+          <Text ID="110471" Value="GLAVNA"/>
+          <Text ID="110472" Value="AKTIVNI"/>
+          <Text ID="110474" Value="ISTORIJA"/>
+          <Text ID="110475" Value="POTVRDI"/>
+          <Text ID="110476" Value="RESET ZAPISA"/>
+          <Text ID="111203" Value="Trenutni alarmi"/>
+          <Text ID="111952" Value="GORE"/>
+          <Text ID="111953" Value="DOLE"/>
+          <Text ID="111954" Value="ACK IZABRANI"/>
+        </TextLayer>
+        <TextLayer LanguageId="de">
+          <Text ID="110471" Value="MAIN"/>
+          <Text ID="110472" Value="ACTIVE"/>
+          <Text ID="110474" Value="HISTORY"/>
+          <Text ID="110475" Value="ACK"/>
+          <Text ID="110476" Value="RESET RECORDS"/>
+          <Text ID="111203" Value="Text_1"/>
+          <Text ID="111952" Value="UP"/>
+          <Text ID="111953" Value="DOWN"/>
+          <Text ID="111954" Value="ACK SELECTED"/>
+        </TextLayer>
+        <IndexMap>
+          <Index ID="110471" Value="0"/>
+          <Index ID="110472" Value="1"/>
+          <Index ID="110474" Value="3"/>
+          <Index ID="110475" Value="4"/>
+          <Index ID="110476" Value="5"/>
+          <Index ID="111203" Value="10"/>
+          <Index ID="111952" Value="6"/>
+          <Index ID="111953" Value="7"/>
+          <Index ID="111954" Value="8"/>
+        </IndexMap>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001009" Name="Alarm_1">
+          <Property Name="AcknowledgeState_Position" Value="None"/>
+          <Property Name="AlarmNumber_Alignment" Value="Left"/>
+          <Property Name="AlarmNumber_MinDigits" Value="3"/>
+          <Property Name="AlarmNumber_Position" Value="Column 2"/>
+          <Property Name="AlarmNumber_SeparatorTextGroup" Value="None"/>
+          <Property Name="AlarmNumber_Width" Value="75"/>
+          <Property Name="AlarmState_Alignment" Value="Left"/>
+          <Property Name="AlarmState_Format" Value="Text"/>
+          <Property Name="AlarmState_Position" Value="Column 5"/>
+          <Property Name="AlarmState_SeparatorTextGroup" Value="None"/>
+          <Property Name="AlarmState_TextGroup" Value="None"/>
+          <Property Name="AlarmState_Width" Value="10"/>
+          <Property Name="AlarmText_Alignment" Value="Left"/>
+          <Property Name="AlarmText_Position" Value="Column 3"/>
+          <Property Name="AlarmText_SeparatorTextGroup" Value="None"/>
+          <Property Name="AlarmText_Width" Value="560"/>
+          <Property Name="BypassState_Position" Value="None"/>
+          <Property Name="ColumnCount" Value="5"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Cursor_LeftBitmap" Value="None"/>
+          <Property Name="Cursor_LeftTextGroup" Value="None"/>
+          <Property Name="Cursor_RightBitmap" Value="None"/>
+          <Property Name="Cursor_RightTextGroup" Value="None"/>
+          <Property Name="DateTime_Alignment" Value="Right"/>
+          <Property Name="DateTime_FormatStringTextGroup" Value="None"/>
+          <Property Name="DateTime_Position" Value="Column 4"/>
+          <Property Name="DateTime_SeparatorTextGroup" Value="None"/>
+          <Property Name="DateTime_Width" Value="90"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Event_Position" Value="None"/>
+          <Property Name="GroupNumber_Alignment" Value="Left"/>
+          <Property Name="GroupNumber_MinDigits" Value="3"/>
+          <Property Name="GroupNumber_Position" Value="Column 1"/>
+          <Property Name="GroupNumber_SeparatorTextGroup" Value="None"/>
+          <Property Name="GroupNumber_Width" Value="75"/>
+          <Property Name="Height" Value="502"/>
+          <Property Name="Left" Value="48"/>
+          <Property Name="Node1" Value="User order"/>
+          <Property Name="Priority_Position" Value="None"/>
+          <Property Name="SortColumn" Value="Time"/>
+          <Property Name="SortOrder" Value="Descending"/>
+          <Property Name="Source" Value="Current"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[AlarmCurrentEdit]"/>
+          <Property Name="Top" Value="104"/>
+          <Property Name="Width" Value="1020"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_Main">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_main]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="20"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="0"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="35"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_main]"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_Active">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_active]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="171"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="35"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_active]"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Nav_History">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%nav_history]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="320"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="35"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%nav_history]"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmAcknowledge">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarm_ack]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1132"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="355"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarm_ack]"/>
+          <Property Name="Width" Value="115"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmResetRecords">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarm_reset]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1133"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="5"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarm_reset]"/>
+          <Property Name="Width" Value="115"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[Font_27_Bold]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="Left" Value="51"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="619"/>
+          <Property Name="Width" Value="1014"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarm_up]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1139"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="6"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="117"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarm_up]"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarm_down]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1140"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="7"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="170"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarm_down]"/>
+          <Property Name="Width" Value="100"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="AlarmAckSelected">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%alarm_ack_selected]"/>
+          <Property Name="Font" Value="Source[local].Font[Arial10pxBold]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="1082"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndex" Value="8"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="31"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%alarm_ack_selected]"/>
+          <Property Name="Width" Value="162"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%nav_main">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_PID]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%nav_history">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_AlarmHistory]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarm_ack">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmCmdAcknowledge]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarm_reset">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016B">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Project.HMI_Svc.AlarmCmdResetRecords]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%nav_active">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[PG1_AlarmsActive]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarm_up">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000169">
+              <Property Name="Action[0x00001007]" Value="Step Up"/>
+              <Property Name="Action[0x00001008]" Value="Line Up"/>
+              <Property Name="Action[0x00001009]" Value="Line Up"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Name" Value="Action_0"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarm_down">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000169">
+              <Property Name="Action[0x00001007]" Value="Step Down"/>
+              <Property Name="Action[0x00001008]" Value="Line Down"/>
+              <Property Name="Action[0x00001009]" Value="Line Down"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Name" Value="Action_0"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%alarm_ack_selected">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000169">
+              <Property Name="Action[0x00001007]" Value="Enter"/>
+              <Property Name="Action[0x00001008]" Value="Enter"/>
+              <Property Name="Action[0x00001009]" Value="Acknowledge"/>
+              <Property Name="Action[0x0000100B]" Value="Enter"/>
+              <Property Name="Action[0x0000100C]" Value="Enter"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Name" Value="Action_0"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[Alarm_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Alarm_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Alarm_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Alarm_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Alarm_1]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[Alarm_1]"/>
+  </TabSequence>
+</Page>

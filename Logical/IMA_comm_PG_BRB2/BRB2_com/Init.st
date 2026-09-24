@@ -1,4 +1,8 @@
 PROGRAM _INIT
+	ResetCommunication := FALSE;
+	ResetInProgress := FALSE;
+	ResetDone := FALSE;
+	ResetFault := FALSE;
 	(* ======================================================================== *)
 	(* 1) Otvaranje AsIMA master sesije prema BRB2                               *)
 	(* ======================================================================== *)

@@ -41,4 +41,24 @@ VAR
 	Alarm_25035 : BOOL;
 	Alarm_26001 : BOOL;
 	Alarm_26002 : BOOL;
+	Alarm_41001 : BOOL; (* PT X20AI4622 module fault. *)
+	Alarm_41002 : BOOL; (* PT X20AI4622a module fault. *)
+	Alarm_41003 : BOOL; (* PT X20AI4622b module fault. *)
+	Alarm_41004 : BOOL; (* PT X20AI4622c module fault. *)
+	Alarm_41005 : BOOL; (* PT X20AI4622d module fault. *)
+	Alarm_41101 : BOOL; (* PT X20AO4622 module fault. *)
+	Alarm_41102 : BOOL; (* PT X20AO4622a module fault. *)
+	Alarm_41103 : BOOL; (* PT X20AO4622b module fault. *)
+	Alarm_41201 : BOOL; (* PT X20DI9371 module fault. *)
+	Alarm_41202 : BOOL; (* PT X20DI9371a module fault. *)
+	Alarm_41203 : BOOL; (* PT X20DI9371b module fault. *)
+	Alarm_41301 : BOOL; (* PT X20DO9322 module fault. *)
+	Alarm_41302 : BOOL; (* PT X20DO9322a module fault. *)
+	Alarm_41401 : BOOL; (* PT X20BC0083 module fault. *)
+	Alarm_41402 : BOOL; (* PT X20PS9400 module fault. *)
+	Alarm_41403 : BOOL; (* PT X20BT9100a module fault. *)
+	Alarm_41501 : BOOL; (* PT X67AI1323 module fault. *)
+	Alarm_41502 : BOOL; (* PT X67AI1333b module fault. *)
+	Alarm_41601 : BOOL; (* PT X67DI1371.L12 module fault. *)
+	Alarm_41701 : BOOL; (* PT X67DM1321.L12 module fault. *)
 END_VAR

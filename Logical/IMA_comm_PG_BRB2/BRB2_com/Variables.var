@@ -12,4 +12,8 @@ VAR
 	errorInfo : imaInfoStruct; (* Dijagnostika neuspele inicijalizacije. *)
 	connInfoPV : imaInfoStruct; (* Status i dijagnostika PV prenosa ka BRB2. *)
 	connInfoAUX : imaInfoStruct; (* Status pomocnih AsIMA servisa. *)
+	ResetCommunication : BOOL; (* HMI zahtev za ponovno otvaranje AsIMA sesije. *)
+	ResetInProgress : BOOL; (* Ponovna inicijalizacija AsIMA sesije je u toku. *)
+	ResetDone : BOOL; (* Poslednja HMI reinicijalizacija je uspesno zavrsena. *)
+	ResetFault : BOOL; (* Poslednja HMI reinicijalizacija nije uspela. *)
 END_VAR
