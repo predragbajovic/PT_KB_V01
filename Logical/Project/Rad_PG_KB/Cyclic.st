@@ -15,6 +15,7 @@ PROGRAM _CYCLIC
 		(* Aktivni SP zavisi od izabrane regulacije pritiska ili nivoa. *)
 		PGRad.Par.SetPritisakPotisa := 1.2;
 		PGRad.Par.SetPointNivoTanka := 1.5;
+		PGRad.Par.SetPointNivoTankaUpozorenje := 2.1; (* Informativni prag; stvarni fizicki preliv je ~2.15-2.2 m. *)
 		PGRad.Par.PocetnaFrekvencaIzlaznePumpe := 10.0;
 
 		(* Centralne granice PID izlaza za obe pumpe iza prihvatnog tanka. *)
@@ -183,6 +184,16 @@ PROGRAM _CYCLIC
 	Rad_PG_KB.Timer.BRB2.PressureStop.PT := REAL_TO_TIME(PGRad.Par.BRB2Preparation.PressureStopDelay_s * 1000.0);
 	Rad_PG_KB.Timer.Transfer.Flow.IN := FALSE;
 	Rad_PG_KB.Timer.Transfer.Flow.PT := REAL_TO_TIME(PGRad.Par.Transfer.FlowTimeout_s * 1000.0);
+	Rad_PG_KB.AutoRestart.Timer.IN := FALSE;
+	Rad_PG_KB.AutoRestart.Timer.PT := REAL_TO_TIME(PGRad.Par.TimeSP.AutoRestartDelay_s * 1000.0);
+
+	(* -------------------------------------------------------------------------- *)
+	(* 3b) Informativna napomena: nivo prihvatnog suda blizu fizickog preliva.    *)
+	(* Samo obavestenje za HMI, bez ikakve upravljacke akcije ili interlock-a -   *)
+	(* ocekivano tokom regulacije temperature sekundara/protoka sa bunara uz      *)
+	(* pritisak potisa izlazne pumpe.                                            *)
+	(* -------------------------------------------------------------------------- *)
+	Rad_PG_KB.Status.PrihvatniSudBlizuPreliva := NivoPrihvatniSud >= PGRad.Par.SetPointNivoTankaUpozorenje;
 
 	(* -------------------------------------------------------------------------- *)
 	(* 4) Glavna state masina izvora termalne vode                                *)
@@ -194,6 +205,19 @@ PROGRAM _CYCLIC
 		PG_00_Stand_By:
 			(* Neretentivni vektor je bezbedno resetovan u sekciji 2; V01/V02 se ne menjaju. *)
 			Rad_PG_KB.Status.PV05.FlushingOpened := FALSE;
+			(* Automatski start posle WARMSTART-a (nestanak struje), samo ako je operater *)
+			(* aktivirao PGRad.Ctrl.AutoRestart. Prekida se ako se pojavi Fault ili se    *)
+			(* rucno napusti Standby/automatski rezim u toku odlozenog starta.           *)
+			Rad_PG_KB.AutoRestart.Timer.IN :=
+				Rad_PG_KB.AutoRestart.WarmstartDetected
+				AND PGRad.Ctrl.AutoRestart
+				AND (NOT Rad_PG_KB.HMI.Manual.Enable)
+				AND (NOT Rad_PG_KB.Diag.Fault.Latched)
+				AND (PGRad.Ctrl.RegulacionaVarijanta <> _00_neaktivan);
+			IF Rad_PG_KB.AutoRestart.Timer.Q THEN
+				Rad_PG_KB.HMI.Cntrl.Start := TRUE;
+				Rad_PG_KB.AutoRestart.WarmstartDetected := FALSE; (* jednokratno okidanje *)
+			END_IF;
 			(* Start je dozvoljen samo sa izabranim izvorom i regulacionom varijantom. *)
 			IF Rad_PG_KB.HMI.Manual.Enable AND Rad_PG_KB.HMI.Manual.Start AND (Rad_PG_KB.HMI.Manual.Sequence = 1) THEN
 				PGRad.Ctrl.SelektovaniIzvor := _01_BRB2;
@@ -904,6 +928,7 @@ PROGRAM _CYCLIC
 	Rad_PG_KB.Timer.BRB2.PressureAlarm();
 	Rad_PG_KB.Timer.BRB2.PressureStop();
 	Rad_PG_KB.Timer.Transfer.Flow();
+	Rad_PG_KB.AutoRestart.Timer();
 
 	(* -------------------------------------------------------------------------- *)
 	(* 8) PID petlje proporcionalnih ventila                                     *)

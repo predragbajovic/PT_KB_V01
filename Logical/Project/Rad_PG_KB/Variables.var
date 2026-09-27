@@ -2,4 +2,5 @@
 VAR
 	(* Jedina lokalna instanca: svi HMI, sekvencni, regulacioni, statusni, dijagnosticki i vremenski podaci programa. *)
 	Rad_PG_KB : typRadPGKB;
+	BootInfoFB : SysInfo; (* Jednokratno citanje uzroka restarta u Init.st za AutoRestart (INIT_REASON_WARMSTART). *)
 END_VAR

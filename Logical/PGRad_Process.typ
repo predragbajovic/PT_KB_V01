@@ -94,6 +94,7 @@ TYPE
 		MinFR_Pumpe : REAL; (* Minimalna frekvencija PID izlaza pumpi [Hz]. *)
 		MaxFR_Pumpe : REAL; (* Maksimalna frekvencija PID izlaza pumpi [Hz]. *)
 		SetPointNivoTanka : REAL; (* Ciljani nivo prihvatnog tanka [m]. *)
+		SetPointNivoTankaUpozorenje : REAL; (* Informativni prag blizine fizickog preliva (~2.15-2.2m stvarnog preliva) [m]. *)
 		SetPointMinTempIspiranja : REAL; (* Minimalna temperatura za zavrsetak ispiranja [degC]. *)
 		SetPointPritisakPV05Ispiranje : REAL; (* PT06 SP tokom preispiranja [bar]. *)
 		SetPointPritisakUlazTanka : REAL; (* PT04 SP aktivnog ulaznog ventila [bar]. *)
@@ -191,6 +192,7 @@ TYPE
 	typRadPGKBStatus : 	STRUCT  (* Izvedeni statusi lokalnih regulacionih funkcija. *)
 		PV05 : typRadPGKBStatusPV05; (* Status PV05 funkcije. *)
 		Pump : typRadPGKBStatusPump; (* Status izlazne pumpe. *)
+		PrihvatniSudBlizuPreliva : BOOL; (* Informativno: nivo >= SetPointNivoTankaUpozorenje. Bez akcije/interlocka - ocekivano u pojedinim rezimima. *)
 	END_STRUCT;
 	typRadPGKBDiag : 	STRUCT  (* Zbirna dijagnostika programa Rad_PG_KB. *)
 		Fault : typRadPGKBDiagFault; (* Zakaceni procesni fault. *)
@@ -241,6 +243,10 @@ TYPE
 		BRB2 : typRadPGKBTimerBRB2; (* Tajmeri pritiska, temperature i protoka BRB2. *)
 		Transfer : typRadPGKBTimerTransfer; (* Tajmeri transfera i cuvara PT06. *)
 	END_STRUCT;
+	typRadPGKBAutoRestart : 	STRUCT  (* Automatski start nakon nestanka struje (WARMSTART), ako je PGRad.Ctrl.AutoRestart aktivan. *)
+		WarmstartDetected : BOOL; (* Jednokratno zabelezeno u Init.st preko SysInfo.init_reason. *)
+		Timer : TON; (* Odlozeni auto-start; PT = PGRad.Par.TimeSP.AutoRestartDelay_s. *)
+	END_STRUCT;
 	typRadPGKB : 	STRUCT  (* Krovni lokalni kontekst programa Rad_PG_KB. *)
 		HMI : typRadPGKBHmi; (* HMI komande automatskog i manuelnog rada. *)
 		Sequence : typRadPGKBSequence; (* Stanje glavne i pomocnih sekvenci. *)
@@ -248,6 +254,7 @@ TYPE
 		Status : typRadPGKBStatus; (* Izvedeni statusi regulacije i aktuatora. *)
 		Diag : typRadPGKBDiag; (* Fault status i tekst za HMI. *)
 		Timer : typRadPGKBTimer; (* Interni tajmeri svih sekvenci. *)
+		AutoRestart : typRadPGKBAutoRestart; (* Stanje automatskog starta posle WARMSTART-a. *)
 	END_STRUCT;
 END_TYPE
 

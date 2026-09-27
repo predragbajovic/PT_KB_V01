@@ -28,6 +28,14 @@ PROGRAM _INIT
 		PGRad.Ctrl.SelektovaniIzvor := _01_BRB2;
 	END_IF;
 
+	(* -------------------------------------------------------------------------- *)
+	(* 2) Detekcija uzroka restarta za automatski start (PGRad.Ctrl.AutoRestart)  *)
+	(* -------------------------------------------------------------------------- *)
+	(* WARMSTART = restart posle nestanka struje; ne okida se na cold start/download. *)
+	BootInfoFB(enable := TRUE);
+	Rad_PG_KB.AutoRestart.WarmstartDetected := (BootInfoFB.init_reason = INIT_REASON_WARMSTART);
+	Rad_PG_KB.AutoRestart.Timer.IN := FALSE;
+
 	Rad_PG_KB.Diag.Fault.Latched := FALSE;
 	Rad_PG_KB.Diag.Fault.Code := 0;
 	Rad_PG_KB.Diag.Fault.Text := '';
@@ -112,6 +120,7 @@ PROGRAM _INIT
 		OR (PGRad.Par.MaxFR_Pumpe <= 0.0)
 		OR (PGRad.Par.SetPointPritisakPV05Ispiranje <= 0.0)
 		OR (PGRad.Par.SetPointPritisakUlazTanka <= 0.0)
+		OR (PGRad.Par.SetPointNivoTankaUpozorenje <= 0.0)
 		OR (PGRad.Par.BRB2Preparation.MinTemperature_degC <= 0.0)
 		OR (PGRad.Par.BRB2Preparation.FlowTimeout_s <= 0.0)
 		OR (PGRad.Par.Transfer.PV05StartPressure_bar <= 0.0)
